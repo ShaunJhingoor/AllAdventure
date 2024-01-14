@@ -1,0 +1,18 @@
+form{
+    max-width: 400px; /* Set a maximum width for the form container */
+    margin: auto; /* Center the form horizontally on the page */
+    padding: 20px; /* Add some padding to the form container */
+    border: 1px solid #ccc; /* Add a border for visual separation */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    background-color: aqua;
+}
+
+ label {
+   font-size: larger;
+   color: red;
+  }
+
+  ul {
+    color: red;
+  }
