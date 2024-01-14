@@ -5,6 +5,7 @@ import './Navigation.css';
 
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user);
+    
   
     let sessionLinks;
     if (sessionUser) {
@@ -14,19 +15,25 @@ function Navigation() {
     } else {
       sessionLinks = (
         <>
-          <NavLink to="/signup">Sign Up</NavLink>
-          <NavLink to="/login">Log In</NavLink>
+        <div className='innernavlink'>
+          {/* <NavLink to="/signup" className='SignUp'>Sign Up</NavLink> */}
+          {/* add demo login here */}
+          <NavLink to="/login" className='Login'>Log In</NavLink>
+        </div>
         </>
       );
     }
   
     return (
-      <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
+      <>
+      <nav>
+        <div className='links'>
+          <NavLink to="/" id='home'>AllAdventure</NavLink>
+       
           {sessionLinks}
-        </li>
-      </ul>
+        </div>
+      </nav>
+      </>
     );
   }
   

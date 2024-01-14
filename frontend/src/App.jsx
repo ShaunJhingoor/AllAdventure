@@ -5,6 +5,7 @@ import LoginForm from './components/session/loginform';
 import SignupForm from './components/session/SignupForm';
 import Navigation from './components/Navigation/Navigation';
 import * as sessionActions from './store/session';
+import './reset.css'
 
 function Layout() {
   const dispatch = useDispatch();
