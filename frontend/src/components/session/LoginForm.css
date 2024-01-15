@@ -30,6 +30,11 @@
   width: 340px;
   padding: 10px;
   border-radius: 10px;
+  border: 2px solid gray
+}
+
+#loginusername:hover{
+  border-color: black;
 }
 
 #loginpassword{
@@ -37,6 +42,11 @@
   width: 340px;
   padding: 10px;
   border-radius: 10px;
+  border: 2px solid gray
+}
+
+#loginpassword:hover{
+  border-color: black;
 }
 
 #loginbutton {

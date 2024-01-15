@@ -2,11 +2,16 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './Profilebutton';
 import './Navigation.css';
+import { useDispatch } from 'react-redux';
+import * as sessionActions from '../../store/session'
 
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user);
-    
-  
+    const dispatch = useDispatch()
+    const demoLogin = (e) => {
+      e.preventDefault() 
+      return dispatch(sessionActions.login({credential:'eric', password:'password1'}))
+    }
     let sessionLinks;
     if (sessionUser) {
       sessionLinks = (
@@ -16,8 +21,8 @@ function Navigation() {
       sessionLinks = (
         <>
         <div className='innernavlink'>
-          {/* <NavLink to="/signup" className='SignUp'>Sign Up</NavLink> */}
-          {/* add demo login here */}
+
+          <button onClick={demoLogin} id='demoLogin'>Demo Login</button>
           <NavLink to="/login" className='Login'>Log In</NavLink>
         </div>
         </>

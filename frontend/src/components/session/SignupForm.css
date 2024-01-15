@@ -18,8 +18,8 @@
     ;
   }
   
-  .signUpoutside{
-    background-image: url('signUp.jpeg');
+  .signUpOutSide{
+    background-image: url('signup.avif');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -27,30 +27,52 @@
   
   #signUpUsername {
     height: 20px;
-    width: 340px;
+    width: 380px;
     padding: 10px;
     border-radius: 10px;
+    border: 2px solid gray
   }
+
+  #signUpUsername:hover{
+    border-color: black;
+  }
+
   #signUpEmail {
     height: 20px;
-    width: 340px;
+    width: 380px;
     padding: 10px;
     border-radius: 10px;
+    border: 2px solid gray
+  }
+
+  #signUpEmail:hover{
+    border-color: black;
   }
   
   #signUpPassword{
     height: 20px;
-    width: 340px;
+    width: 380px;
     padding: 10px;
     border-radius: 10px;
+    border: 2px solid gray
+  }
+
+  #signUpPassword:hover{
+    border-color: black;
   }
 
   #signUpConfirmPassword{
     height: 20px;
-    width: 340px;
+    width: 380px;
     padding: 10px;
     border-radius: 10px;
+    border: 2px solid gray
   }
+
+  #signUpConfirmPassword:hover{
+    border-color: black;
+  }
+
   #signUpButton {
     background-color: rgb(44, 86, 5);
     color: white;
@@ -71,12 +93,11 @@
     font: 28px Percent, Beatrice, Arial, sans-serif;
   }
   
- .signUpOutSide{
-    
+ .signUpErrors{
+    color: red;
  }
   
-  
-  /* .signUpfooter{
+  .signUpFooter{
     background-color: #142800;
     height: 300px; 
-  } */
+  }

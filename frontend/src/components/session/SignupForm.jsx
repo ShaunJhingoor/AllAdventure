@@ -82,7 +82,7 @@ function SignupForm() {
             required
           />
           <br />
-          <ul>
+          <ul className='signUpErrors'>
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
         <br />
@@ -91,6 +91,9 @@ function SignupForm() {
         <p>Already have an account? <NavLink to="/login">Log In</NavLink></p> 
       </form>
       </div>
+      <div className='signUpFooter'>
+
+    </div>
     </>
   );
 }

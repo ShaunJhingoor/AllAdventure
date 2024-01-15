@@ -27,5 +27,23 @@
     background-color: #d7d7d4;
 }
 
+#demoLogin{
+    display: inline-block; 
+    margin-right: 5px;
+    padding: 11px 15px;
+    text-decoration: none;
+    color: black;
+    background-color:  #64F67B;
+    border-radius: 25px; 
+    border: #64F67B;
+    font: Manrope,Arial,sans-serif;
+    font-size: 13px;
+    font-weight:550;
+}
+
+#demoLogin:hover {
+    background-color: #4cae5c; 
+  }
+
 
 
