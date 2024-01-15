@@ -34,41 +34,47 @@ function LoginForm() {
 
   return (
     <>
+    <div className='loginoutside'>
       <form onSubmit={handleSubmit} className='login'>
-      <h1> Welcome back.
-Log in and start exploring. </h1>
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-        <label>
-          Username or Email
+        <br />
+        <br />
+      <h1 id='loginheader'> Welcome back. </h1>
+      <h1 id='loginheader1'>Log in and start exploring.</h1>
+          <br />
+          <br />
           <br />
           <input
+            id='loginusername'
             type="text"
             value={credential}
+            placeholder="Username or Email"
             onChange={(e) => setCredential(e.target.value)}
             required
           />
-        </label>
-        <br />
-        <br />
-        <label>
-          Password
-          <br />
+       
+       <br />
           <input
             type="password"
+            id='loginpassword'
             value={password}
+            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
         <br />
         <br />
-        <button type="submit">Log In</button>
+        <ul id="loginerrors">
+          {errors.map(error => <li key={error}>{error}</li>)}
+        </ul>
         <br />
-        <p>Don't have an account?</p> 
-        <NavLink to="/signup">Sign Up</NavLink>
+        <button type="submit" id='loginbutton'>Log In</button>
+        <br />
+        <p>Don't have an account? <NavLink to="/signup">Sign Up</NavLink> </p> 
       </form>
+    </div >
+    <div className='loginfooter'>
+
+    </div>
     </>
   );
 }

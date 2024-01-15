@@ -1,24 +1,76 @@
-.login-form {
-  background-color: black;
+.login {
+  background-color: white;
   box-sizing: border-box;
   position: absolute;
-  top: 50%;
+  top: 59%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 2px solid rgba(0, 0, 0, 0.165);
-  padding: 24px;
   width: 460px;
   max-width: 80%;
-  height: 580px;
-  z-index: 10000;
+  height: 730px;
+  z-index: 1;
   border-radius: 25px;
-  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: flex-start; /* Center vertically */
+  ;
 }
 
-.login-header {
+.loginoutside{
+  background-image: url('login.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+#loginusername {
+  height: 20px;
+  width: 340px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#loginpassword{
+  height: 20px;
+  width: 340px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#loginbutton {
+  background-color: rgb(44, 86, 5);
+  color: white;
+  font-size: 15px;
+  border-radius: 20px;
+  height: 40px;
+  width: 340px;
+  padding: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding-bottom: 25px;
-  align-items: center;
+  justify-content: center; /* Center the text horizontally */
+}
+
+#loginheader{
+  padding: 10px;
+  color: rgb(20,40,1);
+  text-align: center;
+  font: 28px Percent, Beatrice, Arial, sans-serif;
+}
+
+#loginheader1{
+  padding: 10px;
+  color: rgb(20,40,1);
+  text-align: center;
+  font: 28px Percent, Beatrice, Arial, sans-serif;
+}
+
+#loginerrors{
+  color: red;
+}
+
+.loginfooter{
+  background-color: #142800;
+  height: 300px; 
 }

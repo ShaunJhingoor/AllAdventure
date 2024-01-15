@@ -1,0 +1,82 @@
+.signUp {
+    background-color: white;
+    box-sizing: border-box;
+    position: absolute;
+    top: 59%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(0, 0, 0, 0.165);
+    width: 460px;
+    max-width: 80%;
+    height: 730px;
+    z-index: 1;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: flex-start; /* Center vertically */
+    ;
+  }
+  
+  .signUpoutside{
+    background-image: url('signUp.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  
+  #signUpUsername {
+    height: 20px;
+    width: 340px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  #signUpEmail {
+    height: 20px;
+    width: 340px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  #signUpPassword{
+    height: 20px;
+    width: 340px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  #signUpConfirmPassword{
+    height: 20px;
+    width: 340px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  #signUpButton {
+    background-color: rgb(44, 86, 5);
+    color: white;
+    font-size: 15px;
+    border-radius: 20px;
+    height: 40px;
+    width: 340px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the text horizontally */
+  }
+  
+  #signUpHeader{
+    padding: 10px;
+    color: rgb(20,40,1);
+    text-align: center;
+    font: 28px Percent, Beatrice, Arial, sans-serif;
+  }
+  
+ .signUpOutSide{
+    
+ }
+  
+  
+  /* .signUpfooter{
+    background-color: #142800;
+    height: 300px; 
+  } */

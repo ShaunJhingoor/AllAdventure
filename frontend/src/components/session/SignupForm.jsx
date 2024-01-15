@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
+import { NavLink } from 'react-router-dom';
 
 function SignupForm() {
   const dispatch = useDispatch();
@@ -38,49 +39,58 @@ function SignupForm() {
 
   return (
     <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-        <label>
-          Email
+     <div className='signUpOutSide'>
+      <form onSubmit={handleSubmit} className='signUp'>
+        <br />
+        <br />
+      <h1 id='signUpHeader'>Sign up today to start planning your next adventure</h1>
+        <br />
+        <br />
           <input
             type="text"
             value={email}
+            placeholder='Email'
+            id='signUpEmail'
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Username
+          <br />
           <input
             type="text"
             value={username}
+            placeholder='Username'
+            id='signUpUsername'
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Password
+          <br />
           <input
             type="password"
+            placeholder='Password'
+            id='signUpPassword'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Confirm Password
+          <br />
           <input
             type="password"
+            id='signUpConfirmPassword'
             value={confirmPassword}
+            placeholder='Confirm Password'
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-        </label>
-        <button type="submit">Sign Up</button>
+          <br />
+          <ul>
+          {errors.map(error => <li key={error}>{error}</li>)}
+        </ul>
+        <br />
+        <button type="submit" id='signUpButton'>Sign Up</button>
+        <br />
+        <p>Already have an account? <NavLink to="/login">Log In</NavLink></p> 
       </form>
+      </div>
     </>
   );
 }
