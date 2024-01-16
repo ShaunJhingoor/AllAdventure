@@ -31,7 +31,30 @@ ApplicationRecord.transaction do
       difficulty: 'Easy',
       length: 3.2
      )
+
+     Trail.create!(
+      name: 'Hempstead Lake loop',
+      description: 'The trail is full of wild life. Mostly paved trail. Calm walking trail',
+      location: 'Hempstead',
+      difficulty: 'Moderate',
+      length: 1.3
+     )
   
+     Trail.create!(
+      name: 'Lake loop',
+      description: 'The trail is full of wild life. Mostly paved trail. Calm walking trail',
+      location: 'hells kitchen',
+      difficulty: 'Moderate',
+      length: 1.3
+     )
+
+     Trail.create!(
+      name: 'central loop',
+      description: 'The trail is full of wild life. Mostly paved trail. Calm walking trail',
+      location: 'central park',
+      difficulty: 'Moderate',
+      length: 1.3
+     )
     # More users
     10.times do 
       User.create!({

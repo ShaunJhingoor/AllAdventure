@@ -1,16 +1,16 @@
 import './TrailsIndexItem.css'
 function TrailsIndexItem({trail}){
     return (
-        <div id="trailsName">
-        <div >
+        <div>
+            
+        <div id='trailinfo'>
+        
             <ul >
-                <p>{trail.name}</p> <p>{trail.length} mi</p>
-                <br />
-                <p>{trail.description}</p>
-                <br />
-                
+                <img src="hempsteadstatepark.webp" alt="trail" id="trailimag"/>
+                <p id='trailname'>{trail.name}</p> <p>{trail.length} mi</p> 
             </ul>
         </div>
+        <div className='splashfooter'></div>
         </div>
     )
 }
