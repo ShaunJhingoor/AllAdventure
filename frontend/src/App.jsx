@@ -43,8 +43,8 @@ const router = createBrowserRouter([
         element: <SignupForm />
       },
       // {
-      //   // path: "trails",
-      //   // element: <TrailsIndex/>
+      //   path: "trails",
+      //   element: 
       // },
     ]
   }

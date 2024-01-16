@@ -1,10 +1,14 @@
 import { useDispatch, useSelector } from "react-redux"
-import Fetchtrails from '../../store/trail'
+import { Fetchtrails } from "../../store/trail"
 import { useEffect } from "react"
 import TrailsIndexItem from "./TrailsIndexItem"
+import { trailsArray } from "../../store/trail"
+
 
 function TrailsIndex(){
-    const trails = useSelector(state => Object.values(state.trails || {}))
+    const trails = useSelector(trailsArray)
+        
+        
 
     const dispatch = useDispatch()
 
@@ -15,7 +19,7 @@ function TrailsIndex(){
         <div>
         <ul>
             {trails.map(trail => 
-                <TrailsIndexItem key={trail.id} trail={trail}/>)}
+                <TrailsIndexItem key={trail.id} trail={trail} />)}
         </ul>
         </div>
     )

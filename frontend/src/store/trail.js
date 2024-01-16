@@ -4,6 +4,7 @@ export const SET_TRAILS ="trails/setTrails"
 export const SET_TRAIL ="trails/setTrail"
 // const REMOVE_TRAIL ="trails/REMOVE_TRAIL"
 
+export const trailsArray = (state =>  Object.values(state.trail || {}))
 
 export const setTrails = (trails) => ({
     type: SET_TRAILS,
