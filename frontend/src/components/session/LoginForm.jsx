@@ -33,7 +33,7 @@ function LoginForm() {
   }
 
   return (
-    <>
+    <div className='logincontainer'>
     <div className='loginoutside'>
       <form onSubmit={handleSubmit} className='login'>
         <br />
@@ -74,8 +74,8 @@ function LoginForm() {
     </div >
     <div className='loginfooter'>
 
+     </div>
     </div>
-    </>
   );
 }
 

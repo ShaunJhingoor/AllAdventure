@@ -46,6 +46,9 @@ function SignupForm() {
       <img src="adventureIcon.png" alt="alladventure" />
       <h1 id='signUpHeader'>Sign up today to start planning your next adventure</h1>
         <br />
+        <ul className='signUpErrors'>
+          {errors.map(error => <li key={error}>{error}</li>)}
+        </ul>
         <br />
           <input
             type="text"
@@ -83,9 +86,6 @@ function SignupForm() {
             required
           />
           <br />
-          <ul className='signUpErrors'>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
         <br />
         <button type="submit" id='signUpButton'>Sign Up</button>
         <br />
