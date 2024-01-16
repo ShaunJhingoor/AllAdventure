@@ -4,8 +4,8 @@ import sessionReducer from './session';
 import TrailReducer from './trail';
 
 const rootReducer = combineReducers({
-    session : sessionReducer,
-    trail : TrailReducer
+    session: sessionReducer,
+    trail: TrailReducer
 });
 
 let enhancer;

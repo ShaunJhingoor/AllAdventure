@@ -10,7 +10,7 @@ function Navigation() {
     const dispatch = useDispatch()
     const demoLogin = (e) => {
       e.preventDefault() 
-      return dispatch(sessionActions.login({credential:'demo', password:'demo12'}))
+      return dispatch(sessionActions.login({credential:'Demo-lition', password:'password'}))
     }
     let sessionLinks;
     if (sessionUser) {

@@ -9,10 +9,12 @@ ApplicationRecord.transaction do
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
+    Trail.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
+    ApplicationRecord.connection.reset_pk_sequence!('trails')
   
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
@@ -21,6 +23,14 @@ ApplicationRecord.transaction do
       email: 'demo@user.io', 
       password: 'password'
     )
+
+    Trail.create!(
+      name: 'Hempstead Lake Park',
+      description: 'This is a beautiful lake side trail. Mainly dirt paths. Kid,pet,and bike friendly. Please do not grill in areas that are not desinated for grilling. Also, please do not swim in the lake.',
+      location: 'West Hempstead',
+      difficulty: 'Easy',
+      length: 3.2
+     )
   
     # More users
     10.times do 
@@ -29,6 +39,9 @@ ApplicationRecord.transaction do
         email: Faker::Internet.unique.email,
         password: 'password'
       }) 
+
+   
+    
     end
   
     puts "Done!"
