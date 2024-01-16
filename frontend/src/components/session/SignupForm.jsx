@@ -43,6 +43,7 @@ function SignupForm() {
       <form onSubmit={handleSubmit} className='signUp'>
         <br />
         <br />
+      <img src="adventureIcon.png" alt="alladventure" />
       <h1 id='signUpHeader'>Sign up today to start planning your next adventure</h1>
         <br />
         <br />

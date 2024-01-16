@@ -8,9 +8,8 @@
 #home{
     color: black;
     text-decoration: none;
-   font-weight: bold;
-   font-size: larger;
-
+    font-weight: bold;
+    font-size: larger;
 }
 .Login {
   padding: 11px 15px;
@@ -45,5 +44,8 @@
     background-color: #4cae5c; 
   }
 
+  #homeicon{
+    height: 20px;
+  }
 
 

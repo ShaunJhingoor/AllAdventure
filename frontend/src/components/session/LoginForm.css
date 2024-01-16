@@ -2,19 +2,19 @@
   background-color: white;
   box-sizing: border-box;
   position: absolute;
-  top: 59%;
+  top: 62%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 2px solid rgba(0, 0, 0, 0.165);
   width: 460px;
   max-width: 80%;
-  height: 730px;
+  height: 640px;
   z-index: 1;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: flex-start; /* Center vertically */
+  align-items: center; 
+  justify-content: flex-start; 
   ;
 }
 
@@ -59,7 +59,7 @@
   padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the text horizontally */
+  justify-content: center; 
 }
 
 #loginheader{

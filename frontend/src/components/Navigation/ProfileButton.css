@@ -1,0 +1,35 @@
+
+.profile-button{
+    padding-right: 15px;
+}
+
+.profile-dropdown{
+    background-color: white;
+    box-sizing:content-box;
+    position: absolute;
+    border: 1px solid rgb(0,0,0,0.05);
+    width: 100px;
+    max-width: 80%;
+    height: 50px;
+    z-index: 1;
+    border-radius: 15px;
+    display:flex;
+    flex-direction: column;
+    align-items: left; 
+    justify-content:flex-start; 
+    left: 90%;
+}
+
+.profile-dropdown:hover{
+    background-color: gray;
+}
+
+#logout-button{
+    padding: 15px;
+}
+
+
+#bird{
+    height: 40px;
+    border-radius: 50px;
+}
