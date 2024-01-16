@@ -10,4 +10,5 @@ class TrailsController < ApplicationController
         @trail = Trail.find_by(id: params[:id])
         render :show
     end
+    
 end
