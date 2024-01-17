@@ -6,9 +6,12 @@ import { Link } from "react-router-dom"
 import './TrailShow.css'
 function TrailShow(){
     const {trailId} = useParams()
-    console.log({trailId})
+    
+    console.log(trailId)
+    
     const dispatch = useDispatch()
     const trail = useSelector(selectTrail(trailId))
+    console.log('deez nuts')
     console.log(trail)
 
     useEffect(() => {
@@ -18,6 +21,7 @@ function TrailShow(){
     return(
         <div>
         <Link to="/">Back</Link>
+        <p>{trail?.name}</p>
         {/* <li key={trail.id} id="showTrailDescription">{trail.name}</li> */}
         </div>
 

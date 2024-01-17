@@ -7,6 +7,7 @@ import "./TrailsIndex.css"
 
 function TrailsIndex(){
     const trails = useSelector(trailsArray)
+    console.log(trails);
         
         
 

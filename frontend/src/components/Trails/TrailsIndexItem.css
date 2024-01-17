@@ -20,4 +20,13 @@
    font-stretch: 100%;
    text-align: start;
    color: rgb(28, 27, 27);
+   
 }
+
+#splashpageTrail{
+    color: black;
+}
+
+.noUnderline {
+    text-decoration: none;
+  }

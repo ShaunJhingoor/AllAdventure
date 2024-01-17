@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <SignupForm />
       },
       {
-        path: "/trails/:trailId",
+        path: "trails/:trailId",
         element: <TrailShow/>
       },
     ]

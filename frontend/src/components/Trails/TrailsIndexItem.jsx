@@ -7,8 +7,15 @@ function TrailsIndexItem({trail}){
         <div id='trailinfo'>
         
             <ul >
-                <Link to="trails/:trailId"><img src="hempsteadstatepark.webp" alt="trail" id="trailimag"/></Link>
-                <p id='trailname'>{trail.name}</p> <p>{trail.length} mi</p> 
+            <Link to={`/trails/${trail.id}`}>
+                <img src="hempsteadstatepark.webp" alt="trail" id="trailimag" />
+             </Link>
+               
+            <Link to={`/trails/${trail.id}`}>
+                <p id='trailname'>{trail.name}</p>
+                <span id='splashpageTrail'> &#9733; 4.3 {trail.length} mi {trail.difficulty}</span>
+            </Link>
+
             </ul>
         </div>
         <div className='splashfooter'></div>
