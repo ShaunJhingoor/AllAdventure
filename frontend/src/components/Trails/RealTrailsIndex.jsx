@@ -3,10 +3,9 @@ import { Fetchtrails } from "../../store/trail"
 import { useEffect } from "react"
 import TrailsIndexItem from "./TrailsIndexItem"
 import { trailsArray } from "../../store/trail"
-import "./TrailsIndex.css"
-import { Link } from "react-router-dom"
+import "./RealTrailsIndex.css"
 
-function TrailsIndex(){
+function RealTrailsIndex(){
     const trails = useSelector(trailsArray)
     console.log(trails);
         
@@ -18,25 +17,18 @@ function TrailsIndex(){
        dispatch(Fetchtrails())
     }, [dispatch]);
     return(
-        <>
-        <img src="/home.jpeg" alt="home" id="homepageimag"/>
-        <div id='indexWrapper'>
+        <div>
+        <div id='realindexWrapper'>
             <br />
-            <h1 id="TrailIndexHeader">New York Favorites</h1>
+            <h1 id="RealTrailIndexHeader">New York Favorites</h1>
             <br />
-        <ul id="trailindexwrapper">
-            {trails.slice(0,3).map(trail => 
+        <ul id="realtrailindexwrapper">
+            {trails.map(trail => 
                 <TrailsIndexItem key={trail.id} trail={trail} />)}
-            <Link to='/trails'>
-                <div id='showIndexBox'>
-                <h1 id='showIndexBoxContent'>Show More</h1>
-                
-            </div>
-            </Link>
         </ul>
             
         </div>
-        </>
+        </div>
     )
 }
-export default TrailsIndex
+export default RealTrailsIndex

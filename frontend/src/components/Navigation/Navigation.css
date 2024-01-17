@@ -9,7 +9,7 @@
     color: black;
     text-decoration: none;
     font-weight: bold;
-    font-size: larger;
+    font-size: 29px;
 }
 .Login {
   padding: 11px 15px;
@@ -45,7 +45,7 @@
   }
 
   #homeicon{
-    height: 20px;
+    height: 29px;
   }
 
 

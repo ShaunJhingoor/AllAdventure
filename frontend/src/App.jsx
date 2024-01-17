@@ -8,6 +8,7 @@ import * as sessionActions from './store/session';
 import TrailsIndex from './components/Trails/TrailsIndex';
 import './reset.css'
 import TrailShow from './components/Trails/Trailshow';
+import RealTrailsIndex from './components/Trails/RealTrailsIndex';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -47,7 +48,10 @@ const router = createBrowserRouter([
         path: "trails/:trailId",
         element: <TrailShow/>
       },
-      
+      {
+        path: "trails",
+        element: <RealTrailsIndex/>
+      },
 
     ]
   }
