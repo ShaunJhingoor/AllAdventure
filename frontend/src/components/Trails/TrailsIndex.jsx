@@ -27,14 +27,14 @@ function TrailsIndex(){
         <ul id="trailindexwrapper">
             {trails.slice(0,3).map(trail => 
                 <TrailsIndexItem key={trail.id} trail={trail} />)}
-            <Link to='/trails'>
+            <Link to='/trails' id="showIndexBoxLink">
                 <div id='showIndexBox'>
                 <h1 id='showIndexBoxContent'>Show More</h1>
                 
             </div>
             </Link>
         </ul>
-            
+            <div id="splashFooter"></div>
         </div>
         </>
     )
