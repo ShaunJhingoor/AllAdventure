@@ -22,6 +22,7 @@ function TrailShow(){
         <div>
         <Link to="/">Back</Link>
         <p>{trail?.name}</p>
+        <p>{trail?.description}</p>
         {/* <li key={trail.id} id="showTrailDescription">{trail.name}</li> */}
         </div>
 

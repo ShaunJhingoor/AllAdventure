@@ -19,6 +19,7 @@ function TrailsIndex(){
     return(
         <>
         <div>
+            <br />
             <h1 id="TrailIndexHeader">New York Favorites</h1>
             <br />
         <ul id="trailindexwrapper">

@@ -33,7 +33,7 @@ function Navigation() {
       <>
       <nav>
         <div className='links'>
-          <NavLink to="/" id='home'><img src={'adventureIcon.png'} alt="sometrailsicon" id='homeicon'/>AllAdventure</NavLink>
+          <NavLink to="/" id='home'><img src={'/adventureIcon.png'} alt="sometrailsicon" id='homeicon'/>AllAdventure</NavLink>
        
           {sessionLinks}
         </div>
