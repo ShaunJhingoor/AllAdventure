@@ -1,4 +1,5 @@
 import './TrailsIndexItem.css'
+import { Link } from 'react-router-dom'
 function TrailsIndexItem({trail}){
     return (
         <div>
@@ -6,7 +7,7 @@ function TrailsIndexItem({trail}){
         <div id='trailinfo'>
         
             <ul >
-                <img src="hempsteadstatepark.webp" alt="trail" id="trailimag"/>
+                <Link to="trails/:trailId"><img src="hempsteadstatepark.webp" alt="trail" id="trailimag"/></Link>
                 <p id='trailname'>{trail.name}</p> <p>{trail.length} mi</p> 
             </ul>
         </div>

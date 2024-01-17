@@ -7,6 +7,7 @@ import Navigation from './components/Navigation/Navigation';
 import * as sessionActions from './store/session';
 import TrailsIndex from './components/Trails/TrailsIndex';
 import './reset.css'
+import TrailShow from './components/Trails/Trailshow';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -42,10 +43,10 @@ const router = createBrowserRouter([
         path: "signup",
         element: <SignupForm />
       },
-      // {
-      //   path: "trails",
-      //   element: 
-      // },
+      {
+        path: "/trails/:trailId",
+        element: <TrailShow/>
+      },
     ]
   }
 ]);
