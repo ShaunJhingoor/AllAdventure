@@ -18,14 +18,18 @@ function TrailsIndex(){
     }, [dispatch]);
     return(
         <>
-        <div>
+        <div id='indexWrapper'>
             <br />
             <h1 id="TrailIndexHeader">New York Favorites</h1>
             <br />
         <ul id="trailindexwrapper">
-            {trails.map(trail => 
+            {trails.slice(0,3).map(trail => 
                 <TrailsIndexItem key={trail.id} trail={trail} />)}
+            <div id='showIndexBox'>
+                <h1 id='showIndexBoxContent'>Show More</h1>
+            </div>
         </ul>
+            
         </div>
         </>
     )

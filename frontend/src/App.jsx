@@ -47,6 +47,8 @@ const router = createBrowserRouter([
         path: "trails/:trailId",
         element: <TrailShow/>
       },
+      
+
     ]
   }
 ]);

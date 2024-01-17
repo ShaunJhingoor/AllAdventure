@@ -6,11 +6,11 @@ function TrailsIndexItem({trail}){
 
 
     return (
-        <div>
+        
             
         <div id='trailinfo'>
         
-            <ul >
+        
             <Link to={ currentUser? `/trails/${trail.id}`: '/signUp'} >
                 <img src="hempsteadstatepark.webp" alt="trail" id="trailimag" />
              </Link>
@@ -18,14 +18,15 @@ function TrailsIndexItem({trail}){
             <Link to={currentUser? `/trails/${trail.id}`: '/signUp'} style={{ textDecoration: 'none' }}>
                 <p id='hometrailname'>{trail.name}</p>
                 <ul id='splashpageTrail'> 
-                <li>&#9733; 4.3  {trail.length}mi {trail.difficulty}</li>
+                <li>&#9733; 4.3 &bull; {trail.length}mi &bull; {trail.difficulty}</li>
                 </ul>
             </Link>
-
-            </ul>
+            
+        
+            
         </div>
-        <div className='splashfooter'></div>
-        </div>
+        
+        
     )
 }
 
