@@ -22,11 +22,7 @@ function RealTrailsIndex() {
   return (
     <div>
      <div id="realTrailIndexHeader"></div>
-      <div id="realindexWrapper" className={isSidebarOpen ? "sidebaropen" : ""}>
-        <div id="openSideBar" onClick={toggleSidebar}>
-           
-          &#9776; 
-        </div>
+      <div id="realindexWrapper" className={isSidebarOpen ? "sidebaropen" : "sidebarclose"}>
       
         <div id="sidebar" className={isSidebarOpen ? "open" : ""}>
             <div id="sidebarHeader"> 
@@ -38,6 +34,10 @@ function RealTrailsIndex() {
               <TrailsIndexItem key={trail.id} trail={trail} />
             ))}
           </ul>
+        </div>
+        <div id="openSideBar" onClick={toggleSidebar}>
+           
+          &#9776; 
         </div>
 
       </div>
