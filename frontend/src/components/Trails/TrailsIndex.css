@@ -1,28 +1,33 @@
-#trailindexwrapper{
+#indexWrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+}
+
+#trailindexwrapper {
+    display: flex;
     flex-wrap: wrap;
-    /* gap: 20px; */
-    padding: 0px 0px 0px 45px;
+    justify-content: center;
 }
 
 #TrailIndexHeader{
     color: #142800;
     font: 28px Percent, Beatrice, Arial, sans-serif;
-    margin: 0px 55px;
+    margin-right: 1000px;
     padding-top: 40px;
+   
 }
 
-#showIndexBox{
-    margin-left: 15px;
+#showIndexBox {
+    margin-top: 10px; /* Adjust as needed */
+    margin-left: 14px;
     border-radius: 20px;
     height: 246px;
-    width: 300px; 
+    width: 300px;
     border: 2px solid gray;
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
-    justify-content: flex-end; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 #showIndexBox:hover{

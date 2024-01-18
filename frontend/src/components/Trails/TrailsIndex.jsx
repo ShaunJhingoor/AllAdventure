@@ -22,7 +22,7 @@ function TrailsIndex(){
             <br />
             <h1 id="TrailIndexHeader">New York Favorites</h1>
             <br />
-        <ul id="trailindexwrapper">
+        <div id="trailindexwrapper">
             {trails.slice(0,3).map(trail => 
                 <TrailsIndexItem key={trail.id} trail={trail} />)}
             <Link to='/trails' id="showIndexBoxLink">
@@ -31,9 +31,10 @@ function TrailsIndex(){
                 
             </div>
             </Link>
-        </ul>
-            <div id="splashFooter"></div>
         </div>
+            
+        </div>
+        <div id="splashFooter"></div>
         </>
     )
 }
