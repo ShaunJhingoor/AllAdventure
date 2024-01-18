@@ -29,15 +29,15 @@ function RealTrailsIndex() {
                 <h1>New York Best Trails</h1>
             </div>
             
-          <ul>
+          <div>
             {trails.map((trail) => (
               <TrailsIndexItem key={trail.id} trail={trail} />
             ))}
-          </ul>
+          </div>
         </div>
         <div id="openSideBar" onClick={toggleSidebar}>
            
-          &#9776; 
+        <p id="textsidebaropener">{isSidebarOpen ? "<" : ">"}</p>
         </div>
 
       </div>
