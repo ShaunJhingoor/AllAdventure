@@ -6,7 +6,7 @@
 .profile-dropdown{
     background-color: white;
     box-sizing:content-box;
-    position: absolute;
+    position: absolute;               
     border: 1px solid rgb(0,0,0,0.05);
     width: 100px;
     max-width: 80%;
