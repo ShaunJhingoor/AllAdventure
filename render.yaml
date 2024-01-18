@@ -1,12 +1,12 @@
 databases:
-  - name: AllAdventure
-    user: AllAdventure
+  - name: alladventure
+    user: alladventure
     plan: free
     region: ohio
 
 services:
   - type: web
-    name: AllAdventure
+    name: alladventure
     plan: free
     region: ohio
     branch: main
