@@ -12,35 +12,55 @@
 
 #TrailIndexHeader{
     color: #142800;
-    font: 28px Percent, Beatrice, Arial, sans-serif;
+    font-size: 28px;
+    font-family: beatrice;
+    font: Arial,sans-serif;
     margin-right: 1000px;
     padding-top: 40px;
    
 }
 
+
+#showIndexBox:hover{
+    border: 2px solid #142800;
+}
+
 #showIndexBox {
-    margin-top: 10px; /* Adjust as needed */
-    margin-left: 14px;
+    margin-top: 8px; 
+    margin-left: 16px;
     border-radius: 20px;
     height: 246px;
     width: 300px;
-    border: 2px solid gray;
+    border: 2px solid rgb(214, 213, 213);
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     align-items: flex-start;
 }
 
-#showIndexBox:hover{
-    border: 2px solid black;
+#showIndexBoxContent {
+    margin-bottom: 20px; 
 }
 
-#showIndexBoxContent {
-    margin-bottom: 16px; 
+#showIndexBoxContent1 {
+    
     margin-left: 16px; 
     line-height: 24px;
     color: #142800;
     font-size: 16px;
     font-weight: 700;
+    font-family: manrope-m;
+    font: Arial,sans-serif;
+}
+
+#showIndexBoxContent2 {
+    margin-left: 155px; 
+    margin-right: 16px; 
+    line-height: 24px;
+    color: #142800;
+    font-size: 40px;
+    font-family: manrope-m;
+    font: Arial, sans-serif;
 }
 
 #homepageimag{
@@ -56,4 +76,8 @@
     max-width: 100%;
     height: 300px;
     background-color: #142800;
+}
+
+#linkTrailIndexHeader{
+    text-decoration: none;
 }

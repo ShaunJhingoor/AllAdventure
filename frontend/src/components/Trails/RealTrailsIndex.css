@@ -26,6 +26,8 @@
   margin: 0;
   font-size: 12px;
   font-weight: 700;
+  font-family: monrope-m;
+  font: Arial,sans-serif;
 }
   
   #sidebar {
@@ -64,9 +66,10 @@
     text-align: center;
     color: #142800;
     line-height: 34px;
-    font-family: Manrope;
+    font-family: beatrice;
+    font: Arial,sans-serif;
     font-size: 16px;
-    font-weight: 700;
+    /* font-weight: 700; */
     border: 1px solid rgb(233, 233, 233,0.05);
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);

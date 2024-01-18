@@ -20,14 +20,20 @@ function TrailsIndex(){
         <img src={home} alt="home" id="homepageimag"/>
         <div id='indexWrapper'>
             <br />
+            <Link to='/trails' id="linkTrailIndexHeader">
             <h1 id="TrailIndexHeader">New York Favorites</h1>
+        </Link>
             <br />
         <div id="trailindexwrapper">
             {trails.slice(0,3).map(trail => 
                 <TrailsIndexItem key={trail.id} trail={trail} />)}
             <Link to='/trails' id="showIndexBoxLink">
                 <div id='showIndexBox'>
-                <h1 id='showIndexBoxContent'>Show More</h1>
+                <h1 id="showIndexBoxContent">
+                    <span id='showIndexBoxContent1'>Show More</span>
+                    <span id="showIndexBoxContent2">{">"}</span>
+                </h1>
+                {/* <h1 id="showIndexBoxContent2">{">"}</h1> */}
                 
             </div>
             </Link>

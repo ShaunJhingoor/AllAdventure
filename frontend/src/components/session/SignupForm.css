@@ -83,17 +83,23 @@
     display: flex;
     align-items: center;
     justify-content: center; 
+    font-family: beatrice;
+    font: Arial,sans-serif;
   }
   
   #signUpHeader{
     padding: 10px;
     color: rgb(20,40,1);
     text-align: center;
-    font: 28px Percent, Beatrice, Arial, sans-serif;
+    font-size: 28px;
+    font-family: beatrice;
+    font: Arial,sans-serif;
   }
   
  .signUpErrors{
     color: red;
+    font-family: beatrice;
+    font: Arial,sans-serif;
  }
   
   .signUpFooter{
