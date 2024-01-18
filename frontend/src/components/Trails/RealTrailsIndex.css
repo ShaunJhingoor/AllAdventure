@@ -5,7 +5,7 @@
     padding: 0px 0px 0px 16px;
 }
 
-#openBtn {
+#openSideBar {
     cursor: pointer;
     position:relative;
     z-index: 1;
@@ -19,10 +19,12 @@
     background-color: white;
     overflow-y: auto; 
     max-height: 80vh; 
-    transition: 0.5s;
+    transition: 0.3s;
     overflow-x: hidden;
     padding-top: 10px;
     color: white;
+    display: block;
+    
   }
   
   .sidebaropen
@@ -35,13 +37,16 @@
   }
 
   #sidebarHeader {
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     color: #142800;
     line-height: 24px;
     font-family: Manrope;
     font-size: 16px;
     font-weight: 700;
+    border: 1px solid rgb(233, 233, 233,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    
   }
   #realTrailIndexHeader{
     width: 100%;

@@ -23,7 +23,7 @@ function RealTrailsIndex() {
     <div>
      <div id="realTrailIndexHeader"></div>
       <div id="realindexWrapper" className={isSidebarOpen ? "sidebaropen" : ""}>
-        <ul id="openBtn" onClick={toggleSidebar}>
+        <ul id="openSideBar" onClick={toggleSidebar}>
            
           &#9776; 
         </ul>
