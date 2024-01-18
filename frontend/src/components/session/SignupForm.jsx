@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
 import { NavLink } from 'react-router-dom';
+import adventureIcon from "../../../images/adventureIcon.png"
 
 function SignupForm() {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ function SignupForm() {
       <form onSubmit={handleSubmit} className='signUp'>
         <br />
         <br />
-      <img src="adventureIcon.png" alt="alladventure" />
+      <img src={adventureIcon} alt="alladventure" />
       <h1 id='signUpHeader'>Sign up today to start planning your next adventure</h1>
         <br />
         <ul className='signUpErrors'>

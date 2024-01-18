@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './ProfileButton.css'
+import bird from "../../../images/bird.jpeg"
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -35,7 +36,7 @@ function ProfileButton() {
   return (
 
     
-      <div onMouseOver={toggleMenu} onMouseLeave={() => setShowMenu(false)} className="profile-button"> <img src="/bird.jpeg" alt="profile" id='bird'/>
+      <div onMouseOver={toggleMenu} onMouseLeave={() => setShowMenu(false)} className="profile-button"> <img src={bird} alt="profile" id='bird'/>
         {showMenu && (
         <ul className="profile-dropdown" ref={dropdownRef} onMouseOver={toggleMenu} >
           {/* <li>{user.username}</li>

@@ -5,6 +5,7 @@ import TrailsIndexItem from "./TrailsIndexItem"
 import { trailsArray } from "../../store/trail"
 import "./TrailsIndex.css"
 import { Link } from "react-router-dom"
+import home from "../../../images/home.jpeg"
 
 function TrailsIndex(){
     const trails = useSelector(trailsArray)
@@ -16,7 +17,7 @@ function TrailsIndex(){
     }, [dispatch]);
     return(
         <>
-        <img src="/home.jpeg" alt="home" id="homepageimag"/>
+        <img src={home} alt="home" id="homepageimag"/>
         <div id='indexWrapper'>
             <br />
             <h1 id="TrailIndexHeader">New York Favorites</h1>
