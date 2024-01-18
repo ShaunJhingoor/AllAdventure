@@ -7,13 +7,11 @@ import './TrailShow.css'
 function TrailShow(){
     const {trailId} = useParams()
     
-    console.log(trailId)
+
     
     const dispatch = useDispatch()
     const trail = useSelector(selectTrail(trailId))
-    console.log('deez nuts')
-    console.log(trail)
-
+    
     useEffect(() => {
        dispatch(Fetchtrail(trailId))
     }, [dispatch, trailId]);

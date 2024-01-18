@@ -8,10 +8,7 @@ import { Link } from "react-router-dom"
 
 function TrailsIndex(){
     const trails = useSelector(trailsArray)
-    console.log(trails);
         
-        
-
     const dispatch = useDispatch()
 
     useEffect(() => {

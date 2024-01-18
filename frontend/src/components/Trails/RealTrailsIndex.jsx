@@ -23,15 +23,16 @@ function RealTrailsIndex() {
     <div>
      <div id="realTrailIndexHeader"></div>
       <div id="realindexWrapper" className={isSidebarOpen ? "sidebaropen" : ""}>
-        <ul id="openSideBar" onClick={toggleSidebar}>
+        <div id="openSideBar" onClick={toggleSidebar}>
            
           &#9776; 
-        </ul>
+        </div>
       
         <div id="sidebar" className={isSidebarOpen ? "open" : ""}>
             <div id="sidebarHeader"> 
                 <h1>New York Best Trails</h1>
             </div>
+            
           <ul>
             {trails.map((trail) => (
               <TrailsIndexItem key={trail.id} trail={trail} />
