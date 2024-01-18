@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './ProfileButton.css'
-import bird from "../../../images/bird.jpeg"
+import bird from "../../images/bird.jpeg"
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);

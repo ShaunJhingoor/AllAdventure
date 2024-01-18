@@ -18,7 +18,7 @@
   }
   
   .signUpOutSide{
-    background-image: url('../../../images/signup.avif');
+    background-image: url('../../images/signup.avif');
     background-size: cover;
     background-position: center;
     height: 100vh;

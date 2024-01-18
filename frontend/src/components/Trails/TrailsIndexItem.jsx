@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import './TrailsIndexItem.css'
 import { Link } from 'react-router-dom'
-import hempsteadstatepark from "../../../images/hempsteadstatepark.webp"
+import hempsteadstatepark from "../../images/hempsteadstatepark.webp"
 
 function TrailsIndexItem({trail}){
 

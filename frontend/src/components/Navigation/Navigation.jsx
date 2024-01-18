@@ -4,7 +4,7 @@ import ProfileButton from './Profilebutton';
 import './Navigation.css';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session'
-import adventureIcon from "../../../images/adventureIcon.png"
+import adventureIcon from "../../images/adventureIcon.png"
 
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user);

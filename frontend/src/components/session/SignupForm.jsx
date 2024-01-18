@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
 import { NavLink } from 'react-router-dom';
-import adventureIcon from "../../../images/adventureIcon.png"
+import adventureIcon from "../../images/adventureIcon.png"
 
 function SignupForm() {
   const dispatch = useDispatch();

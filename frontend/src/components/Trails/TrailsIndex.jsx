@@ -5,7 +5,7 @@ import TrailsIndexItem from "./TrailsIndexItem"
 import { trailsArray } from "../../store/trail"
 import "./TrailsIndex.css"
 import { Link } from "react-router-dom"
-import home from "../../../images/home.jpeg"
+import home from "../../images/home.jpeg"
 
 function TrailsIndex(){
     const trails = useSelector(trailsArray)

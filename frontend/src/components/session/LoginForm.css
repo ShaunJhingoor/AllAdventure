@@ -19,7 +19,7 @@
 }
 
 .loginoutside{
-  background-image: url('../../../images/login.jpeg');
+  background-image: url('../../images/login.jpeg');
   background-size: cover;
   background-position: center;
   height: 100vh;
