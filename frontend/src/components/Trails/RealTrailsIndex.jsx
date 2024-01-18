@@ -41,6 +41,7 @@ function RealTrailsIndex() {
         </div>
 
       </div>
+      <div id="realTrailIndexFooter"></div>
     </div>
   );
 }
