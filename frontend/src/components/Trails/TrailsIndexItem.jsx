@@ -16,6 +16,7 @@ function TrailsIndexItem({trail}){
         
             <Link to={ currentUser? `/trails/${trail.id}`: '/signUp'} >
                 <img src={hempsteadstatepark} alt="trail" id="trailimag" />
+                {/* <img src={trail.photoUrl} alt="trail" id="trailimag" /> */}
              </Link>
                
             <Link to={currentUser? `/trails/${trail.id}`: '/signUp'} style={{ textDecoration: 'none' }}>

@@ -21,6 +21,7 @@ function TrailShow(){
         <Link to="/">Back</Link>
         <p>{trail?.name}</p>
         <p>{trail?.description}</p>
+        <img src={trail?.photoUrl} alt="trail"/>
         </div>
     )
 }

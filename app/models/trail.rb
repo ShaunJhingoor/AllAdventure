@@ -20,4 +20,6 @@ class Trail < ApplicationRecord
     validates :description, length: {minimum:25}
     validates :difficulty, inclusion: {in: %w(Easy Moderate Hard), message: "%{value} not a valid difficulty option"}
     validates :location, format: { with: /\A[a-zA-Z\s]+\z/, message: "only allows letters and spaces" }
+
+    has_one_attached :photo
 end

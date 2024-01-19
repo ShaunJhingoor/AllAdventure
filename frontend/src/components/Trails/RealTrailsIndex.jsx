@@ -25,29 +25,50 @@ function RealTrailsIndex() {
     <div>
       
       <div id="realTrailIndexHeader"></div>
+      
       <div id="realindexWrapper" className={isSidebarOpen ? "sidebaropen" : "sidebarclose"}>
+    
         <div id="sidebar" className={isSidebarOpen ? "open" : ""}>
+       
           <div id="sidebarHeader"> 
             <h1>New York Best Trails</h1>
           </div>
+        
           <div>
+      
             {trails.map((trail) => (
               <TrailsIndexItem key={trail.id} trail={trail} 
               />
+              
            
             ))}
           </div>
+         
+         
           <div>
           
-              
+          
           </div>
+          
         </div>
+
+        
+          
+            
         <div id="openSideBar" onClick={toggleSidebar}>
+        
           <p id="textsidebaropener">{isSidebarOpen ? "<" : ">"}</p>
         </div>
+       
+        <TrailMapWrapper key={"why"} trails={trails} />
+        
+
       </div>
-      <div id="realTrailIndexFooter"></div>
-      <div><TrailMapWrapper key={"why"} trails={trails} /></div>
+
+      <div 
+      id="realTrailIndexFooter">
+      </div>
+      
     </div>
   );
 }

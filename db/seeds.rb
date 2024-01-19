@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-ApplicationRecord.transaction do 
+
+require "open-uri"
+# ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
@@ -23,17 +25,19 @@ ApplicationRecord.transaction do
       email: 'demo@user.io', 
       password: 'password'
     )
+    trail1 = Trail.create(
+      name: 'Central Park Loop',
+      description: 'A scenic loop around Central Park. Suitable for walking, jogging, and biking. Enjoy the lush greenery and iconic landmarks.',
+      location: 'New York City',
+      difficulty: 'Easy',
+      length: 6.0,
+      latitude: 40.785091,
+      longitude: -73.968285
+    )
+
+    trail1.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/adventureIcon.png"), filename: "adventureIcon.png")
 
     trails_data = [
-      {
-        name: 'Central Park Loop',
-        description: 'A scenic loop around Central Park. Suitable for walking, jogging, and biking. Enjoy the lush greenery and iconic landmarks.',
-        location: 'New York City',
-        difficulty: 'Easy',
-        length: 6.0,
-        latitude: 40.785091,
-        longitude: -73.968285
-      },
       {
         name: 'Cascade Falls Trail',
         description: 'Explore the mesmerizing Cascade Falls on this trail. Moderate difficulty with rocky terrain. Nature lovers will appreciate the waterfall views.',
@@ -158,4 +162,4 @@ ApplicationRecord.transaction do
     end
   
     puts "Done!"
-  end
+  # end

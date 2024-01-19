@@ -38,6 +38,9 @@ gem "bootsnap", require: false
 gem "rack-cors"
 
 gem "bcrypt"
+
+gem "aws-sdk-s3"
+
 gem "jbuilder"
 
 gem "faker"

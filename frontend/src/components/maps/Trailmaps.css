@@ -1,9 +1,8 @@
-.TrailMapContainer{
-    height: 500px;
-    width: 500px;
-}
+
 
 .trailmapwrapper{
+    display: flex;
     height: 500px;
-    width: 500px;
+    width: 900px;
+    z-index: 0;
 }

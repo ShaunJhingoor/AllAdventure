@@ -27,7 +27,7 @@ export const TrailMap = ({trails}) => {
     if(!trails){
         return null 
     }
-    console.log(trails)
+    
     const latitude = trails[0]?.latitude
     const longitude = trails[0]?.longitude 
 
@@ -38,14 +38,15 @@ export const TrailMap = ({trails}) => {
     }
 
     const containerStyle = {
-        width: '400px',
-        height: '400px'
+        width: '500px',
+        height: '500px'
       };
+
 
     return(
         <>
             <GoogleMap zoom={9}  center={center} mapContainerStyle={containerStyle}>
-            {trails?.map((trail) => <Marker key={trail.id} position={{ lat: trail?.latitude, lng: trail?.longitude }} icon={img} className="marker" />)}
+            {trails?.map((trail) => <Marker key={trail.id} position={{ lat: trail?.latitude, lng: trail?.longitude }} icon={img} mapContainerStyle={containerStyle} />)}
             </GoogleMap> 
         </>
     );
