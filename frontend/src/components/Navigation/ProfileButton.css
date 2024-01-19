@@ -1,15 +1,9 @@
-
-.profile-button{
-    padding-right: 15px;
-}
-
 .profile-dropdown{
     background-color: white;
     box-sizing:content-box;
-    position: absolute;               
+    position: fixed;               
     border: 1px solid rgb(0,0,0,0.05);
     width: 100px;
-    max-width: 80%;
     height: 50px;
     z-index: 1;
     border-radius: 15px;
@@ -17,15 +11,17 @@
     flex-direction: column;
     align-items: left; 
     justify-content:flex-start; 
-    left: 90%;
+    margin-left: -75px;
 }
 
 .profile-dropdown:hover{
     background-color: gray;
+    cursor: pointer;
 }
 
 #logout-button{
     padding: 15px;
+    position: fixed;
     font-family: manrope-m;
     font: Arial,sans-serif;
 }

@@ -38,16 +38,11 @@ function ProfileButton() {
     
       <div onMouseOver={toggleMenu} onMouseLeave={() => setShowMenu(false)} className="profile-button"> <img src={bird} alt="profile" id='bird'/>
         {showMenu && (
-        <ul className="profile-dropdown" ref={dropdownRef} onMouseOver={toggleMenu} >
-          {/* <li>{user.username}</li>
-          <li>{user.email}</li> */}
-          {/* if you want implement a profile start here */}
-          <li onClick={logout} id="logout-button"> Logout</li>
-        </ul>
+        <div className="profile-dropdown" ref={dropdownRef} onMouseOver={toggleMenu} >
+          <p onClick={logout} id="logout-button"> Logout</p>
+        </div>
       )}
-      </div>
-     
-  
+      </div>  
   );
 }
 

@@ -19,7 +19,7 @@ class User < ApplicationRecord
   # validates :session_token, presence: true, uniqueness: true
   # validates :password, length: {minimum:6, maximum:40}, allow_nil: true
   validates :username, 
-    uniqueness: true, 
+    uniqueness: {case_sensitive: false} ,
     length: { in: 3..40 }, 
     format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
   validates :email, 
