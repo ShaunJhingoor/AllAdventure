@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet, createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -6,9 +7,10 @@ import SignupForm from './components/session/SignupForm';
 import Navigation from './components/Navigation/Navigation';
 import * as sessionActions from './store/session';
 import TrailsIndex from './components/Trails/TrailsIndex';
-import './reset.css'
+import './reset.css';
 import TrailShow from './components/Trails/Trailshow';
 import RealTrailsIndex from './components/Trails/RealTrailsIndex';
+
 
 function Layout() {
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ function Layout() {
 
   useEffect(() => {
     dispatch(sessionActions.restoreSession()).then(() => {
-      setIsLoaded(true)
+      setIsLoaded(true);
     });
   }, [dispatch]);
 
@@ -26,18 +28,6 @@ function Layout() {
       {isLoaded && <Outlet />}
     </>
   );
-
-  // return (
-  //   <>
-  //     <Navigation />
-  //     {isLoaded && (
-  //       <>
-  //         <Outlet />
-  //         <MyMapComponent />
-  //       </>
-  //     )}
-  //   </>
-  // );
 }
 
 const router = createBrowserRouter([
@@ -46,25 +36,24 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <TrailsIndex/>
+        element: <TrailsIndex />
       },
       {
-        path: "login",
+        path: 'login',
         element: <LoginForm />
       },
       {
-        path: "signup",
+        path: 'signup',
         element: <SignupForm />
       },
       {
-        path: "trails/:trailId",
-        element: <TrailShow/>
+        path: 'trails/:trailId',
+        element: <TrailShow />
       },
       {
-        path: "trails",
-        element: <RealTrailsIndex/>
+        path: 'trails',
+        element: <RealTrailsIndex />
       },
-
     ]
   }
 ]);
@@ -74,3 +63,4 @@ function App() {
 }
 
 export default App;
+

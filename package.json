@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@googlemaps/react-wrapper": "^1.1.35",
     "reselect": "^5.1.0"
   }
 }

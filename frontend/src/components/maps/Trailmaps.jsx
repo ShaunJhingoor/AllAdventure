@@ -1,47 +1,60 @@
-// import { useEffect } from "react";
-// import { Wrapper } from '@googlemaps/react-wrapper';
+import bird from "../../images/bird.jpeg"
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api"
+import "./Trailmaps.css"
+function TrailMapWrapper({trails}) {
+    const {isLoaded} = useLoadScript({
+        googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
+    })
 
-// const MyMapComponent = () => {
-//   useEffect(() => {
-//     const apiKey = process.env.REACT_APP_MAPS_API_KEY
+    if(!isLoaded){
+        return <div>Loading...</div>
+    }
+    if(!trails || trails.length === 0){
+        return null
+    }
+    return (
+        <>
+        <div className="trailmapwrapper">
+            <TrailMap trails={trails}/>
+        </div>
+        </>
+    )
 
-//     if (!apiKey) {
-//       console.error("Google Maps API key is missing. Make sure to set REACT_APP_GOOGLE_MAPS_API_KEY in your .env.local file.");
-//       return;
-//     }
+}
 
-//     const script = document.createElement('script');
-//     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
-//     script.async = true;
-//     script.defer = true;
+export const TrailMap = ({trails}) => {
 
-//     script.onload = () => {
-//       console.log("Google Maps API script loaded successfully");
-//     };
+    if(!trails){
+        return null 
+    }
+    console.log(trails)
+    const latitude = trails[0]?.latitude
+    const longitude = trails[0]?.longitude 
 
-//     script.onerror = () => {
-//       console.error("Failed to load Google Maps API script");
-//     };
+    const center = ({lat: latitude, lng: longitude})
 
-//     document.head.appendChild(script);
+    const img = {
+        url: bird
+    }
 
-//     window.initMap = () => {
-//       console.log("Initializing the map...");
-//       const map = new window.google.maps.Map(document.getElementById('map'), {
-//         center: { lat: 40.7128, lng: -74.0060 },
-//         zoom: 9,
-//       });
-//     };
-//   }, []); 
+    const containerStyle = {
+        width: '400px',
+        height: '400px'
+      };
 
-//   return (
-//     <Wrapper apiKey={import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-//       <div id="map" style={{ height: '100%', width: '100%' }}></div>
-//     </Wrapper>
-//   );
-// };
+    return(
+        <>
+            <GoogleMap zoom={9}  center={center} mapContainerStyle={containerStyle}>
+            {trails?.map((trail) => <Marker key={trail.id} position={{ lat: trail?.latitude, lng: trail?.longitude }} icon={img} className="marker" />)}
+            </GoogleMap> 
+        </>
+    );
+}
 
-// export default MyMapComponent;
+export default TrailMapWrapper
+
+
+
 
 
 

@@ -4,8 +4,8 @@ import { useState } from "react";
 import TrailsIndexItem from "./TrailsIndexItem";
 import { trailsArray } from "../../store/trail";
 import "./RealTrailsIndex.css";
-// import MyMapComponent from "../maps/Trailmaps";
 import { useEffect } from "react";
+import  TrailMapWrapper from "../maps/Trailmaps"
 
 function RealTrailsIndex() {
   const trails = useSelector(trailsArray);
@@ -32,8 +32,14 @@ function RealTrailsIndex() {
           </div>
           <div>
             {trails.map((trail) => (
-              <TrailsIndexItem key={trail.id} trail={trail} />
+              <TrailsIndexItem key={trail.id} trail={trail} 
+              />
+           
             ))}
+          </div>
+          <div>
+          
+              
           </div>
         </div>
         <div id="openSideBar" onClick={toggleSidebar}>
@@ -41,8 +47,7 @@ function RealTrailsIndex() {
         </div>
       </div>
       <div id="realTrailIndexFooter"></div>
-
-      {/* <MyMapComponent /> */}
+      <div><TrailMapWrapper key={"why"} trails={trails} /></div>
     </div>
   );
 }
