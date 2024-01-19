@@ -26,6 +26,18 @@ function Layout() {
       {isLoaded && <Outlet />}
     </>
   );
+
+  // return (
+  //   <>
+  //     <Navigation />
+  //     {isLoaded && (
+  //       <>
+  //         <Outlet />
+  //         <MyMapComponent />
+  //       </>
+  //     )}
+  //   </>
+  // );
 }
 
 const router = createBrowserRouter([
