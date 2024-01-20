@@ -1,4 +1,4 @@
-import bird from "../../images/bird.jpeg"
+import pin from "../../images/pin.png"
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api"
 import "./Trailmaps.css"
 function TrailMapWrapper({trails}) {
@@ -34,7 +34,7 @@ export const TrailMap = ({trails}) => {
     const center = ({lat:  40.7299341, lng: -74.013928})
 
     const img = {
-        url: bird
+        url: pin
     }
 
     const containerStyle = {
@@ -42,14 +42,13 @@ export const TrailMap = ({trails}) => {
         height: '100%'
       };
    
-      const examples = [{id:1 , lat:40.7299341, lng:-74.013928 }]
     return(
         <>
             <GoogleMap zoom={9}  center={center} mapContainerStyle={containerStyle}>
             {trails.map((trail) =>{
         
                 console.log(trail?.latitude);
-                return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} />)
+                return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>)
             }
             )}
             </GoogleMap> 

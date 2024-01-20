@@ -69,7 +69,7 @@ function LoginForm() {
         <br />
         <button type="submit" id='loginbutton'>Log In</button>
         <br />
-        <p>Dont have an account? <NavLink to="/signup">Sign Up</NavLink> </p> 
+        <p>Do not have an account? <NavLink to="/signup">Sign Up</NavLink> </p> 
       </form>
     </div >
     <div className='loginfooter'>
