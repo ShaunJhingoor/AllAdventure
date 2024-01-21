@@ -22,4 +22,7 @@ class Trail < ApplicationRecord
     validates :location, format: { with: /\A[a-zA-Z\s]+\z/, message: "only allows letters and spaces" }
 
     has_one_attached :photo
+
+    has_many :reviews, 
+    dependent: :destroy
 end
