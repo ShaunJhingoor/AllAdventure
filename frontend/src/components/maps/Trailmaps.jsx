@@ -47,7 +47,6 @@ export const TrailMap = ({trails}) => {
             <GoogleMap zoom={9}  center={center} mapContainerStyle={containerStyle}>
             {trails.map((trail) =>{
         
-                console.log(trail?.latitude);
                 return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>)
             }
             )}

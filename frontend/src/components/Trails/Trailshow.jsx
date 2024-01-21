@@ -2,8 +2,9 @@ import { useParams } from "react-router-dom"
 import { Fetchtrail, selectTrail } from "../../store/trail"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import { Link } from "react-router-dom"
+import hempsteadstatepark from "../../images/hempsteadstatepark.webp"
 import './TrailShow.css'
+
 function TrailShow(){
     const {trailId} = useParams()
     
@@ -15,15 +16,25 @@ function TrailShow(){
     useEffect(() => {
        dispatch(Fetchtrail(trailId))
     }, [dispatch, trailId]);
-
-    return(
+    return (
         <div>
-        <Link to="/">Back</Link>
-        <p>{trail?.name}</p>
-        <p>{trail?.description}</p>
-        <img src={trail?.photoUrl} alt="trail"/>
+        <div className="showoutside">
+          <form className="show">
+            <img src={hempsteadstatepark} alt="trail" id="showtrailimag" />
+
+            <div id="breakerbarshow"></div>
+
+            <div id="showtextimag">
+              <p id="showtrailnameimag">{trail?.name}</p>
+              <span id="showtrailinfoimag">{trail?.difficulty} &bull;<span id="starshowimag">&#9733;</span> 4.3</span>
+            </div>
+
+          </form>
+
         </div>
-    )
+        </div>
+      );
+      
 }
 
 export default TrailShow
