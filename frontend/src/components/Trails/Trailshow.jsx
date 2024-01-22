@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import hempsteadstatepark from "../../images/hempsteadstatepark.webp"
 import './TrailShow.css'
+import ReviewsIndex from "../Reviews/indexReviews"
 
 function TrailShow(){
     const {trailId} = useParams()
@@ -28,7 +29,7 @@ function TrailShow(){
               <p id="showtrailnameimag">{trail?.name}</p>
               <span id="showtrailinfoimag">{trail?.difficulty} &bull;<span id="starshowimag">&#9733;</span> 4.3</span>
             </div>
-
+              <ReviewsIndex/>
           </form>
 
         </div>

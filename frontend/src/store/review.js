@@ -25,19 +25,20 @@ export const removeREVIEW = (reviewId) => ({
     reviewId
 })
 
-export const Fetchreviews = (trailId) => async dispatch => {
-    const response = await csrfFetch(`/api/trails/${trailId}/reviews`)
+export const Fetchreviews = () => async dispatch => {
+    const response = await csrfFetch(`/api/reviews`)
     if(response.ok){
+        
     const reviews = await response.json();
     dispatch(setREVIEWS(reviews));
     return response;
     }
   };
 
-export const createReview = (review) => async dispatch => {
-    const res  = await csrfFetch(`api/trails/${review.trailId}/reviews`, {
+export const createReview = (newReview) => async dispatch => {
+    const res  = await csrfFetch(`api/reviews`, {
         method: "POST", 
-        body: JSON.stringify(review), 
+        body: JSON.stringify(newReview), 
         headers: {
             'Content-Type': 'application/json'
         }
@@ -49,10 +50,10 @@ export const createReview = (review) => async dispatch => {
     }
 }
 
-export const updateReview = (review) => async dispatch => {
-    const res  = await csrfFetch(`api/trails/${review.trailId}/reviews/${review.id}`, {
+export const updateReview = (updatedReview) => async dispatch => {
+    const res  = await csrfFetch(`api/reviews/${updatedReview.id}`, {
         method: "PUT", 
-        body: JSON.stringify(review), 
+        body: JSON.stringify(updatedReview), 
         headers: {
             'Content-Type': 'application/json'
         }
@@ -63,12 +64,12 @@ export const updateReview = (review) => async dispatch => {
     }
 }
 
-export const deleteReview = (review) => async dispatch => {
-    const res = await csrfFetch(`api/trails/${review.trailId}/reviews/${review.id}`, {
+export const deleteReview = (reviewId) => async dispatch => {
+    const res = await csrfFetch(`api/reviews/${reviewId}`, {
         method: "DELETE"
     })
     if(res.ok){
-        dispatch(removeREVIEW(review.id))
+        dispatch(removeREVIEW(reviewId))
     }
 }
 
@@ -78,7 +79,7 @@ function reviewReducer(state={}, action){
          case SET_REVIEWS: 
             return {...newState, ...action.reviews}
         case SET_REVIEW: 
-            newState[action.review.review.id] = action.review.review
+            newState[action.review.id] = action.review
             return newState
         case REMOVE_REVIEW: 
             delete newState[action.reviewId]
