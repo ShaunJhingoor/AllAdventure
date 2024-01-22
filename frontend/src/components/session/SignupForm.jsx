@@ -10,6 +10,8 @@ function SignupForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState("");
+  const [fname, setFname] = useState("")
+  const [lname, setLname] = useState("")
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -51,6 +53,24 @@ function SignupForm() {
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
         <br />
+        <input
+            type="text"
+            value={fname}
+            placeholder='First Name'
+            id='signUpFname'
+            onChange={(e) => setFname(e.target.value)}
+            required
+          />
+          <br />
+          <input
+            type="text"
+            value={lname}
+            placeholder='Last Name'
+            id='signUpLname'
+            onChange={(e) => setLname(e.target.value)}
+            required
+          />
+          <br />
           <input
             type="text"
             value={email}
