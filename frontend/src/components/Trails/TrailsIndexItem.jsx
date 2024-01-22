@@ -3,7 +3,7 @@ import './TrailsIndexItem.css'
 import { Link } from 'react-router-dom'
 import hempsteadstatepark from "../../images/hempsteadstatepark.webp"
 
-function TrailsIndexItem({trail}){
+function TrailsIndexItem({trail,setCenter}){
 
     const currentUser = useSelector(state=> state?.session.user)
 
@@ -11,7 +11,7 @@ function TrailsIndexItem({trail}){
     return (
         
             
-        <div id='trailinfo'>
+        <div id='trailinfo'  onMouseOver = {() => {console.log(trail); setCenter({lat: trail.latitude, lng: trail.longitude}) }}>
         
         
             <Link to={ currentUser? `/trails/${trail.id}`: '/signUp'} >

@@ -30,6 +30,8 @@
 !/tmp/storage/.keep
 
 .byebug_history
-!/public
+/public
+index-79029077.js
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key

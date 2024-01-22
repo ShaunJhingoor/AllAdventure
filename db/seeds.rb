@@ -171,12 +171,32 @@ require "open-uri"
    
     
     end
-    Review.create!(
-        user_id: 1,
-        trail_id: 1,
-        review: "This was an amazing trail",
-        rating: 3
-      )
+
+    def generate_realistic_review
+
+      trail_experience = ["amazing", "breathtaking", "challenging", "peaceful", "exciting", "refreshing"].sample
+      trail_condition = ["well-maintained", "scenic", "wild", "rocky", "lush"].sample
+      weather_condition = ["sunny", "cloudy", "windy", "rainy"].sample
+      random_thoughts = ["I can't wait to go back!", "Highly recommended!", "A hidden gem!", "A must-visit trail!", "Great for nature lovers!"].sample
+    
+      "The trail was #{trail_experience}. The trail conditions were #{trail_condition}, and the weather was #{weather_condition}. #{random_thoughts}"
+    end
+    # Seed data for reviews
+    (1..10).each do |user_id|
+      (1..12).each do |trail_id|
+        # Generate at least 3 reviews for each trail
+        (1..3).each do
+          Review.create!(
+            user_id: user_id,
+            trail_id: trail_id,
+            review: generate_realistic_review,
+            rating: rand(1..5)
+          )
+        end
+      end
+    end
+  
+
   
     puts "Done!"
   # end

@@ -1,6 +1,9 @@
+
 function ReviewIndexItem({review}) {
     return (
-        <h1>{review.rating}</h1>
+        <div id="reviewsContent">
+        <h1>{review.review}</h1>
+        </div>
     )
 }
 

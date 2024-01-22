@@ -11,7 +11,8 @@ function RealTrailsIndex() {
   const trails = useSelector(trailsArray);
   const dispatch = useDispatch();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
+  const [center, setCenter] = useState({lat:  40.7299341, lng: -74.013928})
+  console.log(center)
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -20,6 +21,10 @@ function RealTrailsIndex() {
   useEffect(() => {
     dispatch(Fetchtrails());
   }, [dispatch]);
+
+  // const handleMouseOver =(e) => {
+
+  // }
 
   return (
     <div>
@@ -37,7 +42,7 @@ function RealTrailsIndex() {
           <div>
       
             {trails.map((trail) => (
-              <TrailsIndexItem key={trail.id} trail={trail} 
+              <TrailsIndexItem key={trail.id} trail={trail}  setCenter ={setCenter}
               />
               
            
@@ -57,7 +62,7 @@ function RealTrailsIndex() {
           <p id="textsidebaropener">{isSidebarOpen ? "<" : ">"}</p>
         </div>
        
-        <TrailMapWrapper key={"why"} trails={trails} />
+        <TrailMapWrapper key={"why"} trails={trails} center ={center} />
         
 
       </div>

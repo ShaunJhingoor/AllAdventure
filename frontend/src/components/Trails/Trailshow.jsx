@@ -28,8 +28,21 @@ function TrailShow(){
             <div id="showtextimag">
               <p id="showtrailnameimag">{trail?.name}</p>
               <span id="showtrailinfoimag">{trail?.difficulty} &bull;<span id="starshowimag">&#9733;</span> 4.3</span>
+
             </div>
+            <br />
+            <div id="showdescriptionheader">
+              <p id="showdescriptionheadertext">Description</p>
+              <hr ></hr>
+            </div>
+            <div id="showdescription">
+                <p>{trail?.description}</p>
+                
+              </div>
+              <br />
+              <div id="showReviews">
               <ReviewsIndex/>
+              </div>
           </form>
 
         </div>
