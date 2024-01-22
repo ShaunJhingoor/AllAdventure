@@ -31,7 +31,7 @@ export const Fetchreviews = () => async dispatch => {
         
     const reviews = await response.json();
     dispatch(setREVIEWS(reviews));
-    return response;
+    return response
     }
   };
 
