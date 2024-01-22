@@ -21,7 +21,7 @@ function ReviewsIndex(){
             ))}
         </div>
    
-    )
+    );
 
 }
 export default ReviewsIndex
