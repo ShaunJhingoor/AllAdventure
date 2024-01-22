@@ -1,0 +1,19 @@
+.star-rating {
+    position: relative;
+    margin-left: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: manrope-m;
+    font-style: normal;
+    color: #142800;
+    line-height: 24px;
+}
+  
+  
+  .star {
+    color: #979797;
+  }
+  
+  .filled {
+    color: rgb(119,243,123);
+  }
