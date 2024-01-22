@@ -26,7 +26,9 @@ require "open-uri"
     User.create!(
       username: 'Demo-lition', 
       email: 'demo@user.io', 
-      password: 'password'
+      password: 'password',
+      fname: "demo",
+      lname: "smith"
     )
 
    
@@ -161,7 +163,9 @@ require "open-uri"
       User.create!({
         username: Faker::Internet.unique.username(specifier: 3),
         email: Faker::Internet.unique.email,
-        password: 'password'
+        password: 'password',
+        fname: Faker::Name.first_name,
+        lname: Faker::Name.last_name
       }) 
       
    
