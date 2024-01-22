@@ -23,6 +23,6 @@ class Trail < ApplicationRecord
 
     has_one_attached :photo
 
-    has_many :reviews, 
+    has_many :review, 
     dependent: :destroy
 end

@@ -10,13 +10,16 @@ require "open-uri"
 # ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
+    Review.destroy_all
     User.destroy_all
     Trail.destroy_all
+    
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('trails')
+    ApplicationRecord.connection.reset_pk_sequence!('reviews')
   
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
@@ -25,6 +28,10 @@ require "open-uri"
       email: 'demo@user.io', 
       password: 'password'
     )
+
+   
+ 
+
     trail1 = Trail.create(
       name: 'Central Park Loop',
       description: 'A scenic loop around Central Park. Suitable for walking, jogging, and biking. Enjoy the lush greenery and iconic landmarks.',
@@ -156,10 +163,16 @@ require "open-uri"
         email: Faker::Internet.unique.email,
         password: 'password'
       }) 
-
+      
    
     
     end
+    Review.create!(
+        user_id: 1,
+        trail_id: 1,
+        review: "This was an amazing trail",
+        rating: 3
+      )
   
     puts "Done!"
   # end

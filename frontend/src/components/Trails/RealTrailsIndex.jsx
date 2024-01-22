@@ -45,10 +45,7 @@ function RealTrailsIndex() {
           </div>
          
          
-          <div>
-          
-          
-          </div>
+         
           
         </div>
 

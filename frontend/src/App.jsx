@@ -54,6 +54,7 @@ const router = createBrowserRouter([
         path: 'trails',
         element: <RealTrailsIndex />
       },
+      
     ]
   }
 ]);

@@ -1,4 +1,9 @@
 class Api:::ReviewsController < ApplicationController
+    def index 
+        @reviews = Review.all 
+        render :index
+    end
+
     def create 
         @review = Review.new(trail_params)
         @user = User.find_by(id: @review.user_id)
@@ -19,10 +24,10 @@ class Api:::ReviewsController < ApplicationController
         end
     end
 
-    def delete
+    def destroy 
         @review = Review.find_by(id: params[:id])
         if @review.destroy 
-            render jason: "removed"
+            render json: "removed"
         else
             render json: {errors: @review.errors.full_messages}
         end

@@ -44,7 +44,7 @@ export const TrailMap = ({trails}) => {
    
     return(
         <>
-            <GoogleMap zoom={9}  center={center} mapContainerStyle={containerStyle}>
+            <GoogleMap zoom={8}  center={center} mapContainerStyle={containerStyle}>
             {trails.map((trail) =>{
         
                 return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>)
