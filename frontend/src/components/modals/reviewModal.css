@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   z-index: 999; 
- 
+ overflow-y: auto;
 }
 
 #modal-background {
@@ -23,18 +23,18 @@
 #modal-content {
   position: absolute;
   background-color: white;
-
-  border-radius: 10px;
+  border-radius: 20px;
   width: 70vh;
-  height: 80vh;
+  height: 90vh;
 }
 
 #reviewReview {
   position: relative;
-  margin-top: 260px;
+  /* margin-top: 10vh; */
+  margin-left: 5vh;
   border-style: none;
   border-radius: 2px;
-  width: 69vh;
+  width: 60vh;
   resize: none;
   height: 20vh;
 }
@@ -44,5 +44,66 @@
   font-family: manrope-m;
   font-weight: 400;
   line-height: 36.4px;
-  margin-left: 10px;
+  margin-left: 5vh;
+  margin-top: 5vh;
 }
+
+/* #CreateReviewContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+#ratingCreateReview{
+ width: 700px;
+}
+#ratingCreateReviewContainer{
+  margin-left: 5vh;
+  margin-top: 10vh;
+ 
+}
+#ratingCreateReviewHeader{
+  font-size: 16px;
+  font-weight: 400;
+  font-family: manrope-m;
+  color: #142800;
+  line-height: 24px;
+
+}
+#reviewReviewHeader{
+  margin-left: 5vh;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: manrope-m;
+  color: #142800;
+  line-height: 24px;
+}
+
+#createReviewSubmit{
+
+  border-radius: 50px;
+  position:absolute;
+  bottom: 5vh;
+  left: 59vh;
+  cursor: pointer;
+  
+}
+#createReviewSubmitContent{
+  font-weight: 700;
+  font-size: 16px;
+  font-family: manrope-m;
+  line-height: 24px;
+
+}
+
+#exitReviewCreater{
+  margin-left: 2vh;
+  margin-top: 1vh;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+#exitReviewCreater:hover{
+  color: rgb(38,67,17);
+}
+

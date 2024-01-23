@@ -3,30 +3,43 @@
   width: 550px;
   height: 100px;
   margin-top: 10px;
-  display: flex;
-  flex-direction: row;
+  position: absolute;
   border: 2px;
   border-color: black;  
   border-radius: 5px;
 }
 
 .createReviewModal{
-    position: absolute;
+  position: absolute;
   z-index: 10;
   margin-top: -50px;
 }
 
-.createReviewButton{
-  margin-top: 20px;
-  height: 50px;
-  width: 450px;
-  border-radius: 30px;
-  background-color: rgb(255, 255, 255);
-  text-align: left;
-  border-style: solid;
-  border-color: rgb(200, 198, 198);
+#createReviewButton{
+   padding: 0;
+    border: 1px solid black;
+    background-color: #264311;
+    position: relative;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-left: 75vh;
+    width: 140px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 70px;
+    cursor: pointer;
+    transition: all .2s ease-out;
 }
 
-.createReviewButton:hover{
-    background-color: rgb(238, 238, 238);
+#createReviewButton:hover{
+    background-color: #142800;
+}
+#createReviewButtonContent{
+  font-weight: 700;
+  font-size: 16px;
+  font-family: manrope-m;
+  color: #fff;
+  line-height: 24px;
+
 }

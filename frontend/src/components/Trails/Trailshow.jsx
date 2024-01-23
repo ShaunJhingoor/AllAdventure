@@ -42,11 +42,14 @@ function TrailShow(){
                 <p>{trail?.description}</p>
                 
               </div>
+              <br />
               <CreateReview key={trail?.id} trail={trail}/>
               <br />
               <div id="showReviews">
+                <br />
               <ReviewsIndex/>
               </div>
+            <br />
           </form>
         </div>
         <br />

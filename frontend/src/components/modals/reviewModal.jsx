@@ -34,12 +34,28 @@ function CreateModal({ trail }) {
   };
   return (
     <div id="modal">
-      <div id="modal-background" />
+      <div id="modal-background" ></div>
       <div id="modal-content">
-        <button onClick={handleHideModal}>x</button>
+        <div id="exitReviewCreaterContainer">
+        <p onClick={handleHideModal} id="exitReviewCreater">x</p>
+        </div>
         <p id="trailModalName">{trail?.name}</p>
+        {/* <div id="CreateReviewContainer"> */}
+        
+          <div id="ratingCreateReviewContainer">
+          <p id="ratingCreateReviewHeader">Rating</p>
+          <br />
+        <Ratings id="ratingCreateReview" rating={rating} setRating={setRating}  />
+        </div>
+        <div>
         <br />
-        <Ratings rating={rating} setRating={setRating} />
+        <br />
+        <br />
+        <br />
+        
+       
+        <p id="reviewReviewHeader">Review</p>
+       <br />
         <textarea
           id="reviewReview"
           type="textarea"
@@ -48,7 +64,20 @@ function CreateModal({ trail }) {
           value={review}
           onChange={(e) => setReview(e.target.value)}
         />
-        <button onClick={handleSubmitReview} type="submit" disabled={rating === 0 ||review.length <= 0 }>Submit</button>
+        
+        {/* </div> */}
+        
+        </div>
+     
+        <div id="submitContainer">
+        
+       
+        <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit" disabled={rating === 0 ||review.length <= 0 }  style={{
+          backgroundColor: rating === 0 || review.length <= 0 ? 'gray' : 'rgb(38,67,17)',
+          color: rating === 0 || review.length <= 0 ? 'black' : 'white',}}>
+            <p id="createReviewSubmitContent">Submit</p>
+            </button>
+        </div>
       </div>
     </div>
   );
