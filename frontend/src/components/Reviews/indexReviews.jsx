@@ -16,7 +16,7 @@ function ReviewsIndex(){
 
     return (
         <div>
-            {reviews.filter(el => el.trail_id == trailId).map((review) => (
+            {reviews.reverse().filter(el => el.trail_id == trailId).map((review) => (
                 <ReviewIndexItem key={review?.id} review ={review}/>
             ))}
         </div>
