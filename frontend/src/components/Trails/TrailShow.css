@@ -1,86 +1,100 @@
+.showoutside {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+}
+
 .show {
-    background-color: white;
-    box-sizing: border-box;
-    position: absolute;
-    top: 62%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 2px solid rgba(0, 0, 0, 0.165);
-    width: 100vh;
-    height: 100vh;
-    border-radius: 25px;
-    box-shadow: 0 1px 6px -2px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    
-  }
-  
-  #showtrailimag {
-    width: 100vh;
-    height: 40vh;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    padding: 0;
-    margin: 0;
-  }
-  
-  #breakerbarshow {
-    width: 100vh;
-    height: 40px;
-    background-color: rgb(20, 40, 4);
-    padding: 0;
-    margin: 0;
-  }
-  
-  #showtextimag {
-    position: absolute;
-    margin-top: 180px;
-    margin-left: 180px;
-    transform: translate(-50%, -50%);
-  }
-  
-  #showtrailnameimag {
-    font-weight: 400;
-    font-size: 32px;
-    font-family: beatrice;
-    color: #efefee;
-    line-height: 41.6px;
-  }
+  background-color: white;
+  box-sizing: content-box;
+  position: relative;
+  margin-top: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.165);
+  width: 100vh;
+  min-height: 80vh;
+  border-radius: 25px;
+  box-shadow: 0 1px 6px -2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
 
-  #showtrailinfoimag{
-    font-weight: 400;
-    font-size: 16px;
-    font-family: manrope-m;
-    color: #efefee;
-    line-height: 24px;
-  }
+#showtrailimag {
+  width: 100%;
+  height: 40vh;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  padding: 0;
+  margin: 0;
+}
 
-  #starshowimag{
-    color: rgb(119,243,123);
-  }
-  #showdescriptionheader{
-    display: flex,
-    
-    
-  }
-  #showdescriptionheadertext{
-    position: relative;
-    margin-left: 15px;
-    font-weight: 700;
-    font-size: 16px;
-    font-family: manrope-m;
-    font-style: normal;
-    color: #142800;
-    line-height: 24px;
-  }
-  #showdescription{
-    position: relative;
-    margin-left: 15px;
-    font-weight: 400;
-    font-size: 16px;
-    font-family: manrope-m;
-    font-style: normal;
-    color: #142800;
-    line-height: 24px;
-  }
+#breakerbarshow {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(20, 40, 4);
+  padding: 0;
+  margin: 0;
+}
+
+#showtextimag {
+  position: absolute;
+  margin-top: 180px;
+  margin-left: 15px;
+}
+
+#showtrailnameimag {
+  font-weight: 400;
+  font-size: 32px;
+  font-family: beatrice;
+  color: #efefee;
+  line-height: 41.6px;
+}
+
+#showtrailinfoimag {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: manrope-m;
+  color: #efefee;
+  line-height: 24px;
+  margin-bottom: 200px;
+}
+
+#starshowimag {
+  color: rgb(119, 243, 123);
+}
+
+#showdescriptionheader {
+  display: flex;
+}
+
+#showdescriptionheadertext {
+  position: relative;
+  margin-left: 15px;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: manrope-m;
+  font-style: normal;
+  color: #142800;
+  line-height: 24px;
+}
+
+#showdescription {
+  position: relative;
+  margin-left: 15px;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: manrope-m;
+  font-style: normal;
+  color: #142800;
+  line-height: 24px;
+}
+
+#showpagefooter{
+  max-width: 100%;
+  height: 300px;
+  background-color: #142800;
+}
+
   

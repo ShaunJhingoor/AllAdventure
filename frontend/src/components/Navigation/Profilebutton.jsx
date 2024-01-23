@@ -4,10 +4,12 @@ import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './ProfileButton.css'
 import bird from "../../images/bird.jpeg"
+import { useNavigate } from 'react-router-dom';
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate()
   
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
@@ -31,6 +33,7 @@ function ProfileButton() {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    navigate("/")
   };
 
   return (
@@ -39,7 +42,7 @@ function ProfileButton() {
       <div onMouseOver={toggleMenu} onMouseLeave={() => setShowMenu(false)} className="profile-button"> <img src={bird} alt="profile" id='bird'/>
         {showMenu && (
         <div className="profile-dropdown" ref={dropdownRef} onMouseOver={toggleMenu} >
-          <p onClick={logout} id="logout-button"> Logout</p>
+          <p onClick={logout} id="logout-button"> Logout </p>
         </div>
       )}
       </div>  

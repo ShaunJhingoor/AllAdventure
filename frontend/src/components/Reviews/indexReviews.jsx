@@ -6,10 +6,10 @@ import { useParams } from "react-router-dom"
 
 function ReviewsIndex(){
     const reviews = useSelector(state => Object.values(state?.review|| {}))
-    console.log(reviews)
+   
     const dispatch = useDispatch()
     const {trailId} = useParams()
-    console.log(trailId)
+ 
     useEffect(() => {
         dispatch(Fetchreviews())
     },[dispatch])
@@ -17,7 +17,7 @@ function ReviewsIndex(){
     return (
         <div>
             {reviews.filter(el => el.trail_id == trailId).map((review) => (
-                <ReviewIndexItem key={review.id} review ={review}/>
+                <ReviewIndexItem key={review?.id} review ={review}/>
             ))}
         </div>
    

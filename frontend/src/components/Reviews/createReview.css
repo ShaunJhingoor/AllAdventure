@@ -1,0 +1,32 @@
+.createReviewWrapper{
+  background-color: white;
+  width: 550px;
+  height: 100px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  border: 2px;
+  border-color: black;  
+  border-radius: 5px;
+}
+
+.createReviewModal{
+    position: absolute;
+  z-index: 10;
+  margin-top: -50px;
+}
+
+.createReviewButton{
+  margin-top: 20px;
+  height: 50px;
+  width: 450px;
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  text-align: left;
+  border-style: solid;
+  border-color: rgb(200, 198, 198);
+}
+
+.createReviewButton:hover{
+    background-color: rgb(238, 238, 238);
+}

@@ -5,6 +5,7 @@ import { useEffect } from "react"
 import hempsteadstatepark from "../../images/hempsteadstatepark.webp"
 import './TrailShow.css'
 import ReviewsIndex from "../Reviews/indexReviews"
+import CreateReview from "../Reviews/createReview"
 
 function TrailShow(){
     const {trailId} = useParams()
@@ -32,18 +33,25 @@ function TrailShow(){
             </div>
             <br />
             <div id="showdescriptionheader">
+            
               <p id="showdescriptionheadertext">Description</p>
-              <hr ></hr>
+              
             </div>
+            <hr />
             <div id="showdescription">
                 <p>{trail?.description}</p>
                 
               </div>
+              <CreateReview key={trail?.id} trail={trail}/>
               <br />
               <div id="showReviews">
               <ReviewsIndex/>
               </div>
           </form>
+        </div>
+        <br />
+        <br />
+        <div id="showpagefooter">
 
         </div>
         </div>

@@ -11,13 +11,13 @@ function ReviewIndexItem({review}) {
             <hr />
             <span id="reviewIndexItemName"> <img src={reviewProfile} alt="reviewProfile" id="reviewProfileImag"/>
             <div>
-            {capitalizeFirstLetter(review.fname)} {capitalizeFirstLetter(review.lname)} 
+            {capitalizeFirstLetter(review?.fname)} {capitalizeFirstLetter(review?.lname)} 
         
-            <p id="reviewDateCreated">{formatDate(review.created_at)}</p>
+            <p id="reviewDateCreated">{formatDate(review?.created_at)}</p>
             </div>
             </span>
-            <Rating rating={review.rating}/>
-            <p id="reviewIndexItemDescription">{review.review}</p>
+            <Rating rating={review?.rating}/>
+            <p id="reviewIndexItemDescription">{review?.review}</p>
         </div>
     )
 }
