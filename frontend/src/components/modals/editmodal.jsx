@@ -72,9 +72,9 @@ function EditModal({review,trail,visible,setVisible}){
             <div id="submitContainer">
             
            
-            <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit" disabled={rating === 0 ||review.length <= 0 }  style={{
-              backgroundColor: rating === 0 || review.length <= 0 ? 'gray' : 'rgb(38,67,17)',
-              color: rating === 0 || review.length <= 0 ? 'black' : 'white',}}>
+            <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit" disabled={review.length <= 0 }  style={{
+              backgroundColor: review.length <= 0 ? 'gray' : 'rgb(38,67,17)',
+              color:  review.length <= 0 ? 'black' : 'white',}}>
                 <p id="createReviewSubmitContent">Submit</p>
                 </button>
             </div>

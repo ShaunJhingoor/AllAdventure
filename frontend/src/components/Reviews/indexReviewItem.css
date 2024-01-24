@@ -8,6 +8,7 @@
     color: #142800;
     line-height: 24px;
 }
+
 #reviewIndexItemName{
     font-weight: 400;
     font-size: 16px;
@@ -23,6 +24,7 @@
     height: 40px;
     border-radius: 50px;
 }
+
 #reviewDateCreated{
     font-weight: 400;
     font-size: 13px;
@@ -33,30 +35,35 @@
 
 .reviewSettingsDropDownWrapper{
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* text-align: left; */
-  background-color: rgb(255, 255, 255);
- 
-  position: fixed;
-  margin-top: 50px;
-  left: 333px;
-
-  width: 200px;
-  height: 100px;
-  z-index: 1000;
-
+    flex-direction: column;
+    align-items: center; 
+    text-align: left;
+    width: 150px;
+    height: auto;
+    position: absolute;
+    margin-left: 70vh;
+    margin-top: 25px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
+
+
 #currentUserDots{
-    position: fixed;
-    margin-top: 10px;
-    margin-left: 500px;
+    position: relative;
+    margin-bottom: 2;
+    margin-left: 70vh;
     z-index: 1;
     width: 35px;
     height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 25px;
+    cursor: pointer;
 }
 

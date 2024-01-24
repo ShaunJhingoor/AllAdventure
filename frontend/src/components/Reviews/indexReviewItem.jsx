@@ -24,17 +24,18 @@ function ReviewIndexItem({review, trail}) {
         <div id="reviewsContent">
            
             <hr />
-            <span id="reviewIndexItemName"> <img src={reviewProfile} alt="reviewProfile" id="reviewProfileImag"/>
+            <span id="reviewIndexItemName"> 
+            <img src={reviewProfile} alt="reviewProfile" id="reviewProfileImag"/>
             <div>
             {review?.fname} {review?.lname} 
             <p id="reviewDateCreated">{formatDate(review?.created_at)}</p>
             </div>
-            </span>
             {visible && <div className="reviewSettingsDropDownWrapper">
                 <ReviewDropDown review={review} visible={visible} setVisible={setVisible} trail={trail}/>
             </div>}
-            {canEdit && <button id="currentUserDots" onClick={handleSettingDropDown}>Please Work
-            </button>}
+            {canEdit && <p id="currentUserDots" onClick={handleSettingDropDown}>&hellip;
+            </p>}
+            </span>
             <Rating rating={review?.rating}/>
             <p id="reviewIndexItemDescription">{review?.review}</p>
         </div>

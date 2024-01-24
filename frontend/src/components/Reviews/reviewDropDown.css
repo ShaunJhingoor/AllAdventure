@@ -4,17 +4,21 @@
   
   
   
-  .editReviewWrapper button{
+  .editReviewWrapper{
     background-color: rgb(255, 255, 255);
     font-size: 16px;
     font-family: monrope-m;
     font-weight: 700;
     border: none;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .editReviewWrapper:hover{
+    background-color: gray !important;
   }
   
-  
-  .deleteReviewWrapper button {
+  .deleteReviewWrapper {
     background-color: rgb(255, 255, 255);
       font-size: 16px;
       font-family: monrope-m;
