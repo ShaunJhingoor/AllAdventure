@@ -11,6 +11,16 @@ export const selectTrail = (trailId) => (state) => {
   return state?.trail[trailId] || null
 }
 
+
+// const selectTrailState = (state) => state.trail;
+
+// export const trailsArray = createSelector(
+//   [selectTrailState],
+//   trails =>  Object.values(trails))
+
+// export const selectTrail = (trailId) => (state) => {
+//   return state?.trail[trailId] || null
+// }
 export const setTrails = (trails) => ({
     type: SET_TRAILS,
     trails

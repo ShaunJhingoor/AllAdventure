@@ -185,14 +185,14 @@ require "open-uri"
     (1..10).each do |user_id|
       (1..12).each do |trail_id|
         # Generate at least 3 reviews for each trail
-        (1..3).each do
+        # (1..3).each do
           Review.create!(
             user_id: user_id,
             trail_id: trail_id,
             review: generate_realistic_review,
             rating: rand(1..5)
           )
-        end
+        
       end
     end
   

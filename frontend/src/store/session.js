@@ -1,5 +1,4 @@
 import csrfFetch from './csrf.js';
-
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 
@@ -22,6 +21,7 @@ export const restoreSession = () => async dispatch => {
   storeCSRFToken(response);
   const data = await response.json();
   dispatch(setUser(data.user));
+  
   return response;
 };
 

@@ -25,8 +25,8 @@ function TrailsIndex(){
         </Link>
             <br />
         <div id="trailindexwrapper">
-            {trails.slice(0,3).map(trail => 
-                <TrailsIndexItem key={trail.id} trail={trail} />)}
+            {trails.slice(0,3).map((trail,index) => 
+                <TrailsIndexItem key={`${trail.id}_${index}`} trail={trail} />)}
             <Link to='/trails' id="showIndexBoxLink">
                 <div id='showIndexBox'>
                 <h1 id="showIndexBoxContent">

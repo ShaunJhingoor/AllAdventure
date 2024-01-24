@@ -4,7 +4,7 @@ import "./fancyaveragerating.css"
 function FancyAverageRating({ trail}) {
   const reviews = useSelector((state) => Object.values(state?.review || {}));
 
-  const trailReviews = reviews.filter((review) => review.trail_id === trail.id);
+  const trailReviews = reviews.filter((review) => review?.trail_id === trail?.id);
 
 
   
@@ -15,7 +15,7 @@ function FancyAverageRating({ trail}) {
     );
   }
 
-  const sumOfRating = trailReviews.reduce((sum, review) => sum + review.rating, 0);
+  const sumOfRating = trailReviews.reduce((sum, review) => sum + review?.rating, 0);
 
 
   const averageRating = sumOfRating / trailReviews.length;
