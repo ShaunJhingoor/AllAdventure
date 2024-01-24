@@ -21,6 +21,7 @@ function TrailShow(){
     useEffect(() => {
        dispatch(Fetchtrail(trailId))
     }, [dispatch, trailId]);
+    
     return (
         <div>
         <div className="showoutside">
