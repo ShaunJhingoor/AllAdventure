@@ -9,7 +9,6 @@ function CreateModal({ trail }) {
   const [rating, setRating] = useState(0);
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user);
-  console.log(currentUser);
 
   const handleHideModal = (e) => {
     e.preventDefault();
@@ -40,7 +39,6 @@ function CreateModal({ trail }) {
         <p onClick={handleHideModal} id="exitReviewCreater">x</p>
         </div>
         <p id="trailModalName">{trail?.name}</p>
-        {/* <div id="CreateReviewContainer"> */}
         
           <div id="ratingCreateReviewContainer">
           <p id="ratingCreateReviewHeader">Rating</p>
@@ -65,7 +63,7 @@ function CreateModal({ trail }) {
           onChange={(e) => setReview(e.target.value)}
         />
         
-        {/* </div> */}
+       
         
         </div>
      

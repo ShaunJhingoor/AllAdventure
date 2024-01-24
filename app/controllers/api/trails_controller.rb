@@ -21,7 +21,7 @@ class Api::TrailsController < ApplicationController
     end
 
     def search
-        @trails = Trail.search_names(params[:q])
+        @trails = Trail.search_names(params[:query])
         render :search
     end
 
