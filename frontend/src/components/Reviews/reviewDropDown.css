@@ -1,0 +1,24 @@
+.editModalWrapper {
+    margin-top: 5px;
+  }
+  
+  
+  
+  .editReviewWrapper button{
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-family: monrope-m;
+    font-weight: 700;
+    border: none;
+    margin-bottom: 20px;
+  }
+  
+  
+  .deleteReviewWrapper button {
+    background-color: rgb(255, 255, 255);
+      font-size: 16px;
+      font-family: monrope-m;
+      font-weight: 700;
+      border: none;
+      /* margin-bottom: 20px; */
+  }

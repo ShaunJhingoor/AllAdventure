@@ -47,7 +47,7 @@ function TrailShow(){
               <br />
               <div id="showReviews">
                 <br />
-              <ReviewsIndex/>
+              <ReviewsIndex trail={trail}/>
               </div>
             <br />
           </form>

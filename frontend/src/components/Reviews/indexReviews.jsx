@@ -4,12 +4,11 @@ import { useEffect } from "react"
 import ReviewIndexItem from "./indexReviewItem"
 import { useParams } from "react-router-dom"
 
-function ReviewsIndex(){
+function ReviewsIndex({trail}){
     const reviews = useSelector(state => Object.values(state?.review|| {}))
    
     const dispatch = useDispatch()
     const {trailId} = useParams()
- 
     useEffect(() => {
         dispatch(Fetchreviews())
     },[dispatch])
@@ -17,7 +16,7 @@ function ReviewsIndex(){
     return (
         <div>
             {reviews.reverse().filter(el => el.trail_id == trailId).map((review) => (
-                <ReviewIndexItem key={review?.id} review ={review}/>
+                <ReviewIndexItem key={review?.id} review ={review} trail={trail}/>
             ))}
         </div>
    
