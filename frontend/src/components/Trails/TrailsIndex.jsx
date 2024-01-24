@@ -6,6 +6,7 @@ import { trailsArray } from "../../store/trail"
 import "./TrailsIndex.css"
 import { Link } from "react-router-dom"
 import home from "../../images/home.jpeg"
+import SearchBar from '../search/searchBar';
 
 function TrailsIndex(){
     const trails = useSelector(trailsArray)
@@ -14,10 +15,13 @@ function TrailsIndex(){
 
     useEffect(() => {
        dispatch(Fetchtrails())
+       
     }, [dispatch]);
     return(
         <>
+        
         <img src={home} alt="home" id="homepageimag"/>
+        <SearchBar/>
         <div id='indexWrapper'>
             <br />
             <Link to='/trails' id="linkTrailIndexHeader">

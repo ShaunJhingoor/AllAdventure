@@ -5,6 +5,7 @@ import * as sessionActions from '../../store/session';
 import './ProfileButton.css'
 import bird from "../../images/bird.jpeg"
 import { useNavigate } from 'react-router-dom';
+
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -38,7 +39,8 @@ function ProfileButton() {
 
   return (
 
-    
+    <>
+      
       <div onMouseOver={toggleMenu} onMouseLeave={() => setShowMenu(false)} className="profile-button"> <img src={bird} alt="profile" id='bird'/>
         {showMenu && (
         <div className="profile-dropdown" ref={dropdownRef} onMouseOver={toggleMenu} >
@@ -46,6 +48,7 @@ function ProfileButton() {
         </div>
       )}
       </div>  
+      </>
   );
 }
 

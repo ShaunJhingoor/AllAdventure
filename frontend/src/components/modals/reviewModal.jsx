@@ -9,6 +9,7 @@ function CreateModal({ trail }) {
   const [rating, setRating] = useState(0);
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user);
+  
 
   const handleHideModal = (e) => {
     e.preventDefault();

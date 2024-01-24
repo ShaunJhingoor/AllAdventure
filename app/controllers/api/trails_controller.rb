@@ -2,7 +2,8 @@ class Api::TrailsController < ApplicationController
     # before_action :require_logged_in, only: [:show]
     
     def index 
-        @trails = Trail.all 
+        @trails = Trail.all
+        @reviews = Review.all
         render :index
     end
     

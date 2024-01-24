@@ -1,16 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Fetchreviews } from "../../store/review";
-import { useEffect } from "react";
+import {  useSelector } from "react-redux";
+
 
 function AverageRating({ trail}) {
   const reviews = useSelector((state) => Object.values(state?.review || {}));
-  const dispatch = useDispatch()
   const trailReviews = reviews.filter((review) => review?.trail_id === trail?.id);
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    dispatch(Fetchreviews());
-  }, [dispatch]);
+  //   dispatch(Fetchreviews());
+  // }, [dispatch]);
   
   if (trailReviews.length === 0) {
     return (

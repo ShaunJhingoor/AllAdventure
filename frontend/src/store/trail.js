@@ -21,9 +21,10 @@ export const selectTrail = (trailId) => (state) => {
 // export const selectTrail = (trailId) => (state) => {
 //   return state?.trail[trailId] || null
 // }
-export const setTrails = (trails) => ({
+export const setTrails = (data) => ({
     type: SET_TRAILS,
-    trails
+    trails: data.trail,
+    reviews: data.review
 })
 
 export const setTrail = (trail) => ({
@@ -35,8 +36,8 @@ export const setTrail = (trail) => ({
 export const Fetchtrails = () => async dispatch => {
     const response = await csrfFetch("/api/trails")
     if(response.ok){
-    const trails = await response.json();
-    dispatch(setTrails(trails));
+    const data = await response.json();
+    dispatch(setTrails(data));
     return response;
     }
   };

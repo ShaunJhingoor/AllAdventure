@@ -3,6 +3,7 @@ import csrfFetch from "./csrf";
 export const SET_REVIEWS ="reviews/setREVIEWS"
 export const SET_REVIEW = "reviews/setREVIEW"
 export const REMOVE_REVIEW = "reviews/removeREVIEW"
+export const SET_TRAILS ="trails/setTrails"
 
 export const reviewsArray = (state =>  Object.values(state?.review || {}))
 
@@ -84,6 +85,8 @@ function reviewReducer(state={}, action){
         case REMOVE_REVIEW: 
             delete newState[action.reviewId]
                 return newState
+        case SET_TRAILS: 
+            return {...newState, ...action.reviews}
         default:
             return state
     }

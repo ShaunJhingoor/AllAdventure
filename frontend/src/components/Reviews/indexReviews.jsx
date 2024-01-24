@@ -9,7 +9,6 @@ function ReviewsIndex({trail}){
    
     const dispatch = useDispatch()
     const {trailId} = useParams()
-    
     useEffect(() => {
         dispatch(Fetchreviews())
     },[dispatch])

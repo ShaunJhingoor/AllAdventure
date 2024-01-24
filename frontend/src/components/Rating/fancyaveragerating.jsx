@@ -4,7 +4,7 @@ import "./fancyaveragerating.css"
 function FancyAverageRating({ trail}) {
   const reviews = useSelector((state) => Object.values(state?.review || {}));
 
-  const trailReviews = reviews.filter((review) => review?.trail_id === trail?.id);
+  const trailReviews = reviews?.filter((review) => review?.trail_id === trail?.id);
 
 
   

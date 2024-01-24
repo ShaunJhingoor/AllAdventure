@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session'
 import adventureIcon from "../../images/adventureIcon.png"
 
+
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch()
@@ -21,6 +22,7 @@ function Navigation() {
     } else {
       sessionLinks = (
         <>
+        
         <div className='innernavlink'>
 
           <button onClick={demoLogin} id='demoLogin'>Demo Login</button>
