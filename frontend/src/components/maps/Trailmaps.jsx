@@ -1,7 +1,7 @@
 import pin from "../../images/pin.png"
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api"
 import "./Trailmaps.css"
-function TrailMapWrapper({trails, center}) {
+function TrailMapWrapper({trails, center,zoom}) {
     const {isLoaded} = useLoadScript({
         googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
     })
@@ -15,14 +15,14 @@ function TrailMapWrapper({trails, center}) {
     return (
         <>
         <div className="trailmapwrapper">
-            <TrailMap trails={trails} center ={center}/>
+            <TrailMap trails={trails} center ={center} zoom={zoom}/>
         </div>
         </>
     )
 
 }
 
-export const TrailMap = ({trails, center}) => {
+export const TrailMap = ({trails, center,zoom}) => {
 
     if(!trails){
         return null 
@@ -44,7 +44,7 @@ export const TrailMap = ({trails, center}) => {
    
     return(
         <>
-            <GoogleMap zoom={8}  center={center} mapContainerStyle={containerStyle}>
+            <GoogleMap zoom={zoom}  center={center} mapContainerStyle={containerStyle}>
             {trails.map((trail) =>{
         
                 return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>)

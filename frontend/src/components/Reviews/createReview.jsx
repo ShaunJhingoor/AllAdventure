@@ -18,7 +18,7 @@ function CreateReview({trail}){
               <div id="createReviewModal">
             {showModal && 
             <CreateModal key={trail?.id} trail={trail}/>}
-            <hr />
+          
              </div>
 
             <button id="createReviewButton" onClick={handleShowModal}><p id="createReviewButtonContent">Write Review</p></button>

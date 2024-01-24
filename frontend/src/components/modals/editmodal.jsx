@@ -6,20 +6,20 @@ import Ratings from "../Rating/rating";
 import { useState } from "react";
 function EditModal({review,trail,visible,setVisible}){
     const dispatch = useDispatch()
-    const[review1,setReview] = useState("")
-    const [rating, setRating] = useState(0);
+    const[review1,setReview] = useState(review.review)
+    const [rating, setRating] = useState(review.rating);
 
     const handleSubmitReview = async (e) => {
         e.preventDefault();
         const updateReview = {
             id: review.id,
-            review: review1,
             trail_id: review.trail_id,
+            review: review1,
             rating: rating,
             user_id: review.user_id,
             created_at: new Date().toISOString(),
         };
-          await dispatch(modalActions.hideModal("editReview"));
+          dispatch(modalActions.hideModal("editReview"));
           await dispatch(reviewActions.updateReview(updateReview))
           await dispatch(reviewActions.Fetchreviews())
          setVisible(!visible)
@@ -45,7 +45,7 @@ function EditModal({review,trail,visible,setVisible}){
               <div id="ratingCreateReviewContainer">
               <p id="ratingCreateReviewHeader">Rating</p>
               <br />
-            <Ratings id="ratingCreateReview" rating={review.rating} setRating={setRating}  />
+            <Ratings id="ratingCreateReview" rating={rating} setRating={setRating}  />
             </div>
             <div>
             <br />
@@ -61,7 +61,7 @@ function EditModal({review,trail,visible,setVisible}){
               type="textarea"
               placeholder="What do you want to talk about?"
               maxLength="3000"
-              defaultValue={review.review}
+              defaultValue={review1}
               onChange={(e) => setReview(e.target.value)}
             />
             
@@ -72,9 +72,9 @@ function EditModal({review,trail,visible,setVisible}){
             <div id="submitContainer">
             
            
-            <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit" disabled={review.length <= 0 }  style={{
-              backgroundColor: review.length <= 0 ? 'gray' : 'rgb(38,67,17)',
-              color:  review.length <= 0 ? 'black' : 'white',}}>
+            <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit"    style={{
+              backgroundColor:  'rgb(38,67,17)',
+              color:  'white',}}>
                 <p id="createReviewSubmitContent">Submit</p>
                 </button>
             </div>

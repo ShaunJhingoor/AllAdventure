@@ -16,9 +16,13 @@ function ReviewIndexItem({review, trail}) {
         setVisible(!visible)
     }
 
-    // const capitalizeFirstLetter = (str) =>  {
-    //     return str[0].toUpperCase() + str.slice(1);
-    //   }
+    const capitalizeFirstLetter = (str) =>  {
+        if (str && str.length > 0) {
+            return str[0].toUpperCase() + str.slice(1);
+          } else {
+            return "";
+          }
+      }
 
     return (
         <div id="reviewsContent">
@@ -27,7 +31,7 @@ function ReviewIndexItem({review, trail}) {
             <span id="reviewIndexItemName"> 
             <img src={reviewProfile} alt="reviewProfile" id="reviewProfileImag"/>
             <div>
-            {review?.fname} {review?.lname} 
+            {capitalizeFirstLetter(review?.fname)} {capitalizeFirstLetter(review?.lname)} 
             <p id="reviewDateCreated">{formatDate(review?.created_at)}</p>
             </div>
             {visible && <div className="reviewSettingsDropDownWrapper">

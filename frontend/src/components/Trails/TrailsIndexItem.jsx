@@ -2,8 +2,9 @@ import { useSelector } from 'react-redux'
 import './TrailsIndexItem.css'
 import { Link } from 'react-router-dom'
 import hempsteadstatepark from "../../images/hempsteadstatepark.webp"
+import AverageRating from '../Rating/averagerating'
 
-function TrailsIndexItem({trail,setCenter}){
+function TrailsIndexItem({trail,setCenter, setZoom}){
 
     const currentUser = useSelector(state=> state?.session.user)
 
@@ -11,7 +12,8 @@ function TrailsIndexItem({trail,setCenter}){
     return (
         
             
-        <div id='trailinfo'  onMouseOver = {() => {console.log(trail); setCenter({lat: trail.latitude, lng: trail.longitude}) }}>
+        <div id='trailinfo'  onMouseOver = {() => {console.log(trail); setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(12)}}
+        onMouseLeave = {() => {console.log(trail); setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(8)}}>
         
         
             <Link to={ currentUser? `/trails/${trail.id}`: '/signUp'} >
@@ -22,7 +24,7 @@ function TrailsIndexItem({trail,setCenter}){
             <Link to={currentUser? `/trails/${trail.id}`: '/signUp'} style={{ textDecoration: 'none' }}>
                 <p id='hometrailname'>{trail.name}</p>
                 <ul id='splashpageTrail'> 
-                <li>&#9733; 4.3 &bull; {trail.length}mi &bull; {trail.difficulty}</li>
+                <li>&#9733; <AverageRating trail={trail}/> &bull; {trail.length}mi &bull; {trail.difficulty}</li>
                 </ul>
             </Link>
             

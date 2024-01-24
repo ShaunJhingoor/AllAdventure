@@ -12,6 +12,7 @@ function RealTrailsIndex() {
   const dispatch = useDispatch();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [center, setCenter] = useState({lat:  40.7299341, lng: -74.013928})
+  const [zoom, setZoom] = useState(8)
   console.log(center)
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -42,7 +43,7 @@ function RealTrailsIndex() {
           <div>
       
             {trails.map((trail) => (
-              <TrailsIndexItem key={trail.id} trail={trail}  setCenter ={setCenter}
+              <TrailsIndexItem key={trail.id} trail={trail}  setCenter ={setCenter}  setZoom={setZoom}
               />
               
            
@@ -62,7 +63,7 @@ function RealTrailsIndex() {
           <p id="textsidebaropener">{isSidebarOpen ? "<" : ">"}</p>
         </div>
        
-        <TrailMapWrapper key={"why"} trails={trails} center ={center} />
+        <TrailMapWrapper key={"why"} trails={trails} center ={center} zoom={zoom} />
         
 
       </div>

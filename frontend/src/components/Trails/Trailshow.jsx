@@ -6,6 +6,9 @@ import hempsteadstatepark from "../../images/hempsteadstatepark.webp"
 import './TrailShow.css'
 import ReviewsIndex from "../Reviews/indexReviews"
 import CreateReview from "../Reviews/createReview"
+import AverageRating from "../Rating/averagerating"
+import FancyAverageRating from "../Rating/fancyaveragerating"
+
 
 function TrailShow(){
     const {trailId} = useParams()
@@ -28,7 +31,7 @@ function TrailShow(){
 
             <div id="showtextimag">
               <p id="showtrailnameimag">{trail?.name}</p>
-              <span id="showtrailinfoimag">{trail?.difficulty} &bull;<span id="starshowimag">&#9733;</span> 4.3</span>
+              <span id="showtrailinfoimag">{trail?.difficulty} &bull;<span id="starshowimag">&#9733; </span><AverageRating trail={trail}/></span>
 
             </div>
             <br />
@@ -37,13 +40,24 @@ function TrailShow(){
               <p id="showdescriptionheadertext">Description</p>
               
             </div>
-            <hr />
+            <br />
+            <div id="breakerbarshow1"></div>
+              <br />
+       
             <div id="showdescription">
                 <p>{trail?.description}</p>
-                
+               
               </div>
               <br />
-              <CreateReview key={trail?.id} trail={trail}/>
+              <div id="breakerbarshow1"></div>
+              <br />
+              <div id="modalAverage">
+                <div id="modalAverage">
+               <p id="averageRating"><FancyAverageRating trail={trail}/> </p>
+               <br />
+               </div>
+               <CreateReview key={trail?.id} trail={trail}/>
+               </div>
               <br />
               <div id="showReviews">
                 <br />
