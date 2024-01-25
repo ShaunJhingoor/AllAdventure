@@ -1,0 +1,14 @@
+#SearchIndexWrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0px 0px 0px 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+#SearchIndexheader{
+    width: 100%;
+    height: 50px; 
+    background-color: white;
+    border: 2px solid rgba(233, 233, 233,.1); 
+}

@@ -6,6 +6,7 @@ import { trailsArray } from "../../store/trail";
 import "./RealTrailsIndex.css";
 import { useEffect } from "react";
 import  TrailMapWrapper from "../maps/Trailmaps"
+import SmallSearchBar from "../search/smallsearchbar";
 
 function RealTrailsIndex() {
   const trails = useSelector(trailsArray);
@@ -30,7 +31,9 @@ function RealTrailsIndex() {
   return (
     <div>
       
-      <div id="realTrailIndexHeader"></div>
+      <div id="realTrailIndexHeader">
+        <SmallSearchBar/>
+      </div>
       
       <div id="realindexWrapper" className={isSidebarOpen ? "sidebaropen" : "sidebarclose"}>
     

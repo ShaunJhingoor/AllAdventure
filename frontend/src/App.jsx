@@ -10,6 +10,7 @@ import TrailsIndex from './components/Trails/TrailsIndex';
 import './reset.css';
 import TrailShow from './components/Trails/Trailshow';
 import RealTrailsIndex from './components/Trails/RealTrailsIndex';
+import SearchIndex from './components/search/searchIndex';
 
 
 function Layout() {
@@ -54,7 +55,10 @@ const router = createBrowserRouter([
         path: 'trails',
         element: <RealTrailsIndex />
       },
-      
+      {
+        path: '/trails/search',
+        element: < SearchIndex/>
+      },
     ]
   }
 ]);

@@ -1,12 +1,11 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { clearSearchTrails, fetchSearch } from "../../store/search";
-import "./searchBar.css"
-import search from "../../images/search.png"
+import "./smallSearchBar.css"
+import smallSearch from "../../images/smallSearch.png"
 import { Link } from "react-router-dom";
 
-
-function SearchBar(){
+function SmallSearchBar(){
     const dispatch = useDispatch()
     const [searchValue, setSearchValue] = useState('')
 
@@ -21,19 +20,19 @@ function SearchBar(){
     }
 
     return (
-        <div className="searchBar">
+        <div className="smallSearchBar">
             
             <input 
             type="text"
             placeholder="Search by trail name" 
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-            id="searchBarInput"
+            id="smallSearchBarInput"
             />
-            <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search" onClick={handleSearch}/></Link>
+            <Link to="/trails/search" id="smallSearchBarButton"><img src={smallSearch} alt="search" onClick={handleSearch}/></Link>
             
         </div>
     )
 }
 
-export default SearchBar
+export default SmallSearchBar

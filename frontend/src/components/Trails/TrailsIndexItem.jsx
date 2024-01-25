@@ -12,7 +12,7 @@ function TrailsIndexItem({trail,setCenter, setZoom}){
     return (
         
             
-        <div id='trailinfo'  onMouseOver = {() => {console.log(trail); setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(12)}}
+        <div id='trailinfo'  onMouseOver = {() => { setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(12)}}
         onMouseLeave = {() => {console.log(trail); setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(8)}}>
         
         

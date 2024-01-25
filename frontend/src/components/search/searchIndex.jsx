@@ -1,21 +1,30 @@
 import { useSelector } from "react-redux"
+import SearchIndexItem from "./searchIndexItem";
+import "./SearchIndex.css"
+import SmallSearchBar from "../search/smallsearchbar";
+
 
 function SearchIndex(){
     const searchResults = useSelector((state => Object.values(state.search.search|| {})))
-    console.log(searchResults)
+ 
+
     return (
-        <>
+      <>
+        <div id="SearchIndexheader">
+          <SmallSearchBar/>
+        </div>
         {searchResults.length > 0 ? 
+        <div id="SearchIndexWrapper" >
         <div>
-          
           {searchResults?.map((result) => (
-            <div key={result.id}>
-              <p>{result.name}</p>
-            </div>
+            <SearchIndexItem result={result} key={result.id}/>
           ))}
+          </div>
         </div>: <h1>No results</h1>
         }
+        
         </>
+       
       );
     }
     

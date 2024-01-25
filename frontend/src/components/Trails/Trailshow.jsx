@@ -8,7 +8,7 @@ import ReviewsIndex from "../Reviews/indexReviews"
 import CreateReview from "../Reviews/createReview"
 import AverageRating from "../Rating/averagerating"
 import FancyAverageRating from "../Rating/fancyaveragerating"
-
+import SmallSearchBar from "../search/smallsearchbar"
 
 function TrailShow(){
     const {trailId} = useParams()
@@ -24,6 +24,9 @@ function TrailShow(){
     
     return (
         <div>
+          <div id="showHeader">
+            <SmallSearchBar/>
+          </div>
         <div className="showoutside">
           <form className="show">
             <img src={hempsteadstatepark} alt="trail" id="showtrailimag" />

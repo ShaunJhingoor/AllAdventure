@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :trails, only: [:show, :index, :create] do
     collection do 
        get 'search', to: 'trails#search'
-    end
+     end
     end
   end
   get '*path', to: "static_pages#frontend_index"
