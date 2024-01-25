@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import hempsteadstatepark from "../../images/hempsteadstatepark.webp"
 import AverageRating from '../Rating/averagerating'
 import '../Trails/TrailsIndexItem.css';
 
 
 function SearchIndexItem({result}){
     const currentUser = useSelector(state=> state?.session.user)
+    console.log(result)
     
     return (
         <>
@@ -15,8 +15,8 @@ function SearchIndexItem({result}){
         
             
             <Link to={ currentUser? `/trails/${result.id}`: '/signUp'} >
-                <img src={hempsteadstatepark} alt="result" id="trailimag" />
-                {/* <img src={result.photoUrl} alt="result" id="resultimag" /> */}
+               
+                <img src={result?.photoUrl} alt="result" id="trailimag" />
              </Link>
                
             <Link to={currentUser? `/trails/${result.id}`: '/signUp'} style={{ textDecoration: 'none' }}>

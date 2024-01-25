@@ -31,131 +31,204 @@ require "open-uri"
       lname: "smith"
     )
 
-   
- 
-
-    trail1 = Trail.create(
-      name: 'Central Park Loop',
-      description: 'A scenic loop around Central Park. Suitable for walking, jogging, and biking. Enjoy the lush greenery and iconic landmarks.',
-      location: 'New York City',
-      difficulty: 'Easy',
-      length: 6.0,
-      latitude: 40.785091,
-      longitude: -73.968285
+    
+    
+    
+    
+    # 1
+    centralPark = Trail.create!(
+        name: "Central Park East and West Drive Loop",
+        description:"Explore this 6.1-mile loop trail near New York City, New York. Generally considered an easy route, it takes an average of 2 h 2 min to complete. This is a very popular area for road biking, running, and walking, so you'll likely encounter other people while exploring. The trail is open year-round and is beautiful to visit anytime. Dogs are welcome, but must be on a leash.",
+        location:"New York, NY",
+        difficulty: 'Easy',
+        length: 6.1,
+        latitude: 40.785091,
+        longitude: -73.968285
     )
 
-    trail1.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/adventureIcon.png"), filename: "adventureIcon.png")
+    centralPark.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/Central+Park+East+and+West+Drive+Loop.webp"), filename: "Central Park East and West Drive Loop.webp")
 
-    trails_data = [
-      {
-        name: 'Cascade Falls Trail',
-        description: 'Explore the mesmerizing Cascade Falls on this trail. Moderate difficulty with rocky terrain. Nature lovers will appreciate the waterfall views.',
-        location: 'Cascade National Park',
-        difficulty: 'Moderate',
-        length: 4.5,
-        latitude: 48.759613,
-        longitude: -121.788000
-      },
-      {
-        name: 'Sunset Ridge Trail',
-        description: 'Experience breathtaking sunset views on this ridge trail. Intermediate difficulty with elevation changes. Bring your camera!',
-        location: 'Mount Sunset',
-        difficulty: 'Hard',
-        length: 5.8,
-        latitude: 35.789567,
-        longitude: -118.875478
-      },
-      {
-        name: 'Pine Grove Hike',
-        description: 'Immerse yourself in the pine-scented air on this serene hike. Easy trail suitable for families. Ideal for birdwatching.',
-        location: 'Pine Valley',
-        difficulty: 'Easy',
-        length: 2.5,
-        latitude: 39.123456,
-        longitude: -76.654321
-      },
-      {
-        name: 'Rocky Mountain Trail',
-        description: 'Challenge yourself with this rocky mountain trail. Advanced hikers will enjoy the rugged terrain and panoramic views.',
-        location: 'Rocky Mountains',
-        difficulty: 'Moderate',
-        length: 8.0,
-        latitude: 39.550051,
-        longitude: -105.782067
-      },
-      {
-        name: 'Coastal Explorer Path',
-        description: 'Discover the beauty of the coast on this explorer path. Easy walking trail with ocean views. Perfect for a leisurely stroll.',
-        location: 'Coastal Bay',
-        difficulty: 'Easy',
-        length: 3.5,
-        latitude: 34.052235,
-        longitude: -118.243683
-      },
-      {
-        name: 'Misty Forest Trek',
-        description: 'Embark on a misty forest trek. Moderate difficulty with winding paths. Enjoy the enchanting atmosphere of the woods.',
-        location: 'Misty Grove',
-        difficulty: 'Moderate',
-        length: 4.2,
-        latitude: 47.606209,
-        longitude: -122.332071
-      },
-      {
-        name: 'Desert Oasis Trail',
-        description: 'Experience the tranquility of a desert oasis on this easy trail. Unique desert flora and fauna await exploration.',
-        location: 'Desert Valley',
-        difficulty: 'Easy',
-        length: 3.0,
-        latitude: 33.865143,
-        longitude: -115.588993
-      },
-      {
-        name: 'Autumn Leaves Walk',
-        description: 'Take a leisurely walk through vibrant autumn leaves. Easy trail suitable for families. Enjoy the fall foliage.',
-        location: 'Autumn Valley',
-        difficulty: 'Easy',
-        length: 2.8,
-        latitude: 42.360081,
-        longitude: -71.058884
-      },
-      {
-        name: 'Alpine Adventure Hike',
-        description: 'Embark on an alpine adventure with this challenging hike. Spectacular mountain views and alpine meadows await.',
-        location: 'Alpine Peaks',
-        difficulty: 'Hard',
-        length: 7.5,
-        latitude: 46.818188,
-        longitude: 9.684722
-      },
-      {
-        name: 'Lakeside Serenity Trail',
-        description: 'Enjoy the serenity of a lakeside stroll. Easy trail suitable for all ages. Perfect for a peaceful escape.',
-        location: 'Tranquil Lake',
-        difficulty: 'Easy',
-        length: 3.0,
-        latitude: 35.689487,
-        longitude: -82.090251
-      },
-      {
-        name: 'Canyon Explorer Path',
-        description: 'Explore the depths of a canyon on this adventurous path. Moderate difficulty with rocky terrain. Bring sturdy footwear.',
-        location: 'Deep Canyon',
-        difficulty: 'Moderate',
-        length: 5.2,
-        latitude: 36.106965,
-        longitude: -112.112056
-      }
-    ]
+    # 2 
+    hempsteadLakeLoop = Trail.create!(
+      name: "Hempstead Lake Loop",
+      description: "Explore this 3.1-mile loop trail near Rockville Centre, New York. Generally considered an easy route, it takes an average of 57 min to complete. This is a popular trail for mountain biking, road biking, and running, but you can still enjoy some solitude during quieter times of day. The best times to visit this trail are March through November. Dogs are welcome, but must be on a leash.",
+      location: "Eagle Ave, West Hempstead, NY 11552",
+      difficulty: "Easy",
+      length: 3.1, 
+      latitude: 40.6831,
+      longitude: -73.6431
+    )
+    hempsteadLakeLoop.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/hempsteadLakeLoop.webp"), filename: "hempsteadLakeLoop.webp")
     
-    trails_data.each do |trail_params|
-      difficulty = trail_params[:difficulty].capitalize
-      unless ['Easy', 'Moderate', 'Hard'].include?(difficulty)
-        raise "Invalid difficulty level '#{trail_params[:difficulty]}' for trail '#{trail_params[:name]}'. Difficulty must be Easy, Moderate, or Hard."
-      end
+    #3
+    flushingmeadowloop = Trail.create!(
+      name: "Flushing Meadow Loop",
+      description: "Discover this 5.6-mile loop trail near New York City, New York. Generally considered a moderately challenging route, it takes an average of 1 h 38 min to complete. This is a very popular area for road biking, running, and walking, so you'll likely encounter other people while exploring. The best times to visit this trail are May through September. Dogs are welcome, but must be on a leash.",
+      location: "Grand Central Parkway and, Van Wyck Expy, Queens, 11354",
+      difficulty: "Moderate",
+      length: 5.6, 
+      latitude: 40.7400315,
+      longitude: -73.8432702
+    )
+    flushingmeadowloop.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/flushingmeadowpark.webp"), filename: "flushingmeadowpark.webp")
+    #4
+    alleyPondParkLoop = Trail.create!(
+      name: "Alley Pond Park Loop",
+      description: "Enjoy this 3.2-mile loop trail near New York City, New York. Generally considered a moderately challenging route, it takes an average of 1 h 8 min to complete. This is a very popular area for hiking, running, and walking, so you'll likely encounter other people while exploring. The best times to visit this trail are April through November.",
+      location: "Union Tpke, Oakland Gardens, NY 11364",
+      difficulty: "Moderate",
+      length: 3.2, 
+      latitude: 40.743659,
+      longitude: -73.7441849
+    )
+    alleyPondParkLoop.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/alleyPondParkLoop.webp"), filename: "alleyPondParkLoop.webp")
+
+    #5
+    forestParkOranageLoop = Trail.create!(
+      name: "Forest Park Orange Loop",
+      description: "Head out on this 2.3-mile loop trail near New York City, New York. Generally considered an easy route. This is a very popular area for horseback riding, mountain biking, and running, so you'll likely encounter other people while exploring. The best times to visit this trail are March through November. Dogs are welcome, but must be on a leash.",
+      location: "Myrtle Avenue, Union Tpke, Park Ln S",
+      difficulty: "Easy",
+      length: 2.3, 
+      latitude: 40.704354,
+      longitude: -73.8543669
+    )
+    forestParkOranageLoop.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/ForestParkOranage+.webp"), filename: "ForestParkOranage .webp")
+    #6
+    teepee = Trail.create!(
+      name: "Teepee to Thrilla to Viper to IMBA Loop",
+      description: "Discover this 5.6-mile loop trail near Queens, New York. Generally considered a moderately challenging route, it takes an average of 1 h 47 min to complete. This is a very popular area for hiking and mountain biking, so you'll likely encounter other people while exploring. The best times to visit this trail are March through October. Dogs are welcome, but must be on a leash.",
+      location: "196-10 Union Tpke, Fresh Meadows, NY 11366",
+      difficulty: "Moderate",
+      length: 5.6, 
+      latitude: 40.741706,
+      longitude: -73.7712369
+    )
+    teepee.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/teepee.webp"), filename: "teepee.webp")
+
+    #7
+    blydenburgh = Trail.create!(
+      name: "Blydenburgh County Park Stump Pond Loop",
+      description: "Head out on this 6.1-mile loop trail near Hauppauge, New York. Generally considered an easy route, it takes an average of 1 h 55 min to complete. This is a very popular area for birding, fishing, and hiking, so you'll likely encounter other people while exploring. The trail is open year-round and is beautiful to visit anytime. Dogs are welcome and may be off-leash in some areas.",
+      location: "Veteran's Memorial Highway, Smithtown, NY 11788",
+      difficulty: "Easy",
+      length: 6.1, 
+      latitude: 40.837865,
+      longitude: -73.2219439
+    )
+    blydenburgh.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/blydenburghStumpLoop.webp"), filename: "blydenburghStumpLoop.webp")
+  
+    #8
+    caumsett = Trail.create!(
+      name: "Caumsett State Historic Park Perimeter Loop",
+      description: "Experience this 5.2-mile loop trail near Huntington, New York. Generally considered an easy route, it takes an average of 1 h 49 min to complete. This is a very popular area for birding, hiking, and mountain biking, so you'll likely encounter other people while exploring. The trail is open year-round and is beautiful to visit anytime. You'll need to leave pups at home — dogs aren't allowed on this trail.",
+      location: "25 Lloyd Harbor Rd, Lloyd Harbor, NY 11743",
+      difficulty: "Easy",
+      length: 5.2, 
+      latitude: 40.921863,
+      longitude: -73.4712159
+    )
+    caumsett.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/caumsett.webp"), filename: "caumsett.webp")
+
+    #9
+    highline = Trail.create!(
+      name: "High Line Park Point to Point",
+      description: "Experience this 1.2-mile point-to-point trail near New York City, New York. Generally considered an easy route, it takes an average of 21 min to complete. This is a very popular area for walking, so you'll likely encounter other people while exploring. The trail is open year-round and is beautiful to visit anytime. You'll need to leave pups at home — dogs aren't allowed on this trail.",
+      location: "New York, NY 10011",
+      difficulty: "Easy",
+      length: 1.2, 
+      latitude: 40.7479965,
+      longitude: -74.0048
+    )
+    highline.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/highline.webp"), filename: "highline.webp")
+
+    #10
+
+    prospect = Trail.create!(
+      name: "Prospect Park Loop",
+      description: "Explore this 3.6-mile loop trail near New York City, New York. Generally considered an easy route, it takes an average of 1 h 11 min to complete. This is a very popular area for birding, mountain biking, and road biking, so you'll likely encounter other people while exploring. The trail is open year-round and is beautiful to visit anytime. Dogs are welcome, but must be on a leash.",
+      location: "Brooklyn, NY",
+      difficulty: "Easy",
+      length: 3.6, 
+      latitude: 40.665535,
+      longitude: -73.969749
+    )
+    prospect.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/prospect.webp"), filename: "prospect.webp")
+
+    #11 
+    glenIsland= Trail.create!(
+      name: "Glen Island Loop",
+      description: "Get to know this 1.9-mile loop trail near New Rochelle, New York. Generally considered an easy route, it takes an average of 35 min to complete. This trail is great for walking, and it's unlikely you'll encounter many other people while exploring. The best times to visit this trail are October through October.",
+      location: "Weyman Ave, New Rochelle, NY 10805",
+      difficulty: "Easy",
+      length: 1.9, 
+      latitude: 40.8863667,
+      longitude: -73.7841564
+    )
+    glenIsland.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/glen+island.webp"), filename: "glen island.webp")
+
+    #12
+    croton=Trail.create!(
+      name: "Crotona Park Loop",
+      description: "Explore this 1.5-mile loop trail near New York City, New York. Generally considered an easy route, it takes an average of 29 min to complete. This trail is great for running and walking, and it's unlikely you'll encounter many other people while exploring. Dogs are welcome, but must be on a leash.",
+      location: "Charlotte St, Bronx, NY 10457",
+      difficulty: "Easy",
+      length: 1.5, 
+      latitude: 40.8385033,
+      longitude: -73.8976977
+    )
+    croton.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/crotona.webp"), filename: "crotona.webp")
+
+    #13 
+    hoffa = Trail.create!(
+      name: " Hoffa and Aspen Loop",
+      description: "Discover this 3.2-mile loop trail near Old Bethpage, New York. Generally considered a moderately challenging route, it takes an average of 1 h 1 min to complete. This is a popular trail for birding, hiking, and mountain biking, but you can still enjoy some solitude during quieter times of day. The best times to visit this trail are March through October. Dogs are welcome, but must be on a leash.",
+      location: "99 Quaker Meeting House Rd, Farmingdale, NY 11735",
+      difficulty: "Easy",
+      length: 3.2, 
+      latitude: 40.75220401365692,
+      longitude:-73.44221506929551
+    )
+    hoffa.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/hoffa.webp"), filename: "hoffa.webp")
+
+    #14 
+    connectQuot = 
+    Trail.create!(
+      name: "Connetquot Preserve Blue Trail Loop",
+      description: "Try this 8.3-mile loop trail near Islip Terrace, New York. Generally considered an easy route, it takes an average of 2 h 26 min to complete. This is a popular trail for birding, hiking, and running, but you can still enjoy some solitude during quieter times of day. The best times to visit this trail are March through January. You'll need to leave pups at home — dogs aren't allowed on this trail.",
+      location: "4090 Sunrise Hwy, Oakdale, NY 11769",
+      difficulty: "Easy",
+      length: 8.3, 
+      latitude: 40.75465480308603,
+      longitude:-73.1519301249098
+    )
+    connectQuot.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/connectquot.webp"), filename: "connectquot.webp")
     
-      Trail.create!(trail_params)
-    end
+    #15
+    edgewood = 
+    Trail.create!(
+      name: "Edgewood Oak Brush Plains Preserve Trail Loop",
+      description: "Check out this 3.9-mile loop trail near Deer Park, New York. Generally considered a moderately challenging route, it takes an average of 1 h 8 min to complete. This is a popular trail for hiking, running, and walking, but you can still enjoy some solitude during quieter times of day. The best times to visit this trail are April through November. Dogs are welcome, but must be on a leash.",
+      location: "528 Commack Rd, Deer Park, NY 11729",
+      difficulty: "Moderate",
+      length: 3.9, 
+      latitude: 40.77809077615406,
+      longitude:-73.30698019653744
+    )
+    edgewood.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/edgewood.webp"), filename: "edgewood.webp")
+
+    #16
+    rocky=
+    Trail.create!(
+      name: "Rocky Point Trail",
+      description: "Discover this 10.4-mile loop trail near Rocky Point, New York. Generally considered a moderately challenging route, it takes an average of 3 h 11 min to complete. This is a very popular area for hiking, mountain biking, and running, so you'll likely encounter other people while exploring. The trail is open year-round and is beautiful to visit anytime. Dogs are welcome, but must be on a leash.",
+      location: "Rte 25A, Rocky Point, NY 11778",
+      difficulty: "Moderate",
+      length: 10.4, 
+      latitude: 40.928534588020646, 
+      longitude:-72.92978500165137
+    )
+    rocky.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/rocky.webp"), filename: "rocky.webp")
     
     
     # More users
@@ -168,34 +241,35 @@ require "open-uri"
         lname: Faker::Name.last_name
       }) 
       
-   
-    
+      
+      
     end
-
+    
     def generate_realistic_review
-
+      
       trail_experience = ["amazing", "breathtaking", "challenging", "peaceful", "exciting", "refreshing"].sample
       trail_condition = ["well-maintained", "scenic", "wild", "rocky", "lush"].sample
       weather_condition = ["sunny", "cloudy", "windy", "rainy"].sample
       random_thoughts = ["I can't wait to go back!", "Highly recommended!", "A hidden gem!", "A must-visit trail!", "Great for nature lovers!"].sample
-    
+      
       "The trail was #{trail_experience}. The trail conditions were #{trail_condition}, and the weather was #{weather_condition}. #{random_thoughts}"
     end
     # Seed data for reviews
     (1..10).each do |user_id|
-      (1..12).each do |trail_id|
+      (1..16).each do |trail_id|
         # Generate at least 3 reviews for each trail
         # (1..3).each do
-          Review.create!(
-            user_id: user_id,
-            trail_id: trail_id,
-            review: generate_realistic_review,
-            rating: rand(1..5)
+        Review.create!(
+          user_id: user_id,
+          trail_id: trail_id,
+          review: generate_realistic_review,
+          rating: rand(1..5)
           )
-        
       end
     end
-  
+          
+        
+      
 
   
     puts "Done!"

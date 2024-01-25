@@ -1,7 +1,7 @@
 import pin from "../../images/pin.png"
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api"
 import "./Trailmaps.css"
-function TrailMapWrapper({trails, center,zoom}) {
+function TrailMapWrapper({trails, center,zoom=10}) {
     const {isLoaded} = useLoadScript({
         googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
     })

@@ -1,24 +1,24 @@
 import { useSelector } from 'react-redux'
 import './TrailsIndexItem.css'
 import { Link } from 'react-router-dom'
-import hempsteadstatepark from "../../images/hempsteadstatepark.webp"
+
 import AverageRating from '../Rating/averagerating'
 
 function TrailsIndexItem({trail,setCenter, setZoom}){
-
+    console.log(trail.photoUrl)
     const currentUser = useSelector(state=> state?.session.user)
+    console.log(trail)
 
 
     return (
         
             
-        <div id='trailinfo'  onMouseOver = {() => { setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(12)}}
-        onMouseLeave = {() => {setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(8)}}>
+        <div id='trailinfo'  onMouseOver = {() => { setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(15)}}
+        onMouseLeave = {() => {setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(10)}}>
         
         
             <Link to={ currentUser? `/trails/${trail.id}`: '/signUp'} >
-                <img src={hempsteadstatepark} alt="trail" id="trailimag" />
-                {/* <img src={trail.photoUrl} alt="trail" id="trailimag" /> */}
+                <img src={trail?.photoUrl} alt="result" id="trailimag" />
              </Link>
                
             <Link to={currentUser? `/trails/${trail.id}`: '/signUp'} style={{ textDecoration: 'none' }}>

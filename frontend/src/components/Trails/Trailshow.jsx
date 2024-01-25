@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom"
 import { Fetchtrail, selectTrail } from "../../store/trail"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import hempsteadstatepark from "../../images/hempsteadstatepark.webp"
 import './TrailShow.css'
 import ReviewsIndex from "../Reviews/indexReviews"
 import CreateReview from "../Reviews/createReview"
@@ -29,7 +28,7 @@ function TrailShow(){
           </div>
         <div className="showoutside">
           <form className="show">
-            <img src={hempsteadstatepark} alt="trail" id="showtrailimag" />
+            <img src={trail?.photoUrl} alt="result" id="showtrailimag" />
 
             <div id="breakerbarshow"></div>
 
