@@ -4,12 +4,14 @@ import { clearSearchTrails, fetchSearch } from "../../store/search";
 import "./smallSearchBar.css";
 import smallSearch from "../../images/smallSearch.png";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SmallSearchBar() {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [searchValue, setSearchValue] = useState('');
 
-  const handleSearch = async () => {
+  const handleSearch = () => {
     if (searchValue.trim() !== '') {
       dispatch(fetchSearch(searchValue));
     } else {
@@ -17,9 +19,11 @@ function SmallSearchBar() {
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleSearchEnter = (e) => {
     if (e.key === 'Enter') {
-      handleSearch();
+        e.preventDefault();
+        handleSearch()
+        navigate("/trails/search")
     }
   };
 
@@ -31,7 +35,7 @@ function SmallSearchBar() {
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         id="smallSearchBarInput"
-        onKeyDown={handleKeyPress} // Handle Enter key press
+        onKeyDown={handleSearchEnter} 
       />
       <Link to="/trails/search" id="smallSearchBarButton">
         <img src={smallSearch} alt="search" onClick={handleSearch} />

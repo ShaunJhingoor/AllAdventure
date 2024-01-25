@@ -42,6 +42,7 @@
     font: Arial,sans-serif;
     font-size: 13px;
     font-weight:550;
+    cursor: pointer;
 }
 
 #demoLogin:hover {

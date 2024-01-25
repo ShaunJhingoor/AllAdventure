@@ -4,15 +4,16 @@ import { clearSearchTrails, fetchSearch } from "../../store/search";
 import "./searchBar.css"
 import search from "../../images/search.png"
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 
 function SearchBar(){
     const dispatch = useDispatch()
     const [searchValue, setSearchValue] = useState('');
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    const handleSearch = async() => {
+    const handleSearch = () => {
         if(searchValue.trim() !== ''){
             
             dispatch(fetchSearch(searchValue))
@@ -22,12 +23,13 @@ function SearchBar(){
         }
     }
 
-    // const handleSearchEnter = (e) => {
-    //     if (e.key === 'Enter') {
-    //       e.preventDefault();
-    //       navigate(`/trails/search?query=${searchValue}`);
-    //     }
-    //   };
+    const handleSearchEnter = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleSearch()
+            navigate("/trails/search")
+        }
+      };
 
     return (
         <div className="searchBar">
@@ -38,8 +40,10 @@ function SearchBar(){
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
             id="searchBarInput"
+            onKeyDown={handleSearchEnter}
             />
-            <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search" onClick={handleSearch}/></Link>
+           
+            <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search"   onClick={handleSearch} /></Link>
             
         </div>
     )
