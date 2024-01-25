@@ -37,6 +37,7 @@ function ReviewIndexItem({review, trail}) {
             {visible && <div className="reviewSettingsDropDownWrapper">
                 <ReviewDropDown review={review} visible={visible} setVisible={setVisible} trail={trail}/>
             </div>}
+            
             {canEdit && <p id="currentUserDots" onClick={handleSettingDropDown}>&hellip;
             </p>}
             </span>

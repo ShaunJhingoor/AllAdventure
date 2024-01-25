@@ -55,7 +55,6 @@
 
 #currentUserDots{
     position: relative;
-    margin-bottom: 2;
     margin-left: 70vh;
     z-index: 1;
     width: 35px;
@@ -65,5 +64,13 @@
     align-items: center;
     font-size: 25px;
     cursor: pointer;
+    border: 1px solid white;
+    border-radius: 50px;
 }
+
+#currentUserDots:hover{
+    background-color:lightgray;
+}
+
+
 
