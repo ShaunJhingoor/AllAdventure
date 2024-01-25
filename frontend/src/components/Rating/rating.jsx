@@ -3,7 +3,7 @@ import "./rating.css"
 const Ratings = ({rating,setRating}) => {
     const [hoveredRating, setHoveredRating] = useState(0);
     // const [Rating, setSelectedRating] = useState(initialRating);
-    console.log(rating)
+  
     const handleStarClick = (rating) => {
       setRating(rating);
     };

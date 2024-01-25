@@ -3,6 +3,8 @@
     font-size: 16px;
     font-family: manrope-m;
     color: #142800;
+    margin-top: -40px;
+    margin-left: 10px;
 }
 
 #averageRatingLabel{
@@ -10,6 +12,10 @@
     font-size: 16px;
     font-family: manrope-m;
     color: #142800;
-    margin-top: 0;
+    margin-top: -20px;
     padding-top: 0;
+}
+
+#ratingFancyRating{
+    margin-left: 20px;
 }

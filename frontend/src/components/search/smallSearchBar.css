@@ -1,25 +1,25 @@
-.smallSearchBar{
-    display: flex;
-    align-items: right;
+.smallSearchBar {
+  display: flex;
+ 
 }
- #smallSearchBarInput{
+
+#smallSearchBarInput {
   position: relative;
   margin-left: 87%;
   padding: 20px;
   height: 1vh;
   border: 1px solid #ccc;
   border-radius: 50px;
-  width: 70%;
+  width: 90%;
 }
 
-#smallSearchBarButton{
-  position: absolute;
-  /* padding: 20px; */
-  margin-left: 98%;
+#smallSearchBarButton {
+  position: relative; /* Change to relative */
+  margin-right: 0; /* Adjust margin-left as needed */
   margin-top: 2vh;
+  right: 25px;
   width: 2vh;
   color: white;
   border: none;
   cursor: pointer;
-  z-index: 3;
 }

@@ -4,11 +4,13 @@ import { clearSearchTrails, fetchSearch } from "../../store/search";
 import "./searchBar.css"
 import search from "../../images/search.png"
 import { Link } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
 function SearchBar(){
     const dispatch = useDispatch()
-    const [searchValue, setSearchValue] = useState('')
+    const [searchValue, setSearchValue] = useState('');
+    // const navigate = useNavigate();
 
     const handleSearch = async() => {
         if(searchValue.trim() !== ''){
@@ -19,6 +21,13 @@ function SearchBar(){
             dispatch(clearSearchTrails())
         }
     }
+
+    // const handleSearchEnter = (e) => {
+    //     if (e.key === 'Enter') {
+    //       e.preventDefault();
+    //       navigate(`/trails/search?query=${searchValue}`);
+    //     }
+    //   };
 
     return (
         <div className="searchBar">

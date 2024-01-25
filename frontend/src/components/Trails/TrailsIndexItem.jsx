@@ -13,7 +13,7 @@ function TrailsIndexItem({trail,setCenter, setZoom}){
         
             
         <div id='trailinfo'  onMouseOver = {() => { setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(12)}}
-        onMouseLeave = {() => {console.log(trail); setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(8)}}>
+        onMouseLeave = {() => {setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(8)}}>
         
         
             <Link to={ currentUser? `/trails/${trail.id}`: '/signUp'} >

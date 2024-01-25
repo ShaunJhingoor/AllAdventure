@@ -7,9 +7,11 @@ import SmallSearchBar from "../search/smallsearchbar";
 function SearchIndex(){
     const searchResults = useSelector((state => Object.values(state.search.search|| {})))
  
-
+    // const handleAlert = () => {
+    //   window.alert("No results");
+    // };
     return (
-      <>
+      <div id="SearchIndexContainer">
         <div id="SearchIndexheader">
           <SmallSearchBar/>
         </div>
@@ -23,7 +25,7 @@ function SearchIndex(){
         </div>: <h1>No results</h1>
         }
         
-        </>
+        </div>
        
       );
     }

@@ -14,7 +14,7 @@ function RealTrailsIndex() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [center, setCenter] = useState({lat:  40.7299341, lng: -74.013928})
   const [zoom, setZoom] = useState(8)
-  console.log(center)
+  
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };

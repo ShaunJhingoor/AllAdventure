@@ -23,7 +23,7 @@ function TrailShow(){
     }, [dispatch, trailId]);
     
     return (
-        <div>
+        <div id="showWrapper">
           <div id="showHeader">
             <SmallSearchBar/>
           </div>
@@ -59,14 +59,15 @@ function TrailShow(){
                 <div id="modalAverage">
                <p id="averageRating"><FancyAverageRating trail={trail}/> </p>
                <br />
-               </div>
+               </div >
+               <div id="createReviewHolder">
                <CreateReview key={trail?.id} trail={trail}/>
                </div>
+               </div>
               <br />
-              <div id="showReviews">
                 <br />
               <ReviewsIndex trail={trail}/>
-              </div>
+              
             <br />
           </form>
         </div>
