@@ -11,11 +11,12 @@
   border: 1px solid #ccc;
   border-radius: 50px;
   width: 90%;
+  outline: none;
 }
 
 #smallSearchBarButton {
-  position: relative; /* Change to relative */
-  margin-right: 0; /* Adjust margin-left as needed */
+  position: relative;
+  margin-right: 0; 
   margin-top: 2vh;
   right: 25px;
   width: 2vh;

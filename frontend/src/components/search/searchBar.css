@@ -12,6 +12,7 @@
   border-radius: 50px;
   width: 70vh;
   z-index: 3;
+  outline: none;
 }
 
 #searchBarButton{
