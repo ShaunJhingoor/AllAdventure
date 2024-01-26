@@ -13,7 +13,7 @@ All Adventure is a clone of All trails. All trails allows users to view differen
 * Asset Storage: AWS Simple Cloud Storage (S3)
 * API: Google Maps
 
-## MVPs 
+## Features
 ### User Auth 
 
 Users can SignUp, use a demo user to view the site, LogIn, or LogOut. Once signed up the users information persist in both the backend and frontend
@@ -28,13 +28,6 @@ Users can SignUp, use a demo user to view the site, LogIn, or LogOut. Once signe
 <br>
 <br>
 ```js
-import { useState } from 'react';
-import * as sessionActions from '../../store/session';
-import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import './LoginForm.css';
-
 function LoginForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
@@ -130,16 +123,6 @@ https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/2836eb0e-8502-46d
 <br>
 <br>
 ```js
-import { useState } from "react"
-import { useDispatch } from "react-redux"
-import { clearSearchTrails, fetchSearch } from "../../store/search";
-import "./searchBar.css"
-import search from "../../images/search.png"
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-
-
 
 function SearchBar(){
     const dispatch = useDispatch()
@@ -150,15 +133,15 @@ function SearchBar(){
     const handleSearch = () => {
         if(searchValue.trim() !== ''){
             
-            dispatch(fetchSearch(searchValue))
+            dispatch(fetchSearch(searchValue)) dispatch search with results that update as you type
             
         }else{
-            dispatch(clearSearchTrails())
+            dispatch(clearSearchTrails()) 
         }
     }
 
     const handleSearchEnter = (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter') { can search by hitting enter
             e.preventDefault();
             handleSearch()
             navigate("/trails/search")
@@ -197,7 +180,6 @@ function SearchBar(){
     )
 }
 
-export default SearchBar
 ```
 <br>
 <br>
@@ -215,24 +197,15 @@ https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/77e9a826-8460-4d9
 <br>
 
 ```js
-import pin from "../../images/pin.png"
-import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api"
-import "./Trailmaps.css"
 function TrailMapWrapper({trails, center,zoom=10}) {
     const {isLoaded} = useLoadScript({
-        googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
+        googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY making sure my api is loaded and can use
     })
 
-    if(!isLoaded){
-        return <div>Loading...</div>
-    }
-    if(!trails || trails.length === 0){
-        return null
-    }
     return (
         <>
         <div className="trailmapwrapper">
-            <TrailMap trails={trails} center ={center} zoom={zoom}/>
+            <TrailMap trails={trails} center ={center} zoom={zoom}/> passing the props to my trailmap component
         </div>
         </>
     )
@@ -260,7 +233,7 @@ export const TrailMap = ({trails, center,zoom}) => {
             <GoogleMap zoom={zoom}  center={center} mapContainerStyle={containerStyle}>
             {trails.map((trail) =>{
         
-                return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>)
+                return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>) adding markers to where the trail is located also setting the center to that loaction and zooming in on it 
             }
             )}
             </GoogleMap> 
@@ -286,12 +259,6 @@ https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/7086df2a-e04a-4c6
 
 
 ```js
-import { useState } from "react";
-import * as modalActions from "../../store/modal";
-import * as reviewActions from "../../store/review";
-import "./reviewModal.css";
-import { useDispatch, useSelector } from "react-redux";
-import Ratings from "../Rating/rating";
 function CreateModal({ trail }) {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
@@ -301,7 +268,7 @@ function CreateModal({ trail }) {
 
   const handleHideModal = (e) => {
     e.preventDefault();
-    dispatch(modalActions.hideModal("createReview"));
+    dispatch(modalActions.hideModal("createReview")); 
   };
 
   const handleSubmitReview = async (e) => {
@@ -315,9 +282,9 @@ function CreateModal({ trail }) {
         created_at: new Date().toISOString(),
       },
     };
-     await dispatch(reviewActions.createReview(newReview));
-     await dispatch(reviewActions.Fetchreviews())
-     dispatch(modalActions.hideModal("createReview"));
+     await dispatch(reviewActions.createReview(newReview));  creating a new review with with a outside key of review and setting the key value pairs 
+     await dispatch(reviewActions.Fetchreviews()) getting all the reviews so it renders everything correctly 
+     dispatch(modalActions.hideModal("createReview")); after you create a review it closes the modal
    
   };
   return (
@@ -377,10 +344,10 @@ export default CreateModal;
 
 ### Future Features
 
-* Expand the search feature so the user can feature by parks and list of trails within those parks will show up
+* Expand the search feature so the user can filter by parks and list of trails within those parks will show up
 
 ### Thanks 
-All Adventure was created Within 14 days. I hope you enjoy!
+All Adventure was created within 14 days. I hope you enjoy!
 
 
 
