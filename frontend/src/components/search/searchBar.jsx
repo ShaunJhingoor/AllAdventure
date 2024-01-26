@@ -5,6 +5,7 @@ import "./searchBar.css"
 import search from "../../images/search.png"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 
@@ -12,6 +13,7 @@ function SearchBar(){
     const dispatch = useDispatch()
     const [searchValue, setSearchValue] = useState('');
     const navigate = useNavigate();
+    const currentUser = useSelector(state=> state?.session.user)
 
     const handleSearch = () => {
         if(searchValue.trim() !== ''){
@@ -31,7 +33,20 @@ function SearchBar(){
         }
       };
 
+      const capitalizeFirstLetter = (str) =>  {
+        if (str && str.length > 0) {
+            return str[0].toUpperCase() + str.slice(1);
+          } else {
+            return "";
+          }
+      }
+
     return (
+        <>
+        <h1 id="Welcomestatment">
+        Welcome {currentUser ? 'Back' : 'Start'} {currentUser ? `${capitalizeFirstLetter(currentUser?.fname)} ${capitalizeFirstLetter(currentUser?.lname)}` : 'Your Search'} 
+        
+      </h1>
         <div className="searchBar">
             
             <input 
@@ -46,6 +61,7 @@ function SearchBar(){
             <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search"   onClick={handleSearch} /></Link>
             
         </div>
+        </>
     )
 }
 

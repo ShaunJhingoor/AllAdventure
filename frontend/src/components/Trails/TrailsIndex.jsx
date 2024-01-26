@@ -10,6 +10,7 @@ import SearchBar from '../search/searchBar';
 
 function TrailsIndex(){
     const trails = useSelector(trailsArray)
+    
         
     const dispatch = useDispatch()
 

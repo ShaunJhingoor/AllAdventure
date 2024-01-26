@@ -5,8 +5,8 @@
  #searchBarInput{
   position: absolute;
   padding: 20px;
-  margin-left: 65vh;
-  margin-bottom: 70vh;
+  margin-left: 30%;
+  margin-bottom: 33%;
   height: 4vh;
   border: 1px solid #ccc;
   border-radius: 50px;
@@ -19,11 +19,24 @@
   position: absolute;
   /* padding: 20px; */
   width: 5vh;
-  margin-left: 130vh;
-  margin-bottom: 70vh;
+  margin-left: 62%;
+  margin-bottom: 33%;
   color: white;
   border: none;
   cursor: pointer;
+  z-index: 3;
+}
+
+#Welcomestatment{
+  position: absolute;
+  font-weight: 400;
+  font-family: manrope-m;
+  color:#fff;
+  line-height: 78px;
+
+  font-size: 60px;
+  margin-left:20%;
+  bottom: 60%;
   z-index: 3;
 }
 

@@ -16,7 +16,7 @@ function TrailsIndexItem({trail,setCenter, setZoom}){
         <div id='trailinfo'  onMouseOver = {() => { setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(15)}}
         onMouseLeave = {() => {setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(10)}}>
         
-        
+            
             <Link to={ currentUser? `/trails/${trail.id}`: '/signUp'} >
                 <img src={trail?.photoUrl} alt="result" id="trailimag" />
              </Link>

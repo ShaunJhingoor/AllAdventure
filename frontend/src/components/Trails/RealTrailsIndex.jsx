@@ -12,7 +12,7 @@ function RealTrailsIndex() {
   const trails = useSelector(trailsArray);
   const dispatch = useDispatch();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [center, setCenter] = useState({lat:  40.76946791001652, lng: -73.54580024696472})
+  const [center, setCenter] = useState({lat:  40.79142619411136, lng:-73.58735483173312})
   const [zoom, setZoom] = useState(10)
   
   const toggleSidebar = () => {
