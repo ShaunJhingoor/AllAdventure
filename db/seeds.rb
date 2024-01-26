@@ -229,9 +229,49 @@ require "open-uri"
       longitude:-72.92978500165137
     )
     rocky.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/rocky.webp"), filename: "rocky.webp")
+
+    #17
+    eisenhower=
+    Trail.create!(
+      name: "Eisenhower Park Loop",
+      description: "Get to know this 3.4-mile loop trail near Hempstead, New York. Generally considered an easy route, it takes an average of 1 h 1 min to complete. This is a popular trail for birding, road biking, and running, but you can still enjoy some solitude during quieter times of day. The trail is open year-round and is beautiful to visit anytime. You'll need to leave pups at home — dogs aren't allowed on this trail.",
+      location: "1899 Park Blvd, East Meadow, NY 11554",
+      difficulty: "Easy",
+      length: 3.4, 
+      latitude: 40.727731540192245,  
+      longitude:-73.57355443399015
+    )
+    eisenhower.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/eisenhower.webp"), filename: "eisenhower.webp")
     
+    #18
+    longPond=
+    Trail.create!(
+      name: "Long Pond and Green Trail Loop",
+      description: "Enjoy this 5.1-mile loop trail near Ridge, New York. Generally considered an easy route, it takes an average of 1 h 35 min to complete. This trail is great for hiking, horseback riding, and mountain biking, and it's unlikely you'll encounter many other people while exploring. The best times to visit this trail are March through June. Dogs are welcome, but must be on a leash.",
+      location: "2500 William Floyd Pkwy, Ridge, NY 11961",
+      difficulty: "Easy",
+      length: 5.1, 
+      latitude: 40.9103569246585, 
+      longitude:-72.86984966098065  
+    )
+    longPond.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/brookhavenStatePark.webp"), filename: "brookhavenStatePark.webp")
+
+    #19
+    tiffany=
+    Trail.create!(
+      name: "Nassau-Suffolk Trail: Cold Spring Harbor to Uplands Farm Sanctuary",
+      description: "Try this 2.8-mile loop trail near Oyster Bay, New York. Generally considered an easy route, it takes an average of 1 h 2 min to complete. This trail is great for birding, hiking, and running, and it's unlikely you'll encounter many other people while exploring. The best times to visit this trail are January through February. You'll need to leave pups at home — dogs aren't allowed on this trail.",
+      location: "Oyster Bay, NY 11771",
+      difficulty: "Easy",
+      length: 2.8, 
+      latitude: 40.85966218332627, 
+      longitude:-73.51898112501044 
+    )
+    tiffany.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/tiffany.webp"), filename: "tiffany.webp")
+ 
     
     # More users
+
     10.times do 
       User.create!({
         username: Faker::Internet.unique.username(specifier: 3),
@@ -254,11 +294,10 @@ require "open-uri"
       
       "The trail was #{trail_experience}. The trail conditions were #{trail_condition}, and the weather was #{weather_condition}. #{random_thoughts}"
     end
-    # Seed data for reviews
+
     (1..10).each do |user_id|
-      (1..16).each do |trail_id|
-        # Generate at least 3 reviews for each trail
-        # (1..3).each do
+      (1..19).each do |trail_id|
+        
         Review.create!(
           user_id: user_id,
           trail_id: trail_id,
