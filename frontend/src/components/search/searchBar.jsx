@@ -44,10 +44,11 @@ function SearchBar(){
     return (
         <>
         <div className="searchBar">
+        <div id="WelcomestatmentContainer">
         <h1 id="Welcomestatment">
-        Welcome {currentUser ? 'Back' : 'Start'} {currentUser ? `${capitalizeFirstLetter(currentUser?.fname)} ${capitalizeFirstLetter(currentUser?.lname)}` : 'Your Search'} 
-        
+        Welcome {currentUser ? 'Back' : 'Start'} {currentUser ? `${capitalizeFirstLetter(currentUser?.fname)} ${capitalizeFirstLetter(currentUser?.lname)}` : 'Your Search'}  
       </h1>
+      </div>
             
             <input 
             type="text"

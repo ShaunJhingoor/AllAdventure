@@ -27,16 +27,23 @@
   z-index: 3;
 }
 
+
+
+#WelcomestatmentContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100vh;
+}
+
 #Welcomestatment{
   position: absolute;
   font-weight: 400;
   font-family: manrope-m;
   color:#fff;
   line-height: 78px;
-
-  font-size: 60px;
-  margin-left:20%;
   bottom: 60%;
+  font-size: 60px;
   z-index: 3;
 }
 
