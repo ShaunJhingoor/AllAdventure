@@ -18,12 +18,12 @@ function SignupForm() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Navigate to="/" replace={true}/>;
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
+      return dispatch(sessionActions.signup({ email, username, password,fname,lname }))
         .catch(async (res) => {
         let data;
         try {

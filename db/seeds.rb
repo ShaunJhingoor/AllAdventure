@@ -259,7 +259,7 @@ require "open-uri"
     #19
     tiffany=
     Trail.create!(
-      name: "Nassau-Suffolk Trail: Cold Spring Harbor to Uplands Farm Sanctuary",
+      name: "Tiffany Creek Preserve Loop",
       description: "Try this 2.8-mile loop trail near Oyster Bay, New York. Generally considered an easy route, it takes an average of 1 h 2 min to complete. This trail is great for birding, hiking, and running, and it's unlikely you'll encounter many other people while exploring. The best times to visit this trail are January through February. You'll need to leave pups at home — dogs aren't allowed on this trail.",
       location: "Oyster Bay, NY 11771",
       difficulty: "Easy",
@@ -269,7 +269,18 @@ require "open-uri"
     )
     tiffany.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/tiffany.webp"), filename: "tiffany.webp")
  
-    
+    #20 
+    coldSpring=Trail.create!(
+      name: "Nassau-Suffolk Trail: Cold Spring Harbor to Uplands Farm Sanctuary",
+      description: "Get to know this 5.2-mile out-and-back trail near Cold Spring Harbor, New York. Generally considered a moderately challenging route, it takes an average of 2 h 21 min to complete. This is a very popular area for birding, cross-country skiing, and hiking, so you'll likely encounter other people while exploring. The trail is open year-round and is beautiful to visit anytime.",
+      location: "250 Lawrence Hill Rd, Cold Spring Harbor, NY 11724",
+      difficulty: "Moderate",
+      length: 5.2, 
+      latitude: 40.85966218332627, 
+      longitude:-73.51898112501044 
+    )
+    coldSpring.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/cold-harbor.webp"), filename: "cold-harbor.webp")
+ 
     # More users
 
     10.times do 
@@ -287,16 +298,18 @@ require "open-uri"
     
     def generate_realistic_review
       
-      trail_experience = ["amazing", "breathtaking", "challenging", "peaceful", "exciting", "refreshing"].sample
-      trail_condition = ["well-maintained", "scenic", "wild", "rocky", "lush"].sample
-      weather_condition = ["sunny", "cloudy", "windy", "rainy"].sample
-      random_thoughts = ["I can't wait to go back!", "Highly recommended!", "A hidden gem!", "A must-visit trail!", "Great for nature lovers!"].sample
+      trail_experience = ["amazing", "breathtaking", "challenging", "peaceful", "exciting", "refreshing", "captivating", "awe-inspiring"].sample
+      trail_condition = ["well-maintained", "scenic", "wild", "rocky", "lush", "undeveloped", "rugged", "pristine", "muddy", "disheveled"].sample
+      weather_condition = ["sunny", "cloudy", "windy", "rainy", "misty", "clear", "stormy", "foggy"].sample
+      random_thoughts = ["I can't wait to go back!", "Highly recommended!", "A hidden gem!", "A must-visit trail!", "Great for nature lovers!", "An unforgettable experience!", "A nature lover's paradise!"].sample
+      popular = ["secluded", "popular", "quiet", "crowded", "hidden", "off-the-beaten-path", "well-known"].sample
+
       
-      "The trail was #{trail_experience}. The trail conditions were #{trail_condition}, and the weather was #{weather_condition}. #{random_thoughts}"
+      "The trail was #{trail_experience}. The trail conditions were #{trail_condition}, and the weather was #{weather_condition}. The trail was #{popular}.#{random_thoughts}"
     end
 
-    (1..10).each do |user_id|
-      (1..19).each do |trail_id|
+    (1..11).each do |user_id|
+      (1..20).each do |trail_id|
         
         Review.create!(
           user_id: user_id,
