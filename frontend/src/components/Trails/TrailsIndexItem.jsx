@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom'
 import AverageRating from '../Rating/averagerating'
 
 function TrailsIndexItem({trail,setCenter, setZoom}){
-    console.log(trail.photoUrl)
     const currentUser = useSelector(state=> state?.session.user)
-    console.log(trail)
+ 
 
 
     return (

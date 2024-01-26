@@ -6,7 +6,7 @@ import '../Trails/TrailsIndexItem.css';
 
 function SearchIndexItem({result}){
     const currentUser = useSelector(state=> state?.session.user)
-    console.log(result)
+    
     
     return (
         <>
