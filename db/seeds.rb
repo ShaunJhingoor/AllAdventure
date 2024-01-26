@@ -276,8 +276,8 @@ require "open-uri"
       location: "250 Lawrence Hill Rd, Cold Spring Harbor, NY 11724",
       difficulty: "Moderate",
       length: 5.2, 
-      latitude: 40.85966218332627, 
-      longitude:-73.51898112501044 
+      latitude: 40.859372815128594, 
+      longitude:-73.45988460314258
     )
     coldSpring.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/cold-harbor.webp"), filename: "cold-harbor.webp")
  

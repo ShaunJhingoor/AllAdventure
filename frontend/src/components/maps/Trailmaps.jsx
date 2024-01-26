@@ -28,10 +28,7 @@ export const TrailMap = ({trails, center,zoom}) => {
         return null 
     }
     
-    // const latitude = trails[0]?.latitude
-    // const longitude = trails[0]?.longitude 
 
-    // const center = ({lat:  40.7299341, lng: -74.013928})
 
     const img = {
         url: pin
