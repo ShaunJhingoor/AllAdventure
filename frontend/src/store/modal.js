@@ -1,6 +1,6 @@
 
 const SHOW_MODAL = 'modal/showModal';
-const HIDE_MODAL = 'modal/hideModal';
+const HIDE_MODAL = 'modal/hideModal'
 
 export const showModal = (modalType) => ({
   type: SHOW_MODAL,
