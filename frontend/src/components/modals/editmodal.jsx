@@ -17,7 +17,7 @@ function EditModal({review,trail,visible,setVisible}){
 
         if (trimmedReview.length === 0) {
         
-          setReviewError("Review cannot be only spaces");
+          setReviewError("Review cannot be empty");
           return;
         }
         const updateReview = {
