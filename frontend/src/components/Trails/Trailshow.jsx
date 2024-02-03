@@ -56,7 +56,7 @@ function TrailShow(){
               <br />
               <div id="modalAverage">
                 <div id="modalAverage">
-               <p id="averageRating"><FancyAverageRating trail={trail}/> </p>
+               <div id="averageRating"><FancyAverageRating trail={trail}/> </div>
                <br />
                </div >
                <div id="createReviewHolder">

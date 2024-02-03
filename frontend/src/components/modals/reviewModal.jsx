@@ -8,6 +8,7 @@ function CreateModal({ trail }) {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
   const dispatch = useDispatch();
+  const [reviewError, setReviewError] = useState(null);
   const currentUser = useSelector((state) => state.session.user);
   
 
@@ -18,9 +19,17 @@ function CreateModal({ trail }) {
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
+    const trimmedReview = review.trim();
+
+
+    if (trimmedReview.length === 0) {
+    
+      setReviewError("Review cannot be only spaces");
+      return;
+    }
     const newReview = {
       review: {
-        review: review,
+        review: trimmedReview,
         trail_id: trail.id,
         rating: rating,
         user_id: currentUser.id,
@@ -61,13 +70,16 @@ function CreateModal({ trail }) {
           placeholder="What do you want to talk about?"
           maxLength="3000"
           value={review}
-          onChange={(e) => setReview(e.target.value)}
+          onChange={(e) => {
+            setReview(e.target.value);
+            setReviewError(null);
+          }}
         />
         
-       
-        
         </div>
+        {reviewError && <p id="errormessage">{reviewError}</p>}
      
+        
         <div id="submitContainer">
         
        

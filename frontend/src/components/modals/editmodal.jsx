@@ -8,9 +8,18 @@ function EditModal({review,trail,visible,setVisible}){
     const dispatch = useDispatch()
     const[review1,setReview] = useState(review.review)
     const [rating, setRating] = useState(review.rating);
+    const [reviewError, setReviewError] = useState(null);
 
     const handleSubmitReview = async (e) => {
         e.preventDefault();
+        const trimmedReview = review1.trim();
+
+
+        if (trimmedReview.length === 0) {
+        
+          setReviewError("Review cannot be only spaces");
+          return;
+        }
         const updateReview = {
             id: review.id,
             trail_id: review.trail_id,
@@ -65,7 +74,8 @@ function EditModal({review,trail,visible,setVisible}){
               onChange={(e) => setReview(e.target.value)}
             />
             
-            {/* </div> */}
+        
+            {reviewError && <p id="errormessage">{reviewError}</p>}
             
             </div>
          

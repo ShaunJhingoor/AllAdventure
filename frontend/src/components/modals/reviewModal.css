@@ -107,3 +107,10 @@
   color: rgb(38,67,17);
 }
 
+#errormessage{
+  color: red;
+  font-family: beatrice;
+  font: Arial,sans-serif;
+  font-size: 15px;
+  margin-left: 8vw;
+}
