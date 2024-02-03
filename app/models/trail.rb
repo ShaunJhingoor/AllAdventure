@@ -26,7 +26,7 @@ class Trail < ApplicationRecord
     has_many :review, 
     dependent: :destroy
 
-    def self.search_names(query)
-        where("lower(name) LIKE ?", "%#{sanitize_sql_like(query)}%")
-    end
+  def self.search_names(query)
+    where("lower(name) LIKE ?", "%#{sanitize_sql_like(query.downcase)}%")
+  end
 end
