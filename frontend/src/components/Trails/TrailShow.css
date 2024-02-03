@@ -94,8 +94,8 @@
 }
 
 #showpagefooter{
-  max-width: 100%;
-  height: 300px;
+  max-width: 100vw;
+  height: 20vh;
   background-color: #142800;
 }
 

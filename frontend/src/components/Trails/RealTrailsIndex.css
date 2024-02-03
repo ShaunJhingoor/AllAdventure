@@ -92,8 +92,8 @@
   }
 
   #realTrailIndexFooter{
-    max-width: 100%;
-    height: 200px;
+    max-width: 100vw;
+    height: 10vh;
     background-color: #142800;
   }
 

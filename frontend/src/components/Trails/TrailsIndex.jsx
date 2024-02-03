@@ -8,6 +8,8 @@ import { Link } from "react-router-dom"
 import home from "../../images/home.jpeg"
 import SearchBar from '../search/searchBar';
 import { useState } from "react"
+import github from "../../images/github.png"
+import linkedIn from "../../images/linkedin.png"
 
 function TrailsIndex(){
     const trails = useSelector(trailsArray)
@@ -50,7 +52,14 @@ function TrailsIndex(){
         </div>
             
         </div>
-        <div id="splashFooter"></div>
+        <div id="splashFooter">
+        <a href="https://github.com/ShaunJhingoor" target="_blank" rel="noopener noreferrer">
+        <img src={github} alt="GitHub Logo" width="50" height="50"/>
+        </a>
+        <a href="https://www.linkedin.com/in/shaun-jhingoor-10a50328a/" target="_blank" rel="noopener noreferrer">
+        <img src={linkedIn} alt="linkedin Logo" width="50" height="50"/>
+        </a>
+        </div>
         </>
     )
 }

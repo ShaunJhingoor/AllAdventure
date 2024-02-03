@@ -7,6 +7,8 @@ import "./RealTrailsIndex.css";
 import { useEffect } from "react";
 import  TrailMapWrapper from "../maps/Trailmaps"
 import SmallSearchBar from "../search/smallsearchbar";
+import github from "../../images/github.png"
+import linkedIn from "../../images/linkedin.png"
 
 function RealTrailsIndex() {
   const trails = useSelector(trailsArray);
@@ -73,6 +75,12 @@ function RealTrailsIndex() {
 
       <div 
       id="realTrailIndexFooter">
+         <a href="https://github.com/ShaunJhingoor" target="_blank" rel="noopener noreferrer">
+        <img src={github} alt="GitHub Logo" width="50" height="50"/>
+        </a>
+        <a href="https://www.linkedin.com/in/shaun-jhingoor-10a50328a/" target="_blank" rel="noopener noreferrer">
+        <img src={linkedIn} alt="linkedin Logo" width="50" height="50"/>
+        </a>
       </div>
       
     </div>

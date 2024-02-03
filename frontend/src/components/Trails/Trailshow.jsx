@@ -8,6 +8,8 @@ import CreateReview from "../Reviews/createReview"
 import AverageRating from "../Rating/averagerating"
 import FancyAverageRating from "../Rating/fancyaveragerating"
 import SmallSearchBar from "../search/smallsearchbar"
+import github from "../../images/github.png"
+import linkedIn from "../../images/linkedin.png"
 
 function TrailShow(){
     const {trailId} = useParams()
@@ -73,7 +75,12 @@ function TrailShow(){
         <br />
         <br />
         <div id="showpagefooter">
-
+          <a href="https://github.com/ShaunJhingoor" target="_blank" rel="noopener noreferrer">
+          <img src={github} alt="GitHub Logo" width="50" height="50"/>
+          </a>
+          <a href="https://www.linkedin.com/in/shaun-jhingoor-10a50328a/" target="_blank" rel="noopener noreferrer">
+          <img src={linkedIn} alt="linkedin Logo" width="50" height="50"/>
+          </a>
         </div>
         </div>
       );
