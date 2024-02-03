@@ -7,11 +7,16 @@ import "./TrailsIndex.css"
 import { Link } from "react-router-dom"
 import home from "../../images/home.jpeg"
 import SearchBar from '../search/searchBar';
+import { useState } from "react"
 
 function TrailsIndex(){
     const trails = useSelector(trailsArray)
+    const [center, setCenter] = useState({lat:  40.79142619411136, lng:-73.58735483173312})
+    const [zoom, setZoom] = useState(10)
     
-        
+        zoom 
+        center
+    
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -31,7 +36,7 @@ function TrailsIndex(){
             <br />
         <div id="trailindexwrapper">
             {trails.slice(0,3).map((trail,index) => 
-                <TrailsIndexItem key={`${trail.id}_${index}`} trail={trail} />)}
+                <TrailsIndexItem key={`${trail.id}_${index}`} trail={trail} setCenter={setCenter} setZoom={setZoom}/>)}
             <Link to='/trails' id="showIndexBoxLink">
                 <div id='showIndexBox'>
                 <h1 id="showIndexBoxContent">
