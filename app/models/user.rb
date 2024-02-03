@@ -23,7 +23,7 @@ class User < ApplicationRecord
     length: { in: 3..40 }, 
     format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
   validates :email, 
-    uniqueness: true, 
+    uniqueness:  {case_sensitive: false}, 
     length: { in: 3..100 }, 
     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :session_token, presence: true, uniqueness: true

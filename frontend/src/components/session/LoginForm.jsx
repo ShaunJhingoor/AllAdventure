@@ -13,11 +13,11 @@ function LoginForm() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
-
+  const lowerCaseCredential = credential.toLowerCase();
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password }))
+    return dispatch(sessionActions.login({ credential : lowerCaseCredential, password }))
       .catch(async (res) => {
         let data;
         try {
