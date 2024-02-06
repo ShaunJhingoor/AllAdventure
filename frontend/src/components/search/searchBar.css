@@ -10,14 +10,14 @@
   height: 4vh;
   border: 1px solid #ccc;
   border-radius: 50px;
-  width: 70vh;
+  width: 35vw;
   z-index: 3;
   outline: none;
 }
 
 #searchBarButton{
   position: absolute;
-  width: 5vh;
+  width: 5vw;
   margin-left: 62%;
   margin-bottom: 33%;
   color: white;
