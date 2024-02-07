@@ -10,12 +10,12 @@ import FancyAverageRating from "../Rating/fancyaveragerating"
 import SmallSearchBar from "../search/smallsearchbar"
 import github from "../../images/github.png"
 import linkedIn from "../../images/linkedin.png"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
 
 function TrailShow(){
     const {trailId} = useParams()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     
 
     
@@ -26,12 +26,17 @@ function TrailShow(){
        dispatch(Fetchtrail(trailId))
     }, [dispatch, trailId]);
 
-    useEffect(() => {
-      if (trail === null) {
-          navigate('/trails');
-      }
-  }, [trail, navigate]);
-  
+  //   useEffect(() => {
+  //     if (trail === null || !trail) {
+  //         navigate('/trails');
+  //     }
+  // }, [dispatch, trailId, trail, navigate]);
+   
+  if (trail === null || !trail) {
+      return(
+        <h1>This Trail does exist</h1>
+      )
+    }
     return (
         <div id="showWrapper">
           <div id="showHeader">
