@@ -57,7 +57,7 @@ export const Fetchtrail = (trailId) => async dispatch => {
          case SET_TRAILS: 
             return {...newState, ...action.trails}
         case SET_TRAIL: 
-            newState[action.trail.trail.id] = action.trail.trail
+            newState[action.trail.trail.id ] = action.trail.trail 
             return newState
         default:
             return state
