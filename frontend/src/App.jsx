@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet, createBrowserRouter, RouterProvider } from 'react-router-dom';
-import LoginForm from './components/session/loginform';
+import LoginForm from './components/session/LoginForm';
 import SignupForm from './components/session/SignupForm';
 import Navigation from './components/Navigation/Navigation';
 import * as sessionActions from './store/session';

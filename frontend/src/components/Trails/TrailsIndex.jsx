@@ -28,7 +28,7 @@ function TrailsIndex(){
     return(
         <>
         
-        <img src={home} alt="home" id="homepageimag"/>
+        <img src={home} alt="home" id="homepageimag" />
         <SearchBar/>
         <div id='indexWrapper'>
             <br />

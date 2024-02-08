@@ -10,12 +10,13 @@ import FancyAverageRating from "../Rating/fancyaveragerating"
 import SmallSearchBar from "../search/smallsearchbar"
 import github from "../../images/github.png"
 import linkedIn from "../../images/linkedin.png"
-// import { useNavigate } from "react-router-dom"
+import camping from "../../images/camping.png"
+import { useNavigate } from "react-router-dom"
 
 
 function TrailShow(){
     const {trailId} = useParams()
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     
 
     
@@ -34,7 +35,15 @@ function TrailShow(){
    
   if (trail === null || !trail) {
       return(
-        <h1>This Trail does exist</h1>
+        <div className="invalidTrail">
+        <img src={camping} alt="camping" id="invalidTrailImg"/>
+        <h1 id="invalidTrailError">404</h1>
+        
+        <h1 id="invalidTrailHeader">We have reached the end of the trail</h1>
+        <p id="invalidTrailStatment">The page you are looking for either does not exist or has a new link. Let us get you back on the right path.</p>
+        <br />
+        <button type="submit" onClick={()=>navigate("/trails")} id='InvalidTrailButton'>Find Your Next Adventure</button>
+        </div>
       )
     }
     return (
