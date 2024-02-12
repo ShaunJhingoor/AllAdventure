@@ -107,14 +107,13 @@ function SignupForm() {
             required
           />
           <br />
-        <br />
         <button type="submit" id='signUpButton'>Sign Up</button>
         <br />
         <p>Already have an account? <NavLink to="/login">Log In</NavLink></p> 
+        <br />
       </form>
       </div>
       <div className='signUpFooter'>
-
     </div>
     </>
   );
