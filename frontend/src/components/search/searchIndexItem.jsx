@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import AverageRating from '../Rating/averagerating'
-import '../Trails/TrailsIndexItem.css';
+
+import '../search/SearchIndexItem.css'
 
 
 function SearchIndexItem({result}){
@@ -9,27 +10,28 @@ function SearchIndexItem({result}){
     
     
     return (
+        
         <>
-            
-        <div id='trailinfo'>
-        
-            
-            <Link to={ currentUser? `/trails/${result.id}`: '/signUp'} >
-               
-                <img src={result?.photoUrl} alt="result" id="trailimag" />
-             </Link>
-               
-            <Link to={currentUser? `/trails/${result.id}`: '/signUp'} style={{ textDecoration: 'none' }}>
-                <p id='hometrailname'>{result.name}</p>
-                <ul id='splashpageTrail'> 
+      <div id='searchInfo'>
+
+    <Link to={ currentUser? `/trails/${result.id}`: '/signUp'} >
+        <img src={result?.photoUrl} alt="result" id="searchImag" />
+    </Link>
+    <Link to={currentUser? `/trails/${result.id}`: '/signUp'} style={{ textDecoration: 'none' }}>
+
+        <div className="detailsContainer">
+            <p id='searchtrailname'>{result.name}</p>
+            <ul id='searchTrail'> 
                 <li>&#9733; <AverageRating trail={result}/> &bull; {result.length}mi &bull; {result.difficulty}</li>
-                </ul>
-            </Link>
+            </ul>
+        </div>
+    </Link>
+</div>
+
+            
             
         
-            
-        </div>
-        </>
+        </>   
         
         
     )

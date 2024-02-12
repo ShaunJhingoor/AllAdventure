@@ -15,6 +15,8 @@ function SearchBar(){
     const navigate = useNavigate();
     const currentUser = useSelector(state=> state?.session.user)
 
+   
+
     const handleSearch = () => {
         if(searchValue.trim() !== ''){
             

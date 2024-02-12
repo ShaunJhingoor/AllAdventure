@@ -1,0 +1,41 @@
+#searchInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+#searchImag {
+    border-radius: 20px;
+    height: 50vh; 
+    width: 30vw; 
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 20px; 
+}
+
+#searchImag:hover {
+    transform: scale(1.03);
+}
+
+.detailsContainer {
+    text-align: center;
+}
+
+#searchtrailname {
+    font-weight: 700;
+    font-size: 24px; 
+    font-family: monrope-m;
+    color: #142800;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+#searchTrail {
+    color: #142800;
+    font-weight: 400;
+    font-size: 20px; 
+    font-family: monrope-m;
+    word-spacing: 2px;
+    padding-bottom: 40px;
+}
+

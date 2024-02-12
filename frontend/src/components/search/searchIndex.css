@@ -1,10 +1,20 @@
-#SearchIndexWrapper{
+#IndexWrapper{
     display: flex;
-    flex-wrap: nowrap;
-    padding: 0px 0px 16px 16px;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
+
+#SearchIndexWrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    justify-content: center;
+    align-items: flex-start; 
+    margin: 0 auto; 
+    max-width: 1200px; 
+}
+
 
 #SearchIndexheader{
     width: 100%;
@@ -14,7 +24,38 @@
 }
 
 #SearchIndexContainer {
-    background-color: rgb(239,239,236);
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center; 
+    background-color: rgb(239, 239, 236);
     height: 100vh;
-    overflow-y: scroll; 
-  }
+    width: 100vw;
+    overflow-y: auto;
+}
+
+#numberOfSearch{
+    font-weight: bold;
+    font-size: 20px;
+    font-family: manrope-m;
+    color:#1f3d00;
+    line-height: 39.6px;
+    letter-spacing: -1px;
+    margin-left: 5vw;
+    /* text-decoration: underline; */
+    width: 100vw;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); */
+}
+
+#number {
+    font-weight: bold;
+    font-size: 23px;
+    font-family: 'Manrope', sans-serif;
+    color: #142800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); */
+    display: inline-block; 
+   
+   
+}

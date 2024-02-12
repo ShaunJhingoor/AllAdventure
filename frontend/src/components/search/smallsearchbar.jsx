@@ -14,6 +14,7 @@ function SmallSearchBar() {
   const handleSearch = () => {
     if (searchValue.trim() !== '') {
       dispatch(fetchSearch(searchValue));
+      setSearchValue('')
     } else {
       dispatch(clearSearchTrails());
     }
@@ -24,6 +25,7 @@ function SmallSearchBar() {
         e.preventDefault();
         handleSearch()
         navigate("/trails/search")
+        setSearchValue('')
     }
   };
 
