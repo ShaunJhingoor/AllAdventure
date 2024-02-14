@@ -14,10 +14,10 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
-    def update 
+    def update
         @review = Review.find_by(id: params[:id])
         @user= User.find_by(id: @review.user_id)
-        if @review.user_id == current_user.id && @review.update(review_params)
+        if @review && @review.user_id == @user.id && @review.update(review_params)
             render :show 
         else 
             render json: {errors: @review.errors.full_messages}, status: :unprocessable_entity

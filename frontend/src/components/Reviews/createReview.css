@@ -1,7 +1,7 @@
 .createReviewWrapper{
   display: flex;
-  justify-content: flex-start;
-  margin-top: 20px;
+  justify-content: flex-end;
+  position: relative
 
 }
 
@@ -16,7 +16,7 @@
    background-color: #264311;
    position: relative;
    box-sizing: border-box;
-   left: 30vw;
+   margin-left: 26vw;
    width: 140px;
    height: 50px;
    border-radius: 70px;
@@ -25,8 +25,9 @@
 }
 
 #createReviewButton:hover{
-    background-color: #142800;
+    background-color: #284e01;
 }
+
 #createReviewButtonContent{
   font-weight: 700;
   font-size: 16px;
