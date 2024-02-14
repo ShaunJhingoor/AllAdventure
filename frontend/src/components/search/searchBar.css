@@ -4,10 +4,10 @@
 }
  #searchBarInput{
   position: absolute;
-  padding: 20px;
-  margin-left: 30%;
-  margin-bottom: 33%;
-  height: 4vh;
+  /* padding: 20px; */
+  margin-left: 2vw;
+  margin-bottom: 70vh;
+  height: 8vh;
   border: 1px solid #ccc;
   border-radius: 50px;
   width: 35vw;
@@ -18,8 +18,8 @@
 #searchBarButton{
   position: absolute;
   width: 5vw;
-  margin-left: 62%;
-  margin-bottom: 33%;
+  margin-left: 35vw;
+  margin-bottom: 70vh;
   color: white;
   border: none;
   cursor: pointer;
@@ -32,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 100vh;
+  margin-left: 50vw;
 }
 
 #Welcomestatment{
@@ -41,9 +41,21 @@
   font-family: manrope-m;
   color:#fff;
   line-height: 78px;
-  bottom: 60%;
+  margin-bottom: 100vh;
   font-size: 60px;
   z-index: 3;
 }
 
 
+#mapLink{
+  position: absolute;
+  font-weight: 700;
+  font-family: manrope-m;
+  color:#fff;
+  line-height: 30px;
+  margin-bottom: 50vh;
+  font-size: 20px;
+  z-index: 3;
+  text-decoration: underline;
+  cursor: pointer;
+}

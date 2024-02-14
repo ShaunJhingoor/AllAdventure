@@ -37,9 +37,9 @@ function TrailsIndex(){
         </Link>
             <br />
         <div id="trailindexwrapper">
-            {trails.slice(0,3).map((trail,index) => 
+            {trails.slice(0,4).map((trail,index) => 
                 <TrailsIndexItem key={`${trail?.id}_${index}`} trail={trail} setCenter={setCenter} setZoom={setZoom}/>)}
-            <Link to='/trails' id="showIndexBoxLink">
+            {/* <Link to='/trails' id="showIndexBoxLink">
                 <div id='showIndexBox'>
                 <h1 id="showIndexBoxContent">
                     <span id='showIndexBoxContent1'>Show More</span>
@@ -47,8 +47,8 @@ function TrailsIndex(){
                 </h1>
                 {/* <h1 id="showIndexBoxContent2">{">"}</h1> */}
                 
-            </div>
-            </Link>
+            {/* </div>
+            </Link> */} 
         </div>
             
         </div>

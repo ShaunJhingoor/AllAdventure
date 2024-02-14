@@ -17,7 +17,7 @@ function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Navigate to="/" replace={true}/>;
+  if (sessionUser) return <Navigate to="/trails" replace={true}/>;
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,6 +59,7 @@ function SignupForm() {
             placeholder='First Name'
             id='signUpFname'
             onChange={(e) => setFname(e.target.value)}
+            style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
           <br />
@@ -68,6 +69,7 @@ function SignupForm() {
             placeholder='Last Name'
             id='signUpLname'
             onChange={(e) => setLname(e.target.value)}
+            style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
           <br />
@@ -77,6 +79,7 @@ function SignupForm() {
             placeholder='Email'
             id='signUpEmail'
             onChange={(e) => setEmail(e.target.value)}
+            style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
           <br />
@@ -86,6 +89,7 @@ function SignupForm() {
             placeholder='Username'
             id='signUpUsername'
             onChange={(e) => setUsername(e.target.value)}
+            style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
           <br />
@@ -95,6 +99,7 @@ function SignupForm() {
             id='signUpPassword'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
           <br />
@@ -104,6 +109,7 @@ function SignupForm() {
             value={confirmPassword}
             placeholder='Confirm Password'
             onChange={(e) => setConfirmPassword(e.target.value)}
+            style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
           <br />

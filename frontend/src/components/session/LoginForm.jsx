@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate} from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import './LoginForm.css';
 
@@ -11,18 +11,18 @@ function LoginForm() {
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
-
-  if (sessionUser) return <Navigate to="/" replace={true} />;
-  const lowerCaseCredential = credential.toLowerCase();
+  
+  if (sessionUser) return <Navigate to="/trails" replace={true} />;
   const handleSubmit = (e) => {
-    e.preventDefault();
+   e.preventDefault()
     setErrors([]);
-    return dispatch(sessionActions.login({ credential : lowerCaseCredential, password }))
+    dispatch(sessionActions.login({ credential : credential, password: password }))
       .catch(async (res) => {
         let data;
         try {
           // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
+
         } catch {
           data = await res.text(); // Will hit this case if the server is down
         }
@@ -49,6 +49,7 @@ function LoginForm() {
             value={credential}
             placeholder="Username or Email"
             onChange={(e) => setCredential(e.target.value)}
+            style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
        
@@ -59,6 +60,7 @@ function LoginForm() {
             value={password}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+            style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
         <br />
@@ -67,7 +69,7 @@ function LoginForm() {
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
         <br />
-        <button type="submit" id='loginbutton'>Log In</button>
+        <button type="submit" id='loginbutton' >Log In</button>
         <br />
         <p>Do not have an account? <NavLink to="/signup">Sign Up</NavLink> </p> 
       </form>

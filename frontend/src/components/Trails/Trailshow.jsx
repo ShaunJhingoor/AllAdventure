@@ -12,6 +12,7 @@ import github from "../../images/github.png"
 import linkedIn from "../../images/linkedin.png"
 import camping from "../../images/camping.png"
 import { useNavigate } from "react-router-dom"
+import SmallTrailMapWrapper from "../maps/Smalltrailmap"
 
 
 function TrailShow(){
@@ -47,6 +48,7 @@ function TrailShow(){
       )
     }
     return (
+      <>
         <div id="showWrapper">
           <div id="showHeader">
             <SmallSearchBar/>
@@ -71,7 +73,6 @@ function TrailShow(){
             <br />
             <div id="breakerbarshow1"></div>
               <br />
-       
             <div id="showdescription">
                 <p>{trail?.description}</p>
                
@@ -79,14 +80,16 @@ function TrailShow(){
               <br />
               <div id="breakerbarshow1"></div>
               <br />
+              <div id="smallMap"><SmallTrailMapWrapper trail={trail}/></div>
+              
+              
               <div id="modalAverage">
                 <div id="modalAverage">
                <div id="averageRating"><FancyAverageRating trail={trail}/> </div>
                <br />
                </div >
-               <div id="createReviewHolder">
+
                <CreateReview key={trail?.id} trail={trail}/>
-               </div>
                </div>
               <br />
                 <br />
@@ -97,6 +100,7 @@ function TrailShow(){
         </div>
         <br />
         <br />
+        </div>
         <div id="showpagefooter">
           <a href="https://github.com/ShaunJhingoor" target="_blank" rel="noopener noreferrer">
           <img src={github} alt="GitHub Logo" width="50" height="50"/>
@@ -105,7 +109,7 @@ function TrailShow(){
           <img src={linkedIn} alt="linkedin Logo" width="50" height="50"/>
           </a>
         </div>
-        </div>
+        </>
       );
       
 }

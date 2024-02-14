@@ -47,9 +47,9 @@ function SearchBar(){
         <>
         <div className="searchBar">
         <div id="WelcomestatmentContainer">
-        <h1 id="Welcomestatment">
+        <div id="Welcomestatment">
         Welcome {currentUser ? 'Back' : 'Start'} {currentUser ? `${capitalizeFirstLetter(currentUser?.fname)} ${capitalizeFirstLetter(currentUser?.lname)}` : 'Your Search'}  
-      </h1>
+      
       </div>
             
             <input 
@@ -59,10 +59,13 @@ function SearchBar(){
             onChange={(e) => setSearchValue(e.target.value)}
             id="searchBarInput"
             onKeyDown={handleSearchEnter}
+            style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             />
            
             <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search"   onClick={handleSearch} /></Link>
             
+        <h1 id="mapLink" onClick={() => navigate("/trails")}>Explore nearby trails</h1>
+        </div>
         </div>
         </>
     )

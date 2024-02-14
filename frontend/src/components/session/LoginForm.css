@@ -2,9 +2,8 @@
   background-color: white;
   box-sizing: border-box;
   position: absolute;
-  top: 62%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 0.5vh;
+  margin-left: 33vw;
   border: 2px solid rgba(0, 0, 0, 0.165);
   width: 33vw;
   height: 99vh;
@@ -25,8 +24,8 @@
 }
 
 #loginusername {
-  height: 20px;
-  width: 340px;
+  height: 2.5vh;
+  width: 20vw;
   padding: 10px;
   border-radius: 10px;
   border: 2px solid gray
@@ -37,8 +36,8 @@
 }
 
 #loginpassword{
-  height: 20px;
-  width: 340px;
+  height: 2.5vh;
+  width: 20vw;
   padding: 10px;
   border-radius: 10px;
   border: 2px solid gray
@@ -53,12 +52,14 @@
   color: white;
   font-size: 15px;
   border-radius: 20px;
-  height: 40px;
-  width: 340px;
+  height: 5vh;
+  width: 20vw;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center; 
+  font-family: beatrice;
+  font: Arial,sans-serif
 }
 
 #loginheader{

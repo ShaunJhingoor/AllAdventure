@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './Profilebutton';
 import './Navigation.css';
@@ -9,11 +9,15 @@ import adventureIcon from "../../images/adventureIcon.png"
 
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user);
+    const navigate = useNavigate()
     const dispatch = useDispatch()
+    
     const demoLogin = (e) => {
       e.preventDefault() 
-      return dispatch(sessionActions.login({credential:'Demo-lition', password:'password'}))
+      dispatch(sessionActions.login({credential:'Demo-lition', password:'password'})) 
+      navigate("/trails")
     }
+
     let sessionLinks;
     if (sessionUser) {
       sessionLinks = (

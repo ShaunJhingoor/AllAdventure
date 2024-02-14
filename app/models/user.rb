@@ -33,26 +33,20 @@ class User < ApplicationRecord
   has_many :reviews, 
     dependent: :destroy
 
-  def self.find_by_credentials(credential,password)
-   
-    if (credential =~ URI::MailTo::EMAIL_REGEXP) == 0
+    def self.find_by_credentials(credential, password)
+      if (credential =~ URI::MailTo::EMAIL_REGEXP) == 0
+        user = User.where('lower(email) = ?', credential.downcase).first
+
+      else
+        user = User.where('lower(username) = ?', credential.downcase).first
+      end
   
-      user = User.find_by(email: credential)
-
-    else
-
-      user = User.find_by(username: credential)
-
+      if user && user.authenticate(password)
+        return user
+      else
+        nil
+      end
     end
-
-    if user && user.authenticate(password)
-
-      return user
-    else
-
-      nil
-    end
-  end
 
   def reset_session_token!
     self.session_token = generate_unique_session_token
