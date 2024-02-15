@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  overflow-y: inherit;
+ 
 }
 
 .show {
@@ -11,7 +11,7 @@
   position: relative;
   margin-top: 50px;
   border: 2px solid rgba(0, 0, 0, 0.165);
-  width: 100vh;
+  width: 55vw;
   min-height: 80vh;
   border-radius: 25px;
   box-shadow: 0 1px 6px -2px rgba(0, 0, 0, 0.3);

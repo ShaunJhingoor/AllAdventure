@@ -21,10 +21,10 @@
 }
 
 #modal-content {
-  position: absolute;
+  position: relative;
   background-color: white;
   border-radius: 20px;
-  width: 70vh;
+  width: 35vw;
   height: 90vh;
 }
 
@@ -34,13 +34,13 @@
   margin-left: 5vh;
   border-style: none;
   border-radius: 2px;
-  width: 60vh;
+  width: 30vw;
   resize: none;
   height: 20vh;
 }
 #trailModalName{
   color: #142800;
-  font-size: 28px;
+  font-size: 35px;
   font-family: manrope-m;
   font-weight: 400;
   line-height: 36.4px;
@@ -54,15 +54,15 @@
   align-items: center;
 } */
 #ratingCreateReview{
- width: 700px;
+  width: 100vw;
 }
 #ratingCreateReviewContainer{
   margin-left: 5vh;
   margin-top: 10vh;
- 
+  
 }
 #ratingCreateReviewHeader{
-  font-size: 16px;
+  font-size: 28px;
   font-weight: 400;
   font-family: manrope-m;
   color: #142800;
@@ -71,8 +71,8 @@
 }
 #reviewReviewHeader{
   margin-left: 5vh;
-  margin-top: 20px;
-  font-size: 16px;
+  margin-top: 3vh;
+  font-size: 28px;
   font-weight: 400;
   font-family: manrope-m;
   color: #142800;
@@ -82,9 +82,9 @@
 #createReviewSubmit{
 
   border-radius: 50px;
-  position:absolute;
-  bottom: 5vh;
-  left: 59vh;
+  position:relative;
+  top:42vh;
+  left: -7vw;
   cursor: pointer;
   
 }

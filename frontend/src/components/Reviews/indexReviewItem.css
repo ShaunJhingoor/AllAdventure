@@ -35,14 +35,13 @@
 
 .reviewSettingsDropDownWrapper{
     display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: left;
+    justify-content: center;
+    align-items: center;
     width: 150px;
     height: auto;
     position: absolute;
-    margin-left: 70vh;
-    margin-top: 25px;
+    margin-left: 41vw;
+    margin-top: 8px;
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -55,13 +54,11 @@
 
 #currentUserDots{
     position: relative;
-    margin-left: 70vh;
+    margin-left: 40vw;
     z-index: 1;
     width: 35px;
     height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    bottom: 2vh;
     font-size: 25px;
     cursor: pointer;
     border: 1px solid white;
@@ -73,4 +70,8 @@
 }
 
 
-
+.threedots{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}

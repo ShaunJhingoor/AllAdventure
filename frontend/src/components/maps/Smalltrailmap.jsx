@@ -37,8 +37,8 @@ export const TrailMap = ({trail}) => {
     }
 
     const containerStyle = {
-        width: '20vw',
-        height: '20vh',
+        width: '40%',
+        height: '25%',
         borderRadius: '50px',
         border: '2px solid black',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'

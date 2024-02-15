@@ -45,11 +45,10 @@ function EditModal({review,trail,visible,setVisible}){
         <div id="modal">
           <div id="modal-background" ></div>
           <div id="modal-content">
-            <div id="exitReviewCreaterContainer1">
+            <div id="exitReviewCreaterContainer">
             <p onClick={handleHideModal} id="exitReviewCreater">x</p>
             </div>
             <p id="trailModalName">{trail?.name}</p>
-            {/* <div id="CreateReviewContainer"> */}
             
               <div id="ratingCreateReviewContainer">
               <p id="ratingCreateReviewHeader">Rating</p>
@@ -65,7 +64,7 @@ function EditModal({review,trail,visible,setVisible}){
            
             <p id="reviewReviewHeader">Review</p>
            <br />
-            <textarea
+           <textarea
               id="reviewReview"
               type="textarea"
               placeholder="What do you want to talk about?"
@@ -74,12 +73,12 @@ function EditModal({review,trail,visible,setVisible}){
               onChange={(e) => setReview(e.target.value)}
             />
             
-        
-            {reviewError && <p id="errormessage">{reviewError}</p>}
-            
             </div>
+            {reviewError && <p id="errormessage">{reviewError}</p>}
          
-            <div id="submitContainer">
+            
+          </div>
+          <div id="submitContainer">
             
            
             <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit"    style={{
@@ -87,9 +86,10 @@ function EditModal({review,trail,visible,setVisible}){
               color:  'white',}}>
                 <p id="createReviewSubmitContent">Submit</p>
                 </button>
-            </div>
-          </div>
+            </div> 
         </div>
       );
     }
 export default EditModal
+
+

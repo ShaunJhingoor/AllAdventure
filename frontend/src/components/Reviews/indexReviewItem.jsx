@@ -37,9 +37,10 @@ function ReviewIndexItem({review, trail}) {
             {visible && <div className="reviewSettingsDropDownWrapper">
                 <ReviewDropDown review={review} visible={visible} setVisible={setVisible} trail={trail}/>
             </div>}
-            
+            <div className="threedots">
             {canEdit && <p id="currentUserDots" onClick={handleSettingDropDown}>&hellip;
             </p>}
+            </div>
             </span>
             <Rating rating={review?.rating}/>
             <p id="reviewIndexItemDescription">{review?.review}</p>

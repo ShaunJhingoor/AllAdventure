@@ -80,6 +80,7 @@ function CreateModal({ trail }) {
         {reviewError && <p id="errormessage">{reviewError}</p>}
      
         
+      </div>
         <div id="submitContainer">
         
        
@@ -89,7 +90,6 @@ function CreateModal({ trail }) {
             <p id="createReviewSubmitContent">Submit</p>
             </button>
         </div>
-      </div>
     </div>
   );
 }

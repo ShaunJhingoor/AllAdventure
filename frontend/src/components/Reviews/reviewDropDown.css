@@ -1,41 +1,20 @@
-.editModalWrapper {
-  margin-top: 5px;
-}
-
-#editReviewWrapper {
-  background-color: rgb(255, 255, 255);
-  font-size: 16px;
-  font-family: manrope-m;
-  font-weight: 700;
-  border: none;
+.editwrapper {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
   margin-bottom: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border: 1px solid black;
 }
 
-#editReviewWrapper:hover {
-  background-color: gray;
-}
-
+#editReviewWrapper,
 #deleteReviewWrapper {
   background-color: rgb(255, 255, 255);
   font-size: 16px;
   font-family: manrope-m;
   font-weight: 700;
   border: none;
-  /* margin-bottom: 20px; */
+  cursor: pointer;
+  border: 1px solid black;
+  margin-left: 20vw;
 }
 
-#editwrapper{
-  display: flex;
-  background-color: rgb(255, 255, 255);
-  font-size: 16px;
-  font-family: monrope-m;
-  font-weight: 700;
-  border: none;
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border: 1px solid black;
-}
+

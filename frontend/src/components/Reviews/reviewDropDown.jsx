@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import * as reviewActions from "../../store/review"
 import * as modalActions from "../../store/modal"
-import EditModal from "../modals/editModal"
+import EditModal from "../modals/editmodal"
 
 function ReviewDropDown({review,trail,visible,setVisible}){
     const dispatch = useDispatch()
@@ -19,7 +19,7 @@ function ReviewDropDown({review,trail,visible,setVisible}){
 
     return (
         <>
-        <div className="editModalWrapper">
+        <div>
             {edit && <EditModal review={review} trail={trail} visible={visible} setVisible={setVisible}/>}
         </div>
         <div className="editwrapper">
