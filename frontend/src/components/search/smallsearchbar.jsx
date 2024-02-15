@@ -36,7 +36,7 @@ function SmallSearchBar() {
         placeholder="Search by trail name"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '16px', color: "rgb(20,40,4)"}}
+        style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '12px', color: "rgb(20,40,4)"}}
         id="smallSearchBarInput"
         onKeyDown={handleSearchEnter} 
       />
