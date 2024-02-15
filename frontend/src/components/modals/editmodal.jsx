@@ -4,6 +4,7 @@ import * as modalActions from "../../store/modal"
 import "./reviewModal.css"
 import Ratings from "../Rating/rating";
 import { useState } from "react";
+import exit from "../../images/exitButton.png"
 function EditModal({review,trail,visible,setVisible}){
     const dispatch = useDispatch()
     const[review1,setReview] = useState(review.review)
@@ -46,7 +47,7 @@ function EditModal({review,trail,visible,setVisible}){
           <div id="modal-background" ></div>
           <div id="modal-content">
             <div id="exitReviewCreaterContainer">
-            <p onClick={handleHideModal} id="exitReviewCreater">x</p>
+            <img onClick={handleHideModal} id="exitReviewCreater" src={exit} alt="exit"/>
             </div>
             <p id="trailModalName">{trail?.name}</p>
             
@@ -58,8 +59,7 @@ function EditModal({review,trail,visible,setVisible}){
             <div>
             <br />
             <br />
-            <br />
-            <br />
+            
             
            
             <p id="reviewReviewHeader">Review</p>
@@ -67,7 +67,6 @@ function EditModal({review,trail,visible,setVisible}){
            <textarea
               id="reviewReview"
               type="textarea"
-              placeholder="What do you want to talk about?"
               maxLength="3000"
               defaultValue={review1}
               onChange={(e) => setReview(e.target.value)}
@@ -77,7 +76,7 @@ function EditModal({review,trail,visible,setVisible}){
             {reviewError && <p id="errormessage">{reviewError}</p>}
          
             
-          </div>
+        </div>
           <div id="submitContainer">
             
            
@@ -87,7 +86,7 @@ function EditModal({review,trail,visible,setVisible}){
                 <p id="createReviewSubmitContent">Submit</p>
                 </button>
             </div> 
-        </div>
+          </div>
       );
     }
 export default EditModal

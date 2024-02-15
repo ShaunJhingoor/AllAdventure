@@ -18,8 +18,8 @@ function ReviewDropDown({review,trail,visible,setVisible}){
     }
 
     return (
-        <>
-        <div>
+        <div className="editReviewWrapper">
+        <div id="editReviewModal">
             {edit && <EditModal review={review} trail={trail} visible={visible} setVisible={setVisible}/>}
         </div>
         <div className="editwrapper">
@@ -28,7 +28,7 @@ function ReviewDropDown({review,trail,visible,setVisible}){
         <p id="deleteReviewWrapper" onClick={handleDelete}>Delete</p>
         </div>
 
-        </>
+        </div>
     )
 }
 

@@ -4,6 +4,7 @@ import * as reviewActions from "../../store/review";
 import "./reviewModal.css";
 import { useDispatch, useSelector } from "react-redux";
 import Ratings from "../Rating/rating";
+import exit from "../../images/exitButton.png"
 function CreateModal({ trail }) {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
@@ -46,7 +47,7 @@ function CreateModal({ trail }) {
       <div id="modal-background" ></div>
       <div id="modal-content">
         <div id="exitReviewCreaterContainer">
-        <p onClick={handleHideModal} id="exitReviewCreater">x</p>
+        <img onClick={handleHideModal} id="exitReviewCreater" src={exit} alt="exit"/>
         </div>
         <p id="trailModalName">{trail?.name}</p>
         
@@ -67,7 +68,7 @@ function CreateModal({ trail }) {
         <textarea
           id="reviewReview"
           type="textarea"
-          placeholder="What do you want to talk about?"
+          placeholder="Give back to the community. Share your thoughts about the trail so others know what to expect."
           maxLength="3000"
           value={review}
           onChange={(e) => {

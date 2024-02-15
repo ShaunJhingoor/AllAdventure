@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center; 
   align-items: center;
-  margin-bottom: 20px;
 }
 
 #editReviewWrapper,
@@ -17,4 +16,14 @@
   margin-left: 20vw;
 }
 
+.editReviewWrapper{
+  display: flex;
+  justify-content: flex-end;
+  position: relative
+}
+#editReviewModal{
+  position: absolute;
+  z-index: 10;
+  margin-top: -50px;
+}
 

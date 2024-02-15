@@ -4,6 +4,7 @@ import "./SearchIndex.css"
 import SmallSearchBar from "../search/smallsearchbar";
 import { useEffect } from "react";
 import { Fetchtrails } from "../../store/trail";
+import Footer from "../footer/Footer";
 
 
 function SearchIndex(){
@@ -36,6 +37,8 @@ function SearchIndex(){
         </div>
         
         </div>
+        
+        <Footer/>
         </>
       );
     }

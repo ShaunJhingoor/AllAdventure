@@ -5,6 +5,7 @@ import * as sessionActions from '../../store/session';
 import './SignupForm.css';
 import { NavLink } from 'react-router-dom';
 import adventureIcon from "../../images/adventureIcon.png"
+import Footer from '../footer/Footer';
 
 function SignupForm() {
   const dispatch = useDispatch();
@@ -119,8 +120,7 @@ function SignupForm() {
         <br />
       </form>
       </div>
-      <div className='signUpFooter'>
-    </div>
+      <Footer/>
     </>
   );
 }

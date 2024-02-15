@@ -37,6 +37,8 @@
   width: 30vw;
   resize: none;
   height: 20vh;
+  color: #142800;
+  font-size: 16px;
 }
 #trailModalName{
   color: #142800;
@@ -101,10 +103,12 @@
   margin-top: 1vh;
   font-size: 28px;
   cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
 
 #exitReviewCreater:hover{
-  color: rgb(38,67,17);
+  color: red;
 }
 
 #errormessage{
@@ -113,4 +117,9 @@
   font: Arial,sans-serif;
   font-size: 15px;
   margin-left: 8vw;
+}
+
+#reviewReview::placeholder {
+  color: #142800;
+  font-size: 16px;
 }

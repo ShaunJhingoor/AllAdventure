@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate} from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import './LoginForm.css';
+import Footer from '../footer/Footer';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -74,10 +75,10 @@ function LoginForm() {
         <p>Do not have an account? <NavLink to="/signup">Sign Up</NavLink> </p> 
       </form>
     </div >
-    <div className='loginfooter'>
-
+   
+     <Footer/>
      </div>
-    </div>
+    
   );
 }
 
