@@ -7,6 +7,9 @@
     align-items: center;
     cursor: pointer;
 }
+#backToTop:hover{
+    background-color: #448800;
+}
 #backToTopContent{
     color: white;
     font: monrope-m;

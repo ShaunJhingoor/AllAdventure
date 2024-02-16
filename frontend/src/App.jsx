@@ -11,6 +11,7 @@ import './reset.css';
 import TrailShow from './components/Trails/Trailshow';
 import RealTrailsIndex from './components/Trails/RealTrailsIndex';
 import SearchIndex from './components/search/searchIndex';
+import Help from './components/Help/Help';
 
 
 function Layout() {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
         path: '/trails/search',
         element: < SearchIndex/>
       },
+      {
+        path: 'help',
+        element: <Help/>
+      }
     ]
   }
 ]);

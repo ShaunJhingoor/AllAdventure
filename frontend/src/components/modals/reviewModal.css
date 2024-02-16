@@ -36,7 +36,7 @@
   border-radius: 2px;
   width: 30vw;
   resize: none;
-  height: 25vh;
+  height: 20vh;
   color: #142800;
   font-size: 16px;
 }
@@ -101,17 +101,15 @@
 }
 
 #exitReviewCreater{
-  margin-left: 2vh;
-  margin-top: 1vh;
+  margin-left: 2vw;
+  margin-top: 2vh;
   font-size: 28px;
   cursor: pointer;
   width: 20px;
   height: 20px;
 }
 
-#exitReviewCreater:hover{
-  color: red;
-}
+
 
 #errormessage{
   color: red;

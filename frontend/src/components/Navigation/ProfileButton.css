@@ -31,3 +31,15 @@
     height: 40px;
     border-radius: 50px;
 }
+
+#helpMe{
+    margin-left: 73vw;
+    font-weight: 400;
+    padding: 11px 15px;
+    font-size: 16px;
+    font-family: manrope-m;
+    color: #142800;
+    line-height: 19.5px;
+    text-decoration: underline;
+    cursor: pointer;
+}

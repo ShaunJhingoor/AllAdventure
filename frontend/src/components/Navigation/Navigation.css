@@ -1,7 +1,7 @@
 .links {
     display: flex;
     justify-content: space-between;
-    align-items: right;
+    align-items: center;
     padding: 20px;
 }
 
@@ -55,5 +55,16 @@
 }
 
 
-
+#InfoTab{
+  margin-left: -65px;
+  margin-bottom: -40px;
+  padding: 11px 15px;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: manrope-m;
+  color: #142800;
+  line-height: 19.5px;
+  text-decoration: underline;
+  cursor: pointer;
+}
 

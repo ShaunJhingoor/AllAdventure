@@ -21,16 +21,20 @@ function Navigation() {
     let sessionLinks;
     if (sessionUser) {
       sessionLinks = (
+        <>
         <ProfileButton user={sessionUser} />
+        </>
       );
     } else {
       sessionLinks = (
         <>
         
         <div className='innernavlink'>
-
+        
+        <h1 id='InfoTab' onClick={() => (navigate("/help"))}>Help</h1>
           <button onClick={demoLogin} id='demoLogin'>Demo Login</button>
           <NavLink to="/login" className='Login'>Log In</NavLink>
+          
         </div>
         </>
       );
@@ -40,9 +44,11 @@ function Navigation() {
       <>
       <nav>
         <div className='links'>
+        
           <NavLink to="/" id='home'><img src={adventureIcon} alt="sometrailsicon" id='homeicon'/>AllAdventure</NavLink>
-       
+          
           {sessionLinks}
+          
         </div>
       </nav>
       </>
