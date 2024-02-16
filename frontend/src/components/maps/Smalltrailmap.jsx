@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom"
 import pin from "../../images/pin.png"
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api"
+
 
 
 
@@ -17,7 +19,9 @@ function SmallTrailMapWrapper({trail}) {
     return (
         <>
         <div className="trailmapwrapper">
+            
             <TrailMap trail={trail}/>
+            
         </div>
         </>
     )
@@ -25,6 +29,7 @@ function SmallTrailMapWrapper({trail}) {
 }
 
 export const TrailMap = ({trail}) => {
+    const navigate = useNavigate()
 
     if(!trail){
         return null 
@@ -38,10 +43,11 @@ export const TrailMap = ({trail}) => {
 
     const containerStyle = {
         width: '40%',
-        height: '25%',
+        height: '23%',
         borderRadius: '50px',
         border: '2px solid black',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        cursor:'pointer'
       };
 
     const mapOptions = {
@@ -53,11 +59,13 @@ export const TrailMap = ({trail}) => {
    
     return(
         <>
-            <GoogleMap zoom={14}  center={{lat: trail?.latitude, lng: trail?.longitude}} mapContainerStyle={containerStyle} options={mapOptions}>
+            
+            <GoogleMap zoom={14}  center={{lat: trail?.latitude, lng: trail?.longitude}} mapContainerStyle={containerStyle} options={mapOptions} onClick={() => navigate("/trails")}>
         
             <MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>
     
             </GoogleMap> 
+            
         </>
     );
 }
