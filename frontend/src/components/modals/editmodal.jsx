@@ -75,7 +75,7 @@ function EditModal({review,trail,visible,setVisible}){
             </div>
             {reviewError && <p id="errormessage">{reviewError}</p>}
          
-            
+            {/* <div className="breakerline"></div> */}
         </div>
           <div id="submitContainer">
             

@@ -59,11 +59,11 @@ function CreateModal({ trail }) {
         <div>
         <br />
         <br />
-        <br />
-        <br />
+        
         
        
         <p id="reviewReviewHeader">Review</p>
+       <br />
        <br />
         <textarea
           id="reviewReview"
@@ -81,6 +81,7 @@ function CreateModal({ trail }) {
         {reviewError && <p id="errormessage">{reviewError}</p>}
      
         
+          {/* <div className="breakerline"></div> */}
       </div>
         <div id="submitContainer">
         
