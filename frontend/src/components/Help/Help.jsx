@@ -7,6 +7,7 @@ function Help () {
     return(
     <>
     <SmallSearchBar/>
+    <br />
     <div id="helpContainer">
         <img src={Logo} alt="logo" id="helpImg"/>
         <h1 id="helpHeader">Welcome To All Adventure</h1>

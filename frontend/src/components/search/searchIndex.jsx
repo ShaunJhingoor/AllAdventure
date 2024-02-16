@@ -21,6 +21,7 @@ function SearchIndex(){
         <div id="SearchIndexheader">
           <SmallSearchBar/>
         </div>
+        <br />
       <div id="SearchIndexContainer">
         <br />
         <span id="numberOfSearch">

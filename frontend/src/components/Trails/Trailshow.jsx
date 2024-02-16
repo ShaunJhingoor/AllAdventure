@@ -48,10 +48,12 @@ function TrailShow(){
     }
     return (
       <>
-        <div id="showWrapper">
           <div id="showHeader">
             <SmallSearchBar/>
           </div>
+          <br />
+        <div id="showWrapper">
+        
         <div className="showoutside">
           <form className="show">
             <img src={trail?.photoUrl} alt="result" id="showtrailimag" />

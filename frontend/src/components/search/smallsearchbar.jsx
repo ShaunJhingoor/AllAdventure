@@ -43,6 +43,7 @@ function SmallSearchBar() {
       <Link to="/trails/search" id="smallSearchBarButton">
         <img src={smallSearch} alt="search" onClick={handleSearch} />
       </Link>
+      
     </div>
   );
 }

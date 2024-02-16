@@ -35,7 +35,7 @@ function RealTrailsIndex() {
       <div id="realTrailIndexHeader">
         <SmallSearchBar/>
       </div>
-      
+      <br />
       <div id="realindexWrapper" className={isSidebarOpen ? "sidebaropen" : "sidebarclose"}>
     
         <div id="sidebar" className={isSidebarOpen ? "open" : ""}>
