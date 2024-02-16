@@ -12,7 +12,17 @@ import portfolio from "../../images/portfolio.png"
 import "./Footer.css"
 
 function Footer() {
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
     return(
+        <>
+        <div id="backToTop" onClick={scrollToTop}>
+        <h1 id="backToTopContent">Back to Top</h1>
+        </div>
         <div id="splashFooter">
             <br />
             <span>
@@ -73,6 +83,7 @@ function Footer() {
         </div>
         </span>
         </div>
+        </>
     )
 }
 export default Footer
