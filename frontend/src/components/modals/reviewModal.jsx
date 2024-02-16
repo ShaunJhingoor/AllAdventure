@@ -57,8 +57,8 @@ function CreateModal({ trail }) {
         <Ratings id="ratingCreateReview" rating={rating} setRating={setRating}  />
         </div>
         <div>
-        <br />
-        <br />
+       
+        
         
         
        

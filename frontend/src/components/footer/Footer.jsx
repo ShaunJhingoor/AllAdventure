@@ -26,7 +26,7 @@ function Footer() {
         <div id="splashFooter">
             <br />
             <span>
-        <h1 id="devloperInfo">Developer: Shaun Jhingoor</h1>
+        <div id="devloperInfo">Developer: Shaun Jhingoor</div>
         <br />
         <div id="personalLink"> 
         <a href="https://github.com/ShaunJhingoor" target="_blank" rel="noopener noreferrer">
@@ -40,7 +40,7 @@ function Footer() {
         </a>
         </div>
         <br />
-        <p id="technologiesUsedHeader">Technologies Implemented:</p>
+        <div id="technologiesUsedHeader">Technologies Implemented:</div>
         <br />
         <div id="technlogiesUsed">
             <br />
