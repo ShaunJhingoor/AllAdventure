@@ -38,10 +38,17 @@ export const TrailMap = ({trails, center,zoom}) => {
         width: '100%',
         height: '100%'
       };
+
+    const mapOptions = {
+    disableDefaultUI: true
+    // zoomControl: false, 
+    // streetViewControl: false, 
+    // gestureHandling: 'none' 
+    };
    
     return(
         <>
-            <GoogleMap zoom={zoom}  center={center} mapContainerStyle={containerStyle}>
+            <GoogleMap zoom={zoom}  center={center} mapContainerStyle={containerStyle} options={mapOptions}>
             {trails.map((trail) =>{
         
                 return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>)
