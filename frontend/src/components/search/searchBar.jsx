@@ -54,7 +54,7 @@ function SearchBar(){
             
             <input 
             type="text"
-            placeholder="Search by trail name" 
+            placeholder="Search by trail name or difficulty" 
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
             id="searchBarInput"

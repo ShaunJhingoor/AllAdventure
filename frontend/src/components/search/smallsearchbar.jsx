@@ -33,7 +33,7 @@ function SmallSearchBar() {
     <div className="smallSearchBar">
       <input
         type="text"
-        placeholder="Search by trail name"
+        placeholder="Trail name or Difficulty"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '12px', color: "rgb(20,40,4)"}}

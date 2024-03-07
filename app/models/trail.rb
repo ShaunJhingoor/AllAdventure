@@ -29,4 +29,7 @@ class Trail < ApplicationRecord
   def self.search_names(query)
     where("lower(name) LIKE ?", "%#{sanitize_sql_like(query.downcase)}%")
   end
+  def self.search_difficulty(query)
+    where("lower(difficulty) LIKE?", "%#{sanitize_sql_like(query.downcase)}%")
+  end
 end
