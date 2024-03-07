@@ -56,7 +56,7 @@ export const TrailMap = ({trails, center,zoom}) => {
             )}
             </GoogleMap> 
         </>
-    );
+    )
 }
 
 export default TrailMapWrapper
