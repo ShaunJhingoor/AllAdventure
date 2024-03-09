@@ -115,7 +115,7 @@ export default LoginForm;
 <br>
 <br>
 ### Search Feature 
-Users can search by trail name. If they have a few letters of a trail it will populate all the trails that correspond to the trail
+Users can search by trail name or difficulty. If they have a few letters of a trail it will populate all the trails that correspond to the trail.
 <br>
 <br>
 
