@@ -120,6 +120,7 @@ Users can search by trail name or difficulty. If they have a few letters of a tr
 <br>
 
 https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/2836eb0e-8502-46d5-bcc7-e637bc843570
+
 <br>
 <br>
 ```js
