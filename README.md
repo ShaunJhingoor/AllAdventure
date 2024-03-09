@@ -123,6 +123,7 @@ https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/2836eb0e-8502-46d
 
 <br>
 <br>
+
 ```js
 
 function SearchBar(){
