@@ -9,6 +9,7 @@ import home from "../../images/home.jpeg"
 import SearchBar from '../search/searchBar';
 import { useState } from "react"
 import Footer from "../footer/Footer"
+// import { Carousel, Row, Col } from "react-bootstrap";
 
 function TrailsIndex(){
     const trails = useSelector(trailsArray)
@@ -24,6 +25,9 @@ function TrailsIndex(){
        dispatch(Fetchtrails())
        
     }, [dispatch]);
+
+
+
     return(
         <>
         
@@ -36,6 +40,20 @@ function TrailsIndex(){
         </Link>
             <br />
         <div id="trailindexwrapper">
+        {/* <Carousel indicators={false}>
+                        {[...Array(Math.ceil(trails.length / 4))].map((_, index) => (
+                            <Carousel.Item key={`carousel_${index}`} className="d-flex">
+                                <Col>
+                                    {trails.slice(index * 4, index * 4 + 4).map((trail, idx) => (
+                                        <Row key={idx} md={3}>
+                                            <TrailsIndexItem trail={trail} setCenter={setCenter} setZoom={setZoom} />
+                                        </Row>
+                                    ))}
+                                </Col>
+                            </Carousel.Item>
+                        ))}
+                    </Carousel> */}
+
             {trails.slice(0,4).map((trail,index) => 
                 <TrailsIndexItem key={`${trail?.id}_${index}`} trail={trail} setCenter={setCenter} setZoom={setZoom}/>)}
             {/* <Link to='/trails' id="showIndexBoxLink">
