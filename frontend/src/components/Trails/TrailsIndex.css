@@ -2,12 +2,90 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* overflow-x: auto; */
+    justify-content: center;
+}
+
+#trailindexwrapper {
+    /* margin-left: 1250px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+}
+
+#TrailIndexHeader{
+    color: #142800;
+    font-size: 28px;
+    font-family: beatrice;
+    font: Arial,sans-serif;
+    margin-right: 965px;
+    padding-top: 40px;
+   
+}
+
+
+#showIndexBox:hover{
+    border: 2px solid #142800;
+}
+
+#showIndexBox {
+    margin-top: 8px; 
+    margin-left: 16px;
+    border-radius: 20px;
+    height: 246px;
+    width: 300px;
+    border: 2px solid rgb(214, 213, 213);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+#showIndexBoxContent {
+    margin-bottom: 20px; 
+}
+
+#showIndexBoxContent1 {
+    
+    margin-left: 16px; 
+    line-height: 24px;
+    color: #142800;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: manrope-m;
+    font: Arial,sans-serif;
+}
+
+#showIndexBoxContent2 {
+    margin-left: 155px; 
+    margin-right: 16px; 
+    line-height: 24px;
+    color: #142800;
+    font-size: 40px;
+    font-family: manrope-m;
+    font: Arial, sans-serif;
+}
+
+#homepageimag{
+    max-width: 100%;
+    height: auto;
+}
+
+#showIndexBoxLink{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: scroll;
 }
 
 #trailindexwrapper {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
+   
 }
 
 #TrailIndexHeader{
