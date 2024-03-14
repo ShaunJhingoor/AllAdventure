@@ -22,20 +22,20 @@ Users can SignUp, use a demo user to view the site, LogIn, or LogOut. Once signe
   <br>
 <br>
 
+![Screen Recording 2024-03-13 at 9 24 52 PM](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/9f24a871-4f02-404c-82d2-5816b42192d8)
 
-  
-![image](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/834d3211-d190-4baf-8527-b299964ea05c)
 <br>
 <br>
+
 ```js
 function LoginForm() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
-  const [credential, setCredential] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState([]);
+  const sessionUser = useSelector(state => state.session.user); //Find the logged in user
+  const [credential, setCredential] = useState(''); //To keep track of the credentials(email or username) the user is entering in
+  const [password, setPassword] = useState(''); //Keep track of the password the user is entering
+  const [errors, setErrors] = useState([]); //Keep track of errors
 
-  if (sessionUser) return <Navigate to="/" replace={true} />;
+  if (sessionUser) return <Navigate to="/" replace={true} />; // When logging out or not logged in directing to the splash page
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,13 +44,13 @@ function LoginForm() {
       .catch(async (res) => {
         let data;
         try {
-          // .clone() essentially allows you to read the response body twice
+          // .clone() essentially allows you to read the response body twice and try again
           data = await res.clone().json();
         } catch {
           data = await res.text(); // Will hit this case if the server is down
         }
         if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
+        else if (data) setErrors([data]);//Adding the errors to the errors array
         else setErrors([res.statusText]);
       });
   }
@@ -71,7 +71,7 @@ function LoginForm() {
             type="text"
             value={credential}
             placeholder="Username or Email"
-            onChange={(e) => setCredential(e.target.value)}
+            onChange={(e) => setCredential(e.target.value)}//Sets credentials to user inpus
             required
           />
        
@@ -81,18 +81,18 @@ function LoginForm() {
             id='loginpassword'
             value={password}
             placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}//sets password to user input
             required
           />
         <br />
         <br />
         <ul id="loginerrors">
-          {errors.map(error => <li key={error}>{error}</li>)}
+          {errors.map(error => <li key={error}>{error}</li>)} //Displays errors on failure
         </ul>
         <br />
         <button type="submit" id='loginbutton'>Log In</button>
         <br />
-        <p>Do not have an account? <NavLink to="/signup">Sign Up</NavLink> </p> 
+        <p>Do not have an account? <NavLink to="/signup">Sign Up</NavLink> </p> //If user does not have an account can hit sign up to make an account
       </form>
     </div >
     <div className='loginfooter'>
@@ -107,13 +107,6 @@ export default LoginForm;
 <br>
 <br>
 
-#### SignUp
-<br>
-<br>
-
-![image](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/c285ebe4-e915-4e45-9a15-f4f62cafe7f2)
-<br>
-<br>
 ### Search Feature 
 Users can search by trail name or difficulty. If they have a few letters of a trail it will populate all the trails that correspond to the search.
 <br>
@@ -267,7 +260,8 @@ Users can create, edit, or delete a review when signed in
 <br>
 <br>
 
-https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/7086df2a-e04a-4c6c-b051-a13405459cb6
+![CRUD (3)](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/7338ed51-13b4-4890-92df-55b3ae7be1fc)
+
 
 <br>
 <br>
@@ -275,10 +269,10 @@ https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/7086df2a-e04a-4c6
 
 ```js
 function CreateModal({ trail }) {
-  const [review, setReview] = useState("");
-  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState(""); //To keep track of what the user types as the review
+  const [rating, setRating] = useState(0); // Keep track of the rating initialize with 0 
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.session.user);
+  const currentUser = useSelector((state) => state.session.user); //Get the current user
   
 
   const handleHideModal = (e) => {
@@ -288,7 +282,7 @@ function CreateModal({ trail }) {
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
-    const newReview = { //Sending to the backend 
+    const newReview = { //Sending to the backend a new review in the formate that it is taken
       review: {
         review: review,
         trail_id: trail.id,
@@ -297,9 +291,9 @@ function CreateModal({ trail }) {
         created_at: new Date().toISOString(),
       },
     };
-     await dispatch(reviewActions.createReview(newReview));  creating a new review with with a outside key of review and setting the key value pairs 
-     await dispatch(reviewActions.Fetchreviews()) getting all the reviews so it renders everything correctly 
-     dispatch(modalActions.hideModal("createReview")); after you create a review it closes the modal
+     await dispatch(reviewActions.createReview(newReview));  //creating a new review with with a outside key of review and setting the key value pairs 
+     await dispatch(reviewActions.Fetchreviews()) //getting all the reviews so it renders everything correctly 
+     dispatch(modalActions.hideModal("createReview")); //after you create a review it closes the modal
    
   };
   return (
@@ -307,52 +301,54 @@ function CreateModal({ trail }) {
       <div id="modal-background" ></div>
       <div id="modal-content">
         <div id="exitReviewCreaterContainer">
-        <p onClick={handleHideModal} id="exitReviewCreater">x</p>
+        <img onClick={handleHideModal} id="exitReviewCreater" src={exit} alt="exit"/> //Dispatching hidemodel to close the model on click of the x
         </div>
         <p id="trailModalName">{trail?.name}</p>
         
           <div id="ratingCreateReviewContainer">
           <p id="ratingCreateReviewHeader">Rating</p>
           <br />
-        <Ratings id="ratingCreateReview" rating={rating} setRating={setRating}  />
+        <Ratings id="ratingCreateReview" rating={rating} setRating={setRating}  /> //Set the rating to whatever the user selects and sends it to the backend to be stored
         </div>
         <div>
-        <br />
-        <br />
-        <br />
-        <br />
+       
+        
+        
         
        
         <p id="reviewReviewHeader">Review</p>
        <br />
+       <br />
         <textarea
           id="reviewReview"
           type="textarea"
-          placeholder="What do you want to talk about?"
+          placeholder="Give back to the community. Share your thoughts about the trail so others know what to expect."
           maxLength="3000"
           value={review}
-          onChange={(e) => setReview(e.target.value)}
+          onChange={(e) => {
+            setReview(e.target.value); //Sets review to whatever the user types
+            setReviewError(null);
+          }}
         />
         
-       
-        
         </div>
+        {reviewError && <p id="errormessage">{reviewError}</p>} // If there is any errors display them
      
+      </div>
         <div id="submitContainer">
         
-       
-        <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit" disabled={rating === 0 ||review.length <= 0 }  style={{
+        <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit" disabled={rating === 0 ||review.length <= 0 }  style={{ // If the review is empty or the rating has not been change cannot submit 
           backgroundColor: rating === 0 || review.length <= 0 ? 'gray' : 'rgb(38,67,17)',
-          color: rating === 0 || review.length <= 0 ? 'black' : 'white',}}>
+          color: rating === 0 || review.length <= 0 ? 'black' : 'white',}}> // If review and rating has been changed and formated correctly the button color changes to green
             <p id="createReviewSubmitContent">Submit</p>
             </button>
         </div>
-      </div>
     </div>
   );
 }
 
 export default CreateModal;
+
 ```
 <br>
 <br>
