@@ -3,7 +3,7 @@ Check out the [Live Site](https://alladventure.onrender.com)
 
 ## Introduction
 
-All Adventure is a clone of All trails. All trails allows users to view different trails. Also, allows users to interact in there community by leaving revies on trails. As someone who loves nature, I wanted to create a website that anyone can use to find a trail near them and get outside. I implmented features that allow users to create a profile to leave reviews and view trails, a map that allows users to see the locations of different trails in New York, and users can search for a trail by name.
+All Adventure is a clone of All trails. All trails allows users to view different trails. Also, allows users to interact in there community by leaving reviews and ratings on trails. As someone who loves nature, I wanted to create a website that anyone can use to find a trail near them and get outside. I implmented features that allow users to create a account to leave reviews and view trails, a map that allows users to see the locations of different trails in New York, and users can search for a trail by name or difficulty.
 
 * Languages: Javascript, Ruby, HTML, and CSS
 * Frontend: React-Vite
