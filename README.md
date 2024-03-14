@@ -115,11 +115,12 @@ export default LoginForm;
 <br>
 <br>
 ### Search Feature 
-Users can search by trail name or difficulty. If they have a few letters of a trail it will populate all the trails that correspond to the trail.
+Users can search by trail name or difficulty. If they have a few letters of a trail it will populate all the trails that correspond to the search.
 <br>
 <br>
 
-https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/2836eb0e-8502-46d5-bcc7-e637bc843570
+![search (3)](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/1780ee16-a2ec-45b6-8047-bb349a75ab46)
+
 
 <br>
 <br>
@@ -128,22 +129,22 @@ https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/2836eb0e-8502-46d
 
 function SearchBar(){
     const dispatch = useDispatch()
-    const [searchValue, setSearchValue] = useState('');
+    const [searchValue, setSearchValue] = useState(''); // Keeps track of what the user is typing in search bar
     const navigate = useNavigate();
-    const currentUser = useSelector(state=> state?.session.user)
+    const currentUser = useSelector(state=> state?.session.user) // Gets the user that is logged in 
 
     const handleSearch = () => {
-        if(searchValue.trim() !== ''){
+        if(searchValue.trim() !== ''){ //Removes any extract white space
             
-            dispatch(fetchSearch(searchValue)) dispatch search with results that update as you type
+            dispatch(fetchSearch(searchValue)) //dispatch search with results that update as you type using thunk action 
             
         }else{
-            dispatch(clearSearchTrails()) 
+            dispatch(clearSearchTrails()) //Clears search bar after search
         }
     }
 
-    const handleSearchEnter = (e) => {
-        if (e.key === 'Enter') { can search by hitting enter
+    const handleSearchEnter = (e) => { // Allows user to search with hitting the ender key
+        if (e.key === 'Enter') { // can search by hitting enter
             e.preventDefault();
             handleSearch()
             navigate("/trails/search")
@@ -152,7 +153,7 @@ function SearchBar(){
 
       const capitalizeFirstLetter = (str) =>  {
         if (str && str.length > 0) {
-            return str[0].toUpperCase() + str.slice(1);
+            return str[0].toUpperCase() + str.slice(1); // Capitalize the first letter of the last and first namce
           } else {
             return "";
           }
@@ -162,17 +163,17 @@ function SearchBar(){
         <>
         <div className="searchBar">
         <h1 id="Welcomestatment">
-        Welcome {currentUser ? 'Back' : 'Start'} {currentUser ? `${capitalizeFirstLetter(currentUser?.fname)} ${capitalizeFirstLetter(currentUser?.lname)}` : 'Your Search'} 
-        
+        Welcome {currentUser ? 'Back' : 'Start'} {currentUser ? `${capitalizeFirstLetter(currentUser?.fname)} ${capitalizeFirstLetter(currentUser?.lname)}` : 'Your Search'}
+        // Welcome message with change based on signed in or not
       </h1>
             
             <input 
             type="text"
             placeholder="Search by trail name" 
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={(e) => setSearchValue(e.target.value)}// Changes the search the search value when user types
             id="searchBarInput"
-            onKeyDown={handleSearchEnter}
+            onKeyDown={handleSearchEnter} // Can search by hitting the enter key
             />
            
             <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search"   onClick={handleSearch} /></Link>
@@ -192,7 +193,7 @@ There is a custome pin that shows the location of trail. When you hover over a t
 <br>
 <br>
 
-https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/77e9a826-8460-4d90-98b3-88ff944007a2
+![map](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/8b16b984-5f6a-4cc6-8cd4-3d892c22829e)
 
 
 <br>
@@ -200,14 +201,20 @@ https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/77e9a826-8460-4d9
 
 ```js
 function TrailMapWrapper({trails, center,zoom=10}) {
-    const {isLoaded} = useLoadScript({
-        googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY making sure my api is loaded and can use
+    const {isLoaded} = useLoadScript({ //Make sure the map can be loaded from the api key stored in the env local file
+        googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
     })
 
+    if(!isLoaded){ // If map cannot be loaded then display loading
+        return <div>Loading...</div>
+    }
+    if(!trails || trails.length === 0){ // If there are no trails then return null
+        return null
+    }
     return (
         <>
         <div className="trailmapwrapper">
-            <TrailMap trails={trails} center ={center} zoom={zoom}/> passing the props to my trailmap component
+            <TrailMap trails={trails} center ={center} zoom={zoom}/>
         </div>
         </>
     )
@@ -216,34 +223,40 @@ function TrailMapWrapper({trails, center,zoom=10}) {
 
 export const TrailMap = ({trails, center,zoom}) => {
 
-    if(!trails){
+    if(!trails){ // Making sure there are trails
         return null 
     }
     
 
-    const img = {
+
+    const img = { //Used for custom pin 
         url: pin
     }
 
-    const containerStyle = {
+    const containerStyle = { // The dimensions of the map 
         width: '100%',
         height: '100%'
       };
+
+    const mapOptions = { // Removes the default features of the map given by google maps
+    disableDefaultUI: true
+    // zoomControl: false, 
+    // streetViewControl: false, 
+    // gestureHandling: 'none' 
+    };
    
     return(
         <>
-            <GoogleMap zoom={zoom}  center={center} mapContainerStyle={containerStyle}>
+            <GoogleMap zoom={zoom}  center={center} mapContainerStyle={containerStyle} options={mapOptions}> // Sets zoom and center to the values passed down by componenets 
             {trails.map((trail) =>{
         
-                return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>) adding markers to where the trail is located also setting the center to that loaction and zooming in on it 
+                return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>) // Places a custom pin for every trail at the longitude and latitude that the trail has
             }
             )}
             </GoogleMap> 
         </>
-    );
+    )
 }
-
-export default TrailMapWrapper
 ```
 <br>
 <br>
@@ -275,7 +288,7 @@ function CreateModal({ trail }) {
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
-    const newReview = {
+    const newReview = { //Sending to the backend 
       review: {
         review: review,
         trail_id: trail.id,
