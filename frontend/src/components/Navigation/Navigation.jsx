@@ -12,9 +12,9 @@ function Navigation() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     
-    const demoLogin = (e) => {
+    const demoLogin = async(e) => {
       e.preventDefault() 
-      dispatch(sessionActions.login({credential:'Demo-lition', password:'password'})) 
+      await dispatch(sessionActions.login({credential:'Demo-lition', password:'password'})) 
       navigate("/trails")
     }
 
