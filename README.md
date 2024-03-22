@@ -3,7 +3,7 @@ Check out the [Live Site](https://alladventure.onrender.com)
 
 ## Introduction
 
-All Adventure is a clone of All trails. All trails allows users to view different trails. Also, allows users to interact in there community by leaving revies on trails. As someone who loves nature, I wanted to create a website that anyone can use to find a trail near them and get outside. I implmented features that allow users to create a profile to leave reviews and view trails, a map that allows users to see the locations of different trails in New York, and users can search for a trail by name.
+All Adventure is a clone of All trails. All trails allows users to view different trails. Also, allows users to interact in there community by leaving reviews and ratings on trails. As someone who loves nature, I wanted to create a website that anyone can use to find a trail near them and get outside. I implmented features that allow users to create a account to leave reviews and view trails, a map that allows users to see the locations of different trails in New York, and users can search for a trail by name or difficulty.
 
 * Languages: Javascript, Ruby, HTML, and CSS
 * Frontend: React-Vite
@@ -16,7 +16,7 @@ All Adventure is a clone of All trails. All trails allows users to view differen
 ## Features
 ### User Auth 
 
-Users can SignUp, use a demo user to view the site, LogIn, or LogOut. Once signed up the users information persist in both the backend and frontend
+Users can SignUp, use a demo user to view the site, LogIn, or LogOut. Once signed up the users information persist in the backend.
 
 #### LogIn
   <br>
@@ -58,7 +58,7 @@ function LoginForm() {
   return (
     <div className='logincontainer'>
     <div className='loginoutside'>
-      <form onSubmit={handleSubmit} className='login'>
+      <form onSubmit={handleSubmit} className='login'> //Submits login information to the backend when user press the login button
         <br />
         <br />
       <h1 id='loginheader'> Welcome back. </h1>
@@ -77,7 +77,7 @@ function LoginForm() {
        
        <br />
           <input
-            type="password"
+            type="password" //Makes sure the password is not plainly shown
             id='loginpassword'
             value={password}
             placeholder="Password"
@@ -92,7 +92,7 @@ function LoginForm() {
         <br />
         <button type="submit" id='loginbutton'>Log In</button>
         <br />
-        <p>Do not have an account? <NavLink to="/signup">Sign Up</NavLink> </p> //If user does not have an account can hit sign up to make an account
+        <p>Do not have an account? <NavLink to="/signup">Sign Up</NavLink> </p> //If user does not have an account can hit sign up to redirected to the sign up page
       </form>
     </div >
     <div className='loginfooter'>
@@ -139,8 +139,8 @@ function SearchBar(){
     const handleSearchEnter = (e) => { // Allows user to search with hitting the ender key
         if (e.key === 'Enter') { // can search by hitting enter
             e.preventDefault();
-            handleSearch()
-            navigate("/trails/search")
+            handleSearch() // Dispatches handle search
+            navigate("/trails/search") //navigates to the search page
         }
       };
 
@@ -157,7 +157,7 @@ function SearchBar(){
         <div className="searchBar">
         <h1 id="Welcomestatment">
         Welcome {currentUser ? 'Back' : 'Start'} {currentUser ? `${capitalizeFirstLetter(currentUser?.fname)} ${capitalizeFirstLetter(currentUser?.lname)}` : 'Your Search'}
-        // Welcome message with change based on signed in or not
+        // Welcome message will change based on signed in or not
       </h1>
             
             <input 
