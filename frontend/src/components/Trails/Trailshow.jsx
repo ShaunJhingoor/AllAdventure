@@ -81,14 +81,14 @@ function TrailShow(){
               <br />
               <div id="breakerbarshow1"></div>
               <br />
+              
+              
               <div id="smallMap"><SmallTrailMapWrapper trail={trail}/></div>
-              
-              
               <div id="modalAverage">
-                <div id="modalAverage">
+                
                <div id="averageRating"><FancyAverageRating trail={trail}/> </div>
                <br />
-               </div >
+               
 
                <CreateReview key={trail?.id} trail={trail}/>
                </div>

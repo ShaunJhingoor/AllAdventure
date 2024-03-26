@@ -100,6 +100,8 @@
 
   #modalAverage{
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
   }
 
@@ -123,7 +125,7 @@
     width: 100%;
     height: 50px; 
     background-color: white;
-    border: 2px solid rgba(233, 233, 233,0.1); 
+    /* border: 2px solid rgba(233, 233, 233,0.1);  */
   }
  
   #showWrapper{
@@ -195,7 +197,7 @@
   }
   
   #smallMap{
-    margin-left: 15vw;
+    margin-left: 16vw;
     cursor: pointer;
   }
   
