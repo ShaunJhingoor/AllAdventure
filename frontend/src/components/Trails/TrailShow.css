@@ -101,7 +101,7 @@
   #modalAverage{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -197,7 +197,10 @@
   }
   
   #smallMap{
-    margin-left: 16vw;
+    /* margin-left: 16vw; */
+    margin-bottom: 200px;
     cursor: pointer;
   }
-  
+  #reviewButton{
+    margin-right: 20px;
+  }
