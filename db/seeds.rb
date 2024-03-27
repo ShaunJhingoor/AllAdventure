@@ -312,7 +312,7 @@ require "open-uri"
       (1..20).each do |trail_id|
         
         Review.create!(
-          user_id: user_id,
+          user_id: rand(1..11),
           trail_id: trail_id,
           review: generate_realistic_review,
           rating: rand(1..5)

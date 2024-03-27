@@ -2,13 +2,9 @@ import {  useSelector } from "react-redux";
 
 
 function AverageRating({ trail}) {
-  const reviews = useSelector((state) => Object.values(state?.review || {}));
+  const reviews = useSelector((state) => state?.trail?.[trail.id]?.reviews || []);
   const trailReviews = reviews.filter((review) => review?.trail_id === trail?.id);
 
-  // useEffect(() => {
-    
-  //   dispatch(Fetchreviews());
-  // }, [dispatch]);
   
   if (trailReviews.length === 0) {
     return (

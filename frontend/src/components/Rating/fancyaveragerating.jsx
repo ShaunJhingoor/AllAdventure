@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import Rating from "../Reviews/rating";
 import "./fancyaveragerating.css"
 function FancyAverageRating({ trail}) {
-  const reviews = useSelector((state) => Object.values(state?.review || {}));
+  const reviews =  useSelector((state) => state?.trail?.[trail.id]?.reviews || []);
 
   const trailReviews = reviews?.filter((review) => review?.trail_id === trail?.id);
 

@@ -1,20 +1,20 @@
 import csrfFetch from "./csrf";
 
-export const SET_REVIEWS ="reviews/setREVIEWS"
+// export const SET_REVIEWS ="reviews/setREVIEWS"
 export const SET_REVIEW = "reviews/setREVIEW"
 export const REMOVE_REVIEW = "reviews/removeREVIEW"
 export const SET_TRAILS ="trails/setTrails"
 
-export const reviewsArray = (state =>  Object.values(state?.review || {}))
+// export const reviewsArray = (state =>  Object.values(state?.review || {}))
 
-export const selectReview = (reviewId) => (state) => {
-    return state?.review[reviewId] || null
-  }
+// export const selectReview = (reviewId) => (state) => {
+//     return state?.review[reviewId] || null
+//   }
 
-  export const setREVIEWS = (reviews) => ({
-    type: SET_REVIEWS,
-    reviews
-})
+//   export const setREVIEWS = (reviews) => ({
+//     type: SET_REVIEWS,
+//     reviews
+// })
 
 export const setREVIEW = (review) => ({
     type: SET_REVIEW,
@@ -26,15 +26,15 @@ export const removeREVIEW = (reviewId) => ({
     reviewId
 })
 
-export const Fetchreviews = () => async dispatch => {
-    const response = await csrfFetch(`/api/reviews`)
-    if(response.ok){
+// export const Fetchreviews = () => async dispatch => {
+//     const response = await csrfFetch(`/api/reviews`)
+//     if(response.ok){
         
-    const reviews = await response.json();
-    dispatch(setREVIEWS(reviews));
-    return response
-    }
-  };
+//     const reviews = await response.json();
+//     dispatch(setREVIEWS(reviews));
+//     return response
+//     }
+//   };
 
 export const createReview = (newReview) => async dispatch => {
     const res  = await csrfFetch(`/api/reviews`, {
@@ -77,8 +77,8 @@ export const deleteReview = (reviewId) => async dispatch => {
 function reviewReducer(state={}, action){
     let newState = {...state}
     switch(action.type){
-         case SET_REVIEWS: 
-            return {...newState, ...action.reviews}
+    //      case SET_REVIEWS: 
+    //         return {...newState, ...action.reviews}
         case SET_REVIEW: 
             newState[action.review.id] = action.review
             return newState

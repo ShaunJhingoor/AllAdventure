@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as modalActions from "../../store/modal";
 import * as reviewActions from "../../store/review";
+import { Fetchtrail } from "../../store/trail";
 import "./reviewModal.css";
 import { useDispatch, useSelector } from "react-redux";
 import Ratings from "../Rating/rating";
@@ -38,7 +39,7 @@ function CreateModal({ trail }) {
       },
     };
      await dispatch(reviewActions.createReview(newReview));
-     await dispatch(reviewActions.Fetchreviews())
+     await dispatch(Fetchtrail(trail.id))
      dispatch(modalActions.hideModal("createReview"));
    
   };

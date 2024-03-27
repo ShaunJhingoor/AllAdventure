@@ -11,7 +11,8 @@ json.review do
     
     @reviews.each do |review|
         json.set! review.id do 
-            json.extract! review, :rating,:review, :user_id, :trail_id, :created_at, :updated_at
+            json.extract! review, :id,:rating,:review, :user_id, :trail_id, :created_at
+            json.extract! review.user, :fname, :lname
         end
     end
 end

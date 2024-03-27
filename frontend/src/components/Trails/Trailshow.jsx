@@ -27,11 +27,6 @@ function TrailShow(){
        dispatch(Fetchtrail(trailId))
     }, [dispatch, trailId]);
 
-  //   useEffect(() => {
-  //     if (trail === null || !trail) {
-  //         navigate('/trails');
-  //     }
-  // }, [dispatch, trailId, trail, navigate]);
    
   if (trail === null || !trail) {
       return(

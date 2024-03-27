@@ -1,8 +1,8 @@
 class Api::ReviewsController < ApplicationController
-    def index 
-        @reviews = Review.all 
-        render :index
-    end
+    # def index 
+    #     @reviews = Review.all 
+    #     render :index
+    # end
 
     def create 
         @review = Review.new(review_params)
@@ -35,6 +35,6 @@ class Api::ReviewsController < ApplicationController
 
     private 
     def review_params 
-        params.require(:review).permit(:user_id, :trail_id, :review, :rating)
+        params.require(:review).permit(:user_id, :trail_id, :review, :rating, :created_at)
     end
 end

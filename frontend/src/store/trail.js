@@ -27,9 +27,10 @@ export const setTrails = (data) => ({
     reviews: data.review
 })
 
-export const setTrail = (trail) => ({
+export const setTrail = (data) => ({
     type: SET_TRAIL,
-    trail
+    trail: data.trail,
+    reviews: data.review
 })
 
 
@@ -45,8 +46,8 @@ export const Fetchtrails = () => async dispatch => {
 export const Fetchtrail = (trailId) => async dispatch => {
     const response = await csrfFetch(`/api/trails/${trailId}`)
     if(response.ok){
-    const trail = await response.json();
-    dispatch(setTrail(trail));
+    const data = await response.json();
+    dispatch(setTrail(data));
     return response;
     }
   };
@@ -55,10 +56,25 @@ export const Fetchtrail = (trailId) => async dispatch => {
     let newState = {...state}
     switch(action.type){
          case SET_TRAILS: 
-            return {...newState, ...action.trails}
+         newState = { ...newState, ...action.trails }
+         Object.values(action.reviews).forEach(review => {
+             const trailId = review.trail_id;
+             if (newState[trailId]) {
+                 newState[trailId].reviews = newState[trailId].reviews || [];
+                 newState[trailId].reviews.push(review);
+             }
+         });
+         return newState;
         case SET_TRAIL: 
-            newState[action.trail.trail.id ] = action.trail.trail 
-            return newState
+        newState[action.trail.id] = action.trail;
+        Object.values(action.reviews).forEach((review) => {
+            const trailId = review.trail_id;
+            if (newState[trailId]) {
+                newState[trailId].reviews = newState[trailId].reviews || [];
+                newState[trailId].reviews.push(review);
+            }
+        });
+        return newState;
         default:
             return state
     }

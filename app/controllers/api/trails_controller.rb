@@ -9,6 +9,7 @@ class Api::TrailsController < ApplicationController
     
     def show 
         @trail = Trail.find_by(id: params[:id])
+        @reviews = @trail.review
         render :show
     end
     

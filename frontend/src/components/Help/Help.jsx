@@ -19,7 +19,7 @@ function Help () {
         <br />
         <p id="Statement">  At any time, you can click on the &quot;All Adventure&quot; logo to return to the home page. To access the maps again, simply click on &quot;Explore Nearby Trails&quot; or &quot;New York Favorites&quot; and you wll be taken back to the map. You can also search for a particular trail by name or search by difficulty of trails using the search bar.</p>
         <br />
-        <p id="Statement1">  If you wish to leave the site, hover over the profile icon where you wll find a dropdown menu allowing you to log out.</p>
+        <p id="Statement1">  If you wish to leave the site, hover over the profile icon where you will find a dropdown menu allowing you to log out.</p>
         <br />
         
     

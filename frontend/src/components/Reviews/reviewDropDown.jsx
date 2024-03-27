@@ -1,15 +1,18 @@
 import { useDispatch, useSelector } from "react-redux"
 import * as reviewActions from "../../store/review"
 import * as modalActions from "../../store/modal"
+import { Fetchtrail } from "../../store/trail"
 import EditModal from "../modals/editmodal"
 
 function ReviewDropDown({review,trail,visible,setVisible}){
     const dispatch = useDispatch()
     const edit = useSelector(state => state.modals.editReview)
 
-    const handleDelete = (e) => {
+    const handleDelete = async(e) => {
+        console.log(review?.id)
         e.preventDefault()
-        dispatch(reviewActions.deleteReview(review.id))
+        await dispatch(reviewActions.deleteReview(review?.id))
+        await dispatch(Fetchtrail(trail.id))
         setVisible(!visible)
     }
     const handleShowModal = (e) => {
