@@ -292,7 +292,7 @@ function CreateModal({ trail }) {
       },
     };
      await dispatch(reviewActions.createReview(newReview));  //creating a new review with with a outside key of review and setting the key value pairs 
-     await dispatch(reviewActions.Fetchreviews()) //getting all the reviews so it renders everything correctly 
+     await dispatch(Fetchtrail(trail.id))//Getting the information of the specific trail that the user is reviewing, which also has the reviews on the trail sent with it.
      dispatch(modalActions.hideModal("createReview")); //after you create a review it closes the modal
    
   };

@@ -9,7 +9,6 @@ function ReviewDropDown({review,trail,visible,setVisible}){
     const edit = useSelector(state => state.modals.editReview)
 
     const handleDelete = async(e) => {
-        console.log(review?.id)
         e.preventDefault()
         await dispatch(reviewActions.deleteReview(review?.id))
         await dispatch(Fetchtrail(trail.id))
