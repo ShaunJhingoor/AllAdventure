@@ -1,5 +1,5 @@
 # Welcome to All Adventure
-Check out the [Live Site](https://alladventure.onrender.com)
+Check out the [Live Site](https://alladventure.onrender.com/)
 
 ## Introduction
 
