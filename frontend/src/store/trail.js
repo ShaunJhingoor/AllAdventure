@@ -110,26 +110,28 @@ export const deleteReview = (reviewId) => async dispatch => {
     
     switch(action.type){
          case SET_TRAILS: 
-         newState = { ...newState, ...action.trails }
-         Object.values(action.reviews).forEach(review => {
-             const trailId = review.trail_id;
-             if (newState[trailId]) {
-                 newState[trailId].reviews = newState[trailId].reviews || [];
-                 newState[trailId].reviews.push(review);
-             }
-         });
+         newState = { ...action.trails };
+
+  
+        Object.keys(newState).forEach(trailId => {
+            newState[trailId].reviews = {};
+        });
+
+        
+        Object.values(action.reviews).forEach(review => {
+            const trailId = review.trail_id;
+            if (newState[trailId]) {
+                newState[trailId].reviews[review.id] = review;
+            }
+        });
+    
+
          return newState;
 
         case SET_TRAIL: 
-        newState[action.trail.id] = action.trail;
-        Object.values(action.reviews).forEach((review) => {
-            const trailId = review.trail_id;
-            if (newState[trailId]) {
-                newState[trailId].reviews = newState[trailId].reviews || [];
-                newState[trailId].reviews.push(review);
-            }
-        });
-        return newState;
+            newState[action.trail.id] = action.trail;
+            newState[action.trail.id].reviews = action.reviews || {}
+            return newState;
 
         case SET_REVIEW_TRAIL:
             if(action?.trail?.id && newState[action?.trail?.id]){
@@ -141,7 +143,6 @@ export const deleteReview = (reviewId) => async dispatch => {
         case REMOVE_REVIEW: 
             delete newState[action.reviewId]
                 return newState
-                
         default:
             return state
     }
