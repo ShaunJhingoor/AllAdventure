@@ -7,6 +7,7 @@ class Api::ReviewsController < ApplicationController
     def create 
         @review = Review.new(review_params)
         @user = User.find_by(id: @review.user_id)
+        @trail = Trail.find_by(id: @review.trail_id)
         if @review.save 
             render :show 
         else

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as modalActions from "../../store/modal";
-import * as reviewActions from "../../store/review";
+import { createReview } from "../../store/trail";
 import { Fetchtrail } from "../../store/trail";
 import "./reviewModal.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import exit from "../../images/exitButton.png"
 function CreateModal({ trail }) {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const dispatch = useDispatch();
   const [reviewError, setReviewError] = useState(null);
   const currentUser = useSelector((state) => state.session.user);
@@ -18,9 +19,18 @@ function CreateModal({ trail }) {
     e.preventDefault();
     dispatch(modalActions.hideModal("createReview"));
   };
+  
+  useEffect(() => {
+    return () => {
+      setIsSubmitted(false)
+    }
+  }, []);
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
+
+    if(isSubmitted) return 
+
     const trimmedReview = review.trim();
 
 
@@ -29,6 +39,9 @@ function CreateModal({ trail }) {
       setReviewError("Review cannot be empty");
       return;
     }
+
+    setIsSubmitted(true)
+
     const newReview = {
       review: {
         review: trimmedReview,
@@ -38,11 +51,12 @@ function CreateModal({ trail }) {
         created_at: new Date().toISOString(),
       },
     };
-     await dispatch(reviewActions.createReview(newReview));
+     await dispatch(createReview(newReview));
      await dispatch(Fetchtrail(trail.id))
      dispatch(modalActions.hideModal("createReview"));
-   
+     setIsSubmitted(false)
   };
+  
   return (
     <div id="modal">
       <div id="modal-background" ></div>

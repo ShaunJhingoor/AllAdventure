@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
-import * as reviewActions from "../../store/review"
+// import * as reviewActions from "../../store/review"
+import { updateReviews } from "../../store/trail"
 import * as modalActions from "../../store/modal"
 import { Fetchtrail } from "../../store/trail"
 import "./reviewModal.css"
@@ -31,7 +32,7 @@ function EditModal({review,trail,visible,setVisible}){
             created_at: new Date().toISOString(),
         };
           dispatch(modalActions.hideModal("editReview"));
-          await dispatch(reviewActions.updateReview(updateReview))
+          await dispatch(updateReviews(updateReview))
           await dispatch(Fetchtrail(trail.id))
          setVisible(!visible)
           

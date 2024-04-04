@@ -3,6 +3,8 @@ import csrfFetch from "./csrf";
 
 export const SET_TRAILS ="trails/setTrails"
 export const SET_TRAIL ="trails/setTrail"
+export const SET_REVIEW_TRAIL = "trails/setREVIEW"
+// export const UPDATE_REVIEW_TRAIL = "trails/REVIEW"
 // const REMOVE_TRAIL ="trails/REMOVE_TRAIL"
 
 export const trailsArray = (state =>  Object.values(state.trail || {}))
@@ -21,6 +23,7 @@ export const selectTrail = (trailId) => (state) => {
 // export const selectTrail = (trailId) => (state) => {
 //   return state?.trail[trailId] || null
 // }
+
 export const setTrails = (data) => ({
     type: SET_TRAILS,
     trails: data.trail,
@@ -33,6 +36,12 @@ export const setTrail = (data) => ({
     reviews: data.review
 })
 
+
+export const setREVIEWTRAIL = (data) => ({
+    type: SET_REVIEW_TRAIL,
+    review: data.review,
+    trail: data.trail
+})
 
 export const Fetchtrails = () => async dispatch => {
     const response = await csrfFetch("/api/trails")
@@ -52,8 +61,39 @@ export const Fetchtrail = (trailId) => async dispatch => {
     }
   };
 
+  export const createReview = (newReview) => async dispatch => {
+    const res  = await csrfFetch(`/api/reviews`, {
+        method: "POST", 
+        body: JSON.stringify(newReview), 
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if(res.ok){
+        const {review} = await res.json()
+        dispatch(setREVIEWTRAIL(review))
+        return res
+    }
+}
+
+export const updateReviews = (updatedReview) => async dispatch => {
+    const res  = await csrfFetch(`/api/reviews/${updatedReview.id}`, {
+        method: "PUT", 
+        body: JSON.stringify({review: updatedReview}), 
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if(res.ok){
+        const review = await res.json()
+        dispatch(setREVIEWTRAIL(review))
+        return res
+    }
+}
+
   function TrailReducer(state={}, action){
     let newState = {...state}
+    
     switch(action.type){
          case SET_TRAILS: 
          newState = { ...newState, ...action.trails }
@@ -75,6 +115,13 @@ export const Fetchtrail = (trailId) => async dispatch => {
             }
         });
         return newState;
+        case SET_REVIEW_TRAIL:
+            if(action?.trail?.id && newState[action?.trail?.id]){
+                newState[action.trail?.id]?.reviews.push(action?.review);
+                return { ...newState };
+            }else{
+                return state
+            }
         default:
             return state
     }

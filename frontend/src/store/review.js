@@ -1,7 +1,7 @@
 import csrfFetch from "./csrf";
 
 // export const SET_REVIEWS ="reviews/setREVIEWS"
-export const SET_REVIEW = "reviews/setREVIEW"
+// export const SET_REVIEW = "reviews/setREVIEW"
 export const REMOVE_REVIEW = "reviews/removeREVIEW"
 // export const SET_TRAILS ="trails/setTrails"
 
@@ -16,10 +16,10 @@ export const REMOVE_REVIEW = "reviews/removeREVIEW"
 //     reviews
 // })
 
-export const setREVIEW = (review) => ({
-    type: SET_REVIEW,
-    review
-})
+// export const setREVIEW = (review) => ({
+//     type: SET_REVIEW,
+//     review
+// })
 
 export const removeREVIEW = (reviewId) => ({
     type: REMOVE_REVIEW,
@@ -34,37 +34,37 @@ export const removeREVIEW = (reviewId) => ({
 //     dispatch(setREVIEWS(reviews));
 //     return response
 //     }
-//   };
+//   }
 
-export const createReview = (newReview) => async dispatch => {
-    const res  = await csrfFetch(`/api/reviews`, {
-        method: "POST", 
-        body: JSON.stringify(newReview), 
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    if(res.ok){
-        const {review} = await res.json()
-        dispatch(setREVIEW(review))
-        return res
-    }
-}
+// export const createReview = (newReview) => async dispatch => {
+//     const res  = await csrfFetch(`/api/reviews`, {
+//         method: "POST", 
+//         body: JSON.stringify(newReview), 
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     if(res.ok){
+//         const {review} = await res.json()
+//         dispatch(setREVIEW(review))
+//         return res
+//     }
+// }
 
-export const updateReview = (updatedReview) => async dispatch => {
-    const res  = await csrfFetch(`/api/reviews/${updatedReview.id}`, {
-        method: "PUT", 
-        body: JSON.stringify({review: updatedReview}), 
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    if(res.ok){
-        const review = await res.json()
-        dispatch(setREVIEW(review))
-        return review
-    }
-}
+// export const updateReview = (updatedReview) => async dispatch => {
+//     const res  = await csrfFetch(`/api/reviews/${updatedReview.id}`, {
+//         method: "PUT", 
+//         body: JSON.stringify({review: updatedReview}), 
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     if(res.ok){
+//         const review = await res.json()
+//         dispatch(setREVIEW(review))
+//         return review
+//     }
+// }
 
 export const deleteReview = (reviewId) => async dispatch => {
     const res = await csrfFetch(`/api/reviews/${reviewId}`, {
@@ -80,9 +80,9 @@ function reviewReducer(state={}, action){
     switch(action.type){
     //      case SET_REVIEWS: 
     //         return {...newState, ...action.reviews}
-        case SET_REVIEW: 
-            newState[action.review.id] = action.review
-            return newState
+        // case SET_REVIEW: 
+        //     newState[action.review.id] = action.review
+        //     return newState
         case REMOVE_REVIEW: 
             delete newState[action.reviewId]
                 return newState
