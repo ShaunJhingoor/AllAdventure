@@ -4,6 +4,7 @@ import csrfFetch from "./csrf";
 export const SET_TRAILS ="trails/setTrails"
 export const SET_TRAIL ="trails/setTrail"
 export const SET_REVIEW_TRAIL = "trails/setREVIEW"
+export const REMOVE_REVIEW = "trails/removeREVIEW"
 // export const UPDATE_REVIEW_TRAIL = "trails/REVIEW"
 // const REMOVE_TRAIL ="trails/REMOVE_TRAIL"
 
@@ -41,6 +42,10 @@ export const setREVIEWTRAIL = (data) => ({
     type: SET_REVIEW_TRAIL,
     review: data.review,
     trail: data.trail
+})
+export const removeREVIEW = (reviewId) => ({
+    type: REMOVE_REVIEW,
+    reviewId
 })
 
 export const Fetchtrails = () => async dispatch => {
@@ -91,6 +96,15 @@ export const updateReviews = (updatedReview) => async dispatch => {
     }
 }
 
+export const deleteReview = (reviewId) => async dispatch => {
+    const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+        method: "DELETE"
+    })
+    if(res.ok){
+        dispatch(removeREVIEW(reviewId))
+    }
+}
+
   function TrailReducer(state={}, action){
     let newState = {...state}
     
@@ -122,6 +136,9 @@ export const updateReviews = (updatedReview) => async dispatch => {
             }else{
                 return state
             }
+        case REMOVE_REVIEW: 
+            delete newState[action.reviewId]
+                return newState
         default:
             return state
     }

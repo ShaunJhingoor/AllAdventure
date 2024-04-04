@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import * as reviewActions from "../../store/review"
+import { deleteReview } from "../../store/trail"
 import * as modalActions from "../../store/modal"
 import { Fetchtrail } from "../../store/trail"
 import EditModal from "../modals/editmodal"
@@ -10,7 +10,7 @@ function ReviewDropDown({review,trail,visible,setVisible}){
 
     const handleDelete = async(e) => {
         e.preventDefault()
-        await dispatch(reviewActions.deleteReview(review?.id))
+        await dispatch(deleteReview(review?.id))
         await dispatch(Fetchtrail(trail.id))
         setVisible(!visible)
     }

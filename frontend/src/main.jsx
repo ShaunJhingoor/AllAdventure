@@ -8,7 +8,7 @@ import  csrfFetch ,{restoreCSRF } from './store/csrf';
 import * as sessionActions from './store/session';
 import './reset.css'
 import * as trailActions from './store/trail'
-import * as reviewActions from './store/review'
+// import * as reviewActions from './store/review'
 
 
 const store = configureStore();
@@ -19,7 +19,7 @@ if (import.meta.env.MODE !== 'production') {
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.trailActions = trailActions
-  window.reviewActions = reviewActions
+  // window.reviewActions = reviewActions
 }
 restoreCSRF()
 ReactDOM.createRoot(document.getElementById('root')).render(
