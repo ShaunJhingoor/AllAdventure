@@ -119,6 +119,7 @@ export const deleteReview = (reviewId) => async dispatch => {
              }
          });
          return newState;
+
         case SET_TRAIL: 
         newState[action.trail.id] = action.trail;
         Object.values(action.reviews).forEach((review) => {
@@ -129,6 +130,7 @@ export const deleteReview = (reviewId) => async dispatch => {
             }
         });
         return newState;
+
         case SET_REVIEW_TRAIL:
             if(action?.trail?.id && newState[action?.trail?.id]){
                 newState[action.trail?.id]?.reviews.push(action?.review);
@@ -139,6 +141,7 @@ export const deleteReview = (reviewId) => async dispatch => {
         case REMOVE_REVIEW: 
             delete newState[action.reviewId]
                 return newState
+                
         default:
             return state
     }
