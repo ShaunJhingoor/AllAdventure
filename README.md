@@ -292,19 +292,21 @@ function CreateModal({ trail }) {
       return;
     }
 
-    setIsSubmitted(true) //While submitting review cahnges status to true so users cannot spam the submit button
+    setIsSubmitted(true) //While submitting review change status to true so users cannot spam the submit button
   
     const newReview = { //Formating a new review to be sent to the backend
       review: {
-        review: review,
+        review: trimmedReview, //Removes extract spaces
         trail_id: trail.id,
         rating: rating,
         user_id: currentUser.id,
         created_at: new Date().toISOString(),
       },
     };
-     await dispatch(createReview(newReview));//creating a new review with with a outside key of review and setting the key value pairs 
-     await dispatch(Fetchtrail(trail.id))//Getting the information of the specific trail that the user is reviewing, which also has the reviews on the trail sent with it.
+     await dispatch(createReview(newReview));//creating a new review with with a outside
+      // key of review and setting the key value pairs 
+     await dispatch(Fetchtrail(trail.id))//Getting the information of the specific trail that
+      //the user is reviewing, which also has the reviews on the trail sent with it.
      dispatch(modalActions.hideModal("createReview")); //after you create a review it closes the modal
      setIsSubmitted(false) // Users can add another review after submitting
   };
