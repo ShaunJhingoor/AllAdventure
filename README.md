@@ -31,11 +31,13 @@ Users can SignUp, use a demo user to view the site, LogIn, or LogOut. Once signe
 function LoginForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user); //Find the logged in user
-  const [credential, setCredential] = useState(''); //To keep track of the credentials(email or username) the user is entering in
+  const [credential, setCredential] = useState(''); //To keep track of the credentials(email or username)
+  //the user is entering in
   const [password, setPassword] = useState(''); //Keep track of the password the user is entering
   const [errors, setErrors] = useState([]); //Keep track of errors
 
-  if (sessionUser) return <Navigate to="/" replace={true} />; // When logging out or not logged in directing to the splash page
+  if (sessionUser) return <Navigate to="/" replace={true} />; //When logging out or not logged in
+ // directing to the splash page
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,7 +60,8 @@ function LoginForm() {
   return (
     <div className='logincontainer'>
     <div className='loginoutside'>
-      <form onSubmit={handleSubmit} className='login'> //Submits login information to the backend when user press the login button
+      <form onSubmit={handleSubmit} className='login'
+        //Submits login information to the backend when user press the login button>
         <br />
         <br />
       <h1 id='loginheader'> Welcome back. </h1>
@@ -71,7 +74,8 @@ function LoginForm() {
             type="text"
             value={credential}
             placeholder="Username or Email"
-            onChange={(e) => setCredential(e.target.value)}//Sets credentials to user inpus
+            onChange={(e) => setCredential(e.target.value)}
+            //Sets credentials to user inpus
             required
           />
        
@@ -87,12 +91,14 @@ function LoginForm() {
         <br />
         <br />
         <ul id="loginerrors">
-          {errors.map(error => <li key={error}>{error}</li>)} //Displays errors on failure
+          {errors.map(error => <li key={error}>{error}</li>)//Displays errors on failure}
+          
         </ul>
         <br />
         <button type="submit" id='loginbutton'>Log In</button>
         <br />
-        <p>Do not have an account? <NavLink to="/signup">Sign Up</NavLink> </p> //If user does not have an account can hit sign up to redirected to the sign up page
+        <p>Do not have an account? <NavLink to="/signup">Sign Up</NavLink> </p
+       //If user does not have an account can hit sign up to redirected to the sign up page> 
       </form>
     </div >
     <div className='loginfooter'>
@@ -240,10 +246,12 @@ export const TrailMap = ({trails, center,zoom}) => {
    
     return(
         <>
-            <GoogleMap zoom={zoom}  center={center} mapContainerStyle={containerStyle} options={mapOptions}> // Sets zoom and center to the values passed down by componenets 
+            <GoogleMap zoom={zoom}  center={center} mapContainerStyle={containerStyle} options={mapOptions}
+            //Sets zoom and center to the values passed down by componenets > 
             {trails.map((trail) =>{
         
-                return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>) // Places a custom pin for every trail at the longitude and latitude that the trail has
+                return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>)
+                //Places a custom pin for every trail at the longitude and latitude that the trail has
             }
             )}
             </GoogleMap> 
@@ -315,14 +323,16 @@ function CreateModal({ trail }) {
       <div id="modal-background" ></div>
       <div id="modal-content">
         <div id="exitReviewCreaterContainer">
-        <img onClick={handleHideModal} id="exitReviewCreater" src={exit} alt="exit"/> //Dispatching hidemodel to close the model on click of the x
+        <img onClick={handleHideModal} id="exitReviewCreater" src={exit} alt="exit"
+         //Dispatching hidemodel to close the model on click of the x/>
         </div>
         <p id="trailModalName">{trail?.name}</p>
         
           <div id="ratingCreateReviewContainer">
           <p id="ratingCreateReviewHeader">Rating</p>
           <br />
-        <Ratings id="ratingCreateReview" rating={rating} setRating={setRating}  /> //Set the rating to whatever the user selects and sends it to the backend to be stored
+        <Ratings id="ratingCreateReview" rating={rating} setRating={setRating}
+        //Set the rating to whatever the user selects and sends it to the backend to be stored /> 
         </div>
         <div>
        
@@ -346,14 +356,16 @@ function CreateModal({ trail }) {
         />
         
         </div>
-        {reviewError && <p id="errormessage">{reviewError}</p>} // If there is any errors display them
+        {reviewError && <p id="errormessage">{reviewError}</p>} //If there is any errors display them
      
       </div>
         <div id="submitContainer">
         
-        <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit" disabled={rating === 0 ||review.length <= 0 }  style={{ // If the review is empty or the rating has not been change cannot submit 
+        <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit" disabled={rating === 0 ||review.length <= 0 }  style={{
+        //If the review is empty or the rating has not been change cannot submit 
           backgroundColor: rating === 0 || review.length <= 0 ? 'gray' : 'rgb(38,67,17)',
-          color: rating === 0 || review.length <= 0 ? 'black' : 'white',}}> // If review and rating has been changed and formated correctly the button color changes to green
+          color: rating === 0 || review.length <= 0 ? 'black' : 'white',}}
+          //If review and rating has been changed and formated correctly the button color changes to green >
             <p id="createReviewSubmitContent">Submit</p>
             </button>
         </div>
