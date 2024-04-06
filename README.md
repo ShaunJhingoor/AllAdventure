@@ -270,7 +270,8 @@ Users can create, edit, or delete a review when signed in
 ```js
 function CreateModal({ trail }) {
   const [review, setReview] = useState(""); //To keep track of what the user types as the review
-  const [rating, setRating] = useState(0); // Keep track of the rating initialize with 0 
+  const [rating, setRating] = useState(0); // Keep track of the rating initialize with 0
+  const [isSubmitted, setIsSubmitted] = useState(false) // Keep track of if the user has submitted there review
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user); //Get the current user
   
@@ -282,7 +283,18 @@ function CreateModal({ trail }) {
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
-    const newReview = { //Sending to the backend a new review in the formate that it is taken
+    if(isSubmitted) return //If the review is sumbited user cannot submit the same review again
+
+    if (trimmedReview.length === 0) {
+    
+      setReviewError("Review cannot be empty");// Throws an error when the user submits a review
+      //with just spaces 
+      return;
+    }
+
+    setIsSubmitted(true) //While submitting review cahnges status to true so users cannot spam the submit button
+  
+    const newReview = { //Formating a new review to be sent to the backend
       review: {
         review: review,
         trail_id: trail.id,
@@ -291,10 +303,10 @@ function CreateModal({ trail }) {
         created_at: new Date().toISOString(),
       },
     };
-     await dispatch(reviewActions.createReview(newReview));  //creating a new review with with a outside key of review and setting the key value pairs 
+     await dispatch(createReview(newReview));//creating a new review with with a outside key of review and setting the key value pairs 
      await dispatch(Fetchtrail(trail.id))//Getting the information of the specific trail that the user is reviewing, which also has the reviews on the trail sent with it.
      dispatch(modalActions.hideModal("createReview")); //after you create a review it closes the modal
-   
+     setIsSubmitted(false) // Users can add another review after submitting
   };
   return (
     <div id="modal">
