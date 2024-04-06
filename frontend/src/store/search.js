@@ -1,9 +1,10 @@
 import csrfFetch from "./csrf";
 
+
 export const REVIEVE_SEARCH_TRAILS = 'search/REVIEVE_SEARCH_TRAILS'
 export const CLEAR_SEARCH_TRAILS = 'search/CLEAR_SEARCH_TRAILS'
 
-export const ArraySerach = (state =>  Object.values(state?.search || {}))
+export const ArraySearch = (state =>  Object.values(state?.search.search || {}))
 
 export const receiveSearchTrails = (trails) => ({
     type: REVIEVE_SEARCH_TRAILS,

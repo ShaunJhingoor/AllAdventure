@@ -5,10 +5,11 @@ import SmallSearchBar from "../search/smallsearchbar";
 import { useEffect } from "react";
 import { Fetchtrails } from "../../store/trail";
 import Footer from "../footer/Footer";
+import { ArraySearch } from "../../store/search";
 
 
 function SearchIndex(){
-    const searchResults = useSelector((state => Object.values(state.search.search|| {})))
+    const searchResults = useSelector(ArraySearch)
     const dispatch = useDispatch()
 
     useEffect(() => {
