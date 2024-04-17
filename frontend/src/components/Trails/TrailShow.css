@@ -72,9 +72,9 @@
 
 #showdescriptionheadertext {
   position: relative;
-  margin-left: 5px;
+  margin-left: 20px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 20px;
   font-family: manrope-m;
   font-style: normal;
   color: #142800;
@@ -84,6 +84,7 @@
 #showdescription {
   position: relative;
   margin-left: 15px;
+  margin-right: 15px;
   font-weight: 400;
   font-size: 16px;
   font-family: manrope-m;
