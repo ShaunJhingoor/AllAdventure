@@ -1,31 +1,32 @@
 .login {
   background-color: white;
   box-sizing: border-box;
-  position: absolute;
-  margin-top: 0.5vh;
-  margin-left: 33vw;
+  position: relative;
   border: 2px solid rgba(0, 0, 0, 0.165);
-  width: 33vw;
-  height: 99vh;
+  width: 33dvw;
+  height: 99dvh;
   z-index: 1;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center; 
   justify-content: flex-start; 
-  ;
+  box-shadow: 5px 0px 15px rgba(0, 0, 0, 1); 
 }
 
 .loginoutside{
   background-image: url('../../images/login.jpeg');
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #loginusername {
-  height: 2.5vh;
-  width: 20vw;
+  height: 2.5dvh;
+  width: 20dvw;
   padding: 10px;
   border-radius: 10px;
   border: 2px solid gray
@@ -36,8 +37,8 @@
 }
 
 #loginpassword{
-  height: 2.5vh;
-  width: 20vw;
+  height: 2.5dvh;
+  width: 20dvw;
   padding: 10px;
   border-radius: 10px;
   border: 2px solid gray
@@ -52,14 +53,18 @@
   color: white;
   font-size: 15px;
   border-radius: 20px;
-  height: 5vh;
-  width: 20vw;
+  height: 5dvh;
+  width: 20dvw;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center; 
   font-family: beatrice;
-  font: Arial,sans-serif
+  font: Arial,sans-serif;
+  cursor: pointer;
+}
+#loginbutton:hover{
+  background-color: rgb(29, 57, 3);
 }
 
 #loginheader{
@@ -89,6 +94,6 @@
 
 .loginfooter{
   background-color: #142800;
-  max-width: 100vw;
-  height: 10vh;
+  max-width: 100dvw;
+  height: 10dvh;
 }

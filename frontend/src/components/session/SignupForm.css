@@ -1,18 +1,17 @@
 .signUp {
   background-color: white;
   box-sizing: border-box;
-  position: absolute;
-  margin-top: 0.5vh;
-  margin-left: 33vw;
+  position: relative;
   border: 2px solid rgba(0, 0, 0, 0.165);
-  width: 33vw;
-  height: 99vh;
+  max-width: 33dvw;
+  min-height: 99dvh;
   z-index: 1;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center; 
   justify-content: flex-start; 
+  box-shadow: 5px 0px 15px rgba(0, 0, 0, 1); 
   }
   
   .signUpOutSide{
@@ -20,11 +19,14 @@
     background-size: cover;
     background-position: center;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   #signUpUsername {
-    height: 2.5vh;
-    width: 22vw;
+    max-height: 2.5dvh;
+    min-width: 22dvw;
     padding: 10px;
     border-radius: 10px;
     border: 2px solid gray
@@ -35,8 +37,8 @@
   }
 
   #signUpEmail {
-    height: 2.5vh;
-    width: 22vw;
+    height: 2.5dvh;
+    width: 22dvw;
     padding: 10px;
     border-radius: 10px;
     border: 2px solid gray
@@ -47,8 +49,8 @@
   }
   
   #signUpPassword{
-    height: 2.5vh;
-    width: 22vw;
+    height: 2.5dvh;
+    width: 22dvw;
     padding: 10px;
     border-radius: 10px;
     border: 2px solid gray
@@ -59,8 +61,8 @@
   }
 
   #signUpConfirmPassword{
-    height: 2.5vh;
-    width: 22vw;
+    height: 2.5dvh;
+    width: 22dvw;
     padding: 10px;
     border-radius: 10px;
     border: 2px solid gray
@@ -71,8 +73,8 @@
   }
 
   #signUpFname{
-    height: 2.5vh;
-    width: 22vw;
+    height: 2.5dvh;
+    width: 22dvw;
     padding: 10px;
     border-radius: 10px;
     border: 2px solid gray
@@ -83,8 +85,8 @@
   }
 
   #signUpLname{
-    height: 2.5vh;
-    width: 22vw;
+    height: 2.5dvh;
+    width: 22dvw;
     padding: 10px;
     border-radius: 10px;
     border: 2px solid gray
@@ -107,6 +109,11 @@
     justify-content: center; 
     font-family: beatrice;
     font: Arial,sans-serif;
+    cursor: pointer;
+  }
+
+  #signUpButton:hover{
+    background-color: rgb(29, 57, 3);
   }
   
   #signUpHeader{
