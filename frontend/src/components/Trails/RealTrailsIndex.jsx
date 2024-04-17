@@ -44,7 +44,7 @@ function RealTrailsIndex() {
             <h1>New York Best Trails</h1>
           </div>
         
-          <div>
+          <div id="trails">
       
             {trails.map((trail) => (
               <TrailsIndexItem key={trail.id} trail={trail}  setCenter ={setCenter}  setZoom={setZoom}
