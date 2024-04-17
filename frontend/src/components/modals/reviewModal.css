@@ -50,9 +50,9 @@
   font-family: manrope-m;
   font-weight: 400;
   line-height: 36.4px;
-  margin-left: 5vh;
-  margin-right: 5vh;
-  margin-top: 5vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 3vh;
 }
 
 /* #CreateReviewContainer{
@@ -76,6 +76,7 @@
   line-height: 24px;
 
 }
+
 #reviewReviewHeader{
   margin-left: 5vh;
   margin-top: 3vh;
@@ -106,7 +107,7 @@
 
 #exitReviewCreater{
   margin-left: 2vw;
-  margin-top: 1vh;
+  padding-top: 20px;
   font-size: 28px;
   cursor: pointer;
   width: 20px;

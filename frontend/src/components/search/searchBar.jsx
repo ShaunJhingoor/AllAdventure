@@ -59,7 +59,6 @@ function SearchBar(){
             onChange={(e) => setSearchValue(e.target.value)}
             id="searchBarInput"
             onKeyDown={handleSearchEnter}
-            
             />
            
             <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search"   onClick={handleSearch} /></Link>
