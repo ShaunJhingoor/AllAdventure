@@ -20,7 +20,7 @@ function TrailsIndexItem({trail,setCenter=0, setZoom=0}){
                 <img src={trail?.photoUrl} alt="result" id="trailimag" />
              </Link>
                
-            <Link to={currentUser? `/trails/${trail.id}`: '/signUp'} style={{ textDecoration: 'none' }}>
+            <Link to={currentUser? `/trails/${trail.id}`: '/signUp'} onClick={() => window.scrollTo(0, 0)} style={{ textDecoration: 'none' }}>
                 <p id='hometrailname'>{trail.name}</p>
                 <ul id='splashpageTrail'> 
                 <li>&#9733; <AverageRating trail={trail}/> &bull; {trail.length}mi &bull; {trail.difficulty}</li>
