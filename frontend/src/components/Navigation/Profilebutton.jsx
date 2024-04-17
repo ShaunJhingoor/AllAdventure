@@ -39,7 +39,7 @@ function ProfileButton() {
 
   return (
 
-    <>
+    <div id='loginNav'>
       <h1 id='helpMe' onClick={() => navigate("/help")}>Help</h1>
       <div onMouseOver={toggleMenu} onMouseLeave={() => setShowMenu(false)} className="profile-button"> <img src={bird} alt="profile" id='bird'/>
         {showMenu && (
@@ -48,7 +48,7 @@ function ProfileButton() {
         </div>
       )}
       </div>  
-      </>
+      </div>
   );
 }
 

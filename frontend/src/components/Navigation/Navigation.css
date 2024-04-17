@@ -1,8 +1,9 @@
 .links {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 #home{
@@ -14,6 +15,7 @@
     color: #142800;
 }
 .Login {
+  margin-right: 20px;
   padding: 11px 15px;
   text-decoration: none;
   color: black;
@@ -50,6 +52,7 @@
   }
 
 #homeicon{
+  margin-left: 20px;
   height: 29px;
   color: #142800;
 }
@@ -60,7 +63,7 @@
   margin-bottom: -40px;
   padding: 11px 15px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   font-family: manrope-m;
   color: #142800;
   line-height: 19.5px;
