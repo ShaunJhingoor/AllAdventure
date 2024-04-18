@@ -47,7 +47,8 @@ export const removeREVIEW = (reviewId) => ({
     type: REMOVE_REVIEW,
     reviewId
 })
-
+// Two arrors without currly brackets is an immediate return of the new multi line function that needs a return 
+// Thunk decides if its a function or action and does what it need to 
 export const Fetchtrails = () => async dispatch => {
     const response = await csrfFetch("/api/trails")
     if(response.ok){
