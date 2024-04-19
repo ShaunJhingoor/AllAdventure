@@ -39,8 +39,7 @@ function EditModal({review,trail,visible,setVisible}){
        
       };
 
-      const handleHideModal = (e) => {
-        e.preventDefault();
+      const handleHideModal = () => {
         dispatch(modalActions.hideModal("editReview"));
       };
 
@@ -49,7 +48,7 @@ function EditModal({review,trail,visible,setVisible}){
           <div id="modal-background" ></div>
           <div id="modal-content">
             <div id="exitReviewCreaterContainer">
-            <img onClick={()=> {{handleHideModal} setVisible(!visible)}} id="exitReviewCreater" src={exit} alt="exit"/>
+            <img onClick={() => {handleHideModal(); setVisible(false);}} id="exitReviewCreater" src={exit} alt="exit"/>
             </div>
             <p id="trailModalName">{trail?.name}</p>
             
