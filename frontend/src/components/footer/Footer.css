@@ -97,3 +97,11 @@
   margin: 0;
   font-size: 14px; 
 }
+
+#myLinks{
+   height: auto;
+   transition: transform 0.3s ease;
+}
+#myLinks:hover {
+  transform: scale(1.2);
+}

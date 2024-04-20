@@ -30,13 +30,13 @@ function Footer() {
         <br />
         <div id="personalLink"> 
         <a href="https://github.com/ShaunJhingoor" target="_blank" rel="noopener noreferrer">
-        <img src={github} alt="GitHub Logo"/>
+        <img src={github} alt="GitHub Logo" id="myLinks"/>
         </a>
         <a href="https://www.linkedin.com/in/shaun-jhingoor-10a50328a/" target="_blank" rel="noopener noreferrer">
-        <img src={linkedIn} alt="linkedin Logo" />
+        <img src={linkedIn} alt="linkedin Logo" id="myLinks"/>
         </a>
         <a href="https://shaunjhingoor.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
-        <img src={portfolio} alt="linkedin Logo" />
+        <img src={portfolio} alt="linkedin Logo" id="myLinks"/>
         </a>
         </div>
         <br />
