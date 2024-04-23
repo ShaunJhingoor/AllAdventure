@@ -220,11 +220,25 @@
     margin: 10px;
     width: calc(20% - 20px);
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
+/* #insideWeatherCards{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.dayOfWeek{
+    font-family: manrope-m;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: black;
+}
  .date {
     font-family: manrope-m;
-    font-weight: bold;
     margin-bottom: 5px;
     color: black;
 }
@@ -234,9 +248,11 @@
 .low{
   color: #142800;
   font-family: manrope-m;
+  font-size: 14px;
 }
 .high{
   color: #142800;
+  font-size: 14px;
   font-family: manrope-m;
 }
 

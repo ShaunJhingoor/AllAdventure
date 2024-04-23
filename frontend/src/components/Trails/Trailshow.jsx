@@ -12,7 +12,13 @@ import camping from "../../images/camping.png";
 import { useNavigate } from "react-router-dom";
 import SmallTrailMapWrapper from "../maps/Smalltrailmap";
 import Footer from "../footer/Footer";
-
+import Cloud from "../../images/cloudy.png"
+import Sunny from "../../images/sunny.png"
+import Snow from "../../images/snow.png"
+import Rain from "../../images/rain.png"
+import Drizzle from "../../images/drizzle.png"
+import Thunderstorm from "../../images/thunderstorm.png"
+import Atmosphere from "../../images/atmosphere.png"
 function TrailShow() {
     const { trailId } = useParams();
     const navigate = useNavigate();
@@ -102,14 +108,30 @@ function TrailShow() {
                         </div>
                         <br />
                         <div className="weatherCards">
+                          {/* <div id="insideWeatherCards"> */}
                             {weeklyWeather.slice(0,5).map((day, index) => (
                                 <div key={index} className="weatherCard">
-                                    <p className="date">{new Date(day.dt * 1000).toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" })}</p>
+                                  {day.weather[0].main === "Clear" && <img src={Sunny} alt="sun" />}
+                                  {day.weather[0].main === "Clouds" && <img src={Cloud} alt="cloud" />}
+                                  {day.weather[0].main === "Snow" && <img src={Snow} alt="cloud" />}
+                                  {day.weather[0].main === "Rain" && <img src={Rain} alt="cloud" />}
+                                  {day.weather[0].main === "Drizzle" && <img src={Drizzle} alt="cloud" />}
+                                  {day.weather[0].main === "Thunderstorm" && <img src={Thunderstorm} alt="cloud" />}
+                                  {day.weather[0].main === "Atmosphere" && <img src={Atmosphere} alt="cloud" />}
+                                  {/* <img src={Cloud} alt="cloud" /> */}
+                                    <p className="dayOfWeek">
+                                        {new Date(day.dt * 1000).toLocaleDateString("en-US", { weekday: "long" })}
+                                    </p>
+                                    <p className="date">
+                                        {new Date(day.dt * 1000).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                                    </p>
                                     <p className="high">High: {Math.floor(day.temp.max)}&deg;F</p>
                                     <p className="low">Low: {Math.floor(day.temp.min)}&deg;F</p>
                                     <p className="weatherDescription">{day.weather[0].description}</p>
-                                </div>
+                                    </div>
+                                
                             ))}
+                            {/* </div> */}
                         </div>
                     
                         <br />
