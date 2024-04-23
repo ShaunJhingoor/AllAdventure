@@ -31,26 +31,29 @@ function TrailShow() {
     }, [dispatch, trailId]);
     
     useEffect(() => {
-      if (trail && trail.latitude && trail.longitude) {
-          const apiKey = import.meta.env.VITE_APP_WEATHER_API_KEY;
-          const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${trail?.latitude}&lon=${trail?.longitude}&units=imperial&appid=${apiKey}`;
+      const fetchWeatherData = async () => {
+          try {
+              if (trail && trail.latitude && trail.longitude) {
+                  const apiKey = import.meta.env.VITE_APP_WEATHER_API_KEY;
+                  const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${trail?.latitude}&lon=${trail?.longitude}&units=imperial&appid=${apiKey}`;
   
-          fetch(apiUrl)
-              .then(response => {
+                  const response = await fetch(apiUrl);
                   if (!response.ok) {
                       throw new Error('Failed to fetch weather data');
                   }
-                  return response.json();
-              })
-              .then(data => {
+                  const data = await response.json();
                   if (data && data.daily) {
                       setWeeklyWeather(data.daily);
                   } else {
-                      throw new Error('Invalid weather data format')
+                      throw new Error('Invalid weather data format');
                   }
-              })
-              .catch(error => console.error("Error fetching weather data:", error));
-      }
+              }
+          } catch (error) {
+              console.error("Error fetching weather data:", error);
+          }
+      };
+
+      fetchWeatherData();
   }, [trail]);
   
 
