@@ -205,3 +205,56 @@
   #reviewButton{
     margin-right: 20px;
   }
+
+  .weatherCards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.weatherCard {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: calc(20% - 20px);
+    box-sizing: border-box;
+}
+
+ .date {
+    font-family: manrope-m;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: black;
+}
+
+
+
+.low{
+  color: #142800;
+  font-family: manrope-m;
+}
+.high{
+  color: #142800;
+  font-family: manrope-m;
+}
+
+.weatherDescription{
+  color: #142800;
+}
+
+#weeklyWeather{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#weatherHeader{
+  font-weight: 400;
+  font-size: 20px;
+  font-family: manrope-m;
+  font-style: normal;
+  color: #142800;
+  line-height: 24px;
+}
