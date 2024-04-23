@@ -46,7 +46,7 @@ function TrailShow() {
                   if (data && data.daily) {
                       setWeeklyWeather(data.daily);
                   } else {
-                      throw new Error('Invalid weather data format');
+                      throw new Error('Invalid weather data format')
                   }
               })
               .catch(error => console.error("Error fetching weather data:", error));
