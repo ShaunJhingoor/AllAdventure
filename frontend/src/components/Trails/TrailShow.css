@@ -230,8 +230,24 @@
 
   .weatherCards {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;
+    /* justify-content: space-between; */
+    /* flex-wrap: wrap; */
+}
+
+#suggestedTrail{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap:10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#suggestedTrailsHeader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .weatherCard {
@@ -242,6 +258,8 @@
     margin: 10px;
     width: calc(20% - 20px);
     box-sizing: border-box;
+    height: 23vh;
+    width: 10vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -280,6 +298,7 @@
 
 .weatherDescription{
   color: #142800;
+  margin-bottom: 10px;
 }
 
 #weeklyWeather{
@@ -289,6 +308,15 @@
 }
 
 #weatherHeader{
+  font-weight: 400;
+  font-size: 20px;
+  font-family: manrope-m;
+  font-style: normal;
+  color: #142800;
+  line-height: 24px;
+}
+
+#suggestedHeader{
   font-weight: 400;
   font-size: 20px;
   font-family: manrope-m;

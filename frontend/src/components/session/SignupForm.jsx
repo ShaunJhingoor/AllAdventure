@@ -53,14 +53,13 @@ function SignupForm() {
      <div className='signUpOutSide'>
       <form onSubmit={handleSubmit} className='signUp'>
         <br />
-        <br />
       <img src={adventureIcon} alt="alladventure" />
       <h1 id='signUpHeader'>Sign up today to start planning your next adventure</h1>
-        <br />
+        
         <ul className='signUpErrors'>
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
-        <br />
+      
         <input
             type="text"
             value={fname}
@@ -70,7 +69,7 @@ function SignupForm() {
             style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
-          <br />
+          
           <input
             type="text"
             value={lname}
@@ -80,7 +79,7 @@ function SignupForm() {
             style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
-          <br />
+          
           <input
             type="text"
             value={email}
@@ -90,7 +89,7 @@ function SignupForm() {
             style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
-          <br />
+          
           <input
             type="text"
             value={username}
@@ -100,7 +99,7 @@ function SignupForm() {
             style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
-          <br />
+          
           <input
             type="password"
             placeholder='Password'
@@ -110,7 +109,7 @@ function SignupForm() {
             style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
-          <br />
+          
           <input
             type="password"
             id='signUpConfirmPassword'
@@ -120,13 +119,12 @@ function SignupForm() {
             style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
-          <br />
+          
           <button type="submit" id='demologin' onClick={demoLogin}>Demo Login</button>
-          <br />
+         
         <button type="submit" id='signUpButton'>Sign Up</button>
-        <br />
+        
         <p>Already have an account? <NavLink to="/login">Log In</NavLink></p> 
-        <br />
       </form>
       </div>
       <Footer/>

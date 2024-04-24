@@ -49,6 +49,9 @@ function Navigation() {
           <a href="https://github.com/ShaunJhingoor" target="_blank" rel="noopener noreferrer" id='Github'>GitHub</a>
           <a href="https://www.linkedin.com/in/shaun-jhingoor-10a50328a/" target="_blank" rel="noopener noreferrer" id='Github'>LinkedIn</a>
           <a href="https://shaunjhingoor.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" id='Github'>Portfolio</a>
+          <a href="mailto:Jhingoor1945@gmail.com" target="_blank" rel="noopener noreferrer" id='Github'>
+         Email Me
+        </a>
           </div>
           
           {sessionLinks}

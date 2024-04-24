@@ -19,6 +19,8 @@ import Rain from "../../images/rain.png"
 import Drizzle from "../../images/drizzle.png"
 import Thunderstorm from "../../images/thunderstorm.png"
 import Atmosphere from "../../images/atmosphere.png"
+import SuggestedTrail from "./SuggestedTrails";
+
 function TrailShow() {
     const { trailId } = useParams();
     const navigate = useNavigate();
@@ -112,7 +114,8 @@ function TrailShow() {
                             <div id="averageRating"><FancyAverageRating trail={trail} /> </div>
                             <div id="smallMap"><SmallTrailMapWrapper trail={trail} /></div>
                             <div id="reviewButton">
-                                {currentUser ? <CreateReview key={trail?.id} trail={trail} /> : <button onClick={() => navigate("/signup")} id="reviewSignUp"><p id="reviewSignUpContent">Sign Up to Write a Review</p></button>}
+                                    {currentUser ? <CreateReview key={trail?.id} trail={trail} /> : <button onClick={() => {window.scrollTo(0, 0); navigate("/signup"); }} id="reviewSignUp"><p id="reviewSignUpContent">Sign Up to Write a Review</p></button>}
+     
                             </div>
                         </div>
                         <br />
@@ -149,6 +152,18 @@ function TrailShow() {
                             {/* </div> */}
                         </div>
                     
+                        <br />
+                        <br />
+                        <div id="breakerbarshow1"></div>
+                        <br />
+                        <div id="suggestedTrailsHeader">
+                            <p id="suggestedHeader">Suggested Trails</p>
+                        </div>
+                        <br />
+                        <br />
+                        <div id="suggestedTrail">
+                            <SuggestedTrail current = {trailId}/>
+                        </div>
                         <br />
                         <br />
                         <ReviewsIndex trail={trail} />

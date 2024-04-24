@@ -4,7 +4,7 @@
   position: relative;
   border: 2px solid rgba(0, 0, 0, 0.165);
   max-width: 33dvw;
-  min-height: 99dvh;
+  height: 98dvh;
   z-index: 1;
   border-radius: 25px;
   display: flex;
@@ -19,81 +19,33 @@
     background-size: cover;
     background-position: center;
     height: 100vh;
+    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
   }
   
-  #signUpUsername {
-    max-height: 2.5dvh;
-    min-width: 22dvw;
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid gray
-  }
-
-  #signUpUsername:hover{
-    border-color: black;
-  }
-
-  #signUpEmail {
-    height: 2.5dvh;
-    width: 22dvw;
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid gray
-  }
-
-  #signUpEmail:hover{
-    border-color: black;
-  }
-  
-  #signUpPassword{
-    height: 2.5dvh;
-    width: 22dvw;
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid gray
-  }
-
-  #signUpPassword:hover{
-    border-color: black;
-  }
-
-  #signUpConfirmPassword{
-    height: 2.5dvh;
-    width: 22dvw;
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid gray
-  }
-
-  #signUpConfirmPassword:hover{
-    border-color: black;
-  }
-
-  #signUpFname{
-    height: 2.5dvh;
-    width: 22dvw;
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid gray
-  }
-
-  #signUpFname:hover{
-    border-color: black;
-  }
-
+  #signUpUsername,
+  #signUpEmail,
+  #signUpPassword,
+  #signUpConfirmPassword,
+  #signUpFname,
   #signUpLname{
-    height: 2.5dvh;
-    width: 22dvw;
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid gray
+  width: 70%; 
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid gray;
+  margin-bottom: 3%; 
   }
 
+  #signUpUsername:hover,
+  #signUpEmail:hover,
+  #signUpPassword:hover,
+  #signUpConfirmPassword:hover,
+  #signUpFname:hover,
   #signUpLname:hover{
-    border-color: black;
+    border: 2px solid black;
   }
 
   #signUpButton {
@@ -101,8 +53,8 @@
     color: white;
     font-size: 15px;
     border-radius: 20px;
-    height: 5vh;
-    width: 20vw;
+    height: 5%;
+    width: 60%;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -110,6 +62,7 @@
     font-family: beatrice;
     font: Arial,sans-serif;
     cursor: pointer;
+    margin-bottom: 2%;
   }
 
   #signUpButton:hover{
@@ -120,7 +73,7 @@
     padding: 10px;
     color: rgb(20,40,1);
     text-align: center;
-    font-size: 28px;
+    font-size: 2vw;
     font-family: beatrice;
     font: Arial,sans-serif;
   }
@@ -129,7 +82,7 @@
     color: red;
     font-family: beatrice;
     font: Arial,sans-serif;
-    font-size: 12px;
+    font-size: 10px;
  }
   
   .signUpFooter{
@@ -143,8 +96,8 @@
     background-color: rgb(76,174,92);
     font-size: 15px;
     border-radius: 20px;
-    height: 5dvh;
-    width: 20dvw;
+    height: 5%;
+    width: 60%;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -152,6 +105,7 @@
     font-family: beatrice;
     font: Arial,sans-serif;
     cursor: pointer;
+    margin-bottom: 2%;
   }
   #demologin:hover{
     color: white;

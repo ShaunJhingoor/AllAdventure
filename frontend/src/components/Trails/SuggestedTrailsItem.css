@@ -1,0 +1,37 @@
+#suggestedimag{
+    width: 12vw;
+    height: 20vh;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+    padding: 10px;
+}
+
+#suggestedimag:hover{
+    transform: scale(1.03);
+}
+#suggestedhometrailname{
+    font-weight:700;
+    font-size: 16px;
+    font-family: monrope-m;
+    font: Arial,sans-serif;
+    font-stretch: 100%;
+    text-align:center;
+    color: #142800;
+    text-decoration: none;
+    padding-bottom: 5px;
+    
+ }
+
+ #suggestedsplashpageTrail{
+    color: #142800;
+    text-decoration:none;
+    font-weight: 400;
+    font-size: 13px;
+    font-family: monrope-m;
+    font: Arial,sans-serif;
+    word-spacing: 2px;
+    text-align:center;
+}
+
+
+
