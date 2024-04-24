@@ -6,7 +6,7 @@ import { useEffect } from "react"
 "./TrailsIndex.css"
 import { useState } from "react"
 
-function SuggestedTrail({current}){
+function SuggestedTrail({trailId}){
     const trails = useSelector(trailsArray)
     const dispatch = useDispatch()
     const [randomTrails, setRandomTrails] = useState([]);
@@ -36,7 +36,7 @@ function SuggestedTrail({current}){
         <div id="trailindexwrapper">
             
 
-            {randomTrails.filter(trail=> trail?.id !==current).slice(0,4).map((trail,index) => 
+            {randomTrails.filter(trail=> trail?.id !== trailId).slice(0,4).map((trail,index) => 
                 <SuggestedTrailsItem key={`${trail?.id}_${index}`} trail={trail} />)}
         
         </div>
