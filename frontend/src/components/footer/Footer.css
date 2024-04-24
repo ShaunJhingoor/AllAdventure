@@ -30,8 +30,8 @@
 
 #devloperInfo{
     color: white;
-    font: monrope-m;
-    font-size: 25px;
+    font-family: monrope-m;
+    font-size:18px;
     /* text-decoration: underline; */
     display: flex;
     justify-content: center;
@@ -40,8 +40,8 @@
 
 #technologiesUsedHeader{
     color: #f5f5f5;
-    font-size: 25px;
-    font: monrope-m;
+    font-size: 18px;
+    font-family: monrope-m;
     /* text-decoration: underline; */
     display: flex;
     justify-content: center;

@@ -1,16 +1,15 @@
 .smallSearchBar {
   display: flex;
- 
 }
 
 #smallSearchBarInput {
   position: relative;
-  margin-left: 87%;
+  margin-left: 85%;
   padding: 20px;
-  height: 1vh;
+  height: 2vh;
   border: 1px solid #ccc;
   border-radius: 50px;
-  width: 90%;
+  width: 10vw;
   outline: none;
 }
 
