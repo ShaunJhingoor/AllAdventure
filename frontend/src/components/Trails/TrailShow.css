@@ -37,6 +37,28 @@
   margin: 0;
 }
 
+#reviewSignUp{
+  border: 1px solid black;
+   background-color: #264311;
+   position: relative;
+   box-sizing: border-box;
+   /* margin-left: 33vw; */
+   width: 140px;
+   height: 50px;
+   border-radius: 70px;
+   cursor: pointer;
+   transition: all 0.2s ease-out;
+   
+}
+
+#reviewSignUp:hover{
+  background-color: #284e01;
+}
+
+#reviewSignUpContent{
+  color: white;
+}
+
 #showtextimag {
   position: absolute;
   margin-top: 180px;

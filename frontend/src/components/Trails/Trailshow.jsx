@@ -25,6 +25,8 @@ function TrailShow() {
     const [weeklyWeather, setWeeklyWeather] = useState([]);
     const dispatch = useDispatch();
     const trail = useSelector(selectTrail(trailId));
+    const currentUser = useSelector(state=> state?.session.user)
+    
 
     useEffect(() => {
         dispatch(Fetchtrail(trailId));
@@ -109,7 +111,9 @@ function TrailShow() {
                         <div id="modalAverage">
                             <div id="averageRating"><FancyAverageRating trail={trail} /> </div>
                             <div id="smallMap"><SmallTrailMapWrapper trail={trail} /></div>
-                            <div id="reviewButton"><CreateReview key={trail?.id} trail={trail} /></div>
+                            <div id="reviewButton">
+                                {currentUser ? <CreateReview key={trail?.id} trail={trail} /> : <button onClick={() => navigate("/signup")} id="reviewSignUp"><p id="reviewSignUpContent">Sign Up to Write a Review</p></button>}
+                            </div>
                         </div>
                         <br />
                         <div id="breakerbarshow1"></div>
