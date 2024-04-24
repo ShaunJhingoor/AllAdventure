@@ -44,8 +44,12 @@ function Navigation() {
       <>
       <nav>
         <div className='links'>
-        
+          <div id="myLinksNav"> 
           <NavLink to="/" id='home'><img src={adventureIcon} alt="sometrailsicon" id='homeicon'/>AllAdventure</NavLink>
+          <a href="https://github.com/ShaunJhingoor" target="_blank" rel="noopener noreferrer" id='Github'>GitHub</a>
+          <a href="https://www.linkedin.com/in/shaun-jhingoor-10a50328a/" target="_blank" rel="noopener noreferrer" id='Github'>LinkedIn</a>
+          <a href="https://shaunjhingoor.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" id='Github'>Portfolio</a>
+          </div>
           
           {sessionLinks}
           

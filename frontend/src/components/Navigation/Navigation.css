@@ -7,7 +7,12 @@
     /* padding-bottom: 20px;
     padding-top: 20px; */
 }
-
+#myLinksNav{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
 #home{
     color: black;
     text-decoration: none;
@@ -70,6 +75,17 @@
   color: #142800;
   line-height: 19.5px;
   text-decoration: underline;
+  cursor: pointer;
+}
+
+#Github{
+  margin-bottom: -10px;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: manrope-m;
+  color: #142800;
+  line-height: 19.5px;
+  text-decoration: none;
   cursor: pointer;
 }
 
