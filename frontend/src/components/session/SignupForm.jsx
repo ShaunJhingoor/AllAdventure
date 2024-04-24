@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
 import { NavLink } from 'react-router-dom';
@@ -17,8 +17,15 @@ function SignupForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const navigate = useNavigate()
 
   if (sessionUser) return <Navigate to="/trails" replace={true}/>;
+
+  const demoLogin = async(e) => {
+    e.preventDefault() 
+    await dispatch(sessionActions.login({credential:'Demo-lition', password:'password'})) 
+    navigate("/trails")
+  }
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -113,6 +120,8 @@ function SignupForm() {
             style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '20px', color: "rgb(20,40,4)"}}
             required
           />
+          <br />
+          <button type="submit" id='demologin' onClick={demoLogin}>Demo Login</button>
           <br />
         <button type="submit" id='signUpButton'>Sign Up</button>
         <br />

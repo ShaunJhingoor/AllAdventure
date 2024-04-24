@@ -137,3 +137,22 @@
     max-width: 100vw;
     height: 10vh;
   }
+
+  #demologin{
+    color: black;
+    background-color: rgb(76,174,92);
+    font-size: 15px;
+    border-radius: 20px;
+    height: 5dvh;
+    width: 20dvw;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    font-family: beatrice;
+    font: Arial,sans-serif;
+    cursor: pointer;
+  }
+  #demologin:hover{
+    color: white;
+  }

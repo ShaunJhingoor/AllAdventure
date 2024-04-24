@@ -5,13 +5,21 @@ import { Navigate} from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import './LoginForm.css';
 import Footer from '../footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+
+  const demoLogin = async(e) => {
+    e.preventDefault() 
+    await dispatch(sessionActions.login({credential:'Demo-lition', password:'password'})) 
+    navigate("/trails")
+  }
   
   if (sessionUser) return <Navigate to="/trails" replace={true} />;
   const handleSubmit = (e) => {
@@ -69,6 +77,8 @@ function LoginForm() {
         <ul id="loginerrors">
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
+        <br />
+        <button type="submit" id='demologin' onClick={demoLogin}>Demo Login</button>
         <br />
         <button type="submit" id='loginbutton' >Log In</button>
         <br />
