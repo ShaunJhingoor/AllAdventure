@@ -59,7 +59,7 @@ function SignupForm() {
         <ul className='signUpErrors'>
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
-      
+        <br />
         <input
             type="text"
             value={fname}
