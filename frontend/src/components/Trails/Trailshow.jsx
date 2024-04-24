@@ -31,30 +31,30 @@ function TrailShow() {
     }, [dispatch, trailId]);
     
     useEffect(() => {
-      const fetchWeatherData = async () => {
-          try {
-              if (trail && trail.latitude && trail.longitude) {
-                  const apiKey = import.meta.env.VITE_APP_WEATHER_API_KEY;
-                  const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${trail?.latitude}&lon=${trail?.longitude}&units=imperial&appid=${apiKey}`;
-  
-                  const response = await fetch(apiUrl);
-                  if (!response.ok) {
-                      throw new Error('Failed to fetch weather data');
-                  }
-                  const data = await response.json();
-                  if (data && data.daily) {
-                      setWeeklyWeather(data.daily);
-                  } else {
-                      throw new Error('Invalid weather data format');
-                  }
-              }
-          } catch (error) {
-              console.error("Error fetching weather data:", error);
-          }
-      };
-
-      fetchWeatherData();
-  }, [trail]);
+        const fetchWeatherData = async () => {
+            try {
+                if (trail && trail.latitude !== undefined && trail.longitude !== undefined) {
+                    const apiKey = import.meta.env.VITE_APP_WEATHER_API_KEY;
+                    const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${trail.latitude}&lon=${trail.longitude}&units=imperial&appid=${apiKey}`;
+      
+                    const response = await fetch(apiUrl);
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch weather data');
+                    }
+                    const data = await response.json();
+                    if (data && data.daily) {
+                        setWeeklyWeather(data.daily);
+                    } else {
+                        throw new Error('Invalid weather data format');
+                    }
+                }
+            } catch (error) {
+                console.error("Error fetching weather data:", error);
+            }
+        };
+    
+        fetchWeatherData();
+    }, [trail]);
   
 
     if (trail === null || !trail) {
@@ -112,7 +112,7 @@ function TrailShow() {
                         <br />
                         <div className="weatherCards">
                           {/* <div id="insideWeatherCards"> */}
-                            {weeklyWeather.slice(0,5).map((day, index) => (
+                            {weeklyWeather.length > 0 && weeklyWeather.slice(0,5).map((day, index) => (
                                 <div key={index} className="weatherCard">
                                   {day.weather[0].main === "Clear" && <img src={Sunny} alt="sun" />}
                                   {day.weather[0].main === "Clouds" && <img src={Cloud} alt="cloud" />}
@@ -128,7 +128,7 @@ function TrailShow() {
                                     <p className="date">
                                         {new Date(day.dt * 1000).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
                                     </p>
-                                    <p className="high">High: {Math.floor(day.temp.max)}&deg;F</p>
+                                    <span className="high">High: {Math.floor(day.temp.max)}&deg;F</span>
                                     <p className="low">Low: {Math.floor(day.temp.min)}&deg;F</p>
                                     <p className="weatherDescription">{day.weather[0].description}</p>
                                     </div>
