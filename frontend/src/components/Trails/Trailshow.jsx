@@ -31,13 +31,13 @@ function TrailShow() {
     }, [dispatch, trailId]);
     
     useEffect(() => {
-        const fetchWeatherData = async () => {
+        const fetchWeatherData = async (retryCount = 3) => {
             try {
                 if (trail && trail.latitude !== undefined && trail.longitude !== undefined) {
                     const apiKey = import.meta.env.VITE_APP_WEATHER_API_KEY;
                     const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${trail.latitude}&lon=${trail.longitude}&units=imperial&appid=${apiKey}`;
       
-                    const response = await fetch(apiUrl);
+                    const response = await fetch(apiUrl)
                     if (!response.ok) {
                         throw new Error('Failed to fetch weather data');
                     }
@@ -50,9 +50,17 @@ function TrailShow() {
                 }
             } catch (error) {
                 console.error("Error fetching weather data:", error);
+                if (retryCount > 0) {
+                    // Retry after a delay
+                    setTimeout(() => {
+                        fetchWeatherData(retryCount - 1);
+                    }, 1000); // Delay in milliseconds before retrying
+                } else {
+                    console.error("Retry limit exceeded. Could not fetch weather data.");
+                }
             }
         };
-    
+         
         fetchWeatherData();
     }, [trail]);
   
