@@ -14,8 +14,8 @@ function SearchIndex(){
 
     useEffect(() => {
       dispatch(Fetchtrails());
-    }, [dispatch]);
-    
+    }, [dispatch])
+  
     
     return (
       <>
