@@ -1,5 +1,6 @@
 // import { createSelector } from 'reselect';
 import csrfFetch from "./csrf";
+import { createSelector } from 'reselect';
 
 export const SET_TRAILS ="trails/setTrails"
 export const SET_TRAIL ="trails/setTrail"
@@ -7,8 +8,11 @@ export const SET_REVIEW_TRAIL = "trails/setREVIEW"
 export const REMOVE_REVIEW = "trails/removeREVIEW"
 // export const UPDATE_REVIEW_TRAIL = "trails/REVIEW"
 // const REMOVE_TRAIL ="trails/REMOVE_TRAIL"
-
-export const trailsArray = (state =>  Object.values(state.trail || {}))
+const selectTrails = state => state.trail;
+export const trailsArray = createSelector(
+    selectTrails,
+    trails => Object.values(trails || {})
+  );
 
 export const selectTrail = (trailId) => (state) => {
   return state?.trail[trailId] || null

@@ -28,6 +28,7 @@ function TrailShow() {
     const dispatch = useDispatch();
     const trail = useSelector(selectTrail(trailId));
     const currentUser = useSelector(state=> state?.session.user)
+    const reviews = useSelector((state) => state?.trail?.[trail.id]?.reviews || []);
     
 
     useEffect(() => {
@@ -81,10 +82,11 @@ function TrailShow() {
             </div>
         );
     }
-
+    
     return (
         <>
             <div id="showHeader">
+            {console.log(Object.values(reviews)?.length)}
                 <SmallSearchBar />
             </div>
             <br />
@@ -95,7 +97,7 @@ function TrailShow() {
                         <div id="breakerbarshow"></div>
                         <div id="showtextimag">
                             <p id="showtrailnameimag">{trail?.name}</p>
-                            <span id="showtrailinfoimag">{trail?.difficulty} &bull;<span id="starshowimag">&#9733; </span><AverageRating trail={trail} /></span>
+                            <span id="showtrailinfoimag">{trail?.difficulty} &bull;<span id="starshowimag">&#9733; </span><AverageRating trail={trail}/>  ({Object.values(reviews)?.length})</span>
                         </div>
                         <br />
                         <div id="showdescriptionheader">
