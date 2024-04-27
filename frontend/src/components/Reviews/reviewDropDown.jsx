@@ -6,7 +6,7 @@ import EditModal from "../modals/editmodal"
 
 function ReviewDropDown({review,trail,visible,setVisible}){
     const dispatch = useDispatch()
-    const edit = useSelector(state => state.modals.editReview)
+    const edit = useSelector(state => state?.modals?.editReview)
 
     const handleDelete = async(e) => {
         e.preventDefault()

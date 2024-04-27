@@ -13,7 +13,7 @@ function SearchBar(){
     const dispatch = useDispatch()
     const [searchValue, setSearchValue] = useState('');
     const navigate = useNavigate();
-    const currentUser = useSelector(state=> state?.session.user)
+    const currentUser = useSelector(state=> state?.session?.user)
 
    
 

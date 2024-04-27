@@ -5,7 +5,7 @@ import "./createReview.css"
 
 function CreateReview({trail}){
     const dispatch = useDispatch()
-    const showModal = useSelector(state => state.modals.createReview)
+    const showModal = useSelector(state => state?.modals?.createReview)
  
 
     const handleShowModal = (e) => {

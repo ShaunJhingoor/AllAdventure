@@ -26,7 +26,7 @@ function SuggestedTrail({ trailId }) {
 
   return (
     <div id="trailindexwrapper">
-      {randomTrails.filter((trail) => trail?.id != trailId).slice(0, 4).map((trail, index) => (
+      {randomTrails?.filter((trail) => trail?.id != trailId).slice(0, 4).map((trail, index) => (
         <SuggestedTrailsItem key={`${trail?.id}_${index}`} trail={trail} />
       ))}
     </div>

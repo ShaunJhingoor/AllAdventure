@@ -8,7 +8,7 @@ import {useSelector } from "react-redux"
 
 function ReviewIndexItem({review, trail}) {
     const [visible,setVisible] = useState(false)
-    const currentUser = useSelector(state => state.session.user)
+    const currentUser = useSelector(state => state?.session?.user)
     const canEdit = currentUser?.id === review?.user_id
 
     const handleSettingDropDown = (e) => {

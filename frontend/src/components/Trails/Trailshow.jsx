@@ -27,7 +27,7 @@ function TrailShow() {
     const [weeklyWeather, setWeeklyWeather] = useState([]);
     const dispatch = useDispatch();
     const trail = useSelector(selectTrail(trailId));
-    const currentUser = useSelector(state=> state?.session.user)
+    const currentUser = useSelector(state=> state?.session?.user)
     const reviews = useSelector((state) => state?.trail?.[trail?.id]?.reviews || []);
     
 

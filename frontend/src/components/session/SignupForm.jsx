@@ -9,7 +9,7 @@ import Footer from '../footer/Footer';
 
 function SignupForm() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state?.session?.user);
   const [email, setEmail] = useState("");
   const [fname, setFname] = useState("")
   const [lname, setLname] = useState("")

@@ -8,7 +8,7 @@ import adventureIcon from "../../images/adventureIcon.png"
 
 
 function Navigation() {
-    const sessionUser = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state?.session?.user);
     const navigate = useNavigate()
     const dispatch = useDispatch()
     
@@ -63,3 +63,6 @@ function Navigation() {
   }
   
   export default Navigation;
+
+
+  

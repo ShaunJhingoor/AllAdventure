@@ -4,6 +4,7 @@
   align-items: center;
 }
 
+
 #editReviewWrapper,
 #deleteReviewWrapper {
   background-color: rgb(255, 255, 255);
@@ -14,6 +15,10 @@
   cursor: pointer;
   border: 1px solid black;
   margin-left: 20vw;
+}
+#editReviewWrapper:hover,
+#deleteReviewWrapper:hover{
+  background-color: red;
 }
 
 /* .editReviewWrapper{

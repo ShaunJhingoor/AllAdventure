@@ -37,10 +37,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: auto;
+    width: 100px;
+    height: 55px;
     position: absolute;
-    margin-left: 41vw;
+    margin-left: 44vw;
     margin-top: 8px;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -49,8 +49,23 @@
     border-radius: 15px;
     cursor: pointer;
 }
+.reviewSettingsDropDownWrapper #editReviewWrapper,
+.reviewSettingsDropDownWrapper #deleteReviewWrapper {
+  margin-left: 2vw;
+  margin-right: 2vw;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.reviewSettingsDropDownWrapper #editReviewWrapper{
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
 
-
+.reviewSettingsDropDownWrapper #editReviewWrapper:hover,
+.reviewSettingsDropDownWrapper #deleteReviewWrapper:hover {
+  background-color: lightgray;
+  border-radius: 15px;
+}
 
 #currentUserDots{
     position: relative;

@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state?.session?.user);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);

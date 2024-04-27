@@ -14,10 +14,10 @@
     margin-left: -75px;
 }
 
-/* .profile-dropdown:hover{
+.profile-dropdown:hover{
     background-color: gray;
     cursor: pointer;
-} */
+}
 
 #logout-button{
     padding: 15px;
@@ -26,11 +26,11 @@
     font: Arial,sans-serif;
 }
 
-#logout-button:hover{
+/* #logout-button:hover{
     background-color: gray;
     cursor: pointer;
     border-radius: 15px;
-}
+} */
 
 #profile-button{
     padding: 15px;
