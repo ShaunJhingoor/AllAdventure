@@ -28,7 +28,7 @@ function TrailShow() {
     const dispatch = useDispatch();
     const trail = useSelector(selectTrail(trailId));
     const currentUser = useSelector(state=> state?.session.user)
-    const reviews = useSelector((state) => state?.trail?.[trail.id]?.reviews || []);
+    const reviews = useSelector((state) => state?.trail?.[trail?.id]?.reviews || []);
     
 
     useEffect(() => {

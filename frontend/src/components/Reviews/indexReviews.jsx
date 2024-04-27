@@ -12,7 +12,7 @@ function ReviewsIndex({trail}){
         dispatch(Fetchtrail(trailId))
     },[dispatch,trailId])
 
-    const reviews = useSelector((state) => state?.trail?.[trail.id]?.reviews || [])
+    const reviews = useSelector((state) => state?.trail?.[trail?.id]?.reviews || [])
 
 
     return (
