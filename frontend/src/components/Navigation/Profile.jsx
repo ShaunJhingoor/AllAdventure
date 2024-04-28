@@ -6,10 +6,12 @@ import { Fetchtrails, trailsArray } from "../../store/trail"
 import { useEffect } from "react"
 import edit from "../../images/edit.png"
 import UserReviews from "./UserReviews"
-import { useNavigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 import Footer from "../footer/Footer"
 import Flower from "../../images/flower.png"
 import SmallSearchBar from "../search/smallsearchbar"
+
+
 
 function Profile() {
     const current = useSelector((state) => state?.session?.user)
@@ -17,6 +19,16 @@ function Profile() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    useEffect(() => {
+        dispatch(Fetchtrails())
+        
+      },[dispatch])
+
+  
+        if(!current){
+            return <Navigate to="/login"/>
+        }
+    
   
     const capitalizeFirstLetter = (str) =>  {
         if (str && str.length > 0) {
@@ -40,11 +52,7 @@ function Profile() {
       })
       .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-      useEffect(() => {
-        dispatch(Fetchtrails())
-        
-        
-      },[dispatch])
+      
 
 
     
@@ -83,7 +91,7 @@ function Profile() {
 
                         </div>
                         <div id="navigateButtonContainer">
-                            <button id="navigateButton" onClick={() => navigate("/trails")}><p id="navigateButtonContent">Explore Trails</p></button>
+                            <button id="navigateButton" onClick={() => { window.scrollTo(0, 0); navigate("/trails"); }} style={{ textDecoration: 'none' }}><p id="navigateButtonContent">Explore Trails</p></button>
                         </div>
                     </form>
                 ) : (

@@ -18,6 +18,7 @@ function EditUser(){
     const [email, setEmail] = useState(current?.email)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [errors, setErrors] = useState([]);
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -44,17 +45,46 @@ function EditUser(){
             password: password, 
             email: email
         }
-        await dispatch(updateUser(updateUsers))
-        setIsSubmitted(false)
-        navigate("/profile")
-    }
+           
+        dispatch(updateUser(updateUsers))
+            .then(() => {
+                setIsSubmitted(false);
+                navigate("/profile");
+            })
+            .catch(async (res) => {
+                let data;
+                try {
+                    data = await res.clone().json();
+        
+                }catch {
+                    data = await res.text(); 
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+                setIsSubmitted(false);
+                });
+            }
+          
     return(
     <>
       <div id="editUserOutside">
         <form onSubmit={handleEditUser} className="editUser">
             <div id="logo">
                 <img src={Logo} alt="logo" id="logoimag"/>
+
             </div>
+            <br />
+            {errors?.length > 0 && (
+            <div className="error-container">
+              <ul>
+                {errors.map((error, index) => (
+                  <li key={index} id="editErrors">{error}</li>
+                ))}
+              </ul>
+            </div>
+            )}
+
             <div id="nameUser">
                 <div id="firstname">
                 <p id="firstNameInputHeader">First Name</p>
@@ -97,7 +127,7 @@ function EditUser(){
 
             </div>
             <div >
-                <p id="firstNameInputHeader">Password</p>
+                <p id="PasswordInputHeader">Password</p>
             <div id="password">
                 {showPassword ? (
                     <input 
@@ -119,11 +149,15 @@ function EditUser(){
                 </div>
                 </div>
                 </div>
+                <div id="passworddisclaimerContainer">
+                <p id="passworddisclaimer">This field is optional. If left blank, the password will remain unchanged.</p>
+                </div>
             <div  id="buttonsEdit">
             <button type="submit" id="submitEdit">Submit</button>
             <button id="cancelEdit" onClick={() => navigate("/profile")}>Cancel</button>
             </div>
         </form>
+       
       </div>
       <Footer/>
       </>
