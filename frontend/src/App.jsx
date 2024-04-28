@@ -12,7 +12,8 @@ import TrailShow from './components/Trails/Trailshow';
 import RealTrailsIndex from './components/Trails/RealTrailsIndex';
 import SearchIndex from './components/search/searchIndex';
 import Help from './components/Help/Help';
-
+import Profile from './components/Navigation/Profile';
+import EditUser from './components/Navigation/EditUser';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -63,6 +64,14 @@ const router = createBrowserRouter([
       {
         path: 'help',
         element: <Help/>
+      },
+      {
+        path: 'profile',
+        element: <Profile/>
+      },
+      {
+        path: 'edit',
+        element: <EditUser/>
       }
     ]
   }

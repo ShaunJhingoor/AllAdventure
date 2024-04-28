@@ -3,6 +3,7 @@ import './TrailsIndexItem.css'
 import { Link } from 'react-router-dom'
 
 import AverageRating from '../Rating/averagerating'
+// import bird from "../../images/bird.jpeg"
 
 function TrailsIndexItem({trail,setCenter=0, setZoom=0}){
     // const currentUser = useSelector(state=> state?.session.user)

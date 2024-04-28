@@ -86,7 +86,6 @@ function TrailShow() {
     return (
         <>
             <div id="showHeader">
-            {console.log(Object.values(reviews)?.length)}
                 <SmallSearchBar />
             </div>
             <br />

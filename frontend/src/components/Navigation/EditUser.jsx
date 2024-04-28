@@ -1,0 +1,133 @@
+import { useDispatch, useSelector } from "react-redux"
+import { useState } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./EditUser.css"
+import { updateUser } from "../../store/session";
+import hide from "../../images/hidePassword.png"
+import see from "../../images/seePassword.png"
+import Logo from "../../images/adventureIcon.png"
+import Footer from "../footer/Footer";
+function EditUser(){
+    const current = useSelector((state) => state?.session?.user)
+    const [isSubmitted, setIsSubmitted] = useState(false)
+    const [username, setUsername] = useState(current?.username)
+    const [fname, setfname] = useState(current?.fname)
+    const [lname, setlname] = useState(current?.lname)
+    const[password, setPassword] = useState("")
+    const [email, setEmail] = useState(current?.email)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+    };
+
+
+    useEffect(() => {
+        return () => {
+          setIsSubmitted(false)
+        }
+      }, []);
+      // store.dispatch(sessionActions.updateUser({ id: 12, username: "Shaun", fname: "Shaun", lname: "Jhingoor", password: "password" , email: "Jhingoor1945@gmail.com"}));
+    const handleEditUser = async(e) => {
+        e.preventDefault()
+        if(isSubmitted) return
+        setIsSubmitted(true)
+        const updateUsers = {
+            id: current?.id,
+            username: username, 
+            fname: fname,
+            lname: lname, 
+            password: password, 
+            email: email
+        }
+        await dispatch(updateUser(updateUsers))
+        setIsSubmitted(false)
+        navigate("/profile")
+    }
+    return(
+    <>
+      <div id="editUserOutside">
+        <form onSubmit={handleEditUser} className="editUser">
+            <div id="logo">
+                <img src={Logo} alt="logo" id="logoimag"/>
+            </div>
+            <div id="nameUser">
+                <div id="firstname">
+                <p id="firstNameInputHeader">First Name</p>
+                <input 
+                type="text" 
+                defaultValue={fname}
+                onChange={(e) => setfname(e.target.value)}
+                id="firstNameInput"
+                />
+                </div>
+                <div id="firstname">
+                <p id="firstNameInputHeader">Last Name</p>
+                <input 
+                type="text" 
+                defaultValue={lname}
+                onChange={(e) => setlname(e.target.value)}
+                id="firstNameInput"
+                />
+                </div>
+            </div>
+            <div id="nameUser">
+                <div id="firstname">
+                <p id="firstNameInputHeader">Email</p>
+                <input 
+                type="text" 
+                defaultValue={email}
+                onChange={(e) => setEmail(e.target.value)}
+                id="firstNameInput"
+                />
+                </div>
+                <div id="firstname">
+                <p id="firstNameInputHeader">Username</p>
+                <input 
+                type="text" 
+                defaultValue={username}
+                onChange={(e) => setUsername(e.target.value)}
+                id="firstNameInput"
+                />
+                </div>
+
+            </div>
+            <div >
+                <p id="firstNameInputHeader">Password</p>
+            <div id="password">
+                {showPassword ? (
+                    <input 
+                    type="text"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    id="passwordInput"
+                    />
+                ) : (
+                    <input 
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    id="passwordInput"
+                    />
+                )}
+                <div onClick={togglePasswordVisibility} >
+                    {showPassword ? <img src={hide} alt="hide" id="visibleimg"/> : <img src={see} alt="see" id="visibleimg"/>}
+                </div>
+                </div>
+                </div>
+            <div  id="buttonsEdit">
+            <button type="submit" id="submitEdit">Submit</button>
+            <button id="cancelEdit" onClick={() => navigate("/profile")}>Cancel</button>
+            </div>
+        </form>
+      </div>
+      <Footer/>
+      </>
+    )
+}
+
+export default EditUser

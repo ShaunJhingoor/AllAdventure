@@ -4,7 +4,7 @@
     position: fixed;               
     border: 1px solid rgb(0,0,0,0.05);
     width: 100px;
-    height: 50px;
+    height: 100px;
     z-index: 1;
     border-radius: 15px;
     display:flex;
@@ -14,10 +14,10 @@
     margin-left: -75px;
 }
 
-.profile-dropdown:hover{
+/* .profile-dropdown:hover{
     background-color: gray;
     cursor: pointer;
-}
+} */
 
 #logout-button{
     padding: 15px;
@@ -26,11 +26,11 @@
     font: Arial,sans-serif;
 }
 
-/* #logout-button:hover{
+#logout-button:hover{
     background-color: gray;
     cursor: pointer;
     border-radius: 15px;
-} */
+}
 
 #profile-button{
     padding: 15px;

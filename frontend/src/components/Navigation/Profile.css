@@ -1,0 +1,196 @@
+#ProfileFormOutside{
+    background-color: rgb(239,239,236);
+    height: 100dvh;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  
+}
+
+.profile{
+    background-color: white;
+    box-sizing: border-box;
+    margin-bottom: 50vh;
+    left: 5vw;
+    position: relative;
+    border: 2px solid rgba(0, 0, 0, 0.165);
+    width: 25dvw;
+    height: 40dvh;
+    z-index: 1;
+    border-radius: 25px;
+    box-shadow: 5px 0px 15px rgba(0, 0, 0, 1)
+}
+
+#bird{
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    
+}
+#profileImg{
+    margin-top: 5vh;
+    margin-left: 2vw;
+    border-radius: 1000px;
+    width: 5vw;
+    height: 10vh;
+}
+
+#userInfo{
+    position: relative;
+    margin-top: 12vh;
+    margin-left: 2vw;
+}
+
+#Name{
+    font-weight: 400;
+    font-size: 28px;
+    font-family: manrope-m;
+    color: #142800;
+    line-height: 33.6px;
+    letter-spacing: -0.5px;
+}
+#currentDateCreated{
+    margin:0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: manrope-m;
+    color: #656e5e;
+    line-height: 19.5px;
+
+}
+
+#numberOfReviews{
+    margin-top: 2vh;
+}
+
+#numberOfReviewsContent{
+    font-weight: 400;
+    font-size: 28px;
+    font-family: manrope-m;
+    color: #142800;
+    line-height: 33.6px;
+    letter-spacing: -0.5px;
+}
+
+#numberOfReviewTag{
+    font-weight: 400;
+    font-size: 20px;
+    font-family: manrope-m;
+    color: #142800;
+    line-height: 33.6px;
+    letter-spacing: -0.5px;   
+}
+
+#editUser{
+    margin-left: 1vw;
+    width: 1.5vw;
+}
+
+#editUser:hover{
+    cursor: pointer;
+}
+
+.currentReview{
+    background-color: white;
+    box-sizing: border-box;
+    margin-bottom: 12vh;
+    left: 8vw;
+    position: relative;
+    border: 2px solid rgba(0, 0, 0, 0.165);
+    width: 60dvw;
+    height: 80dvh;
+    border-radius: 25px;
+    box-shadow: 5px 0px 15px rgba(0, 0, 0, 1);
+    overflow-y: scroll;
+}
+
+#currentReviewHeader{
+    margin-top: 3vh;
+    margin-left: 1vw;
+    font-weight: 400;
+    font-size: 28px;
+    font-family: manrope-m;
+    color: #142800;
+    line-height: 36px;
+}
+
+#noReviewImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    flex-direction: column;
+}
+
+#noReviewHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    flex-direction: column;
+}
+
+#noReviewHeaderContent{
+    font-weight: 400;
+    font-size: 28px;
+    font-family: monrope-m;
+    color: #142800;
+    line-height: 33.6px;
+    letter-spacing: -0.5px;
+
+}
+
+#noReviewContentContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    flex-direction: column;
+}
+
+#noReviewContent{
+    font-weight: 400;
+    font-size: 16px;
+    font-family: manrope-m;
+    color:#656e5e;
+    line-height: 24px;
+
+}
+
+#navigateButtonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    flex-direction: column;
+}
+
+#navigateButton{
+    border: 1px solid black;
+   background-color: #264311;
+   position: relative;
+   box-sizing: border-box;
+   /* margin-left: 33vw; */
+   width: 140px;
+   height: 50px;
+   border-radius: 70px;
+   cursor: pointer;
+   transition: all 0.2s ease-out;
+}
+
+#navigateButton:hover{
+    background-color: #284e01;
+}
+
+#navigateButtonContent{
+    font-weight: 700;
+    font-size: 16px;
+    font-family: manrope-m;
+    color: #fff;
+    line-height: 24px;
+}
+
+
+

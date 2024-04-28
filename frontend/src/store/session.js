@@ -60,6 +60,21 @@ export const logout = () => async (dispatch) => {
   return response;
 };
 
+export const updateUser = (userData) => async (dispatch) => {
+  const response = await csrfFetch(`/api/users/${userData.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ user: userData }), 
+  });
+
+  const data = await response.json();
+  dispatch(setUser(data.user));
+  return response;
+};
+// store.dispatch(sessionActions.updateUser({ id: 12, username: "Shaun", fname: "Shaun", lname: "Jhingoor", password: "password" , email: "Jhingoor1945@gmail.com"}));
+
 const initialState = { user: null };
 
 function sessionReducer(state = initialState, action) {

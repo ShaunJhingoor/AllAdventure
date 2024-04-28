@@ -47,7 +47,7 @@ function ProfileButton() {
           <div id="logoutsection">
           <p onClick={logout} id="logout-button"> Logout </p>
           </div>
-          {/* <p id="profile-button" >Profile</p> */}
+          <p id="profile-button" onClick={() => navigate("/profile")}>Profile</p>
         </div>
       )}
       </div>  

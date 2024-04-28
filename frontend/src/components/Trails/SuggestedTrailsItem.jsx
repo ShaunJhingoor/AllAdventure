@@ -2,6 +2,7 @@
 import './TrailsIndexItem.css'
 import { Link } from 'react-router-dom'
 import "./SuggestedTrailsItem.css"
+// import bird from "../../images/bird.jpeg"
 
 import AverageRating from '../Rating/averagerating'
 

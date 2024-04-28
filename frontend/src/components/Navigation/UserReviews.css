@@ -1,0 +1,32 @@
+#trailName{
+    margin-top: 2vh;
+    margin-left: 0.5vw;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: manrope-m;
+    color: #142800;
+    line-height: 19.5px;
+}
+
+#dateReview{
+font-weight: 400;
+font-size: 13px;
+font-family: manrope-m;
+color: #656e5e;
+line-height: 19.5px;
+margin-left: 1vw;
+cursor: pointer;
+}
+
+#trailReview{
+    margin-left: 1vw;
+    margin-right: 1vw;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: manrope-m;
+    color: #142800;
+    line-height: 19.5px;
+    margin-bottom: 2vh;
+}

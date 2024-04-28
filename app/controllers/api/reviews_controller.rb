@@ -2,7 +2,7 @@ class Api::ReviewsController < ApplicationController
     # def index 
     #     @reviews = Review.all 
     #     render :index
-    # end
+    # en
 
     def create 
         @review = Review.new(review_params)
