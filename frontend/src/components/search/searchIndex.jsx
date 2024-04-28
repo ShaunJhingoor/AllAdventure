@@ -20,16 +20,27 @@ function SearchIndex(){
     }, [dispatch])
 
     useEffect(() => {
-      const shuffledTrails = shuffle(trails);
-      setRandomTrails(shuffledTrails);
+      if (trails.length > 0) {
+       
+        const shuffledTrails = shuffleArray(trails);
+  
+        
+        const selectedTrails = shuffledTrails.slice(0, 4);
+  
+        setRandomTrails(selectedTrails);
+      }
     }, [trails]);
-
-  function shuffle(array) {
+  
+    
+    const shuffleArray = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
       }
       return array;
+    };
+    if (randomTrail.length === 0) {
+      return null;
     }
     
     if(searchResults.length === 0){
