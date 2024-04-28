@@ -25,7 +25,7 @@ function SearchIndex(){
         const shuffledTrails = shuffleArray(trails);
   
         
-        const selectedTrails = shuffledTrails.slice(0, 4);
+        const selectedTrails = shuffledTrails.slice(0, 6);
   
         setRandomTrails(selectedTrails);
       }
@@ -46,6 +46,10 @@ function SearchIndex(){
     if(searchResults.length === 0){
       return(
         <>
+        <div id="SearchIndexheader">
+          <SmallSearchBar/>
+        </div>
+        <br />
         <div id="SearchIndexContainer">
         <br />
         <span id="numberOfSearch">
@@ -55,7 +59,7 @@ function SearchIndex(){
           <h1 id="numberOfSearch">Suggested Trails:</h1>
           <br />
           <div id="SearchIndexWrapper">
-        {randomTrail.slice(0,6).map((trail,index) => 
+        {randomTrail.map((trail,index) => 
           <SearchIndexItem key={`${trail?.id}_${index}`} result={trail} />)}
           </div>
         </div>
