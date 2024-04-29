@@ -194,5 +194,24 @@
     line-height: 24px;
 }
 
+#loading{
+    background-color: white;
+    margin-bottom: 12vh;
+    left: 8vw;
+    position: relative;
+}
 
+#formLoading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
+#loadingContent{
+    font-weight: 400;
+    font-size: 20px;
+    font-family: manrope-m;
+    color: #142800;
+    line-height: 24px;
+}

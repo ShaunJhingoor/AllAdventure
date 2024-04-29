@@ -2,6 +2,7 @@ import csrfFetch from './csrf.js';
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 
+
 const setUser = (user) => ({
   type: SET_USER,
   payload: user
@@ -10,6 +11,8 @@ const setUser = (user) => ({
 const removeUser = () => ({
   type: REMOVE_USER
 });
+
+
 
 export const storeCSRFToken = response => {
   const csrfToken = response.headers.get("X-CSRF-Token");
@@ -83,6 +86,8 @@ export const updateUser = (userData, oldPassword) => async (dispatch) => {
   dispatch(setUser(data.user));
   return response;
 };
+
+
 
 // store.dispatch(sessionActions.updateUser({ id: 12, username: "Shaun", fname: "Shaun", lname: "Jhingoor", password: "password" , email: "Jhingoor1945@gmail.com"}));
 
