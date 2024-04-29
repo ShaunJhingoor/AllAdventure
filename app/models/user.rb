@@ -11,6 +11,7 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
+  attr_accessor :old_password
   has_secure_password
   has_secure_password
   before_validation :ensure_session_token 

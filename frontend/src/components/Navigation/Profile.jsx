@@ -59,6 +59,7 @@ function Profile() {
     return(
         <>
         <SmallSearchBar/>
+        <br />
         <div id="ProfileFormOutside">
             <br />
             <form className="profile">

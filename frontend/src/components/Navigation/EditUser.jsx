@@ -19,14 +19,19 @@ function EditUser(){
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [errors, setErrors] = useState([]);
-
+    const [oldPassword, setOldPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [showPassword1, setShowPassword1] = useState(false);
 
     const togglePasswordVisibility = () => {
       setShowPassword(!showPassword);
     };
 
+    const togglePasswordVisibility1 = () => {
+        setShowPassword1(!showPassword1);
+      };
 
+      
     useEffect(() => {
         return () => {
           setIsSubmitted(false)
@@ -37,6 +42,7 @@ function EditUser(){
         e.preventDefault()
         if(isSubmitted) return
         setIsSubmitted(true)
+
         const updateUsers = {
             id: current?.id,
             username: username, 
@@ -46,7 +52,7 @@ function EditUser(){
             email: email
         }
            
-        dispatch(updateUser(updateUsers))
+        dispatch(updateUser(updateUsers, oldPassword))
             .then(() => {
                 setIsSubmitted(false);
                 navigate("/profile");
@@ -127,19 +133,19 @@ function EditUser(){
 
             </div>
             <div >
-                <p id="PasswordInputHeader">Password</p>
+                <p id="PasswordInputHeader">New Password</p>
             <div id="password">
                 {showPassword ? (
                     <input 
                     type="text"
-                    value={password}
+                    defaultValue={password}
                     onChange={(e) => setPassword(e.target.value)}
                     id="passwordInput"
                     />
                 ) : (
                     <input 
                     type="password"
-                    value={password}
+                    defaultValue={password}
                     onChange={(e) => setPassword(e.target.value)}
                     id="passwordInput"
                     />
@@ -151,6 +157,32 @@ function EditUser(){
                 </div>
                 <div id="passworddisclaimerContainer">
                 <p id="passworddisclaimer">This field is optional. If left blank, the password will remain unchanged.</p>
+                </div>
+                <div >
+                <p id="PasswordInputHeader">Old Password</p>
+            <div id="password">
+                {showPassword1 ? (
+                    <input 
+                    type="text"
+                    defaultValue={oldPassword}
+                    onChange={(e) => setOldPassword(e.target.value)}
+                    id="passwordInput"
+                    />
+                ) : (
+                    <input 
+                    type="password"
+                    defaultValue={oldPassword}
+                    onChange={(e) => setOldPassword(e.target.value)}
+                    id="passwordInput"
+                    />
+                )}
+                <div onClick={togglePasswordVisibility1} >
+                    {showPassword1 ? <img src={hide} alt="hide" id="visibleimg"/> : <img src={see} alt="see" id="visibleimg"/>}
+                </div>
+                </div>
+                </div>
+                <div id="passworddisclaimerContainer">
+                <p id="oldPassworddisclaimer">Must enter password to make changes.</p>
                 </div>
             <div  id="buttonsEdit">
             <button type="submit" id="submitEdit">Submit</button>

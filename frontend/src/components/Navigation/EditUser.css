@@ -61,7 +61,7 @@
 }
 
 #firstNameInputHeader{
-    margin-top: 30px;
+    margin-top: 10px;
     font-weight: 200;
     font-size: 20px;
     font-family: manrope-m;
@@ -121,12 +121,21 @@
     line-height: 24px;
 
 }
+
+#oldPassworddisclaimer{
+    font-size: 12px;
+    font-weight: 400;
+    font-family: manrope-m;
+    color: red;
+    line-height: 24px;
+}
+
 #buttonsEdit{
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
+    margin-top: 30px;
     gap: 5vw;
-    margin-bottom: 20vh;
+    margin-bottom: 5vh;
 }
 
 #submitEdit{
@@ -173,10 +182,11 @@
     margin-top: 15px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 
 #logo{
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 #logoimag{
