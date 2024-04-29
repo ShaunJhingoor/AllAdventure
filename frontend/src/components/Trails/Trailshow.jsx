@@ -20,6 +20,7 @@ import Drizzle from "../../images/drizzle.png"
 import Thunderstorm from "../../images/thunderstorm.png"
 import Atmosphere from "../../images/atmosphere.png"
 import SuggestedTrail from "./SuggestedTrails";
+import Loadings from "../../images/loading.gif"
 
 function TrailShow() {
     const { trailId } = useParams();
@@ -29,10 +30,13 @@ function TrailShow() {
     const trail = useSelector(selectTrail(trailId));
     const currentUser = useSelector(state=> state?.session?.user)
     const reviews = useSelector((state) => state?.trail?.[trail?.id]?.reviews || []);
+    const [loading, setLoading] = useState(true);
     
 
     useEffect(() => {
-        dispatch(Fetchtrail(trailId));
+        dispatch(Fetchtrail(trailId))
+        .then(() => setLoading(false)) 
+        .catch(() => setLoading(false));
     }, [dispatch, trailId]);
     
     useEffect(() => {
@@ -68,7 +72,16 @@ function TrailShow() {
          
         fetchWeatherData();
     }, [trail]);
-  
+
+    if (loading) {
+        // Show loading indicator
+        return (
+            <div className="loading">
+                <img src={Loadings} alt="loading" />
+                <h1>Loading</h1>
+            </div>
+        );
+    }
 
     if (trail === null || !trail) {
         return (

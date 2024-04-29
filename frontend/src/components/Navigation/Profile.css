@@ -86,9 +86,11 @@
 #editUser{
     margin-left: 1vw;
     width: 1.5vw;
+    cursor: pointer; 
 }
 
 #editUser:hover{
+    content: url("../../images/edit.gif");
     cursor: pointer;
 }
 

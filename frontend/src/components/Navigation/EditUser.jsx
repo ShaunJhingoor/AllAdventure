@@ -8,6 +8,7 @@ import hide from "../../images/hidePassword.png"
 import see from "../../images/seePassword.png"
 import Logo from "../../images/adventureIcon.png"
 import Footer from "../footer/Footer";
+import { Navigate } from "react-router-dom";
 function EditUser(){
     const current = useSelector((state) => state?.session?.user)
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -23,6 +24,16 @@ function EditUser(){
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword1, setShowPassword1] = useState(false);
 
+    useEffect(() => {
+        return () => {
+          setIsSubmitted(false)
+        }
+      }, []);
+
+    if(!current){
+        return <Navigate to="/login"/>
+    }
+
     const togglePasswordVisibility = () => {
       setShowPassword(!showPassword);
     };
@@ -32,11 +43,7 @@ function EditUser(){
       };
 
       
-    useEffect(() => {
-        return () => {
-          setIsSubmitted(false)
-        }
-      }, []);
+    
       // store.dispatch(sessionActions.updateUser({ id: 12, username: "Shaun", fname: "Shaun", lname: "Jhingoor", password: "password" , email: "Jhingoor1945@gmail.com"}));
     const handleEditUser = async(e) => {
         e.preventDefault()

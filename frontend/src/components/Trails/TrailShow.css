@@ -326,3 +326,9 @@
   color: #142800;
   line-height: 24px;
 }
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
