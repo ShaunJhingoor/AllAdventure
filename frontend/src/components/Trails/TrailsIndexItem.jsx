@@ -25,7 +25,7 @@ function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0 }) {
 
     
 
-    const favoriteForTrail = Object.values(favorites)?.find(favoriteObj => favoriteObj?.favorite?.trail?.id == trail.id);
+    const favoriteForTrail = Object.values(favorites)?.find(favoriteObj => favoriteObj?.favorite?.trail?.id == trail?.id);
 
     const isFavorite = favoriteTrailIds?.includes(trail?.id);
 

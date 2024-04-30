@@ -53,7 +53,7 @@ function TrailShow() {
         }
     }, [currentUser, dispatch, favoriteTrailIds?.length, rerender]);
 
-    const favoriteForTrail = Object.values(favorites)?.find(favoriteObj => favoriteObj?.favorite?.trail?.id == trail.id);
+    const favoriteForTrail = Object.values(favorites)?.find(favoriteObj => favoriteObj?.favorite?.trail?.id == trail?.id);
 
     const isFavorite = favoriteTrailIds?.includes(trail?.id);
 
