@@ -35,6 +35,11 @@ class User < ApplicationRecord
   has_many :reviews, 
     dependent: :destroy
 
+  has_many :favorites
+  
+  has_many :favorite_trails, through: :favorites, source: :trail, dependent: :destroy
+
+
     def self.find_by_credentials(credential, password)
       if (credential =~ URI::MailTo::EMAIL_REGEXP) == 0
         user = User.where('lower(email) = ?', credential.downcase).first

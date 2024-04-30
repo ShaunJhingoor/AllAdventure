@@ -5,13 +5,14 @@ import TrailReducer from './trail';
 // import reviewReducer from './review';
 import modalsReducer from './modal';
 import searchReducer from './search';
+import favoriteReducer from './favorite';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     trail: TrailReducer,
-    // review: reviewReducer,
     modals: modalsReducer,
-    search: searchReducer
+    search: searchReducer,
+    favorite: favoriteReducer
 });
 
 let enhancer;

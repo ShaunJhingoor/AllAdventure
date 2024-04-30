@@ -26,6 +26,11 @@ class Trail < ApplicationRecord
     has_many :review, 
     dependent: :destroy
 
+    has_many :favorites, dependent: :destroy
+    
+    has_many :favorite_trails, through: :favorites, source: :trail
+
+
   def self.search_names(query)
     where("lower(name) LIKE ?", "%#{sanitize_sql_like(query.downcase)}%")
   end

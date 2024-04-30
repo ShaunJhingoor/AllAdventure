@@ -3,6 +3,7 @@ const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 
 
+
 const setUser = (user) => ({
   type: SET_USER,
   payload: user
@@ -11,6 +12,7 @@ const setUser = (user) => ({
 const removeUser = () => ({
   type: REMOVE_USER
 });
+
 
 
 
@@ -89,9 +91,10 @@ export const updateUser = (userData, oldPassword) => async (dispatch) => {
 
 
 
+
 // store.dispatch(sessionActions.updateUser({ id: 12, username: "Shaun", fname: "Shaun", lname: "Jhingoor", password: "password" , email: "Jhingoor1945@gmail.com"}));
 
-const initialState = { user: null };
+const initialState = { user: null};
 
 function sessionReducer(state = initialState, action) {
   switch (action.type) {
@@ -99,7 +102,7 @@ function sessionReducer(state = initialState, action) {
       return { ...state, user: action.payload };
     case REMOVE_USER:
       return { ...state, user: null };
-    default:']'
+    default:
       return state;
   }
 }
