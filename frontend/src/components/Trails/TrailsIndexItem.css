@@ -38,5 +38,13 @@
     padding-bottom: 40px;
 }
 
+.favorite-icon{
+    width: 20px;
+    height: auto;
+    cursor: pointer;
+}
+
+
+
 
 

@@ -11,18 +11,27 @@ import Flower from "../../images/flower.png";
 import Footer from "../footer/Footer";
 import "./Profile.css";
 import Loadings from "../../images/loading.gif"
+import { fetchAllFavorites } from "../../store/favorite";
+import FavoriteTrails from "./FavoriteTrails";
 
 function Profile() {
   const current = useSelector((state) => state?.session?.user);
   const trails = useSelector(trailsArray);
+  const favoritesObj = useSelector(state => state?.favorite)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [loading1, setLoading1] = useState(true);
+  const [section, setSection] = useState('R')
 
+  section
+  
   useEffect(() => {
     dispatch(Fetchtrails()).then(() => setLoading(false));
-  }, [dispatch]);
+    dispatch(fetchAllFavorites(current?.id)).then(() => setLoading1(false));
+  }, [dispatch, current]);
 
+  const favoriteTrails = Object.values(favoritesObj).map(favorite => favorite?.favorite?.trail)
   if (!current) {
     return <Navigate to="/login" />;
   }
@@ -77,12 +86,22 @@ function Profile() {
             </p>
             <div id="numberOfReviews">
               {/* Conditionally render "Loading..." while data is being fetched */}
-              {loading ? (
+              {loading && loading1 ? (
+                <>
                 <p id="numberOfReviewTag">Number of Reviews: <img src={Loadings} alt="loading" /></p>
+                <p id="numberOfReviewTag">Number of Favorites: <img src={Loadings} alt="loading"/></p>
+                </>
               ) : (
-                <p id="numberOfReviewTag">
+                <>
+                <p id="numberOfReviewTag" onClick={() => setSection("R")}>
+                
                   Number of Reviews: {currentReviews?.length}
                 </p>
+                <p id="numberOfReviewTag" onClick={() => setSection("F")}>
+                
+                  Number of Favorites: {favoriteTrails?.length}
+                </p>
+                </>
               )}
             </div>
           </div>
@@ -94,9 +113,12 @@ function Profile() {
             <h1 id="loadingContent">Loading</h1>
             </div>
         </form>
-        ) : currentReviews.length === 0 ? (
+        ) : section === "R" && currentReviews.length === 0? (
           <form className="currentReview">
-            <h1 id="currentReviewHeader">Reviews</h1>
+            <div id="currentReviewHeader">
+              <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
+              <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+          </div>
             <div id="breakerbarshow1"></div>
             <div id="noReviewImage">
               <img src={Flower} alt="flower" />
@@ -123,12 +145,26 @@ function Profile() {
               </button>
             </div>
           </form>
-        ) : (
+        ) : section === "R" ?(
           <form className="currentReview">
-            <h1 id="currentReviewHeader">Reviews</h1>
+            <div id="currentReviewHeader">
+              <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
+              <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+            </div>
             <div id="breakerbarshow1"></div>
             {currentReviews.map((review, index) => (
-              <UserReviews key={`${review.id}_${index}`} review={review} />
+              <UserReviews key={`${review?.id}_${index}`} review={review} />
+            ))}
+          </form>
+        ): (
+          <form className="currentReview">
+          <div id="currentReviewHeader">
+              <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
+              <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+          </div>
+          <div id="breakerbarshow1"></div>
+            {favoriteTrails.map((trail, index) => (
+              <FavoriteTrails key={`${trail?.id}_${index}`}trail ={trail}/>  
             ))}
           </form>
         )}

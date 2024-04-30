@@ -90,6 +90,12 @@
 
 #showdescriptionheader {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.favorite-container-show{
+  margin-right: 2vw;
 }
 
 #showdescriptionheadertext {

@@ -21,6 +21,9 @@ import Thunderstorm from "../../images/thunderstorm.png"
 import Atmosphere from "../../images/atmosphere.png"
 import SuggestedTrail from "./SuggestedTrails";
 import Loadings from "../../images/loading.gif"
+import NonFavorite from "../../images/notFavorite.png";
+import Favorite from "../../images/Favorite.png";
+import { fetchAllFavorites,removeFromFavorites, addToFavorites } from "../../store/favorite";
 
 function TrailShow() {
     const { trailId } = useParams();
@@ -31,13 +34,37 @@ function TrailShow() {
     const currentUser = useSelector(state=> state?.session?.user)
     const reviews = useSelector((state) => state?.trail?.[trail?.id]?.reviews || []);
     const [loading, setLoading] = useState(true);
-    
+    const [rerender, setRerender] = useState(false);
+    const favorites = useSelector(state => state?.favorite);
+
+   
 
     useEffect(() => {
         dispatch(Fetchtrail(trailId))
         .then(() => setLoading(false)) 
         .catch(() => setLoading(false));
     }, [dispatch, trailId]);
+
+    const favoriteTrailIds = Object.values(favorites)?.map(favoriteObj => favoriteObj?.favorite?.trail?.id);
+
+    useEffect(() => {
+        if(currentUser){
+        dispatch(fetchAllFavorites(currentUser?.id));
+        }
+    }, [currentUser, dispatch, favoriteTrailIds?.length, rerender]);
+
+    const favoriteForTrail = Object.values(favorites)?.find(favoriteObj => favoriteObj?.favorite?.trail?.id == trail.id);
+
+    const isFavorite = favoriteTrailIds?.includes(trail?.id);
+
+    const handleFavoriteClick = async() => {
+        if (isFavorite) {
+            await dispatch(removeFromFavorites(trail?.id, favoriteForTrail?.favorite?.id)); 
+        } else {
+            await dispatch(addToFavorites(trail?.id)); 
+        }
+        setRerender(!rerender); 
+    };
     
     useEffect(() => {
         const fetchWeatherData = async (retryCount = 30) => {
@@ -74,7 +101,6 @@ function TrailShow() {
     }, [trail]);
 
     if (loading) {
-        // Show loading indicator
         return (
             <div className="loading">
                 <img src={Loadings} alt="loading" />
@@ -114,6 +140,16 @@ function TrailShow() {
                         <br />
                         <div id="showdescriptionheader">
                             <p id="showdescriptionheadertext">Description</p>
+                            {currentUser && (
+                                <div className="favorite-container-show" >
+                                    {isFavorite ? (
+                                        <img src={Favorite} alt="Favorite" className="favorite-icon"  onClick={handleFavoriteClick} />
+
+                                    ) : (
+                                        <img src={NonFavorite} alt="Not Favorite" className="favorite-icon" onClick={handleFavoriteClick}/>
+                                    )}
+                                </div>
+                            )}
                         </div>
                         <br />
                         <div id="breakerbarshow1"></div>

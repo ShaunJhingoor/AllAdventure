@@ -9,6 +9,7 @@ import  TrailMapWrapper from "../maps/Trailmaps"
 import SmallSearchBar from "../search/smallsearchbar";
 import Footer from "../footer/Footer";
 
+
 function RealTrailsIndex() {
   const trails = useSelector(trailsArray);
   const dispatch = useDispatch();
@@ -16,8 +17,10 @@ function RealTrailsIndex() {
   const [center, setCenter] = useState({lat:  40.79142619411136, lng:-73.58735483173312})
   const [zoom, setZoom] = useState(10)
   
+  
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+    
   };
 
   // Fetch trails on component mount

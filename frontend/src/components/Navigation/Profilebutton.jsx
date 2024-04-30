@@ -44,10 +44,10 @@ function ProfileButton() {
       <div onMouseOver={toggleMenu} onMouseLeave={() => setShowMenu(false)} className="profile-button"> <img src={bird} alt="profile" id='bird'/>
         {showMenu && (
         <div className="profile-dropdown" ref={dropdownRef} onMouseOver={toggleMenu} >
+          <p id="profile-button" onClick={() => navigate("/profile")}>Profile</p>
           <div id="logoutsection">
           <p onClick={logout} id="logout-button"> Logout </p>
           </div>
-          <p id="profile-button" onClick={() => navigate("/profile")}>Profile</p>
         </div>
       )}
       </div>  

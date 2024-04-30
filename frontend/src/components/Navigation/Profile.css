@@ -16,10 +16,10 @@
     position: relative;
     border: 2px solid rgba(0, 0, 0, 0.165);
     width: 25dvw;
-    height: 40dvh;
+    height: auto;
     z-index: 1;
     border-radius: 25px;
-    box-shadow: 5px 0px 15px rgba(0, 0, 0, 1)
+    /* box-shadow: 5px 0px 15px rgba(0, 0, 0, 1) */
 }
 
 #bird{
@@ -50,6 +50,7 @@
     line-height: 33.6px;
     letter-spacing: -0.5px;
 }
+
 #currentDateCreated{
     margin:0;
     padding: 0;
@@ -63,6 +64,7 @@
 
 #numberOfReviews{
     margin-top: 2vh;
+    margin-bottom: 3vh;
 }
 
 #numberOfReviewsContent{
@@ -80,7 +82,8 @@
     font-family: manrope-m;
     color: #142800;
     line-height: 33.6px;
-    letter-spacing: -0.5px;   
+    letter-spacing: -0.5px;  
+    cursor: pointer; 
 }
 
 #editUser{
@@ -104,7 +107,7 @@
     width: 60dvw;
     height: 80dvh;
     border-radius: 25px;
-    box-shadow: 5px 0px 15px rgba(0, 0, 0, 1);
+    /* box-shadow: 5px 0px 15px rgba(0, 0, 0, 1); */
     overflow-y: scroll;
 }
 
@@ -114,8 +117,38 @@
     font-weight: 400;
     font-size: 28px;
     font-family: manrope-m;
-    color: #142800;
     line-height: 36px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+#currentReviewHeaderReview{
+    margin-right: 1vw;
+    color: #142800;
+}
+#currentReviewHeaderReview{
+    color: #142800; 
+}
+
+#currentReviewHeaderReview:hover,
+#currentReviewHeaderFavorite:hover {
+    color: #284e01;
+}
+
+
+#currentReviewHeaderReview.active,
+#currentReviewHeaderFavorite.active {
+    color: #64F67B;
+}
+
+
+.active1{
+    color: #64F67B;;
+}
+
+#reviewHeader{
+    margin-right: 1vw;
 }
 
 #noReviewImage{

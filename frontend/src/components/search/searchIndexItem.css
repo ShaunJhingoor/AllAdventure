@@ -19,6 +19,7 @@
 
 .detailsContainer {
     text-align: center;
+    text-decoration: none;
 }
 
 #searchtrailname {
@@ -28,6 +29,7 @@
     color: #142800;
     text-decoration: none;
     padding-bottom: 5px;
+    
 }
 
 #searchTrail {
