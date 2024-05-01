@@ -13,6 +13,7 @@ import "./Profile.css";
 import Loadings from "../../images/loading.gif"
 import { fetchAllFavorites } from "../../store/favorite";
 import FavoriteTrails from "./FavoriteTrails";
+import heartFlower from "../../images/heartFlower.png"
 
 function Profile() {
   const current = useSelector((state) => state?.session?.user);
@@ -66,6 +67,7 @@ function Profile() {
       <br />
       <div id="ProfileFormOutside">
         <br />
+      <div id="position">
         <form className="profile">
           <div id="bird">
             <img src={bird} alt="bird" id="profileImg" />
@@ -156,7 +158,38 @@ function Profile() {
               <UserReviews key={`${review?.id}_${index}`} review={review} />
             ))}
           </form>
-        ): (
+        ): favoriteTrails?.length === 0 ?(
+          <form className="currentReview">
+          <div id="currentReviewHeader">
+              <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
+              <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+          </div>
+          <div id="breakerbarshow1"></div>
+            <div id="noReviewImage">
+              <img src={heartFlower} alt="flower" />
+            </div>
+            <div id="noReviewHeader">
+              <p id="noReviewHeaderContent">Add your favorites</p>
+            </div>
+            <div id="noReviewContentContainer">
+              <p id="noReviewContent">
+              Keep track of your favorite adventures so you can revisit them
+              </p>
+            </div>
+            <div id="navigateButtonContainer">
+              <button
+                id="navigateButton"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/trails");
+                }}
+                style={{ textDecoration: "none" }}
+              >
+                <p id="navigateButtonContent">Explore Trails</p>
+              </button>
+            </div>
+          </form>
+        ):(
           <form className="currentReview">
           <div id="currentReviewHeader">
               <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
@@ -168,6 +201,7 @@ function Profile() {
             ))}
           </form>
         )}
+      </div>
       </div>
       <Footer />
     </>

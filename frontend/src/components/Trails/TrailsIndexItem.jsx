@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './TrailsIndexItem.css';
 import { Link } from 'react-router-dom';
 import NonFavorite from "../../images/notFavorite.png";
-import Favorite from "../../images/Favorite.png";
+import Favorite from "../../images/redHeart.png"
 import { fetchAllFavorites,removeFromFavorites, addToFavorites } from "../../store/favorite";
 import AverageRating from '../Rating/averagerating';
 import { useEffect } from 'react';

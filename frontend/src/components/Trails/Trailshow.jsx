@@ -21,8 +21,10 @@ import Thunderstorm from "../../images/thunderstorm.png"
 import Atmosphere from "../../images/atmosphere.png"
 import SuggestedTrail from "./SuggestedTrails";
 import Loadings from "../../images/loading.gif"
-import NonFavorite from "../../images/notFavorite.png";
-import Favorite from "../../images/Favorite.png";
+import NonFavorite from "../../images/whiteHeart.png";
+import directions from "../../images/directions.png"
+import redHeart from "../../images/redHeart.png"
+import Email from "../../images/sendEmail.png"
 import { fetchAllFavorites,removeFromFavorites, addToFavorites } from "../../store/favorite";
 
 function TrailShow() {
@@ -37,7 +39,13 @@ function TrailShow() {
     const [rerender, setRerender] = useState(false);
     const favorites = useSelector(state => state?.favorite);
 
-   
+    const handleSendEmail = () => {
+        const currentURL = window.location.href;
+        const subject = "Check out this great coder!";
+        const body = `Hey, I found this awesome project: ${currentURL}`;
+        const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.open(mailtoLink, "_blank");
+    };
 
     useEffect(() => {
         dispatch(Fetchtrail(trailId))
@@ -69,9 +77,9 @@ function TrailShow() {
     useEffect(() => {
         const fetchWeatherData = async (retryCount = 30) => {
             try {
-                if (trail && trail.latitude !== undefined && trail.longitude !== undefined) {
+                if (trail && trail?.latitude !== undefined && trail?.longitude !== undefined) {
                     const apiKey = import.meta.env.VITE_APP_WEATHER_API_KEY;
-                    const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${trail.latitude}&lon=${trail.longitude}&units=imperial&appid=${apiKey}`;
+                    const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${trail?.latitude}&lon=${trail?.longitude}&units=imperial&appid=${apiKey}`;
       
                     const response = await fetch(apiUrl)
                     if (!response?.ok) {
@@ -99,6 +107,13 @@ function TrailShow() {
          
         fetchWeatherData();
     }, [trail]);
+
+    const handleGetDirections = (latitude, longitude) => {
+    
+        const mapsURL = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
+        
+        window.open(mapsURL, "_blank");
+      };
 
     if (loading) {
         return (
@@ -132,7 +147,20 @@ function TrailShow() {
                 <div className="showoutside">
                     <form className="show">
                         <img src={trail?.photoUrl} alt="result" id="showtrailimag" />
-                        <div id="breakerbarshow"></div>
+                        <div id="breakerbarshow">
+                        <img src={directions} alt="directions" id="directionsTrailShow" onClick={() => handleGetDirections(trail?.latitude, trail?.longitude)}/>
+                        {currentUser && (
+                                <div className="favorite-container-show" >
+                                    {isFavorite ? (
+                                        <img src={redHeart} alt="Favorite" className="favorite-icon-show"  onClick={handleFavoriteClick} />
+
+                                    ) : (
+                                        <img src={NonFavorite} alt="Not Favorite" className="favorite-icon-show" onClick={handleFavoriteClick}/>
+                                    )}
+                                </div>
+                            )}
+                            <img src={Email} alt="email" id="emailShow" onClick={handleSendEmail}/>
+                        </div>
                         <div id="showtextimag">
                             <p id="showtrailnameimag">{trail?.name}</p>
                             <span id="showtrailinfoimag">{trail?.difficulty} &bull;<span id="starshowimag">&#9733; </span><AverageRating trail={trail}/>  ({Object.values(reviews)?.length})</span>
@@ -140,16 +168,6 @@ function TrailShow() {
                         <br />
                         <div id="showdescriptionheader">
                             <p id="showdescriptionheadertext">Description</p>
-                            {currentUser && (
-                                <div className="favorite-container-show" >
-                                    {isFavorite ? (
-                                        <img src={Favorite} alt="Favorite" className="favorite-icon"  onClick={handleFavoriteClick} />
-
-                                    ) : (
-                                        <img src={NonFavorite} alt="Not Favorite" className="favorite-icon" onClick={handleFavoriteClick}/>
-                                    )}
-                                </div>
-                            )}
                         </div>
                         <br />
                         <div id="breakerbarshow1"></div>

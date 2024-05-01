@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import AverageRating from '../Rating/averagerating'
 import NonFavorite from "../../images/notFavorite.png";
-import Favorite from "../../images/Favorite.png";
+import Favorite from "../../images/redHeart.png"
 
 function SuggestedTrailsItem({trail}){
     const currentUser = useSelector(state => state?.session?.user);

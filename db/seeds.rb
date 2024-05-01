@@ -13,13 +13,15 @@ require "open-uri"
     Review.destroy_all
     User.destroy_all
     Trail.destroy_all
-    
+    Favorite.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('trails')
     ApplicationRecord.connection.reset_pk_sequence!('reviews')
+    ActiveRecord::Base.connection.reset_pk_sequence!('favorites')
+
   
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
@@ -31,7 +33,6 @@ require "open-uri"
       lname: "smith"
     )
 
-    
     
     
     
@@ -320,7 +321,13 @@ require "open-uri"
       end
     end
           
-        
+  favorite_trail_ids = [1, 4, 10,7,18,20] 
+  favorite_trail_ids.each do |trail_id|
+  Favorite.create!(
+    user_id: 1,
+    trail_id: trail_id
+  )
+end
       
 
   
