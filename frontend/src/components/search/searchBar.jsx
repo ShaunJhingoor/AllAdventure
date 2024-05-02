@@ -31,7 +31,8 @@ function SearchBar(){
         if (e.key === 'Enter') {
             e.preventDefault();
             handleSearch()
-            navigate("/trails/search")
+            navigate("/trails/search"); 
+            window.scrollTo(0, 0);
         }
       };
 
@@ -61,9 +62,9 @@ function SearchBar(){
             onKeyDown={handleSearchEnter}
             />
            
-            <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search"   onClick={handleSearch} /></Link>
+            <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search"   onClick={() => { handleSearch(); window.scrollTo(0, 0); }}/></Link>
             
-        <h1 id="mapLink" onClick={() => navigate("/trails")}>Explore nearby trails</h1>
+        <h1 id="mapLink" onClick={() => { navigate("/trails"); window.scrollTo(0, 0); }}>Explore nearby trails</h1>
         </div>
         </div>
         </>

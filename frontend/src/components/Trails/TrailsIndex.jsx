@@ -35,7 +35,7 @@ function TrailsIndex(){
         <SearchBar/>
         <div id='indexWrapper'>
             <br />
-            <Link to='/trails' id="linkTrailIndexHeader">
+            <Link to='/trails' id="linkTrailIndexHeader" onClick={() => window.scrollTo(0, 0)}>
             <h1 id="TrailIndexHeader">New York Favorites</h1>
         </Link>
             <br />

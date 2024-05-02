@@ -11,7 +11,7 @@ function UserReviews({review }){
 
 return(
 
-   <div onClick={() => navigate(`/trails/${review?.trail_id}`)}>
+   <div onClick={() => {navigate(`/trails/${review?.trail_id}`); window.scrollTo(0, 0)}} style={{ textDecoration: 'none' }}>
     <h1 id="trailName">{trail?.name}</h1>
     <h1 id="dateReview">Date Written: {formatDate(review?.created_at)}</h1>
     <h1><Rating rating={review?.rating}/></h1>

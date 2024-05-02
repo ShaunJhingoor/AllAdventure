@@ -37,7 +37,7 @@ function SearchIndexItem({result}){
     return (
         <div id='searchInfo'>
         <div>
-            <Link to={`/trails/${result?.id}`} style={{ textDecoration: 'none' }}>
+            <Link to={`/trails/${result?.id}`} style={{ textDecoration: 'none' }} onClick={() => window.scrollTo(0, 0)}>
                 <img src={result?.photoUrl} alt="result" id="searchImag" />
             </Link>
         </div>  
@@ -52,7 +52,7 @@ function SearchIndexItem({result}){
             </div>
                 )}
         <div className="detailsContainer">
-            <Link style={{ textDecoration: 'none' }}>
+            <Link  to={`/trails/${result?.id}`} style={{ textDecoration: 'none' }} onClick={() => window.scrollTo(0, 0)}>
                 <p id='searchtrailname'>{result?.name} </p>
                 <ul id='searchTrail'> 
                     <li>&#9733; <AverageRating trail={result}/> &bull; {result?.length}mi &bull; {result?.difficulty}</li>

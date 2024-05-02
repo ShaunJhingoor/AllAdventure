@@ -62,7 +62,8 @@ function EditUser(){
         dispatch(updateUser(updateUsers, oldPassword))
             .then(() => {
                 setIsSubmitted(false);
-                navigate("/profile");
+                navigate(`/profile/${current?.id}`);
+                window.scrollTo(0, 0)
             })
             .catch(async (res) => {
                 let data;
@@ -193,7 +194,8 @@ function EditUser(){
                 </div>
             <div  id="buttonsEdit">
             <button type="submit" id="submitEdit">Submit</button>
-            <button id="cancelEdit" onClick={() => navigate("/profile")}>Cancel</button>
+            <button id="cancelEdit" onClick={() => {
+        navigate(`/profile/${current?.id}`);window.scrollTo(0, 0); }}>Cancel</button>
             </div>
         </form>
        

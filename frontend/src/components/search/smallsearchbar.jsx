@@ -26,6 +26,7 @@ function SmallSearchBar() {
         handleSearch()
         navigate("/trails/search")
         setSearchValue('')
+        window.scrollTo(0, 0);
     }
   };
 
@@ -41,7 +42,7 @@ function SmallSearchBar() {
         onKeyDown={handleSearchEnter} 
       />
       <Link to="/trails/search" id="smallSearchBarButton">
-        <img src={smallSearch} alt="search" onClick={handleSearch} />
+        <img src={smallSearch} alt="search" onClick={() => { handleSearch(); window.scrollTo(0, 0); }} />
       </Link>
       
     </div>

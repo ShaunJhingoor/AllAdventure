@@ -127,7 +127,7 @@ function TrailShow() {
                 <h1 id="invalidTrailHeader">We have reached the end of the trail</h1>
                 <p id="invalidTrailStatment">The page you are looking for either does not exist or has a new link. Let us get you back on the right path.</p>
                 <br />
-                <button type="submit" onClick={() => navigate("/trails")} id='InvalidTrailButton'>Find Your Next Adventure</button>
+                <button type="submit"   onClick={() => { navigate("/trails"); window.scrollTo(0, 0); }}  id='InvalidTrailButton'>Find Your Next Adventure</button>
             </div>
         );
     }

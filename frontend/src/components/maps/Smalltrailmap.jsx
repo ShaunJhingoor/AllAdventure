@@ -60,7 +60,8 @@ export const TrailMap = ({trail}) => {
     return(
         <>
             
-            <GoogleMap zoom={14}  center={{lat: trail?.latitude, lng: trail?.longitude}} mapContainerStyle={containerStyle} options={mapOptions} onClick={() => navigate("/trails")}>
+            <GoogleMap zoom={14}  center={{lat: trail?.latitude, lng: trail?.longitude}} mapContainerStyle={containerStyle} options={mapOptions} onClick={() => {navigate("/trails"); window.scrollTo(0, 0); }}
+>
         
             <MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>
     
