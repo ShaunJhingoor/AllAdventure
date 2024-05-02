@@ -103,12 +103,13 @@
   flex-direction: row;
   justify-content:space-between;
   align-items: center;
+  position: relative;
 }
 .favorite-container-show {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  position: relative;
 }
 
 #directionsTrailShow{
@@ -116,21 +117,21 @@
   height: 30px; 
   cursor: pointer;
   margin-left: 30px;
+  transition: transform 0.2s;
 }
 
 #directionsTrailShow:hover{
-  width: 35px; 
-  height: 35px; 
+  transform: scale(1.17);
 }
 .favorite-icon-show {
   width: 30px; 
   height: 30px; 
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .favorite-icon-show:hover{
-  width: 35px; 
-  height: 35px;
+  transform: scale(1.17);
 }
 
 #emailShow{
@@ -138,11 +139,11 @@
   height: 30px; 
   cursor: pointer;
   margin-right: 30px;
+  transition: transform 0.2s;
 }
 
 #emailShow:hover{
-  width: 35px; 
-  height: 35px; 
+  transform: scale(1.17);
 }
 
 #showdescriptionheadertext {
