@@ -1,9 +1,11 @@
 class Api::FavoritesController < ApplicationController
 
     def index
-        @favorites = current_user.favorites.includes(:trail)
+        user = User.find(params[:user_id]) 
+        @favorites = user.favorites.includes(:trail)
         render :index
     end
+
 
     def create
       @trail = Trail.find(params[:trail_id])

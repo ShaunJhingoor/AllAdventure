@@ -10,6 +10,7 @@ function ReviewsIndex({trail}){
     const {trailId} = useParams()
     useEffect(() => {
         dispatch(Fetchtrail(trailId))
+        
     },[dispatch,trailId])
 
     const reviews = useSelector((state) => state?.trail?.[trail?.id]?.reviews || [])

@@ -35,9 +35,9 @@ class User < ApplicationRecord
   has_many :reviews, 
     dependent: :destroy
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   
-  has_many :favorite_trails, through: :favorites, source: :trail, dependent: :destroy
+  has_many :favorite_trails, through: :favorites, source: :trail
 
 
     def self.find_by_credentials(credential, password)

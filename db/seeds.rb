@@ -321,13 +321,17 @@ require "open-uri"
       end
     end
           
-  favorite_trail_ids = [1, 4, 10,7,18,20] 
-  favorite_trail_ids.each do |trail_id|
-  Favorite.create!(
-    user_id: 1,
-    trail_id: trail_id
-  )
-end
+      favorite_trail_ids = [1, 4, 10, 7, 18,20] 
+      favorite_trail_ids.each do |trail_id|
+      Favorite.create!(
+        user_id: 1,
+        trail_id: trail_id
+      )
+    end
+
+    User.where.not(username: 'Demo-lition').each do |user|
+      user.favorite_trails << Trail.all.sample(3)
+    end
       
 
   

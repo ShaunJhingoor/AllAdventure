@@ -5,11 +5,13 @@ import reviewProfile from "../../images/reviewProfile.png"
 import ReviewDropDown from "./reviewDropDown"
 import { useState } from "react"
 import {useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
 function ReviewIndexItem({review, trail}) {
     const [visible,setVisible] = useState(false)
     const currentUser = useSelector(state => state?.session?.user)
     const canEdit = currentUser?.id === review?.user_id
+    const navigate = useNavigate()
 
     const handleSettingDropDown = (e) => {
         e.preventDefault()
@@ -30,7 +32,7 @@ function ReviewIndexItem({review, trail}) {
             <hr />
             <span id="reviewIndexItemName"> 
             <img src={reviewProfile} alt="reviewProfile" id="reviewProfileImag"/>
-            <div>
+            <div onClick={() => { navigate(`/profile/${review?.user_id}`); window.scrollTo(0, 0); }} style={{ textDecoration: 'none', cursor: 'pointer' }}>
             {capitalizeFirstLetter(review?.fname)} {capitalizeFirstLetter(review?.lname)} 
             <p id="reviewDateCreated">{formatDate(review?.created_at)}</p>
             </div>

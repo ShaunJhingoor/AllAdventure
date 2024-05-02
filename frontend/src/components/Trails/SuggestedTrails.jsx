@@ -5,49 +5,43 @@ import SuggestedTrailsItem from "./SuggestedTrailsItem";
 import { useEffect, useState } from "react";
 import "./TrailsIndex.css";
 
-function SuggestedTrail({ trailId }) {
+function SuggestedTrail({ num1, num2 }) {
   const trails = useSelector(trailsArray);
   const dispatch = useDispatch();
-  const [randomTrails, setRandomTrails] = useState([]);
+  const [loading, setLoadingLocal] = useState(true);
 
   useEffect(() => {
-    dispatch(Fetchtrails());
+    dispatch(Fetchtrails())
+      .then(() => {
+        setLoadingLocal(false);
+      });
   }, [dispatch]);
 
-  useEffect(() => {
-    if (trails.length > 0) {
-     
-      const filteredTrails = trails.filter((trail) => trail.id !== trailId);
-
-
-      const shuffledTrails = shuffleArray(filteredTrails);
-
-      
-      const selectedTrails = shuffledTrails.slice(0, 4);
-
-      setRandomTrails(selectedTrails);
-    }
-  }, [trails, trailId]);
-
-  
-  const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  };
-  if (randomTrails.length === 0) {
-    return null;
+  if (loading) {
+    return <div>Loading...</div>;
   }
+
   return (
     <div id="trailindexwrapper">
-      {randomTrails.map((trail, index) => (
-        <SuggestedTrailsItem key={`${trail.id}_${index}`} trail={trail} />
-      ))}
+      {num1 < num2 ? (
+        trails?.slice(num1, num2)?.map((trail, index) => (
+          <SuggestedTrailsItem key={index} trail={trail}  />
+        ))
+      ) : (
+        trails?.slice(num2 - 2, num1 - 2)?.map((trail, index) => (
+          <SuggestedTrailsItem key={index} trail={trail}  />
+        ))
+      )}
     </div>
   );
 }
 
 export default SuggestedTrail;
+
+
+
+
+
+
+
 

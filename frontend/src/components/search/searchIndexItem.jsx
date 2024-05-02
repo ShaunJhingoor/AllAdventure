@@ -19,7 +19,7 @@ function SearchIndexItem({result}){
         if(currentUser){
         dispatch(fetchAllFavorites(currentUser?.id));
         }
-    }, [currentUser, dispatch, favoriteTrailIds?.length, rerender]);
+    }, [currentUser, dispatch, rerender]);
 
     const favoriteForTrail = Object.values(favorites)?.find(favoriteObj => favoriteObj?.favorite?.trail?.id == result.id);
 
@@ -37,7 +37,7 @@ function SearchIndexItem({result}){
     return (
         <div id='searchInfo'>
         <div>
-            <Link to={`/trails/${result.id}`} style={{ textDecoration: 'none' }}>
+            <Link to={`/trails/${result?.id}`} style={{ textDecoration: 'none' }}>
                 <img src={result?.photoUrl} alt="result" id="searchImag" />
             </Link>
         </div>  

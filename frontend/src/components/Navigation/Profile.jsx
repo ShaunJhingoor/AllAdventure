@@ -14,25 +14,52 @@ import Loadings from "../../images/loading.gif"
 import { fetchAllFavorites } from "../../store/favorite";
 import FavoriteTrails from "./FavoriteTrails";
 import heartFlower from "../../images/heartFlower.png"
+import { useParams } from "react-router-dom";
+import { fetchUser } from "../../store/session";
 
 function Profile() {
   const current = useSelector((state) => state?.session?.user);
+  const profileUser = useSelector((state) => state?.session?.otherUser?.user)
   const trails = useSelector(trailsArray);
-  const favoritesObj = useSelector(state => state?.favorite)
+  const favoritesObj = useSelector(state => state?.favorite || {})
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [loading1, setLoading1] = useState(true);
   const [section, setSection] = useState('R')
+  const {userId} = useParams()
+  const favoriteTrails = Object.values(favoritesObj)?.filter(favorite => favorite?.favorite?.user_id == userId)?.map(favorite => favorite?.favorite?.trail)
 
-  section
-  
   useEffect(() => {
-    dispatch(Fetchtrails()).then(() => setLoading(false));
-    dispatch(fetchAllFavorites(current?.id)).then(() => setLoading1(false));
-  }, [dispatch, current]);
+    dispatch(fetchUser(userId))
+  }, [dispatch, userId])
 
-  const favoriteTrails = Object.values(favoritesObj).map(favorite => favorite?.favorite?.trail)
+
+  useEffect(() => {
+  setLoading(true);
+  dispatch(Fetchtrails())
+    .then(() => setLoading(false))
+    .catch(() => setLoading(false)); 
+}, [dispatch]);
+
+useEffect(() => {
+  const fetchFavorites = async () => {
+    setLoading1(true);
+    try {
+        await dispatch(fetchAllFavorites(userId))
+      setLoading1(false);
+    } catch (error) {
+      setLoading1(false);
+      console.error("Error fetching favorites:", error);
+    }
+  };
+
+
+
+  fetchFavorites();
+}, [dispatch, userId]);
+
+  
   if (!current) {
     return <Navigate to="/login" />;
   }
@@ -50,7 +77,7 @@ function Profile() {
       if (trail?.reviews) {
         const reviewsArray = Object.values(trail?.reviews);
         const userReviews = reviewsArray.filter(
-          (review) => review?.user_id === current?.id
+          (review) => review?.user_id == userId
         );
         return userReviews.map((review) => ({
           trail_id: trail?.id,
@@ -60,7 +87,6 @@ function Profile() {
       return [];
     })
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
   return (
     <>
       <SmallSearchBar />
@@ -73,16 +99,19 @@ function Profile() {
             <img src={bird} alt="bird" id="profileImg" />
           </div>
           <div id="userInfo">
-            <p id="Name">
-              {capitalizeFirstLetter(current?.fname)}{" "}
-              {capitalizeFirstLetter(current?.lname)}{" "}
-              <img
-                src={edit}
-                alt="edit"
-                id="editUser"
-                onClick={() => navigate("/edit")}
-              />
-            </p>
+          <p id="Name">
+            {capitalizeFirstLetter(profileUser?.fname)} {capitalizeFirstLetter(profileUser?.lname)}
+          
+              
+            {current?.id && userId && current?.id == userId && (
+                <img
+                  src={edit}
+                  alt="edit"
+                  id="editUser"
+                  onClick={() => navigate("/edit")}
+                />
+              )}
+          </p>
             <p id="currentDateCreated">
               Member since {formatDate(current?.created_at)}
             </p>
@@ -115,7 +144,7 @@ function Profile() {
             <h1 id="loadingContent">Loading</h1>
             </div>
         </form>
-        ) : section === "R" && currentReviews.length === 0? (
+        ) : section === "R" && currentReviews.length === 0 && current?.id == userId?(
           <form className="currentReview">
             <div id="currentReviewHeader">
               <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
@@ -147,7 +176,38 @@ function Profile() {
               </button>
             </div>
           </form>
-        ) : section === "R" ?(
+        ) : section === "R" && currentReviews.length === 0 && current?.id != userId?(
+          <form className="currentReview">
+          <div id="currentReviewHeader">
+            <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
+            <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+        </div>
+          <div id="breakerbarshow1"></div>
+          <div id="noReviewImage">
+            <img src={Flower} alt="flower" />
+          </div>
+          <div id="noReviewHeader">
+            <p id="noReviewHeaderContent">User Currently has no reviews</p>
+          </div>
+          <div id="noReviewContentContainer">
+            <p id="noReviewContent">
+              Explore other trails and look at other users reviews to find your next adventure.
+            </p>
+          </div>
+          <div id="navigateButtonContainer">
+            <button
+              id="navigateButton"
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate("/trails");
+              }}
+              style={{ textDecoration: "none" }}
+            >
+              <p id="navigateButtonContent">Explore Trails</p>
+            </button>
+          </div>
+        </form>
+        ): section === "R" ?(
           <form className="currentReview">
             <div id="currentReviewHeader">
               <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
@@ -158,7 +218,7 @@ function Profile() {
               <UserReviews key={`${review?.id}_${index}`} review={review} />
             ))}
           </form>
-        ): favoriteTrails?.length === 0 ?(
+        ): favoriteTrails?.length === 0 && current?.id == userId?(
           <form className="currentReview">
           <div id="currentReviewHeader">
               <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
@@ -174,6 +234,37 @@ function Profile() {
             <div id="noReviewContentContainer">
               <p id="noReviewContent">
               Keep track of your favorite adventures so you can revisit them
+              </p>
+            </div>
+            <div id="navigateButtonContainer">
+              <button
+                id="navigateButton"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/trails");
+                }}
+                style={{ textDecoration: "none" }}
+              >
+                <p id="navigateButtonContent">Explore Trails</p>
+              </button>
+            </div>
+          </form>
+        ):favoriteTrails?.length === 0 && current?.id != userId?(
+          <form className="currentReview">
+          <div id="currentReviewHeader">
+              <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
+              <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+          </div>
+          <div id="breakerbarshow1"></div>
+            <div id="noReviewImage">
+              <img src={heartFlower} alt="flower" />
+            </div>
+            <div id="noReviewHeader">
+              <p id="noReviewHeaderContent">User Currently has no favorite trails</p>
+            </div>
+            <div id="noReviewContentContainer">
+              <p id="noReviewContent">
+              Explore more and find your next favorite trail
               </p>
             </div>
             <div id="navigateButtonContainer">

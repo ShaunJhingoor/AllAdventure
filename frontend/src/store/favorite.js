@@ -65,7 +65,7 @@ let newState = { ...state };
       delete newState[action.payload];
       return newState;
     case FETCH_ALL_FAVORITES:
-        return { ...action.payload };  
+      return {...action.payload}
     default:
       return state;
   }

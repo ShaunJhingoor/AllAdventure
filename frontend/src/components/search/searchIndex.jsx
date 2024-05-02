@@ -6,43 +6,35 @@ import { useEffect } from "react";
 import { Fetchtrails, trailsArray } from "../../store/trail";
 import Footer from "../footer/Footer";
 import { ArraySearch } from "../../store/search";
-import { useState } from "react"
+// import { useState } from "react"
 
 
 function SearchIndex(){
     const searchResults = useSelector(ArraySearch)
     const trails = useSelector(trailsArray)
     const dispatch = useDispatch()
-    const [randomTrail, setRandomTrails] = useState([]);
+
+    function getRandomNumber() {
+      return Math.floor(Math.random() * 20) + 1;
+    }
+
+    const num1 = getRandomNumber()
+
+    const getNum2 = (num1) => {
+      if(num1 > 14){
+          return num1 - 6
+      }else if(num1 <= 14){
+          return num1 + 6
+      }
+  }
+
+  const num2 = getNum2(num1)
 
     useEffect(() => {
       dispatch(Fetchtrails());
     }, [dispatch])
 
-    useEffect(() => {
-      if (trails.length > 0) {
-       
-        const shuffledTrails = shuffleArray(trails);
   
-        
-        const selectedTrails = shuffledTrails.slice(0, 6);
-  
-        setRandomTrails(selectedTrails);
-      }
-    }, [trails]);
-  
-    
-    const shuffleArray = (array) => {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    };
-    if (randomTrail.length === 0) {
-      return null;
-    }
-    
     if(searchResults.length === 0){
       return(
         <>
@@ -59,8 +51,15 @@ function SearchIndex(){
           <h1 id="numberOfSearch">Suggested Trails:</h1>
           <br />
           <div id="SearchIndexWrapper">
-        {randomTrail.map((trail,index) => 
-          <SearchIndexItem key={`${trail?.id}_${index}`} result={trail} />)}
+          {num1 < num2 ? (
+        trails?.slice(num1, num2)?.map((result, index) => (
+          <SearchIndexItem key={index} result={result}  />
+        ))
+      ) : (
+        trails?.slice(num2 - 2, num1 - 2)?.map((result, index) => (
+          <SearchIndexItem key={index} result={result}  />
+        ))
+      )}
           </div>
         </div>
         <Footer/>

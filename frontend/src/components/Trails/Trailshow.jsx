@@ -25,7 +25,7 @@ import NonFavorite from "../../images/whiteHeart.png";
 import directions from "../../images/directions.png"
 import redHeart from "../../images/redHeart.png"
 import Email from "../../images/sendEmail.png"
-import { fetchAllFavorites,removeFromFavorites, addToFavorites } from "../../store/favorite";
+import { fetchAllFavorites, removeFromFavorites, addToFavorites } from "../../store/favorite";
 
 function TrailShow() {
     const { trailId } = useParams();
@@ -33,11 +33,15 @@ function TrailShow() {
     const [weeklyWeather, setWeeklyWeather] = useState([]);
     const dispatch = useDispatch();
     const trail = useSelector(selectTrail(trailId));
-    const currentUser = useSelector(state=> state?.session?.user)
+    const currentUser = useSelector(state => state?.session?.user)
     const reviews = useSelector((state) => state?.trail?.[trail?.id]?.reviews || []);
     const [loading, setLoading] = useState(true);
     const [rerender, setRerender] = useState(false);
     const favorites = useSelector(state => state?.favorite);
+   
+
+    const num1 = Math.floor((Number(trailId) + 1) % 20);
+    const num2 = num1 > 16 ? num1 - 4 : num1 + 4;
 
     const handleSendEmail = () => {
         const currentURL = window.location.href;
@@ -48,9 +52,36 @@ function TrailShow() {
     };
 
     useEffect(() => {
+        const fetchWeatherData = async () => {
+            try {
+                if (trail && trail?.latitude !== undefined && trail?.longitude !== undefined) {
+                    const apiKey = import.meta.env.VITE_APP_WEATHER_API_KEY;
+                    const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${trail?.latitude}&lon=${trail?.longitude}&units=imperial&appid=${apiKey}`;
+      
+                    const response = await fetch(apiUrl)
+                    if (!response?.ok) {
+                        throw new Error('Failed to fetch weather data');
+                    }
+                    const data = await response.json();
+                    if (data && data?.daily) {
+                        setWeeklyWeather(data?.daily);
+                    } else {
+                        throw new Error('Invalid weather data format');
+                    }
+                }
+            } catch (error) {
+                console.error("Error fetching weather data:", error);
+                
+            }
+        };
+         
+        fetchWeatherData();
+    }, [trail]);
+
+    useEffect(() => {
         dispatch(Fetchtrail(trailId))
-        .then(() => setLoading(false)) 
-        .catch(() => setLoading(false));
+            .then(() => setLoading(false))
+            .catch(() => setLoading(false));
     }, [dispatch, trailId]);
 
     const favoriteTrailIds = Object.values(favorites)?.map(favoriteObj => favoriteObj?.favorite?.trail?.id);
@@ -73,47 +104,11 @@ function TrailShow() {
         }
         setRerender(!rerender); 
     };
-    
-    useEffect(() => {
-        const fetchWeatherData = async (retryCount = 30) => {
-            try {
-                if (trail && trail?.latitude !== undefined && trail?.longitude !== undefined) {
-                    const apiKey = import.meta.env.VITE_APP_WEATHER_API_KEY;
-                    const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${trail?.latitude}&lon=${trail?.longitude}&units=imperial&appid=${apiKey}`;
-      
-                    const response = await fetch(apiUrl)
-                    if (!response?.ok) {
-                        throw new Error('Failed to fetch weather data');
-                    }
-                    const data = await response.json();
-                    if (data && data?.daily) {
-                        setWeeklyWeather(data?.daily);
-                    } else {
-                        throw new Error('Invalid weather data format');
-                    }
-                }
-            } catch (error) {
-                console.error("Error fetching weather data:", error);
-                if (retryCount > 0) {
-                    // Retry after a delay
-                    setTimeout(() => {
-                        fetchWeatherData(retryCount - 1);
-                    }, 1000); // Delay in milliseconds before retrying
-                } else {
-                    console.error("Retry limit exceeded. Could not fetch weather data.");
-                }
-            }
-        };
-         
-        fetchWeatherData();
-    }, [trail]);
 
     const handleGetDirections = (latitude, longitude) => {
-    
         const mapsURL = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
-        
         window.open(mapsURL, "_blank");
-      };
+    };
 
     if (loading) {
         return (
@@ -124,7 +119,7 @@ function TrailShow() {
         );
     }
 
-    if (trail === null || !trail) {
+    if (!trail) {
         return (
             <div className="invalidTrail">
                 <img src={camping} alt="camping" id="invalidTrailImg" />
@@ -136,7 +131,7 @@ function TrailShow() {
             </div>
         );
     }
-    
+
     return (
         <>
             <div id="showHeader">
@@ -148,22 +143,22 @@ function TrailShow() {
                     <form className="show">
                         <img src={trail?.photoUrl} alt="result" id="showtrailimag" />
                         <div id="breakerbarshow">
-                        <img src={directions} alt="directions" id="directionsTrailShow" onClick={() => handleGetDirections(trail?.latitude, trail?.longitude)}/>
-                        {currentUser && (
+                            <img src={directions} alt="directions" id="directionsTrailShow" onClick={() => handleGetDirections(trail?.latitude, trail?.longitude)} />
+                            {currentUser && (
                                 <div className="favorite-container-show" >
                                     {isFavorite ? (
-                                        <img src={redHeart} alt="Favorite" className="favorite-icon-show"  onClick={handleFavoriteClick} />
+                                        <img src={redHeart} alt="Favorite" className="favorite-icon-show" onClick={handleFavoriteClick} />
 
                                     ) : (
-                                        <img src={NonFavorite} alt="Not Favorite" className="favorite-icon-show" onClick={handleFavoriteClick}/>
+                                        <img src={NonFavorite} alt="Not Favorite" className="favorite-icon-show" onClick={handleFavoriteClick} />
                                     )}
                                 </div>
                             )}
-                            <img src={Email} alt="email" id="emailShow" onClick={handleSendEmail}/>
+                            <img src={Email} alt="email" id="emailShow" onClick={handleSendEmail} />
                         </div>
                         <div id="showtextimag">
                             <p id="showtrailnameimag">{trail?.name}</p>
-                            <span id="showtrailinfoimag">{trail?.difficulty} &bull;<span id="starshowimag">&#9733; </span><AverageRating trail={trail}/>  ({Object.values(reviews)?.length})</span>
+                            <span id="showtrailinfoimag">{trail?.difficulty} &bull;<span id="starshowimag">&#9733; </span><AverageRating trail={trail} />  ({Object.values(reviews)?.length})</span>
                         </div>
                         <br />
                         <div id="showdescriptionheader">
@@ -182,29 +177,29 @@ function TrailShow() {
                             <div id="averageRating"><FancyAverageRating trail={trail} /> </div>
                             <div id="smallMap"><SmallTrailMapWrapper trail={trail} /></div>
                             <div id="reviewButton">
-                                    {currentUser ? <CreateReview key={trail?.id} trail={trail} /> : <button onClick={() => {window.scrollTo(0, 0); navigate("/signup"); }} id="reviewSignUp"><p id="reviewSignUpContent">Sign Up to Write a Review</p></button>}
-     
+                                {currentUser ? <CreateReview key={trail?.id} trail={trail} /> : <button onClick={() => { window.scrollTo(0, 0); navigate("/signup"); }} id="reviewSignUp"><p id="reviewSignUpContent">Sign Up to Write a Review</p></button>}
+
                             </div>
                         </div>
                         <br />
                         <div id="breakerbarshow1"></div>
                         <br />
                         <div id="weeklyWeather">
-                        <p id="weatherHeader">Weather Forecast</p>
+                            <p id="weatherHeader">Weather Forecast</p>
                         </div>
                         <br />
                         <div className="weatherCards">
-                          {/* <div id="insideWeatherCards"> */}
-                            {weeklyWeather.length > 0 && weeklyWeather.slice(0,5).map((day, index) => (
+                            {/* <div id="insideWeatherCards"> */}
+                            {weeklyWeather.length > 0 && weeklyWeather.slice(0, 5).map((day, index) => (
                                 <div key={index} className="weatherCard">
-                                  {day.weather[0].main === "Clear" && <img src={Sunny} alt="sun" />}
-                                  {day.weather[0].main === "Clouds" && <img src={Cloud} alt="cloud" />}
-                                  {day.weather[0].main === "Snow" && <img src={Snow} alt="cloud" />}
-                                  {day.weather[0].main === "Rain" && <img src={Rain} alt="cloud" />}
-                                  {day.weather[0].main === "Drizzle" && <img src={Drizzle} alt="cloud" />}
-                                  {day.weather[0].main === "Thunderstorm" && <img src={Thunderstorm} alt="cloud" />}
-                                  {day.weather[0].main === "Atmosphere" && <img src={Atmosphere} alt="cloud" />}
-                                  {/* <img src={Cloud} alt="cloud" /> */}
+                                    {day.weather[0].main === "Clear" && <img src={Sunny} alt="sun" />}
+                                    {day.weather[0].main === "Clouds" && <img src={Cloud} alt="cloud" />}
+                                    {day.weather[0].main === "Snow" && <img src={Snow} alt="cloud" />}
+                                    {day.weather[0].main === "Rain" && <img src={Rain} alt="cloud" />}
+                                    {day.weather[0].main === "Drizzle" && <img src={Drizzle} alt="cloud" />}
+                                    {day.weather[0].main === "Thunderstorm" && <img src={Thunderstorm} alt="cloud" />}
+                                    {day.weather[0].main === "Atmosphere" && <img src={Atmosphere} alt="cloud" />}
+                                    {/* <img src={Cloud} alt="cloud" /> */}
                                     <p className="dayOfWeek">
                                         {new Date(day.dt * 1000).toLocaleDateString("en-US", { weekday: "long" })}
                                     </p>
@@ -214,12 +209,11 @@ function TrailShow() {
                                     <span className="high">High: {Math.floor(day.temp.max)}&deg;F</span>
                                     <p className="low">Low: {Math.floor(day.temp.min)}&deg;F</p>
                                     <p className="weatherDescription">{day.weather[0].description}</p>
-                                    </div>
-                                
+                                </div>
                             ))}
                             {/* </div> */}
                         </div>
-                    
+
                         <br />
                         <br />
                         <div id="breakerbarshow1"></div>
@@ -230,7 +224,7 @@ function TrailShow() {
                         <br />
                         <br />
                         <div id="suggestedTrail">
-                            <SuggestedTrail trailId = {trailId}/>
+                            <SuggestedTrail num1={num1} num2={num2} />
                         </div>
                         <br />
                         <br />
@@ -247,3 +241,6 @@ function TrailShow() {
 }
 
 export default TrailShow;
+
+
+

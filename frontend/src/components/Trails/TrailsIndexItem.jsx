@@ -21,7 +21,7 @@ function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0 }) {
         if(currentUser){
         dispatch(fetchAllFavorites(currentUser?.id));
         }
-    }, [currentUser, dispatch, favoriteTrailIds?.length, rerender]);
+    }, [currentUser, dispatch, rerender]);
 
     
 
