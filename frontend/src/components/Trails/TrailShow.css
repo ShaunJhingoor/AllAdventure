@@ -428,6 +428,47 @@
   margin: 0 auto; 
   min-width: auto;
 }
+#showPhotoContainer{
+  position: relative;
+  
+}
+
+#showPhotoText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #142800;
+  font-family: manrope-m;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#showPhotoContainer:hover #showPhotoText{
+  opacity: 1;
+}
+
+#clickToViewProfile{
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 30px;
+}
+
+#uploadedBy{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+#dateUploaded{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
 
 .photoItem {
   min-height: 40vh;
@@ -442,6 +483,7 @@
 
 .photoItem:hover {
   transform: scale(1.03); 
+  opacity: 0.2
 }
 
 #uploadPhotoHeader{

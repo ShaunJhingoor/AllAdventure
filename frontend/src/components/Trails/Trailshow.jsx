@@ -28,6 +28,7 @@ import Email from "../../images/sendEmail.png"
 import { fetchAllFavorites, removeFromFavorites, addToFavorites } from "../../store/favorite";
 import { fetchTrailPhotos, trailPhotosArray } from "../../store/trail_photos";
 import PhotoUploadModal from "../modals/photouploadmodal";
+import { formatDate } from "../Reviews/formatedate";
 function TrailShow() {
     const { trailId } = useParams();
     const navigate = useNavigate();
@@ -48,6 +49,14 @@ function TrailShow() {
     
     const num1 = Math.floor((Number(trailId) + 1) % 20);
     const num2 = num1 > 16 ? num1 - 4 : num1 + 4;
+
+    const capitalizeFirstLetter = (str) =>  {
+        if (str && str.length > 0) {
+            return str[0].toUpperCase() + str.slice(1);
+          } else {
+            return ""
+          }
+      }
 
     useEffect(() => {
         dispatch(fetchTrailPhotos())
@@ -284,7 +293,16 @@ function TrailShow() {
                             {photosArray
                                 ?.filter(photo => photo?.trail_id == trailId) 
                                 ?.map((photo, index) => (
+                                    <>
+                                    <div id="showPhotoContainer">
+                                        <div id="showPhotoText">
+                                            <p id="clickToViewProfile">Click to view profile</p>
+                                            <p id="uploadedBy">Uploaded by:{capitalizeFirstLetter(photo?.user_fname)} {capitalizeFirstLetter(photo?.user_lname)} </p>
+                                            <p id="dateUploaded">Date Uploaded:{formatDate(photo?.created_at)}</p>
+                                        </div>
                                     <img key={index} src={photo?.image_url} alt={`Photo ${index}`} className="photoItem" onClick={() => { window.scrollTo(0, 0);navigate(`/profile/${photo?.user_id}`)}}/>
+                                    </div>
+                                    </>
                                 ))}
                         </div>
                         </>
