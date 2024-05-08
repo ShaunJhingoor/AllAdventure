@@ -261,7 +261,7 @@
   grid-template-columns: repeat(3, 1fr); 
   /* gap: 20px; */
   justify-self: center;
-  align-items: center; 
+  align-items: stretch; 
   min-width: auto;
   margin:10px
 }
@@ -283,7 +283,6 @@
 
 #photoContent{
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
