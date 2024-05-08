@@ -6,6 +6,16 @@ class Api::TrailsController < ApplicationController
         @reviews = Review.all
         render :index
     end
+
+    # def fetch_range
+    #     start_index = params[:start].to_i
+    #     end_index = params[:end].to_i
+        
+    #     @trails = Trail.all[start_index..end_index]
+    #     @reviews = Review.all
+        
+    #     render :index
+    # end
     
     def show 
         @trail = Trail.find_by(id: params[:id])

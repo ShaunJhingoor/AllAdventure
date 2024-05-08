@@ -37,6 +37,7 @@ function TrailShow() {
     const currentUser = useSelector(state => state?.session?.user)
     const reviews = useSelector((state) => state?.trail?.[trail?.id]?.reviews || []);
     const [loading, setLoading] = useState(true);
+    const [loading1, setLoading1] = useState(true);
     const [rerender, setRerender] = useState(false);
     const favorites = useSelector(state => state?.favorite);
     const [photoModalVisible, setPhotoModalVisible] = useState(false); 
@@ -50,6 +51,8 @@ function TrailShow() {
 
     useEffect(() => {
         dispatch(fetchTrailPhotos())
+        .then(() => setLoading1(false))
+            .catch(() => setLoading1(false))
     }, [dispatch])
 
     const handleSettingUploadPhoto = (e) => {
@@ -124,7 +127,7 @@ function TrailShow() {
         window.open(mapsURL, "_blank");
     };
 
-    if (loading) {
+    if (loading || loading1) {
         return (
             <div className="loading">
                 <img src={Loadings} alt="loading" />

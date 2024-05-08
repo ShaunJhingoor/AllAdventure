@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     resources :trails, only: [:show, :index, :create] do
     collection do 
        get 'search', to: 'trails#search'
-     end
+      #  get 'fetch_range', to: 'trails#fetch_range' # New custom route for fetching a range of trails
+      end
      resources :favorites, only: [:create, :destroy]
      resources :trail_photos, only: [ :create]
     end

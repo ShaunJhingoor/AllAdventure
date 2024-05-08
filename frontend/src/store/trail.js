@@ -138,6 +138,15 @@ export const deleteReview = (reviewId) => async dispatch => {
 //     }
 // };
 
+    // export const FetchRange = (start,end) => async dispatch => {
+    //     const response = await csrfFetch(`/api/trails/fetch_range?start=${start}&end=${end}`)
+    //     if(response.ok){
+    //         const data = await response.json()
+    //         dispatch(setTrails(data))
+    //         return response
+    //     }
+    // }
+
   function TrailReducer(state={}, action){
     let newState = {...state}
     
