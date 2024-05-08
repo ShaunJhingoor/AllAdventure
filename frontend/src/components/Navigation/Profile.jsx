@@ -32,18 +32,25 @@ function Profile() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [loading1, setLoading1] = useState(true);
+  const [loading2, setLoading2] = useState(true);
+  const [loading3, setLoading3] = useState(true);
   const [section, setSection] = useState('R')
   const {userId} = useParams()
   const favoriteTrails = Object.values(favoritesObj)?.filter(favorite => favorite?.favorite?.user_id == userId)?.map(favorite => favorite?.favorite?.trail)
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const userPhoto = photos?.filter(photo => photo?.user_id == userId)
+  const [test, setTest] = useState(null)
  
   useEffect(() => {
     dispatch(fetchUser(userId))
+    .then(() => setLoading3(false))
+    .catch(() => setLoading3(false));
   }, [dispatch, userId])
 
   useEffect(() => {
     dispatch(fetchTrailPhotos())
+    .then(() => setLoading2(false))
+    .catch(() => setLoading2(false)); 
   }, [dispatch])
 
 
@@ -129,7 +136,7 @@ useEffect(() => {
             </p>
             <div id="numberOfReviews">
               {/* Conditionally render "Loading..." while data is being fetched */}
-              {loading && loading1 ? (
+              {loading || loading1 || loading2 || loading3? (
                 <>
                 <p id="numberOfReviewTag">Number of Reviews: <img src={Loadings} alt="loading" /></p>
                 <p id="numberOfReviewTag">Number of Favorites: <img src={Loadings} alt="loading"/></p>
@@ -155,7 +162,7 @@ useEffect(() => {
             </div>
           </div>
           </form>
-        {loading ? (
+        {loading || loading1 || loading2 || loading3? (
         <form className="currentReview">
           <div id="formLoading">
             <img src={Loadings} alt="Loading" />
@@ -311,7 +318,7 @@ useEffect(() => {
               <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
           </div>
           <div id="breakerbarshow1"></div>
-            {favoriteTrails.map((trail, index) => (
+            {favoriteTrails?.reverse().map((trail, index) => (
               <FavoriteTrails key={`${trail?.id}_${index}`}trail ={trail}/>  
             ))}
           </form>
@@ -389,22 +396,28 @@ useEffect(() => {
         </div>
           <div id="breakerbarshow1"></div>
           <div className="profilePhotoGrid">               
-            {userPhoto
+            {userPhoto?.reverse()
                   ?.map((photo, index) => (
                       <div key={`${photo?.id}_${index}`} id="photoContent">
+                      <div id="profilePhotoContainer">
+                        <div id="dateUploadedProfile">
+                          <p id="clickToView">Click to view trail</p>
+                          <p id="dateProfileHeader">Date Uploaded</p>
+                          <p id="dateProfile">{formatDate(photo?.created_at)}</p>
+                        </div>
                       <img  src={photo?.image_url} alt={`Photo ${index}`} className="profilePhotoItem" onClick={() => { window.scrollTo(0, 0);navigate(`/trails/${photo?.trail_id}`)}}/>
-                      <p id="profilePhotoTrailName"  onClick={() => { window.scrollTo(0, 0);navigate(`/trails/${photo?.trail_id}`)}}>{photo?.trail_name}</p>
+                      </div>
                       {current?.id == userId && (
-                      <img id="deletePhoto" src={showDeleteModal ? DeleteClick : Delete} alt="deletephoto" onClick={() => setShowDeleteModal(true)} />
+                      <img id="deletePhoto" src={showDeleteModal && test == photo?.id ? DeleteClick : Delete} alt="deletephoto" onClick={() => {setShowDeleteModal(true); setTest(photo?.id)}} />
                       )}
                       {showDeleteModal && (
                           <DeletePhotoModal
                             visible={showDeleteModal}
                             setVisible={setShowDeleteModal}
                             imageId={photo?.id}
-                  
                           />
                         )}
+                      <p id="profilePhotoTrailName"  onClick={() => { window.scrollTo(0, 0);navigate(`/trails/${photo?.trail_id}`)}}>{photo?.trail_name}</p>
                       </div>
                   ))}
           </div>

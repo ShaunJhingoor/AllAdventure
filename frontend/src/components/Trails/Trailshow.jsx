@@ -136,7 +136,7 @@ function TrailShow() {
         window.open(mapsURL, "_blank");
     };
 
-    if (loading || loading1) {
+    if (loading && loading1) {
         return (
             <div className="loading">
                 <img src={Loadings} alt="loading" />

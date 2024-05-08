@@ -118,21 +118,25 @@
     overflow-y: scroll;
 }
 
+.currentReview::-webkit-scrollbar {
+    border-radius: 25px;
+}
+
 #currentReviewHeader{
     margin-top: 3vh;
-    margin-left: 1vw;
+    margin-bottom: 1vh;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 30px;
     font-family: manrope-m;
-    line-height: 36px;
+    line-height: 30px;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     cursor: pointer;
 }
 
 #currentReviewHeaderReview,
 #currentReviewHeaderFavorite{
-    margin-right: 1vw;
     color: #142800;
 }
 #currentReviewHeaderReview{
@@ -279,13 +283,48 @@
 
 .profilePhotoItem:hover {
     transform: scale(1.03); 
-  }
+    opacity: 0.2;
+}
+#profilePhotoContainer{
+    position: relative;
+}
+
+#profilePhotoContainer:hover #dateUploadedProfile{
+    opacity: 1;
+}
 
 #photoContent{
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+
+#dateUploadedProfile{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #142800;
+    font-family: manrope-m;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#clickToView{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+}
+#dateProfileHeader{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
 
 #profilePhotoTrailName{
     margin-top: 10px;
@@ -295,6 +334,7 @@
     color: #142800;
     line-height: 24px;
     cursor: pointer;
+    text-align: center;
 }
 
 #deletePhoto{
