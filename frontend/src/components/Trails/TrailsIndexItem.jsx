@@ -39,7 +39,6 @@ function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0 }) {
     };
 
   
-   
     return (
         <div
             id='trailinfo'
@@ -49,6 +48,7 @@ function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0 }) {
         >
             <Link to={`/trails/${trail.id}`} onClick={() => window.scrollTo(0, 0)} style={{ textDecoration: 'none' }}>
                 <img src={trail?.photoUrl} alt="result" id="trailimag" />
+                
             </Link>
             {currentUser && (
             <div className="favorite-container" >

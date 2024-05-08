@@ -28,6 +28,24 @@ class Api::TrailsController < ApplicationController
         render :search
     end
 
+    # def add_photo
+    #     @trail = Trail.find_by(id: params[:id])
+      
+    #     if @trail
+    #       if params[:photo].present?
+    #         @trail.photo.attach(params[:photo])
+    #         render json: { message: "Photo uploaded successfully" }, status: :ok
+    #       else
+    #         render json: { error: "No photo provided" }, status: :unprocessable_entity
+    #       end
+    #     else
+    #       render json: { error: "Trail not found" }, status: :not_found
+    #     end
+    #   end
+      
+    
+      
+
     private
 
     def trail_params

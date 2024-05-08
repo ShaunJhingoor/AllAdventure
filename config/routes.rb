@@ -16,7 +16,9 @@ Rails.application.routes.draw do
        get 'search', to: 'trails#search'
      end
      resources :favorites, only: [:create, :destroy]
+     resources :trail_photos, only: [ :create]
     end
+    resources :trail_photos, only: [:index, :destroy]
   end
   get '*path', to: "static_pages#frontend_index"
 end

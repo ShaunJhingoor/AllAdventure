@@ -14,6 +14,7 @@ require "open-uri"
     User.destroy_all
     Trail.destroy_all
     Favorite.destroy_all
+    TrailPhoto.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
@@ -21,6 +22,7 @@ require "open-uri"
     ApplicationRecord.connection.reset_pk_sequence!('trails')
     ApplicationRecord.connection.reset_pk_sequence!('reviews')
     ActiveRecord::Base.connection.reset_pk_sequence!('favorites')
+    ActiveRecord::Base.connection.reset_pk_sequence!('trail_photos')
 
   
     puts "Creating users..."
@@ -282,7 +284,7 @@ require "open-uri"
     )
     coldSpring.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/cold-harbor.webp"), filename: "cold-harbor.webp")
  
-    # More users
+    
 
     10.times do 
       User.create!({
@@ -293,10 +295,567 @@ require "open-uri"
         lname: Faker::Name.last_name
       }) 
       
-      
-      
     end
+
+    #1 central
+    centralPark1 = TrailPhoto.create!(
+      user_id: 1,
+      trail_id: 1
+    )
+    centralPark1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/centralParkEast.png"), filename: "centralParkEast.png")
+
+    #2 central
+    centralPark2 = TrailPhoto.create!(
+      user_id: 2,
+      trail_id: 1
+    )
+    centralPark2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/centralPark2.webp"), filename: "centralPark2.webp")
+
+    #3 central
+    centralPark3 = TrailPhoto.create!(
+      user_id: 3,
+      trail_id: 1
+    )
+    centralPark3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/centralPark3.webp"), filename: "centralPark3.webp")
+
+    #4 central
+    centralPark4 = TrailPhoto.create!(
+      user_id: 4,
+      trail_id: 1
+    )
+    centralPark4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/centralPark4.webp"), filename: "centralPark4.webp")
+    #1 hemp 
+    hemp1 = TrailPhoto.create!(
+      user_id: 5,
+      trail_id: 2,
+    )
+    hemp1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/hemp1.webp"), filename: "hemp1.webp")
+
+    #2 hemp 
+    hemp2 = TrailPhoto.create!(
+      user_id: 6,
+      trail_id: 2,
+    )
+    hemp2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/hemp2.webp"), filename: "hemp2.webp")
+
+    #3 hemp 
+    hemp3 = TrailPhoto.create!(
+      user_id: 7,
+      trail_id: 2,
+    )
+    hemp3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/hemp3.webp"), filename: "hemp3.webp")
+
+    #4 hemp 
+    hemp4 = TrailPhoto.create!(
+      user_id: 8,
+      trail_id: 2,
+    )
+    hemp4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/hemp4.webp"), filename: "hemp4.webp")
+
+    #1 flushing
+    flushing1 = TrailPhoto.create!(
+      user_id: 9,
+      trail_id: 3,
+    )
+    flushing1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/flushing1.webp"), filename: "flushing1.webp")
+
+    #2 flushing
+    flushing2 = TrailPhoto.create!(
+      user_id: 10,
+      trail_id: 3,
+    )
+    flushing2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/flushing2.webp"), filename: "flushing2.webp")
+
+    #3 flushing
+    flushing3 = TrailPhoto.create!(
+      user_id: 11,
+      trail_id: 3,
+    )
+    flushing3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/flushing3.webp"), filename: "flushing3.webp")
+
+    #4 flushing
+    flushing4 = TrailPhoto.create!(
+      user_id: 1,
+      trail_id: 3,
+    )
+    flushing4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/flushing4.webp"), filename: "flushing4.webp")
+
+    #1 alleyPond
+    alleyPond1 = TrailPhoto.create!(
+      user_id: 2,
+      trail_id: 4,
+    )
+    alleyPond1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/alley1.webp"), filename: "alley1.webp")
+
+      #2 alleyPond
+      alleyPond2 = TrailPhoto.create!(
+        user_id: 3,
+        trail_id: 4,
+      )
+      alleyPond2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/alley2.webp"), filename: "alley2.webp")
+
+      #3 alleyPond
+      alleyPond3 = TrailPhoto.create!(
+        user_id: 4,
+        trail_id: 4,
+      )
+      alleyPond3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/alley3.webp"), filename: "alley3.webp")
+
+      #4 alleyPond
+      alleyPond4 = TrailPhoto.create!(
+        user_id: 5,
+        trail_id: 4,
+      )
+      alleyPond4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/alley4.webp"), filename: "alley4.webp")
+
+      #1 orange
+      orange1 = TrailPhoto.create!(
+        user_id: 6,
+        trail_id: 5,
+      )
+      orange1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/orange1.webp"), filename: "orange1.webp")
+
+      #2 orange
+      orange2 = TrailPhoto.create!(
+        user_id: 7,
+        trail_id: 5,
+      )
+      orange2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/orange2.webp"), filename: "orange2.webp")
+
+      #3 orange
+      orange3 = TrailPhoto.create!(
+        user_id: 8,
+        trail_id: 5,
+      )
+      orange3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/orange3.webp"), filename: "orange3.webp")
+
+       #4 orange
+      orange4 = TrailPhoto.create!(
+        user_id: 9,
+        trail_id: 5,
+      )
+      orange4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/orange4.webp"), filename: "orange4.webp")
+
+      #1 teepee      
+      teepee1 = TrailPhoto.create!(
+        user_id: 10,
+        trail_id: 6,
+      )
+      teepee1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/teepee1.webp"), filename: "teepee1.webp")
+
+      #2 teepee      
+      teepee2 = TrailPhoto.create!(
+        user_id: 11,
+        trail_id: 6,
+      )
+      teepee2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/teepee2.webp"), filename: "teepee2.webp")
+
+      #3 teepee      
+      teepee3 = TrailPhoto.create!(
+        user_id: 1,
+        trail_id: 6,
+      )
+      teepee3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/teepee3.webp"), filename: "teepee3.webp")
+
+      #4 teepee      
+      teepee4 = TrailPhoto.create!(
+        user_id: 2,
+        trail_id: 6,
+      )
+      teepee4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/teepee4.webp"), filename: "teepee4.webp")
+
+      #1 bly     
+      bly1 = TrailPhoto.create!(
+        user_id: 3,
+        trail_id: 7,
+      )
+      bly1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/bly1.webp"), filename: "bly1.webp")
+
+      #2 bly     
+      bly2 = TrailPhoto.create!(
+        user_id: 4,
+        trail_id: 7,
+      )
+      bly2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/bly2.webp"), filename: "bly2.webp")
+
+      #3 bly     
+      bly3 = TrailPhoto.create!(
+        user_id: 5,
+        trail_id: 7,
+      )
+      bly3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/bly3.webp"), filename: "bly3.webp")
+
+      #4 bly     
+      bly4 = TrailPhoto.create!(
+        user_id: 6,
+        trail_id: 7,
+      )
+      bly4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/bly4.webp"), filename: "bly4.webp")
+
+      #1 caumsett    
+      caumsett1 = TrailPhoto.create!(
+        user_id: 7,
+        trail_id: 8,
+      )
+      caumsett1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/caumsett1.webp"), filename: "caumsett1.webp")
+
+      #2 caumsett    
+      caumsett2 = TrailPhoto.create!(
+        user_id: 8,
+        trail_id: 8,
+      )
+      caumsett2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/caumsett2.webp"), filename: "caumsett2.webp")
+
+      #3 caumsett    
+      caumsett3 = TrailPhoto.create!(
+        user_id: 9,
+        trail_id: 8,
+      )
+      caumsett3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/caumsett3.webp"), filename: "caumsett3.webp")
+
+      #4 caumsett    
+      caumsett4 = TrailPhoto.create!(
+        user_id: 10,
+        trail_id: 8,
+      )
+      caumsett4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/caumsett4.webp"), filename: "caumsett4.webp")
+
+      #1 high    
+      high1 = TrailPhoto.create!(
+        user_id: 11,
+        trail_id: 9,
+      )
+      high1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/high1.webp"), filename: "high1.webp")
+
+      #2 high    
+      high2 = TrailPhoto.create!(
+        user_id: 1,
+        trail_id: 9,
+      )
+      high2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/high2.webp"), filename: "high2.webp")
+
+      #3 high    
+      high3 = TrailPhoto.create!(
+        user_id: 2,
+        trail_id: 9,
+      )
+      high3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/high3.webp"), filename: "high3.webp")
+
+      #4 high    
+      high4 = TrailPhoto.create!(
+        user_id: 3,
+        trail_id: 9,
+      )
+      high4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/high4.webp"), filename: "high4.webp")
+
+      #1 prospect    
+      prospect1 = TrailPhoto.create!(
+        user_id: 4,
+        trail_id: 10,
+      )
+      prospect1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/prospect1.webp"), filename: "prospect1.webp")
+
+      #2 prospect    
+      prospect2 = TrailPhoto.create!(
+        user_id: 5,
+        trail_id: 10,
+      )
+      prospect2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/prospect2.webp"), filename: "prospect2.webp")
+
+      #3 prospect    
+      prospect3 = TrailPhoto.create!(
+        user_id: 6,
+        trail_id: 10,
+      )
+      prospect3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/prospect3.webp"), filename: "prospect3.webp")
+
+      #4 prospect    
+      prospect4 = TrailPhoto.create!(
+        user_id: 7,
+        trail_id: 10,
+      )
+      prospect4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/prospect4.webp"), filename: "prospect4.webp")
+
+      #1 glenIsland    
+      glenIsland1 = TrailPhoto.create!(
+        user_id: 8,
+        trail_id: 11,
+      )
+      glenIsland1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/glenIsland1.webp"), filename: "glenIsland1.webp")
+
+      #2 glenIsland    
+      glenIsland2 = TrailPhoto.create!(
+        user_id: 9,
+        trail_id: 11,
+      )
+      glenIsland2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/glenisland2.webp"), filename: "glenisland2.webp")
+
+      #3 glenIsland    
+      glenIsland3 = TrailPhoto.create!(
+        user_id: 10,
+        trail_id: 11,
+      )
+      glenIsland3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/glenisland3.webp"), filename: "glenisland3.webp")
+
+      #4 glenIsland    
+      glenIsland4 = TrailPhoto.create!(
+        user_id: 11,
+        trail_id: 11,
+      )
+      glenIsland4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/glenisland4.webp"), filename: "glenisland4.webp")
+
+      #1 croton  
+      croton1 = TrailPhoto.create!(
+        user_id: 1,
+        trail_id: 12,
+      )
+      croton1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/croton1.webp"), filename: "croton1.webp")
+
+      #2 croton  
+      croton2 = TrailPhoto.create!(
+        user_id: 2,
+        trail_id: 12,
+      )
+      croton2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/croton2.webp"), filename: "croton2.webp")
+
+      #3 croton  
+      croton3 = TrailPhoto.create!(
+        user_id: 3,
+        trail_id: 12,
+      )
+      croton3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/croton3.webp"), filename: "croton3.webp")
+
+      #4 croton  
+      croton4 = TrailPhoto.create!(
+        user_id: 4,
+        trail_id: 12,
+      )
+      croton4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/croton4.webp"), filename: "croton4.webp")
+
+      #1 hoffa  
+      hoffa1 = TrailPhoto.create!(
+        user_id: 5,
+        trail_id: 13,
+      )
+      hoffa1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/hoffa1.webp"), filename: "hoffa1.webp")
+
+      #2 hoffa  
+      hoffa2 = TrailPhoto.create!(
+        user_id: 6,
+        trail_id: 13,
+      )
+      hoffa2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/hoffa2.webp"), filename: "hoffa2.webp")
+
+      #3 hoffa  
+      hoffa3 = TrailPhoto.create!(
+        user_id: 7,
+        trail_id: 13,
+      )
+      hoffa3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/hoffa3.webp"), filename: "hoffa3.webp")
+
+      #4 hoffa  
+      hoffa4 = TrailPhoto.create!(
+        user_id: 8,
+        trail_id: 13,
+      )
+      hoffa4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/hoffa4.webp"), filename: "hoffa4.webp")
+
+      #1 connect  
+      connect1 = TrailPhoto.create!(
+        user_id: 9,
+        trail_id: 14,
+      )
+      connect1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/connect1.webp"), filename: "connect1.webp")
+
+      #2 connect  
+      connect2 = TrailPhoto.create!(
+        user_id: 10,
+        trail_id: 14,
+      )
+      connect2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/connect2.webp"), filename: "connect2.webp")
     
+      #3 connect  
+      connect3 = TrailPhoto.create!(
+        user_id: 11,
+        trail_id: 14,
+      )
+      connect3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/connect3.webp"), filename: "connect3.webp")
+
+      #4 connect  
+      connect4 = TrailPhoto.create!(
+        user_id: 1,
+        trail_id: 14,
+      )
+      connect4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/connect4.webp"), filename: "connect4.webp")
+
+      #1 edgewood  
+      edgewood1 = TrailPhoto.create!(
+        user_id: 2,
+        trail_id: 15,
+      )
+      edgewood1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/edgewood1.webp"), filename: "edgewood1.webp")
+
+      #2 edgewood  
+      edgewood2 = TrailPhoto.create!(
+        user_id: 3,
+        trail_id: 15,
+      )
+      edgewood2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/edgewood2.webp"), filename: "edgewood2.webp")
+
+      #3 edgewood  
+      edgewood3 = TrailPhoto.create!(
+        user_id: 4,
+        trail_id: 15,
+      )
+      edgewood3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/edgewood3.webp"), filename: "edgewood3.webp")
+
+      #4 edgewood  
+      edgewood4 = TrailPhoto.create!(
+        user_id: 5,
+        trail_id: 15,
+      )
+      edgewood4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/edgewood4.webp"), filename: "edgewood4.webp")
+
+      #1 rocky 
+      rocky1 = TrailPhoto.create!(
+        user_id: 6,
+        trail_id: 16,
+      )
+      rocky1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/rocky1.webp"), filename: "rocky1.webp")
+
+      #2 rocky 
+      rocky2 = TrailPhoto.create!(
+        user_id: 7,
+        trail_id: 16,
+      )
+      rocky2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/rocky2.webp"), filename: "rocky2.webp")
+
+      #3 rocky 
+      rocky3 = TrailPhoto.create!(
+        user_id: 8,
+        trail_id: 16,
+      )
+      rocky3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/rocky3.webp"), filename: "rocky3.webp")
+
+      #4 rocky 
+      rocky4 = TrailPhoto.create!(
+        user_id: 9,
+        trail_id: 16,
+      )
+      rocky4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/rocky4.webp"), filename: "rocky4.webp")
+
+      #1 eis 
+      eis1 = TrailPhoto.create!(
+        user_id: 10,
+        trail_id: 17,
+      )
+      eis1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/eis1.webp"), filename: "eis1.webp")
+
+      #2 eis 
+      eis2 = TrailPhoto.create!(
+        user_id: 11,
+        trail_id: 17,
+      )
+      eis2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/eis2.webp"), filename: "eis2.webp")
+
+      #3 eis 
+      eis3 = TrailPhoto.create!(
+        user_id: 1,
+        trail_id: 17,
+      )
+      eis3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/eis3.webp"), filename: "eis3.webp")
+
+      #4 eis 
+      eis4 = TrailPhoto.create!(
+        user_id: 2,
+        trail_id: 17,
+      )
+      eis4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/eis4.webp"), filename: "eis4.webp")
+
+      #1 long 
+      long1 = TrailPhoto.create!(
+        user_id: 3,
+        trail_id: 18,
+      )
+      long1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/long1.webp"), filename: "long1.webp")
+
+      #2 long 
+      long2 = TrailPhoto.create!(
+        user_id: 4,
+        trail_id: 18,
+      )
+      long2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/long2.webp"), filename: "long2.webp")
+
+      #3 long 
+      long3 = TrailPhoto.create!(
+        user_id: 5,
+        trail_id: 18,
+      )
+      long3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/long3.webp"), filename: "long3.webp")
+
+      #4 long 
+      long4 = TrailPhoto.create!(
+        user_id: 6,
+        trail_id: 18,
+      )
+      long4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/long4.webp"), filename: "long4.webp")
+
+      #1 tiffany 
+      tiffany1 = TrailPhoto.create!(
+        user_id: 7,
+        trail_id: 19,
+      )
+      tiffany1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/tiffany1.webp"), filename: "tiffany1.webp")
+
+      #2 tiffany 
+      tiffany2 = TrailPhoto.create!(
+        user_id: 8,
+        trail_id: 19,
+      )
+      tiffany2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/tiffany2.webp"), filename: "tiffany2.webp")
+
+      #3 tiffany 
+      tiffany3 = TrailPhoto.create!(
+        user_id: 9,
+        trail_id: 19,
+      )
+      tiffany3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/tiffany3.webp"), filename: "tiffany3.webp")
+
+      #4 tiffany 
+      tiffany4 = TrailPhoto.create!(
+        user_id: 10,
+        trail_id: 19,
+      )
+      tiffany4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/tiffany4.webp"), filename: "tiffany4.webp")
+
+      #1 cold 
+      cold1 = TrailPhoto.create!(
+        user_id: 11,
+        trail_id: 20,
+      )
+      cold1.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/cold1.webp"), filename: "cold1.webp")
+
+      #2 cold 
+      cold2 = TrailPhoto.create!(
+        user_id: 1,
+        trail_id: 20,
+      )
+      cold2.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/cold2.webp"), filename: "cold2.webp")
+
+      #3 cold 
+      cold3 = TrailPhoto.create!(
+        user_id: 2,
+        trail_id: 20,
+      )
+      cold3.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/cold3.webp"), filename: "cold3.webp")
+
+      #4 cold 
+      cold4 = TrailPhoto.create!(
+        user_id: 3,
+        trail_id: 20,
+      )
+      cold4.image.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/cold4.webp"), filename: "cold4.webp")
+
     def generate_realistic_review
       
       trail_experience = ["amazing", "breathtaking", "challenging", "peaceful", "exciting", "refreshing", "captivating", "awe-inspiring"].sample

@@ -29,6 +29,11 @@ export const selectTrail = (trailId) => (state) => {
 //   return state?.trail[trailId] || null
 // }
 
+// const uploadPhotoSuccess = (trailId, photoUrl) => ({
+//     type: UPLOAD_PHOTO_SUCCESS,
+//     payload: { trailId, photoUrl },
+//   });
+
 export const setTrails = (data) => ({
     type: SET_TRAILS,
     trails: data.trail,
@@ -101,6 +106,7 @@ export const updateReviews = (updatedReview) => async dispatch => {
     }
 }
 
+
 export const deleteReview = (reviewId) => async dispatch => {
     const res = await csrfFetch(`/api/reviews/${reviewId}`, {
         method: "DELETE"
@@ -109,6 +115,28 @@ export const deleteReview = (reviewId) => async dispatch => {
         dispatch(removeREVIEW(reviewId))
     }
 }
+
+// export const uploadPhoto = (trailId, photoFile) => async (dispatch) => {
+//     try {
+    
+//         const response = await csrfFetch(`/api/trails/${trailId}/add_photo`, {
+//             method: "POST",
+//             body: photoFile,
+//         });
+
+//         if (!response.ok) {
+//             throw new Error('Failed to upload photo');
+//         }
+
+//         const data = await response.json();
+//         dispatch(uploadPhotoSuccess(trailId, data.photoUrl));
+//         dispatch(Fetchtrail(trailId));
+//         return response;
+//     } catch (error) {
+//         console.error("Error uploading photo:", error);
+//         throw error; 
+//     }
+// };
 
   function TrailReducer(state={}, action){
     let newState = {...state}

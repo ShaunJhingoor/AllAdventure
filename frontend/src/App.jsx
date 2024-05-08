@@ -14,6 +14,7 @@ import SearchIndex from './components/search/searchIndex';
 import Help from './components/Help/Help';
 import Profile from './components/Navigation/Profile';
 import EditUser from './components/Navigation/EditUser';
+// import PhotoUploadComponent from './components/Trails/PhotoUpload';
 
 function Layout() {
   const dispatch = useDispatch();

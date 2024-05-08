@@ -89,6 +89,10 @@
     cursor: pointer; 
 }
 
+#numberOfReviewTag.active {
+    color: #64F67B;
+}
+
 #editUser{
     margin-left: 1vw;
     width: 1.5vw;
@@ -126,7 +130,8 @@
     cursor: pointer;
 }
 
-#currentReviewHeaderReview{
+#currentReviewHeaderReview,
+#currentReviewHeaderFavorite{
     margin-right: 1vw;
     color: #142800;
 }
@@ -135,20 +140,18 @@
 }
 
 #currentReviewHeaderReview:hover,
-#currentReviewHeaderFavorite:hover {
+#currentReviewHeaderFavorite:hover,
+#currentReviewHeaderPhoto:hover {
     color: #284e01;
 }
 
 
 #currentReviewHeaderReview.active,
-#currentReviewHeaderFavorite.active {
+#currentReviewHeaderFavorite.active,
+#currentReviewHeaderPhoto.active {
     color: #64F67B;
 }
 
-
-.active1{
-    color: #64F67B;;
-}
 
 #reviewHeader{
     margin-right: 1vw;
@@ -250,4 +253,53 @@
     font-family: manrope-m;
     color: #142800;
     line-height: 24px;
+}
+
+
+.profilePhotoGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  /* gap: 20px; */
+  justify-self: center;
+  align-items: center; 
+  min-width: auto;
+  margin:10px
+}
+
+.profilePhotoItem{
+    min-height: 30vh;
+    max-height: 30vh; 
+    margin: 10px; 
+    min-width: 18vw;
+    max-width: 18vw; 
+    cursor: pointer;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out
+}
+
+.profilePhotoItem:hover {
+    transform: scale(1.03); 
+  }
+
+#photoContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#profilePhotoTrailName{
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: manrope-m;
+    color: #142800;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+#deletePhoto{
+    height: 20px;
+    width: auto;
+    cursor: pointer;
 }

@@ -6,13 +6,15 @@ import TrailReducer from './trail';
 import modalsReducer from './modal';
 import searchReducer from './search';
 import favoriteReducer from './favorite';
+import TrailPhotosReducer from './trail_photos';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     trail: TrailReducer,
     modals: modalsReducer,
     search: searchReducer,
-    favorite: favoriteReducer
+    favorite: favoriteReducer,
+    trailPhotos: TrailPhotosReducer
 });
 
 let enhancer;

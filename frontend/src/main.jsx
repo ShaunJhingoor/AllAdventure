@@ -9,6 +9,7 @@ import * as sessionActions from './store/session';
 import './reset.css'
 import * as trailActions from './store/trail'
 import * as favoriteActions from './store/favorite'
+import * as trailPhotoActions from './store/trail_photos'
 // import * as reviewActions from './store/review'
 
 
@@ -21,6 +22,7 @@ if (import.meta.env.MODE !== 'production') {
   window.csrfFetch = csrfFetch;
   window.trailActions = trailActions
   window.favoriteActions = favoriteActions
+  window.trailPhotoActions = trailPhotoActions
   // window.reviewActions = reviewActions
 }
 restoreCSRF()

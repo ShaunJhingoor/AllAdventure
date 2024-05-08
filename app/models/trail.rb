@@ -27,6 +27,8 @@ class Trail < ApplicationRecord
     dependent: :destroy
 
     has_many :favorites, dependent: :destroy
+
+    has_many :trail_photos, dependent: :destroy
     
     has_many :favorite_trails, through: :favorites, source: :trail
 

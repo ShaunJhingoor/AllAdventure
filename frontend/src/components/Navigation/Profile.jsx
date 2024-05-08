@@ -14,13 +14,19 @@ import Loadings from "../../images/loading.gif"
 import { fetchAllFavorites } from "../../store/favorite";
 import FavoriteTrails from "./FavoriteTrails";
 import heartFlower from "../../images/heartFlower.png"
+import photo from "../../images/photo.png"
 import { useParams } from "react-router-dom";
 import { fetchUser } from "../../store/session";
+import { fetchTrailPhotos, trailPhotosArray } from "../../store/trail_photos";
+import Delete from "../../images/deletePhoto.png"
+import DeletePhotoModal from "../modals/DeletePhotoModal";
+import DeleteClick from "../../images/deletePhotoClick.png"
 
 function Profile() {
   const current = useSelector((state) => state?.session?.user);
   const profileUser = useSelector((state) => state?.session?.otherUser?.user)
   const trails = useSelector(trailsArray);
+  const photos = useSelector(trailPhotosArray)
   const favoritesObj = useSelector(state => state?.favorite || {})
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,10 +35,16 @@ function Profile() {
   const [section, setSection] = useState('R')
   const {userId} = useParams()
   const favoriteTrails = Object.values(favoritesObj)?.filter(favorite => favorite?.favorite?.user_id == userId)?.map(favorite => favorite?.favorite?.trail)
-
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const userPhoto = photos?.filter(photo => photo?.user_id == userId)
+ 
   useEffect(() => {
     dispatch(fetchUser(userId))
   }, [dispatch, userId])
+
+  useEffect(() => {
+    dispatch(fetchTrailPhotos())
+  }, [dispatch])
 
 
   useEffect(() => {
@@ -121,17 +133,23 @@ useEffect(() => {
                 <>
                 <p id="numberOfReviewTag">Number of Reviews: <img src={Loadings} alt="loading" /></p>
                 <p id="numberOfReviewTag">Number of Favorites: <img src={Loadings} alt="loading"/></p>
+                <p id="numberOfReviewTag">Number of Photos: <img src={Loadings} alt="loading"/></p>
                 </>
               ) : (
                 <>
-                <p id="numberOfReviewTag" onClick={() => setSection("R")}>
+                <p id="numberOfReviewTag" onClick={() => setSection("R")} className={section === 'R' ? 'active' : ''}>
                 
                   Number of Reviews: {currentReviews?.length}
                 </p>
-                <p id="numberOfReviewTag" onClick={() => setSection("F")}>
+                <p id="numberOfReviewTag" onClick={() => setSection("F")} className={section === 'F' ? 'active' : ''}>
                 
                   Number of Favorites: {favoriteTrails?.length}
                 </p>
+
+                <p id="numberOfReviewTag" onClick={() => setSection("P")} className={section === 'P' ? 'active' : ''}>
+                
+                Number of Photos: {userPhoto?.length}
+              </p>
                 </>
               )}
             </div>
@@ -149,6 +167,7 @@ useEffect(() => {
             <div id="currentReviewHeader">
               <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
               <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+              <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
           </div>
             <div id="breakerbarshow1"></div>
             <div id="noReviewImage">
@@ -181,6 +200,7 @@ useEffect(() => {
           <div id="currentReviewHeader">
             <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
             <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+            <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
         </div>
           <div id="breakerbarshow1"></div>
           <div id="noReviewImage">
@@ -212,17 +232,19 @@ useEffect(() => {
             <div id="currentReviewHeader">
               <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
               <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+              <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
             </div>
             <div id="breakerbarshow1"></div>
             {currentReviews.map((review, index) => (
               <UserReviews key={`${review?.id}_${index}`} review={review} />
             ))}
           </form>
-        ): favoriteTrails?.length === 0 && current?.id == userId?(
+        ): section === "F" && favoriteTrails?.length === 0 && current?.id == userId?(
           <form className="currentReview">
           <div id="currentReviewHeader">
               <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
               <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+              <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
           </div>
           <div id="breakerbarshow1"></div>
             <div id="noReviewImage">
@@ -249,11 +271,12 @@ useEffect(() => {
               </button>
             </div>
           </form>
-        ):favoriteTrails?.length === 0 && current?.id != userId?(
+        ):section === "F" && favoriteTrails?.length === 0 && current?.id != userId?(
           <form className="currentReview">
           <div id="currentReviewHeader">
               <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
               <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+              <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
           </div>
           <div id="breakerbarshow1"></div>
             <div id="noReviewImage">
@@ -280,18 +303,113 @@ useEffect(() => {
               </button>
             </div>
           </form>
-        ):(
+        ): section === "F"?(
           <form className="currentReview">
           <div id="currentReviewHeader">
               <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
               <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+              <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
           </div>
           <div id="breakerbarshow1"></div>
             {favoriteTrails.map((trail, index) => (
               <FavoriteTrails key={`${trail?.id}_${index}`}trail ={trail}/>  
             ))}
           </form>
-        )}
+        ): section === "P" && current?.id == userId && userPhoto?.length === 0?(
+          <form className="currentReview">
+          <div id="currentReviewHeader">
+              <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
+              <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+              <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
+          </div>
+          <div id="breakerbarshow1"></div>
+            <div id="noReviewImage">
+              <img src={photo} alt="flower" />
+            </div>
+            <div id="noReviewHeader">
+              <p id="noReviewHeaderContent">Add your Photos</p>
+            </div>
+            <div id="noReviewContentContainer">
+              <p id="noReviewContent">
+              Keep track of your beautiful adventures
+              </p>
+            </div>
+            <div id="navigateButtonContainer">
+              <button
+                id="navigateButton"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/trails");
+                }}
+                style={{ textDecoration: "none" }}
+              >
+                <p id="navigateButtonContent">Explore Trails</p>
+              </button>
+            </div>
+          </form>
+
+        ): section === "P" && current?.id != userId && userPhoto?.length === 0?(
+          <form className="currentReview">
+          <div id="currentReviewHeader">
+            <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
+            <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+            <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
+        </div>
+          <div id="breakerbarshow1"></div>
+          <div id="noReviewImage">
+            <img src={photo} alt="flower" />
+          </div>
+          <div id="noReviewHeader">
+            <p id="noReviewHeaderContent">User currently has no photos</p>
+          </div>
+          <div id="noReviewContentContainer">
+            <p id="noReviewContent">
+              Explore other trails and users
+            </p>
+          </div>
+          <div id="navigateButtonContainer">
+            <button
+              id="navigateButton"
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate("/trails");
+              }}
+              style={{ textDecoration: "none" }}
+            >
+              <p id="navigateButtonContent">Explore Trails</p>
+            </button>
+          </div>
+        </form>
+      ) : (
+        <form className="currentReview">
+          <div id="currentReviewHeader">
+            <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
+            <p onClick={() => setSection('F')} className={section === 'F' ? 'active' : ''} id="currentReviewHeaderFavorite">Favorites</p>
+            <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
+        </div>
+          <div id="breakerbarshow1"></div>
+          <div className="profilePhotoGrid">               
+            {userPhoto
+                  ?.map((photo, index) => (
+                      <div key={`${photo?.id}_${index}`} id="photoContent">
+                      <img  src={photo?.image_url} alt={`Photo ${index}`} className="profilePhotoItem" onClick={() => { window.scrollTo(0, 0);navigate(`/trails/${photo?.trail_id}`)}}/>
+                      <p id="profilePhotoTrailName"  onClick={() => { window.scrollTo(0, 0);navigate(`/trails/${photo?.trail_id}`)}}>{photo?.trail_name}</p>
+                      {current?.id == userId && (
+                      <img id="deletePhoto" src={showDeleteModal ? DeleteClick : Delete} alt="deletephoto" onClick={() => setShowDeleteModal(true)} />
+                      )}
+                      {showDeleteModal && (
+                          <DeletePhotoModal
+                            visible={showDeleteModal}
+                            setVisible={setShowDeleteModal}
+                            imageId={photo?.id}
+                  
+                          />
+                        )}
+                      </div>
+                  ))}
+          </div>
+      </form>
+      )}
       </div>
       </div>
       <Footer />

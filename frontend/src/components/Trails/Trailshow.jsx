@@ -26,7 +26,8 @@ import directions from "../../images/directions.png"
 import redHeart from "../../images/redHeart.png"
 import Email from "../../images/sendEmail.png"
 import { fetchAllFavorites, removeFromFavorites, addToFavorites } from "../../store/favorite";
-
+import { fetchTrailPhotos, trailPhotosArray } from "../../store/trail_photos";
+import PhotoUploadModal from "../modals/photouploadmodal";
 function TrailShow() {
     const { trailId } = useParams();
     const navigate = useNavigate();
@@ -38,10 +39,23 @@ function TrailShow() {
     const [loading, setLoading] = useState(true);
     const [rerender, setRerender] = useState(false);
     const favorites = useSelector(state => state?.favorite);
-   
+    const [photoModalVisible, setPhotoModalVisible] = useState(false); 
+    const [section, setSection] = useState('R')
+    const photosArray = useSelector(trailPhotosArray)
 
+    
+    
     const num1 = Math.floor((Number(trailId) + 1) % 20);
     const num2 = num1 > 16 ? num1 - 4 : num1 + 4;
+
+    useEffect(() => {
+        dispatch(fetchTrailPhotos())
+    }, [dispatch])
+
+    const handleSettingUploadPhoto = (e) => {
+        e.preventDefault();
+        setPhotoModalVisible(!photoModalVisible); 
+    };
 
     const handleSendEmail = () => {
         const currentURL = window.location.href;
@@ -228,8 +242,54 @@ function TrailShow() {
                         </div>
                         <br />
                         <br />
-                        <ReviewsIndex trail={trail} />
                         <br />
+                        <div id="showHeaderContainer">
+                            <p id="reviewsHeaderShow" className={section === 'R' ? 'active' : ''} onClick={() => setSection('R')}>Reviews ({Object.values(trail?.reviews)?.length})</p>  
+                            <p id="photoHeaderShow" className={section === 'P' ? 'active' : ''} onClick={() => setSection('P')}>Photos ({photosArray
+                                ?.filter(photo => photo?.trail_id == trailId)?.length})</p>
+                        </div>
+                        
+                        
+                        {section === 'R' ? (
+                        <div>
+                            <ReviewsIndex trail={trail} />
+                         </div>
+                        ): (
+                            <>
+                            <br />
+                            <div id="breakerbarshow1"></div>
+                            <br />
+                            <div id="PhotoButton">
+                                <div>
+                                <p id="uploadPhotoHeader">Add Photos of this trail</p>
+                                <p id="uploadPhotoContent1">Photos help others preview the trail. </p>
+                                <p id="uploadPhotoContent"> Upload photos about this trail to inspire others</p>
+                                </div>
+                                {currentUser ? (
+                                    <>
+                                    <button onClick={handleSettingUploadPhoto} id="photoSignUp" > <p id="photoSignUpContent">Upload Photo</p></button>
+                                    {photoModalVisible && <PhotoUploadModal trailId={trail?.id} setVisible={setPhotoModalVisible} visible={photoModalVisible} />}
+                                    </>
+                                ) : (
+                                    <button onClick={() => { window.scrollTo(0, 0); navigate("/signup"); }} id="photoSignUp">
+                                    <p id="photoSignUpContent">Sign Up to Upload a Photo</p>
+                                    </button>
+                                )}
+                            </div>
+                            <div className="photoGrid">
+                                
+                            {photosArray
+                                ?.filter(photo => photo?.trail_id == trailId) 
+                                ?.map((photo, index) => (
+                                    <img key={index} src={photo?.image_url} alt={`Photo ${index}`} className="photoItem" onClick={() => { window.scrollTo(0, 0);navigate(`/profile/${photo?.user_id}`)}}/>
+                                ))}
+                        </div>
+                        </>
+                        )}
+                        
+                        
+                        <br />
+
                     </form>
                 </div>
                 <br />
