@@ -414,7 +414,7 @@ useEffect(() => {
                           <DeletePhotoModal
                             visible={showDeleteModal}
                             setVisible={setShowDeleteModal}
-                            imageId={photo?.id}
+                            imageId={test}
                           />
                         )}
                       <p id="profilePhotoTrailName"  onClick={() => { window.scrollTo(0, 0);navigate(`/trails/${photo?.trail_id}`)}}>{photo?.trail_name}</p>
