@@ -164,7 +164,9 @@ function TrailShow() {
                     <form className="show">
                         <img src={trail?.photoUrl} alt="result" id="showtrailimag" />
                         <div id="breakerbarshow">
+                            <div id="directionsTrailShowContainer">
                             <img src={directions} alt="directions" id="directionsTrailShow" onClick={() => handleGetDirections(trail?.latitude, trail?.longitude)} />
+                            </div>
                             {currentUser && (
                                 <div className="favorite-container-show" >
                                     {isFavorite ? (
@@ -175,7 +177,9 @@ function TrailShow() {
                                     )}
                                 </div>
                             )}
+                            <div id="emailShowContainer">
                             <img src={Email} alt="email" id="emailShow" onClick={handleSendEmail} />
+                            </div>
                         </div>
                         <div id="showtextimag">
                             <p id="showtrailnameimag">{trail?.name}</p>
@@ -274,7 +278,7 @@ function TrailShow() {
                                 </div>
                                 {currentUser ? (
                                     <>
-                                    <button onClick={handleSettingUploadPhoto} id="photoSignUp" > <p id="photoSignUpContent">Upload Photo</p></button>
+                                    <button onClick={handleSettingUploadPhoto} id="photoSignUp" > <p id="photoSignUpContent1">Upload Photo</p></button>
                                     {photoModalVisible && <PhotoUploadModal trailId={trail?.id} setVisible={setPhotoModalVisible} visible={photoModalVisible} />}
                                     </>
                                 ) : (
