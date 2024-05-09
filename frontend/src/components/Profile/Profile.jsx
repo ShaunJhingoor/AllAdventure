@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import SmallSearchBar from "../search/smallsearchbar";
 import UserReviews from "./UserReviews";
-import { Fetchtrails, trailsArray } from "../../store/trail";
+import { FetchUserReviews, trailsArray } from "../../store/trail";
 import { formatDate } from "../Reviews/formatedate";
 import edit from "../../images/edit.png";
 import bird from "../../images/bird.jpeg";
@@ -17,7 +17,7 @@ import heartFlower from "../../images/heartFlower.png"
 import photo from "../../images/photo.png"
 import { useParams } from "react-router-dom";
 import { fetchUser } from "../../store/session";
-import { fetchTrailPhotos, trailPhotosArray } from "../../store/trail_photos";
+import { fetchUsersTrailPhotos, trailPhotosArray } from "../../store/trail_photos";
 import Delete from "../../images/deletePhoto.png"
 import DeletePhotoModal from "../modals/DeletePhotoModal";
 import DeleteClick from "../../images/deletePhotoClick.png"
@@ -26,7 +26,6 @@ function Profile() {
   const current = useSelector((state) => state?.session?.user);
   const profileUser = useSelector((state) => state?.session?.otherUser?.user)
   const trails = useSelector(trailsArray);
-  const photos = useSelector(trailPhotosArray)
   const favoritesObj = useSelector(state => state?.favorite || {})
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,7 +37,7 @@ function Profile() {
   const {userId} = useParams()
   const favoriteTrails = Object.values(favoritesObj)?.filter(favorite => favorite?.favorite?.user_id == userId)?.map(favorite => favorite?.favorite?.trail)
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const userPhoto = photos?.filter(photo => photo?.user_id == userId)
+  const userPhoto = useSelector(trailPhotosArray)
   const [test, setTest] = useState(null)
  
   useEffect(() => {
@@ -48,18 +47,18 @@ function Profile() {
   }, [dispatch, userId])
 
   useEffect(() => {
-    dispatch(fetchTrailPhotos())
+    dispatch(fetchUsersTrailPhotos(userId))
     .then(() => setLoading2(false))
     .catch(() => setLoading2(false)); 
-  }, [dispatch])
+  }, [dispatch, userId])
 
 
   useEffect(() => {
   setLoading(true);
-  dispatch(Fetchtrails())
+  dispatch(FetchUserReviews(userId))
     .then(() => setLoading(false))
     .catch(() => setLoading(false)); 
-}, [dispatch]);
+}, [dispatch, userId]);
 
 useEffect(() => {
   const fetchFavorites = async () => {
@@ -98,14 +97,14 @@ useEffect(() => {
         const userReviews = reviewsArray.filter(
           (review) => review?.user_id == userId
         );
-        return userReviews.map((review) => ({
+        return userReviews?.map((review) => ({
           trail_id: trail?.id,
           ...review,
         }));
       }
       return [];
     })
-    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    ?.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   return (
     <>
       <SmallSearchBar />
@@ -169,7 +168,7 @@ useEffect(() => {
             <h1 id="loadingContent">Loading</h1>
             </div>
         </form>
-        ) : section === "R" && currentReviews.length === 0 && current?.id == userId?(
+        ) : section === "R" && currentReviews?.length === 0 && current?.id == userId?(
           <form className="currentReview">
             <div id="currentReviewHeader">
               <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
@@ -202,7 +201,7 @@ useEffect(() => {
               </button>
             </div>
           </form>
-        ) : section === "R" && currentReviews.length === 0 && current?.id != userId?(
+        ) : section === "R" && currentReviews?.length === 0 && current?.id != userId?(
           <form className="currentReview">
           <div id="currentReviewHeader">
             <p onClick={() => setSection('R')} className={section === 'R' ? 'active' : ''} id="currentReviewHeaderReview">Reviews</p>
@@ -242,7 +241,7 @@ useEffect(() => {
               <p onClick={() => setSection('P')} className={section === 'P' ? 'active' : ''} id="currentReviewHeaderPhoto">Photos</p>
             </div>
             <div id="breakerbarshow1"></div>
-            {currentReviews.map((review, index) => (
+            {currentReviews?.map((review, index) => (
               <UserReviews key={`${review?.id}_${index}`} review={review} />
             ))}
           </form>
@@ -396,7 +395,7 @@ useEffect(() => {
         </div>
           <div id="breakerbarshow1"></div>
           <div className="profilePhotoGrid">               
-            {userPhoto?.reverse()
+            {userPhoto
                   ?.map((photo, index) => (
                       <div key={`${photo?.id}_${index}`} id="photoContent">
                       <div id="profilePhotoContainer">
@@ -419,7 +418,7 @@ useEffect(() => {
                         )}
                       <p id="profilePhotoTrailName"  onClick={() => { window.scrollTo(0, 0);navigate(`/trails/${photo?.trail_id}`)}}>{photo?.trail_name}</p>
                       </div>
-                  ))}
+                  ))?.reverse()}
           </div>
       </form>
       )}

@@ -1,37 +1,55 @@
 import { useSelector } from "react-redux";
-import { trailsArray, Fetchtrails } from "../../store/trail";
+import { trailsArray, FetchRange } from "../../store/trail";
 import { useDispatch } from "react-redux";
 import SuggestedTrailsItem from "./SuggestedTrailsItem";
 import { useEffect, useState } from "react";
 import "./TrailsIndex.css";
+import Loadings from "../../images/loading.gif"
 
-function SuggestedTrail({ num1, num2 }) {
+function SuggestedTrail({trailId}) {
   const trails = useSelector(trailsArray);
   const dispatch = useDispatch();
   const [loading, setLoadingLocal] = useState(true);
 
   useEffect(() => {
-    dispatch(Fetchtrails())
+    setLoadingLocal(true)
+    if(trailId <= 16){
+      dispatch(FetchRange(Number(trailId), Number(trailId) + 3))
       .then(() => {
         setLoadingLocal(false);
       });
-  }, [dispatch]);
+    }else if(trailId > 16 && trailId != 20){
+      dispatch(FetchRange(Number(trailId) - 3, Number(trailId)))
+        .then(() => {
+          setLoadingLocal(false);
+        });
+      }else{
+        dispatch(FetchRange(Number(trailId) - 4, Number(trailId)))
+        .then(() => {
+          setLoadingLocal(false);
+        })
+      }
+  }, [dispatch, trailId]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return(
+       <div id="suggestedTrailsLoading">
+        <img src={Loadings} alt="loading" />
+        <br />
+          <h1>Loading</h1>
+       </div>
+       )
   }
 
   return (
     <div id="trailindexwrapper">
-      {num1 < num2 ? (
-        trails?.slice(num1, num2)?.map((trail, index) => (
-          <SuggestedTrailsItem key={index} trail={trail}  />
+      {
+        trails?.filter(trail => trail?.id != trailId).map((trail, index) => (
+          <SuggestedTrailsItem key={`${trail?.id}_${index}`} trail={trail}  />
         ))
-      ) : (
-        trails?.slice(num2 - 2, num1 - 2)?.map((trail, index) => (
-          <SuggestedTrailsItem key={index} trail={trail}  />
-        ))
-      )}
+
+      }
+      
     </div>
   );
 }

@@ -15,6 +15,7 @@ function TrailsIndex(){
     const trails = useSelector(trailsArray)
     const [center, setCenter] = useState({lat:  40.79142619411136, lng:-73.58735483173312})
     const [zoom, setZoom] = useState(10)
+
     
         zoom 
         center
@@ -23,11 +24,10 @@ function TrailsIndex(){
 
     useEffect(() => {
        dispatch(Fetchtrails())
-       
     }, [dispatch]);
 
 
-
+    
     return(
         <>
         

@@ -1,8 +1,15 @@
 class Api::TrailPhotosController < ApplicationController
       
   def index
-    @photos = TrailPhoto.all
+    @trail = Trail.find(params[:trail_id])
+    @photos = @trail.trail_photos
     render :index
+  end
+
+  def index_for_user
+      @user = User.find(params[:user_id])
+      @photos = @user.trail_photos.includes(:trail)
+      render :index 
   end
 
 

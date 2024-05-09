@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet, createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -12,9 +11,9 @@ import TrailShow from './components/Trails/Trailshow';
 import RealTrailsIndex from './components/Trails/RealTrailsIndex';
 import SearchIndex from './components/search/searchIndex';
 import Help from './components/Help/Help';
-import Profile from './components/Navigation/Profile';
-import EditUser from './components/Navigation/EditUser';
-// import PhotoUploadComponent from './components/Trails/PhotoUpload';
+import Profile from './components/Profile/Profile'
+import EditUser from './components/Profile/EditUser';
+
 
 function Layout() {
   const dispatch = useDispatch();

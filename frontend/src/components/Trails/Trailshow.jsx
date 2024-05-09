@@ -45,11 +45,6 @@ function TrailShow() {
     const [section, setSection] = useState('R')
     const photosArray = useSelector(trailPhotosArray)
 
-    
-    
-    const num1 = Math.floor((Number(trailId) + 1) % 20);
-    const num2 = num1 > 16 ? num1 - 4 : num1 + 4;
-
     const capitalizeFirstLetter = (str) =>  {
         if (str && str.length > 0) {
             return str[0].toUpperCase() + str.slice(1);
@@ -59,10 +54,10 @@ function TrailShow() {
       }
 
     useEffect(() => {
-        dispatch(fetchTrailPhotos())
+        dispatch(fetchTrailPhotos(trailId))
         .then(() => setLoading1(false))
             .catch(() => setLoading1(false))
-    }, [dispatch])
+    }, [dispatch,trailId])
 
     const handleSettingUploadPhoto = (e) => {
         e.preventDefault();
@@ -136,7 +131,7 @@ function TrailShow() {
         window.open(mapsURL, "_blank");
     };
 
-    if (loading && loading1) {
+    if (loading || loading1) {
         return (
             <div className="loading">
                 <img src={Loadings} alt="loading" />
@@ -250,7 +245,7 @@ function TrailShow() {
                         <br />
                         <br />
                         <div id="suggestedTrail">
-                            <SuggestedTrail num1={num1} num2={num2} />
+                            <SuggestedTrail trailId={trailId}/>
                         </div>
                         <br />
                         <br />
@@ -291,19 +286,18 @@ function TrailShow() {
                             <div className="photoGrid">
                                 
                             {photosArray
-                                ?.filter(photo => photo?.trail_id == trailId) 
                                 ?.map((photo, index) => (
                                     <>
-                                    <div id="showPhotoContainer">
+                                    <div key={`${photo?.id}_${index}`}id="showPhotoContainer">
                                         <div id="showPhotoText">
                                             <p id="clickToViewProfile">Click to view profile</p>
                                             <p id="uploadedBy">Uploaded by:{capitalizeFirstLetter(photo?.user_fname)} {capitalizeFirstLetter(photo?.user_lname)} </p>
                                             <p id="dateUploaded">Date Uploaded:{formatDate(photo?.created_at)}</p>
                                         </div>
-                                    <img key={index} src={photo?.image_url} alt={`Photo ${index}`} className="photoItem" onClick={() => { window.scrollTo(0, 0);navigate(`/profile/${photo?.user_id}`)}}/>
+                                    <img src={photo?.image_url} alt={`Photo ${index}`} className="photoItem" onClick={() => { window.scrollTo(0, 0);navigate(`/profile/${photo?.user_id}`)}}/>
                                     </div>
                                     </>
-                                ))}
+                                ))?.reverse()}
                         </div>
                         </>
                         )}

@@ -8,18 +8,21 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [ :show, :create, :update] do
       resources :favorites, only: [:index] 
+      get 'trail_photos_user', to: 'trail_photos#index_for_user'
+      get 'user_reviews', to: 'trails#user_reviews'
     end
+    
     resource :session, only: [:show, :create, :destroy]
     resources :reviews, only: [:create, :update, :destroy, :index] 
     resources :trails, only: [:show, :index, :create] do
     collection do 
        get 'search', to: 'trails#search'
-      #  get 'fetch_range', to: 'trails#fetch_range' # New custom route for fetching a range of trails
+       get 'fetch_range', to: 'trails#fetch_range' 
       end
      resources :favorites, only: [:create, :destroy]
-     resources :trail_photos, only: [ :create]
+     resources :trail_photos, only: [:create, :index]
     end
-    resources :trail_photos, only: [:index, :destroy]
+    resources :trail_photos, only: [:destroy]
   end
   get '*path', to: "static_pages#frontend_index"
 end

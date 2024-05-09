@@ -7,15 +7,26 @@ class Api::TrailsController < ApplicationController
         render :index
     end
 
-    # def fetch_range
-    #     start_index = params[:start].to_i
-    #     end_index = params[:end].to_i
+    def user_reviews
+        @user = User.find(params[:user_id])
+        @trails = @user.reviews.map(&:trail).uniq
+        @user_reviews = {}
+        @trails.each do |trail|
+          @user_reviews[trail] = trail.review.where(user_id: @user.id)
+        end
+        @reviews = @user_reviews.values.flatten
+        render :index
+      end
+
+    def fetch_range
+        start_index = params[:start].to_i - 1
+        end_index = params[:end].to_i
         
-    #     @trails = Trail.all[start_index..end_index]
-    #     @reviews = Review.all
+        @trails = Trail.all[start_index..end_index]
+        @reviews = Review.all
         
-    #     render :index
-    # end
+        render :index
+    end
     
     def show 
         @trail = Trail.find_by(id: params[:id])
