@@ -96,7 +96,7 @@ export const createTrailPhoto = (trailId, photoFile) => async dispatch => {
 
         switch(action.type){
             case SET_TRAILS_PHOTOS: 
-                return {...state, ...action.photo}
+                return {...action.photo}
             case SET_TRAILS_USER_PHOTOS: 
                 return {...state, ...action.photo}
             case ADD_TRAIL_PHOTO: 

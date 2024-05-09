@@ -288,6 +288,7 @@ function TrailShow() {
                             {photosArray
                                 ?.map((photo, index) => (
                                     <>
+                                    <div>
                                     <div key={`${photo?.id}_${index}`}id="showPhotoContainer">
                                         <div id="showPhotoText">
                                             <p id="clickToViewProfile">Click to view profile</p>
@@ -295,6 +296,7 @@ function TrailShow() {
                                             <p id="dateUploaded">Date Uploaded:{formatDate(photo?.created_at)}</p>
                                         </div>
                                     <img src={photo?.image_url} alt={`Photo ${index}`} className="photoItem" onClick={() => { window.scrollTo(0, 0);navigate(`/profile/${photo?.user_id}`)}}/>
+                                    </div>
                                     </div>
                                     </>
                                 ))?.reverse()}

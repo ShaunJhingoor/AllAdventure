@@ -170,7 +170,7 @@ export const deleteReview = (reviewId) => async dispatch => {
         });
 
         
-        Object.values(action.reviews).forEach(review => {
+        Object.values(action.reviews || {}).forEach(review => {
             const trailId = review.trail_id;
             if (newState[trailId]) {
                 newState[trailId].reviews[review.id] = review;

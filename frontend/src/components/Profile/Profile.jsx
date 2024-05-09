@@ -25,7 +25,7 @@ import DeleteClick from "../../images/deletePhotoClick.png"
 function Profile() {
   const current = useSelector((state) => state?.session?.user);
   const profileUser = useSelector((state) => state?.session?.otherUser?.user)
-  const trails = useSelector(trailsArray);
+  const trails = useSelector(trailsArray || []);
   const favoritesObj = useSelector(state => state?.favorite || {})
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -47,10 +47,21 @@ function Profile() {
   }, [dispatch, userId])
 
   useEffect(() => {
-    dispatch(fetchUsersTrailPhotos(userId))
-    .then(() => setLoading2(false))
-    .catch(() => setLoading2(false)); 
+    setLoading2(true)
+    const fetchPhoto = async () => {
+      try{
+        dispatch(fetchUsersTrailPhotos(userId))
+          .then(() => setLoading2(false))
+          .catch(() => setLoading2(false)); 
+      } catch(error) {
+        setLoading2(false)
+        console.error("Error fetching favorites:", error)
+      }
+    }
+    fetchPhoto()
   }, [dispatch, userId])
+
+ 
 
 
   useEffect(() => {
