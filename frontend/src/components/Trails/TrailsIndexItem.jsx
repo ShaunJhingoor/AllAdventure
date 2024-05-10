@@ -8,7 +8,7 @@ import AverageRating from '../Rating/averagerating';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0 }) {
+function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0, onPinClick }) {
     const currentUser = useSelector(state => state?.session?.user);
     const favorites = useSelector(state => state?.favorite);
     const dispatch = useDispatch();
@@ -24,6 +24,10 @@ function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0 }) {
     }, [currentUser, dispatch, rerender]);
 
     
+    const handleTrailItemClick = (e) => {
+        e.preventDefault()
+        onPinClick(trail.id);
+    };
 
     const favoriteForTrail = Object.values(favorites)?.find(favoriteObj => favoriteObj?.favorite?.trail?.id == trail?.id);
 
@@ -41,12 +45,14 @@ function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0 }) {
   
     return (
         <div
-            id='trailinfo'
-            onMouseOver={() => {setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(15)}}
-            onMouseLeave={() => {setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(10)}}
+            id={`trail-${trail.id}`}
+            onClick={(e) => handleTrailItemClick(e)} // Call handleTrailItemClick when the trail item is clicked
+            onMouseOver={(e) => {e.stopPropagation(); setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(15)}}
+            onMouseLeave={(e) => {e.stopPropagation(); setCenter({lat:  40.79142619411136, lng:-73.58735483173312}); setZoom(10)}}
             className="trail-item-container"
+
         >
-            <Link to={`/trails/${trail.id}`} onClick={() => window.scrollTo(0, 0)} style={{ textDecoration: 'none' }}>
+            <Link to={`/trails/${trail?.id}`} onClick={() => window.scrollTo(0, 0)} style={{ textDecoration: 'none' }}>
                 <img src={trail?.photoUrl} alt="result" id="trailimag" />
                 
             </Link>

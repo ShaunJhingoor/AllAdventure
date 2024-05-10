@@ -5,3 +5,45 @@
     position:absolute;
     /* border: 1px solid black; */
 }
+
+#infoWindow{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#trailNameHeader{
+    font-size: 16px;
+    font-family: manrope-m;
+    font-weight: 400;
+    line-height: 30px;
+    color: #142800;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#trailNameHeader:hover{
+    color: #284e01;
+}
+
+#infoWindowContent{
+    font-size: 14px;
+    font-family: manrope-m;
+    font-weight: 400;
+    line-height: 20px;
+    color: #142800;
+}
+
+#infoWindowContentDirections{
+    font-size: 14px;
+    font-family: manrope-m;
+    font-weight: 400;
+    line-height: 20px;
+    color: #142800;
+    cursor: pointer;
+}
+
+#infoWindowContentDirections:hover{
+    color: #64F67B;
+}

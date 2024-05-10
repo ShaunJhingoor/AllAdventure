@@ -32,6 +32,27 @@ function RealTrailsIndex() {
 
   // }
 
+  const handlePinClick = (trailId) => {
+    const trailElement = document.getElementById(`trail-${trailId}`);
+    if (trailElement) {
+      const rect = trailElement.getBoundingClientRect();
+      const sidebarElement = document.getElementById("sidebar");
+      
+      if (sidebarElement) {
+        // Calculate the target scroll position to center the clicked trail in the sidebar
+        const targetScrollTop = rect.top + sidebarElement.scrollTop - (sidebarElement.clientHeight / 2) + (rect.height / 2);
+        
+        // Scroll the sidebar to the target position
+        sidebarElement.scrollTo({
+          top: targetScrollTop,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+  
+
+
   return (
     <div>
       
@@ -50,7 +71,7 @@ function RealTrailsIndex() {
           <div id="trails">
       
             {trails.map((trail) => (
-              <TrailsIndexItem key={trail.id} trail={trail}  setCenter ={setCenter}  setZoom={setZoom}
+              <TrailsIndexItem key={trail.id} trail={trail}  setCenter ={setCenter}  setZoom={setZoom} onPinClick={handlePinClick}
               />
               
            
@@ -70,7 +91,7 @@ function RealTrailsIndex() {
           <p id="textsidebaropener">{isSidebarOpen ? "<" : ">"}</p>
         </div>
        
-        <TrailMapWrapper key={"why"} trails={trails} center ={center} zoom={zoom} />
+        <TrailMapWrapper key={"why"} trails={trails} center ={center} zoom={zoom} onPinClick={handlePinClick}/>
         
 
       </div>
