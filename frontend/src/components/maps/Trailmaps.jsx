@@ -122,7 +122,7 @@ export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
           onClick={() => handleMarkerClick(trail)}
           
         >
-          {selectedTrailId == trail.id && ( // Display info window for the selected trail
+          {selectedTrailId == trail.id && (
             <InfoWindow position={{ lat: trail?.latitude, lng: trail?.longitude }}
             onCloseClick={handleInfoWindowClose}
             >
@@ -140,20 +140,3 @@ export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
 };
 
 export default TrailMapWrapper;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
