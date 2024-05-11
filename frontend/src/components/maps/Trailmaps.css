@@ -11,21 +11,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 10vw;
 }
 
 #trailNameHeader{
     font-size: 16px;
     font-family: manrope-m;
     font-weight: 400;
-    line-height: 30px;
+   
     color: #142800;
     text-decoration: underline;
     cursor: pointer;
+    text-align: center;
 }
 
 #trailNameHeader:hover{
     color: #284e01;
 }
+
 
 #infoWindowContent{
     font-size: 14px;
