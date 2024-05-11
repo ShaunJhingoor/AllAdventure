@@ -72,6 +72,7 @@
   color: #efefee;
   line-height: 41.6px;
   margin-top: -40px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -82,6 +83,7 @@
   color: #efefee;
   line-height: 24px;
   margin-bottom: 200px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 #starshowimag {
