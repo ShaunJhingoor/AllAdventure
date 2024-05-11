@@ -21,6 +21,7 @@ import { fetchUsersTrailPhotos, trailPhotosArray } from "../../store/trail_photo
 import Delete from "../../images/deletePhoto.png"
 import DeletePhotoModal from "../modals/DeletePhotoModal";
 import DeleteClick from "../../images/deletePhotoClick.png"
+import noUser from "../../images/noUser.png"
 
 function Profile() {
   const current = useSelector((state) => state?.session?.user);
@@ -116,6 +117,20 @@ useEffect(() => {
       return [];
     })
     ?.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+
+  if(! profileUser){
+    return(
+      <div className="invalidTrail">
+                <img src={noUser} alt="camping" id="invalidTrailImg" />
+                <h1 id="invalidTrailError">404</h1>
+                <h1 id="invalidTrailHeader">We have reached the end of the trail</h1>
+                <p id="invalidTrailStatment">This users profile does not exist or has been removed</p>
+                <br />
+                <button type="submit"   onClick={() => { navigate("/trails"); window.scrollTo(0, 0); }}  id='InvalidTrailButton'>Find Your Next Adventure</button>
+            </div>
+    )
+  }
   return (
     <>
       <SmallSearchBar />
