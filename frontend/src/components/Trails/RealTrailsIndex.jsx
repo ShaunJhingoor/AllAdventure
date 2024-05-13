@@ -40,23 +40,33 @@ function RealTrailsIndex() {
       
       if (sidebarElement) {
         let targetScrollTop;
-        // Check if trailId is equal to 20
-        if (trailId == 20) {
-          // If trailId is 20, scroll to the bottom of the trail
-          targetScrollTop = rect.bottom + sidebarElement.scrollTop - (sidebarElement.clientHeight / 2) + (rect.height / 2);
-        } else {
-          // If trailId is not 20, calculate the target scroll position to center the clicked trail in the sidebar
-          targetScrollTop = rect.top + sidebarElement.scrollTop - (sidebarElement.clientHeight / 2) + (rect.height / 2);
-        }
+        // Calculate the target scroll position based on sidebar and viewport dimensions
+        const sidebarRect = sidebarElement.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        // const sidebarHeight = sidebarRect.height;
+        const trailTopOffset = rect.top - sidebarRect.top;
+  
+        // Adjust the target scroll position based on screen size and trail position
+        targetScrollTop = sidebarElement.scrollTop + trailTopOffset - (viewportHeight / 2) + (rect.height / 2);
   
         // Scroll the sidebar to the target position
         sidebarElement.scrollTo({
           top: targetScrollTop,
           behavior: "smooth",
         });
+  
+        // Check if the sidebar is not fully visible in the viewport
+        if (sidebarRect.top < 0 || sidebarRect.bottom > viewportHeight) {
+          // Scroll the window to bring the sidebar into view
+          window.scrollTo({
+            top: sidebarElement.offsetTop,
+            behavior: "smooth",
+          });
+        }
       }
     }
   };
+  
   
   
 
