@@ -1,20 +1,20 @@
 # Welcome to All Adventure
 Check out the [Live Site](https://alladventure.onrender.com/)
 
-## Introduction
+# Introduction
 
 All Adventure is a clone of All trails. All trails allows users to view different trails. Also, allows users to interact in there community by leaving reviews and ratings on trails. As someone who loves nature, I wanted to create a website that anyone can use to find a trail near them and get outside. I implmented features that allow users to create a account to leave reviews and view trails, a map that allows users to see the locations of different trails in New York, and users can search for a trail by name or difficulty.
 
 * Languages: Javascript, Ruby, HTML, and CSS
 * Frontend: React-Vite
-* Backend: Rails
+* Backend: Ruby on Rails
 * Database: PostgreSQL
 * Hosting: Render
 * Asset Storage: AWS Simple Cloud Storage (S3)
-* API: Google Maps
+* APIs: Google Maps and Open Weather Map
 
-## Features
-### User Auth 
+# Features
+## User Auth 
 
 Users can SignUp, use a demo user to view the site, LogIn, or LogOut. Once signed up the users information persist in the backend.
 
@@ -22,7 +22,11 @@ Users can SignUp, use a demo user to view the site, LogIn, or LogOut. Once signe
   <br>
 <br>
 
-![Screen Recording 2024-03-13 at 9 24 52 PM](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/9f24a871-4f02-404c-82d2-5816b42192d8)
+<div align="center"> 
+  
+![signUp](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/aa7e95ef-7787-4068-9efa-69775f164412)
+
+</div>
 
 <br>
 <br>
@@ -35,6 +39,12 @@ function LoginForm() {
   //the user is entering in
   const [password, setPassword] = useState(''); //Keep track of the password the user is entering
   const [errors, setErrors] = useState([]); //Keep track of errors
+
+  const demoLogin = async(e) => {
+      e.preventDefault() 
+      await dispatch(sessionActions.login({credential:'Demo-lition', password:'password'}))  // Dispatch login with Demo info
+      navigate("/trails")
+    }
 
   if (sessionUser) return <Navigate to="/" replace={true} />; //When logging out or not logged in
  // directing to the splash page
@@ -95,6 +105,8 @@ function LoginForm() {
           
         </ul>
         <br />
+        <button type="submit" id='demologin' onClick={demoLogin}>Demo Login</button> //Dispatch login with click with demo info
+        <br />
         <button type="submit" id='loginbutton'>Log In</button>
         <br />
         <p>Do not have an account? <NavLink to="/signup">Sign Up</NavLink> </p
@@ -113,13 +125,16 @@ export default LoginForm;
 <br>
 <br>
 
-### Search Feature 
+## Search Feature 
 Users can search by trail name or difficulty. If they have a few letters of a trail it will populate all the trails that correspond to the search.
 <br>
 <br>
 
-![search (3)](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/1780ee16-a2ec-45b6-8047-bb349a75ab46)
+<div align="center"> 
+  
+![search (8)](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/30af04d2-5be7-460c-9fa1-365b0ca41f86)
 
+</div>
 
 <br>
 <br>
@@ -133,7 +148,7 @@ function SearchBar(){
     const currentUser = useSelector(state=> state?.session.user) // Gets the user that is logged in 
 
     const handleSearch = () => {
-        if(searchValue.trim() !== ''){ //Removes any extract white space
+        if(searchValue.trim() !== ''){ //Removes any extract white space and make sure user is not entering an empty search
             
             dispatch(fetchSearch(searchValue)) //dispatch search with results that update as you type using thunk action 
             
@@ -176,7 +191,7 @@ function SearchBar(){
             />
            
             <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search"   onClick={handleSearch} /></Link>
-            
+             <h1 id="mapLink" onClick={() => { navigate("/trails"); window.scrollTo(0, 0); }}>Explore nearby trails</h1> // Link to map page
         </div>
         </>
     )
@@ -187,78 +202,274 @@ function SearchBar(){
 <br>
 
 ## Map 
-There is a custome pin that shows the location of trail. When you hover over a trail it zooms in on the map where the trail is located. Was able to accomplish this by using google maps API.
+There is a custom pin that shows the location of trail. When you hover over a trail it zooms in on the map where the trail is located. Was able to accomplish this by using google maps API.
 
 <br>
 <br>
 
-![map](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/8b16b984-5f6a-4cc6-8cd4-3d892c22829e)
+<div align="center"> 
+  
+![map (1)](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/e85ea52b-1586-472c-a576-c01bf881f7e4)
+
+</div>
+
+<br>
+<br>
+
+```js
+export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
+  const [currentZoom, setCurrentZoom] = useState(zoom);
+  const [currentCenter, setCurrentCenter] = useState(center);
+  const [selectedTrailId, setSelectedTrailId] = useState(null);
+  
+  const navigate = useNavigate()
+
+
+  const animateZoom = useCallback((targetZoom, targetCenter) => {
+    const duration = 2000; // Adjusted animation duration in milliseconds
+    const startZoom = currentZoom;
+    const startCenter = currentCenter; // Use currentCenter 
+    const startTime = Date.now();
+
+    const zoomStep = () => {
+      const elapsedTime = Date.now() - startTime; // Calculates the delay 
+      const progress = Math.min(elapsedTime / duration, 1);
+      const easedProgress = easeInOut(progress); // Apply easing function
+
+      // Calculate new zoom level
+      const newZoom = startZoom + (targetZoom - startZoom) * easedProgress;
+
+      // Calculate new center position
+      const newCenter = {
+        lat: startCenter.lat + (targetCenter.lat - startCenter.lat) * easedProgress,
+        lng: startCenter.lng + (targetCenter.lng - startCenter.lng) * easedProgress,
+      };
+
+      // Set the new zoom level and center position
+      setCurrentZoom(newZoom); // Chnages center and zoom as it changes
+      setCurrentCenter(newCenter);
+
+      if (progress < 1) {
+        requestAnimationFrame(zoomStep);
+      }
+    };
+
+    requestAnimationFrame(zoomStep);
+  }, [currentZoom, currentCenter]);
+
+  useEffect(() => {
+    animateZoom(zoom, center);
+  }, [zoom, center]);
+
+  const img = { //Custome pin image
+    url: pin,
+  };
+
+ 
+
+  const containerStyle = {
+    width: "100%",
+    height: "100%",
+  };
+
+  const mapOptions = {
+    disableDefaultUI: true, //Gets rid of users map options
+    gestureHandling: "auto",
+  };
+
+  const handleMarkerClick = (trail) => {
+    
+    setSelectedTrailId(trail?.id); // OnClick of the trail sets the id as the selected trail
+    onPinClick(trail?.id); 
+  };
+  
+  const handleInfoWindowClose = () => {
+    
+    setSelectedTrailId(null); // OnClose set the trail id as null 
+    onPinClick(null) 
+  };
+
+  const handleGetDirections = (latitude, longitude) => {
+    const mapsURL = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`; //Get directions based on trails latitude and longitude 
+    window.open(mapsURL, "_blank");
+};
+
+  return (
+    <GoogleMap
+      zoom={currentZoom}
+      center={currentCenter}
+      mapContainerStyle={containerStyle}
+      options={mapOptions}
+    >
+       {trails.map((trail) => (
+        <MarkerF
+          key={trail?.id}
+          position={{ lat: trail?.latitude, lng: trail?.longitude }} // Places the pin pased off trail latitude and longitude
+          icon={img}
+          onClick={() => handleMarkerClick(trail)} 
+          
+        >
+          {selectedTrailId == trail.id && ( //If clicked trail is the same as the trailId show the trail info window
+            <InfoWindow position={{ lat: trail?.latitude, lng: trail?.longitude }}
+            onCloseClick={handleInfoWindowClose}
+            >
+              <div id="infoWindow">
+                <p id="trailNameHeader" onClick={() => {navigate(`/trails/${trail?.id}`); window.scrollTo(0, 0)}}>{trail?.name}</p>
+                <p id="infoWindowContent">Difficulty:{trail?.difficulty}</p>
+                <p id="infoWindowContentDirections" onClick={() => handleGetDirections(trail?.latitude, trail?.longitude)} >Directions</p>
+              </div>
+            </InfoWindow>
+          )}
+        </MarkerF>
+      ))}
+    </GoogleMap>
+  );
+};
+
+export default TrailMapWrapper;
+```
+<br>
+<br>
+
+##  Profile
+Users can view all the reviews, photos and favorites they have made/uploaded.
+
+<br>
+<br>
+
+<div align="center"> 
+  
+![profile](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/ad7f602f-6d4b-4393-a548-8927d5570cf4)
+
+</div>
+
+<br>
+<br>
+
+```js
+function Profile() {
+  const current = useSelector((state) => state?.session?.user); //gets current user 
+  const profileUser = useSelector((state) => state?.session?.otherUser?.user) //gets other users information
+  const trails = useSelector(trailsArray || []); // gets all the trails and if non returns an empty array
+  const favoritesObj = useSelector(state => state?.favorite || {}) // gets all the users favorites
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  //Loading for fetches
+  const [loading, setLoading] = useState(true);
+  const [loading1, setLoading1] = useState(true);
+  const [loading2, setLoading2] = useState(true);
+  const [loading3, setLoading3] = useState(true);
+  const [section, setSection] = useState('R') // Keep track of what section the user is on
+  const {userId} = useParams() // gets the user id based off the url
+  const favoriteTrails = Object.values(favoritesObj)?.filter(favorite => favorite?.favorite?.user_id == userId)?.map(favorite => favorite?.favorite?.trail) //Gets all the favorite trails
+  const [showDeleteModal, setShowDeleteModal] = useState(false); // Manage the delete modal state
+  const userPhoto = useSelector(trailPhotosArray) // Gets an array of all the user photos
+  const [test, setTest] = useState(null)
+ 
+  useEffect(() => {
+    dispatch(fetchUser(userId)) // Fetch the other user based on id 
+    .then(() => setLoading3(false))
+    .catch(() => setLoading3(false));
+  }, [dispatch, userId])
+
+  useEffect(() => {
+    setLoading2(true)
+    const fetchPhoto = async () => {
+      try{
+        dispatch(fetchUsersTrailPhotos(userId)) // Fetch all the photos the user has uploaded 
+          .then(() => setLoading2(false))
+          .catch(() => setLoading2(false)); 
+      } catch(error) {
+        setLoading2(false)
+        console.error("Error fetching favorites:", error)
+      }
+    }
+    fetchPhoto()
+  }, [dispatch, userId])
+
+ 
+
+
+  useEffect(() => {
+  setLoading(true);
+  dispatch(FetchUserReviews(userId)) //Fetch all the reviews the user had made
+    .then(() => setLoading(false))
+    .catch(() => setLoading(false)); 
+}, [dispatch, userId]);
+
+useEffect(() => {
+  const fetchFavorites = async () => {
+    setLoading1(true);
+    try {
+        await dispatch(fetchAllFavorites(userId)) // Fetch all the users favorites 
+      setLoading1(false);
+    } catch (error) {
+      setLoading1(false);
+    }
+  };
+
+
+
+  fetchFavorites();
+}, [dispatch, userId]);
+```
+
+<br>
+<br>
+
+## Edit User
+Can change users information after confirming password.
+
+<br>
+<br>
+
+<div align="center"> 
+  
+![user edit](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/97d8acd0-d93a-4c9d-bf2e-90b4f825e6fc)
+
+</div>
 
 
 <br>
 <br>
 
 ```js
-function TrailMapWrapper({trails, center,zoom=10}) {
-    const {isLoaded} = useLoadScript({ //Make sure the map can be loaded from the api key stored in the env local file
-        googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
-    })
+const handleEditUser = async(e) => {
+        e.preventDefault()
+        if(isSubmitted) return // user cannot spam the submit button
+        setIsSubmitted(true)
 
-    if(!isLoaded){ // If map cannot be loaded then display loading
-        return <div>Loading...</div>
-    }
-    if(!trails || trails.length === 0){ // If there are no trails then return null
-        return null
-    }
-    return (
-        <>
-        <div className="trailmapwrapper">
-            <TrailMap trails={trails} center ={center} zoom={zoom}/>
-        </div>
-        </>
-    )
-
-}
-
-export const TrailMap = ({trails, center,zoom}) => {
-
-    if(!trails){ // Making sure there are trails
-        return null 
-    }
-    
-
-
-    const img = { //Used for custom pin 
-        url: pin
-    }
-
-    const containerStyle = { // The dimensions of the map 
-        width: '100%',
-        height: '100%'
-      };
-
-    const mapOptions = { // Removes the default features of the map given by google maps
-    disableDefaultUI: true
-    // zoomControl: false, 
-    // streetViewControl: false, 
-    // gestureHandling: 'none' 
-    };
-   
-    return(
-        <>
-            <GoogleMap zoom={zoom}  center={center} mapContainerStyle={containerStyle} options={mapOptions}
-            //Sets zoom and center to the values passed down by componenets > 
-            {trails.map((trail) =>{
+        const updateUsers = { // get all the user info and put it into an object
+            id: current?.id,
+            username: username, 
+            fname: fname,
+            lname: lname, 
+            password: password, 
+            email: email
+        }
+           
+        dispatch(updateUser(updateUsers, oldPassword)) // send the updated info and the oldpassword. Oldpassword is confirmed in the backend so the old password is never exposed in the frontend
+            .then(() => {
+                setIsSubmitted(false); // User can submit again since the changes have been made
+                navigate(`/profile/${current?.id}`); // goes to the users profile
+                window.scrollTo(0, 0)
+            })
+            .catch(async (res) => {
+                let data;
+                try {
+                    data = await res.clone().json(); // try the request again 
         
-                return (<MarkerF key={trail.id} position={{lat: trail?.latitude, lng: trail?.longitude}} icon={img}/>)
-                //Places a custom pin for every trail at the longitude and latitude that the trail has
+                }catch {
+                    data = await res.text(); 
+                }
+                if (data?.errors) setErrors(data.errors); // if there is an error display the error/errors
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+                setIsSubmitted(false);
+                });
             }
-            )}
-            </GoogleMap> 
-        </>
-    )
-}
 ```
+
 <br>
 <br>
 
@@ -268,8 +479,11 @@ Users can create, edit, or delete a review when signed in
 <br>
 <br>
 
-![CRUD (3)](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/7338ed51-13b4-4890-92df-55b3ae7be1fc)
+<div align="center"> 
+  
+![reviews](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/ad44869d-bb10-47b0-987c-61d6b8d0639f)
 
+</div>
 
 <br>
 <br>
@@ -379,12 +593,96 @@ export default CreateModal;
 <br>
 <br>
 
+##  Favorites
+Users can favorite or un-favorite a trail
+
+<br>
+<br>
+
+<div align="center"> 
+  
+![favorite](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/2051babb-69f1-4a56-8b5c-3dca3ca15d38)
+
+</div>
+
+
+<br>
+<br>
+
+```js
+ const isFavorite = favoriteTrailIds?.includes(trail?.id); // returns true or false if the trail is already favorited
+
+    const handleFavoriteClick = async() => {
+        if (isFavorite) {
+            await dispatch(removeFromFavorites(trail?.id, favoriteForTrail?.favorite?.id));  // if it is remove the favorite based off trail id and favorite id
+        } else {
+            await dispatch(addToFavorites(trail?.id));  // add favorite based on trail id
+        }
+        setRerender(!rerender); 
+    };
+```
+<br>
+<br>
+
+
+## Photos 
+Users can upload and delete photos to my AWS s3 bucket 
+
+<br>
+<br>
+
+<div align="center"> 
+
+![photo](https://github.com/ShaunJhingoor/AllAdventure/assets/146994547/cd5893f1-fad6-40b0-b703-13a9bfd780a4)
+
+</div>
+
+
+<br>
+<br>
+
+```js
+const PhotoUploadModal = ({ trailId, visible, setVisible }) => {
+  const dispatch = useDispatch();
+  const [photoFile, setPhotoFile] = useState(null);
+  const [fileName, setFileName] = useState('');
+  const [error, setError] = useState('');
+
+  const handleFileChange = (e) => {
+      const file = e.target.files[0] // gets the file information
+      if (file) {
+        setPhotoFile(file); // sets the file info
+        setFileName(file.name);
+      } else {
+        setPhotoFile(null);
+        setFileName('');
+      }
+  };
+
+  const handleUpload = async (e) => {
+      e.preventDefault();
+      if (photoFile) {
+          await dispatch(createTrailPhoto(trailId, photoFile)); // sends the trailId and the file info to backend 
+          dispatch(modalActions.hideModal("photoUpload")); // establishing modal state
+          setVisible(!visible); // closing the modal 
+      } else {
+        setPhotoFile(null);
+        setFileName('');
+        setError('File type not supported. Please select a JPEG or PNG file.');
+      }
+  };
+```
+
+
+<br>
+<br>
+
 ### Future Features
 
 * Expand the search feature so the user can filter by parks and list of trails within those parks will show up
 
-### Thanks 
-All Adventure was created within 14 days. I hope you enjoy!
+### Thank You
+I hope you enjoy!
 
 
 
