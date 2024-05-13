@@ -118,7 +118,14 @@ useEffect(() => {
     })
     ?.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-
+  if(loading3){
+    return(
+      <div id="loadingUserOther">
+        <img src={Loadings} alt="loading" />
+        <h1>Loading</h1>
+      </div>
+    )
+  }
   if(! profileUser){
     return(
       <div className="invalidTrail">
