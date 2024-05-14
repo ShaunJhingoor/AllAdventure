@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import  TrailMapWrapper from "../maps/Trailmaps"
 import SmallSearchBar from "../search/smallsearchbar";
 import Footer from "../footer/Footer";
-import Loadings from "../../images/loading.gif"
+// import Loadings from "../../images/loading.gif"
 
 
 function RealTrailsIndex() {
@@ -80,9 +80,8 @@ function RealTrailsIndex() {
   
   if(loading){
     return(
-      <div id="loadingScreenTrailIndex">
-        <img src={Loadings} alt="loading" />
-        <h1>Loading</h1>
+      <div className="loaderContainer">
+      <div className="loader"></div>
       </div>
     )
   }

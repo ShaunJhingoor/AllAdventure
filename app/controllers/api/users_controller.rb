@@ -28,7 +28,7 @@ end
 
   def update 
     @user = User.find_by(id: params[:id])
-    if @user.authenticate(params[:user][:old_password]) # Verify old password
+    if @user.authenticate(params[:user][:old_password]) 
       if @user.update(user_params)
         render :show 
       else

@@ -15,6 +15,7 @@ function TrailsIndex(){
     const trails = useSelector(trailsArray)
     const [center, setCenter] = useState({lat: 40.793422531206886, lng:-73.6636916745758})
     const [zoom, setZoom] = useState(10)
+    const [loadingTrail, setLoadingTrail] = useState(true)
 
     
         zoom 
@@ -24,6 +25,9 @@ function TrailsIndex(){
 
     useEffect(() => {
        dispatch(FetchRange(Number(1), Number(3)))
+       .then(() => {
+        setLoadingTrail(false)
+       })
     }, [dispatch]);
 
 
@@ -39,34 +43,20 @@ function TrailsIndex(){
             <h1 id="TrailIndexHeader">New York Favorites</h1>
         </Link>
             <br />
-        <div id="trailindexwrapper">
-        {/* <Carousel indicators={false}>
-                        {[...Array(Math.ceil(trails.length / 4))].map((_, index) => (
-                            <Carousel.Item key={`carousel_${index}`} className="d-flex">
-                                <Col>
-                                    {trails.slice(index * 4, index * 4 + 4).map((trail, idx) => (
-                                        <Row key={idx} md={3}>
-                                            <TrailsIndexItem trail={trail} setCenter={setCenter} setZoom={setZoom} />
-                                        </Row>
-                                    ))}
-                                </Col>
-                            </Carousel.Item>
-                        ))}
-                    </Carousel> */}
+            <div id="trailindexwrapper">
+                    {loadingTrail ? ( 
+                        <div id="suggestedTrailsLoading1">
+                        <div className="loader2"></div>
+                       </div>
+                    ) : ( 
+                        <>
+                            {trails.slice(0, 4).map((trail, index) => 
+                                <TrailsIndexItem key={`${trail?.id}_${index}`} trail={trail} setCenter={setCenter} setZoom={setZoom}/>)
+                            }
+                        </>
+                    )}
+                </div>
 
-            {trails.slice(0,4).map((trail,index) => 
-                <TrailsIndexItem key={`${trail?.id}_${index}`} trail={trail} setCenter={setCenter} setZoom={setZoom}/>)}
-            {/* <Link to='/trails' id="showIndexBoxLink">
-                <div id='showIndexBox'>
-                <h1 id="showIndexBoxContent">
-                    <span id='showIndexBoxContent1'>Show More</span>
-                    <span id="showIndexBoxContent2">{">"}</span>
-                </h1>
-                {/* <h1 id="showIndexBoxContent2">{">"}</h1> */}
-                
-            {/* </div>
-            </Link> */} 
-        </div>
             
         </div>
         <Footer/>

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import SuggestedTrailsItem from "./SuggestedTrailsItem";
 import { useEffect, useState } from "react";
 import "./TrailsIndex.css";
-import Loadings from "../../images/loading.gif"
+// import Loadings from "../../images/loading.gif"
 
 function SuggestedTrail({trailId}) {
   const trails = useSelector(trailsArray);
@@ -34,9 +34,7 @@ function SuggestedTrail({trailId}) {
   if (loading) {
     return(
        <div id="suggestedTrailsLoading">
-        <img src={Loadings} alt="loading" />
-        <br />
-          <h1>Loading</h1>
+        <div className="loader1"></div>
        </div>
        )
   }

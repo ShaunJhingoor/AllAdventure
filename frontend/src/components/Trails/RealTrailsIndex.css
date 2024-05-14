@@ -108,10 +108,39 @@
   margin-bottom: 10vh;
 } */
 
-#loadingScreenTrailIndex{
+
+
+.loaderContainer{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  width: 100vw;
+}
+.loader {
+  width: 40px;
+  aspect-ratio: 1;
+  position: relative;
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50% 50% 0 50%;
+  background: #142800;
+  -webkit-mask: radial-gradient(circle 10px at 50% 50%,#0000 94%,#000);
+}
+.loader:after {
+  animation: l6 1s infinite;
+  transform: perspective(300px) translateZ(0px)
+}
+@keyframes l6 {
+  to {transform: perspective(300px) translateZ(150px);opacity:0}
 }
