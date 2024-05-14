@@ -20,7 +20,6 @@ import Drizzle from "../../images/drizzle.png"
 import Thunderstorm from "../../images/thunderstorm.png"
 import Atmosphere from "../../images/atmosphere.png"
 import SuggestedTrail from "./SuggestedTrails";
-import Loadings from "../../images/loading.gif"
 import NonFavorite from "../../images/whiteHeart.png";
 import directions from "../../images/directions.png"
 import redHeart from "../../images/redHeart.png"
@@ -134,8 +133,7 @@ function TrailShow() {
     if (loading || loading1) {
         return (
             <div className="loading">
-                <img src={Loadings} alt="loading" />
-                <h1>Loading</h1>
+               <div className="loader4"></div>
             </div>
         );
     }

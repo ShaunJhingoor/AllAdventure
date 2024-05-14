@@ -417,7 +417,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(239,239,236);
 }
 #showHeaderContainer{
   display: flex;
@@ -586,4 +588,26 @@
   color: white;
   font-weight: 700;
   font-size: 16px;
+}
+
+/* HTML: <div class="loader4"></div> */
+.loader4 {
+  width: calc(6*30px);
+  height: 50px;
+  display: flex;
+  color: #8d7958;
+  filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);
+  clip-path: inset(0 100% 0 0);
+  animation: l13 2s infinite steps(7);
+}
+.loader4:before {
+  content: "";
+  width: 30px;
+  height: 25px;
+  background: 
+    radial-gradient(farthest-side at right,currentColor 92%,#0000) left/20px 100% no-repeat,
+    radial-gradient(farthest-side,         currentColor 92%,#0000) right/17px 9px repeat-y;
+}
+@keyframes l13 {
+  100% {clip-path: inset(0 -30px 0 0)}
 }

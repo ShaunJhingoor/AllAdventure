@@ -121,12 +121,11 @@ useEffect(() => {
   if(loading3){
     return(
       <div id="loadingUserOther">
-        <img src={Loadings} alt="loading" />
-        <h1>Loading</h1>
+        <div className="loader3"></div>
       </div>
     )
   }
-  if(! profileUser){
+  if(!profileUser){
     return(
       <div className="invalidTrail">
                 <img src={noUser} alt="camping" id="invalidTrailImg" />
@@ -197,7 +196,7 @@ useEffect(() => {
         {loading || loading1 || loading2 || loading3? (
         <form className="currentReview">
           <div id="formLoading">
-            <img src={Loadings} alt="Loading" id="profileLoading"/>
+            <img src={Loadings} alt="Loading" />
             <h1 id="loadingContent">Loading</h1>
             </div>
         </form>
