@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import  TrailMapWrapper from "../maps/Trailmaps"
 import SmallSearchBar from "../search/smallsearchbar";
 import Footer from "../footer/Footer";
+import Loadings from "../../images/loading.gif"
 
 
 function RealTrailsIndex() {
@@ -16,6 +17,8 @@ function RealTrailsIndex() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [center, setCenter] = useState({lat:  40.79142619411136, lng:-73.58735483173312})
   const [zoom, setZoom] = useState(10)
+  const [loading, setLoading] = useState(true)
+
   
   
   const toggleSidebar = () => {
@@ -25,7 +28,10 @@ function RealTrailsIndex() {
 
   // Fetch trails on component mount
   useEffect(() => {
-    dispatch(Fetchtrails());
+    dispatch(Fetchtrails())
+    .then(() => {
+      setLoading(false);
+    });
   }, [dispatch]);
 
   // const handleMouseOver =(e) => {
@@ -69,7 +75,14 @@ function RealTrailsIndex() {
   
   
   
-
+  if(loading){
+    return(
+      <div id="loadingScreenTrailIndex">
+        <img src={Loadings} alt="loading" />
+        <h1>Loading</h1>
+      </div>
+    )
+  }
 
   return (
     <div>
