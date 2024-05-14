@@ -48,7 +48,7 @@ function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0, onPinClick }) {
             id={`trail-${trail.id}`}
             onClick={(e) => handleTrailItemClick(e)} // Call handleTrailItemClick when the trail item is clicked
             onMouseOver={(e) => {e.stopPropagation(); setCenter({lat: trail.latitude, lng: trail.longitude}); setZoom(15)}}
-            onMouseLeave={(e) => {e.stopPropagation(); setCenter({lat:  40.79142619411136, lng:-73.58735483173312}); setZoom(10)}}
+            onMouseLeave={(e) => {e.stopPropagation(); setCenter({lat: 40.793422531206886, lng:-73.6636916745758}); setZoom(10)}}
             className="trail-item-container"
 
         >

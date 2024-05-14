@@ -87,7 +87,7 @@ export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
 
   const mapOptions = {
     disableDefaultUI: true,
-    gestureHandling: "auto",
+    gestureHandling: "cooperative",
   };
 
   const handleMarkerClick = (trail) => {
@@ -123,7 +123,7 @@ export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
           
         >
           {selectedTrailId == trail.id && (
-            <InfoWindow position={{ lat: trail?.latitude, lng: trail?.longitude }}
+            <InfoWindow 
             onCloseClick={handleInfoWindowClose}
             >
               <div id="infoWindow">

@@ -15,7 +15,10 @@ function RealTrailsIndex() {
   const trails = useSelector(trailsArray);
   const dispatch = useDispatch();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [center, setCenter] = useState({lat:  40.79142619411136, lng:-73.58735483173312})
+  const [center, setCenter] = useState({lat: 40.793422531206886, lng:-73.6636916745758})
+  // 40.79075537001656, -73.67191185324212
+  // 40.793422531206886, -73.6636916745758
+  // 40.80942324832731, -73.64255407229098
   const [zoom, setZoom] = useState(10)
   const [loading, setLoading] = useState(true)
 
