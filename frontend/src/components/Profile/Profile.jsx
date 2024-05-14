@@ -170,9 +170,9 @@ useEffect(() => {
               {/* Conditionally render "Loading..." while data is being fetched */}
               {loading || loading1 || loading2 || loading3? (
                 <>
-                <p id="numberOfReviewTag">Number of Reviews: <img src={Loadings} alt="loading" /></p>
-                <p id="numberOfReviewTag">Number of Favorites: <img src={Loadings} alt="loading"/></p>
-                <p id="numberOfReviewTag">Number of Photos: <img src={Loadings} alt="loading"/></p>
+                <p id="numberOfReviewTag">Number of Reviews: <img src={Loadings} alt="loading" id="profileLoading"/></p>
+                <p id="numberOfReviewTag">Number of Favorites: <img src={Loadings} alt="loading" id="profileLoading"/></p>
+                <p id="numberOfReviewTag">Number of Photos: <img src={Loadings} alt="loading" id="profileLoading"/></p>
                 </>
               ) : (
                 <>
@@ -197,7 +197,7 @@ useEffect(() => {
         {loading || loading1 || loading2 || loading3? (
         <form className="currentReview">
           <div id="formLoading">
-            <img src={Loadings} alt="Loading" />
+            <img src={Loadings} alt="Loading" id="profileLoading"/>
             <h1 id="loadingContent">Loading</h1>
             </div>
         </form>

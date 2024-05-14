@@ -350,3 +350,8 @@
     flex-direction: column;
     height: 100vh;
 }
+
+#profileLoading{
+    width: 2vw;
+    height: 4vh;
+}
