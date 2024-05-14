@@ -1,17 +1,17 @@
 .profile-dropdown{
     background-color: white;
-    box-sizing:content-box;
-    position: fixed;               
+    box-sizing:content-box;             
     border: 1px solid rgb(0,0,0,0.05);
     width: 100px;
     height: 100px;
-    z-index: 1;
+    z-index: 1000;
     border-radius: 15px;
     display:flex;
     flex-direction: column;
     align-items: left; 
-    justify-content:flex-start; 
+    justify-content:flex-end; 
     margin-left: -75px;
+    position: absolute 
 }
 
 /* .profile-dropdown:hover{
