@@ -7,8 +7,8 @@
 
 #searchImag {
     border-radius: 20px;
-    height: 50vh; 
-    width: 30vw; 
+    height: 40vh; 
+    width: 25vw; 
     transition: transform 0.3s ease-in-out;
     margin-bottom: 20px; 
 }
@@ -24,7 +24,7 @@
 
 #searchtrailname {
     font-weight: 700;
-    font-size: 24px; 
+    font-size: 3vh; 
     font-family: monrope-m;
     color: #142800;
     text-decoration: none;
@@ -35,7 +35,7 @@
 #searchTrail {
     color: #142800;
     font-weight: 400;
-    font-size: 20px; 
+    font-size: 2.5vh; 
     font-family: monrope-m;
     word-spacing: 2px;
     padding-bottom: 40px;

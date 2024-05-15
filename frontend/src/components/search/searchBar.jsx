@@ -46,7 +46,7 @@ function SearchBar(){
 
     return (
         <>
-        <div className="searchBar">
+    <div className="searchBar">
         <div id="WelcomestatmentContainer">
         <div id="Welcomestatment">
         Welcome {currentUser ? 'Back' : 'Start'} {currentUser ? `${capitalizeFirstLetter(currentUser?.fname)} ${capitalizeFirstLetter(currentUser?.lname)}` : 'Your Search'}  

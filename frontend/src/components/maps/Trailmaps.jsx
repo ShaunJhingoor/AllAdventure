@@ -5,6 +5,7 @@ import "./Trailmaps.css";
 import { useNavigate } from "react-router-dom";
 
 
+
 const easeInOut = (t) => {
     // Adjust the easing function for smoother animation
     return t < 0.5 ? 2 * t * t : -1 + 2 * (2 - t) * t;
@@ -16,7 +17,11 @@ function TrailMapWrapper({ trails, center, zoom = 10, onPinClick }) {
   });
 
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return(
+      <div className="loaderContainer">
+      <div className="loader"></div>
+      </div>
+    )
   }
 
   if (!trails || trails.length === 0) {

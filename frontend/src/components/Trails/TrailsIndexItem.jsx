@@ -8,7 +8,7 @@ import AverageRating from '../Rating/averagerating';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0, onPinClick }) {
+function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0, onPinClick = null }) {
     const currentUser = useSelector(state => state?.session?.user);
     const favorites = useSelector(state => state?.favorite);
     const dispatch = useDispatch();

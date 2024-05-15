@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import  TrailMapWrapper from "../maps/Trailmaps"
 import SmallSearchBar from "../search/smallsearchbar";
 import Footer from "../footer/Footer";
-// import Loadings from "../../images/loading.gif"
+
 
 
 function RealTrailsIndex() {

@@ -11,7 +11,11 @@ function SmallTrailMapWrapper({trail}) {
     })
 
     if(!isLoaded){
-        return <div>Loading...</div>
+        return(
+            <div className="loaderContainer">
+            <div className="loader"></div>
+            </div>
+          )
     }
     if(!trail ){
         return null

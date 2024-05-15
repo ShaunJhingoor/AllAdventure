@@ -51,7 +51,7 @@ function TrailsIndex(){
                     ) : ( 
                         <>
                             {trails.slice(0, 4).map((trail, index) => 
-                                <TrailsIndexItem key={`${trail?.id}_${index}`} trail={trail} setCenter={setCenter} setZoom={setZoom}/>)
+                                <TrailsIndexItem key={`${trail?.id}_${index}`} trail={trail} setCenter={setCenter} setZoom={setZoom} onPinClick={() => {null}}/>)
                             }
                         </>
                     )}

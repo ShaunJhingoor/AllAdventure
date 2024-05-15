@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import SuggestedTrailsItem from "./SuggestedTrailsItem";
 import { useEffect, useState } from "react";
 import "./TrailsIndex.css";
-// import Loadings from "../../images/loading.gif"
+
 
 function SuggestedTrail({trailId}) {
   const trails = useSelector(trailsArray);
