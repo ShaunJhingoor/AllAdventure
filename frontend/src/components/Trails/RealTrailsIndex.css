@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   z-index: 1; 
 }
 
@@ -32,17 +33,16 @@
 }
   
   #sidebar {
-    height: 100%;
-    width: 0;
-    position: relative;
-    background-color: white;
-    overflow-y: auto; 
-    max-height: 100vh; 
-    transition: 0.3s;
-    overflow-x: hidden;
-    /* padding-top: 10px; */
-    color: white;
-    display: block;
+  height: 100%;
+  width: 0;
+  position: relative;
+  background-color: white;
+  overflow-y: auto; 
+  max-height: 100vh; 
+  transition: 0.3s;
+  overflow-x: hidden;
+   color: white;
+   display: block;
    cursor: pointer;
    border-radius: 0 6px 6px 0 ;
    background-color: hsla(0, 0%,100%, 1);
@@ -53,12 +53,14 @@
   
   .sidebaropen
   #sidebar {
-    width: 380px;
+    width: 500px;
+    
   }
 
   .sidebaropen{
     display:flex;
   }
+
   
   .open {
     display: block;
@@ -143,4 +145,9 @@
 }
 @keyframes l6 {
   to {transform: perspective(300px) translateZ(150px);opacity:0}
+}
+
+#trailMap{
+  position: relative;
+  width: 100vw;
 }

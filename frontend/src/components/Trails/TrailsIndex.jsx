@@ -13,7 +13,7 @@ import Footer from "../footer/Footer"
 
 function TrailsIndex(){
     const trails = useSelector(trailsArray)
-    const [center, setCenter] = useState({lat: 40.793422531206886, lng:-73.6636916745758})
+    const [center, setCenter] = useState({lat: 40.81501535327977, lng: -73.39608034896676})
     const [zoom, setZoom] = useState(10)
     const [loadingTrail, setLoadingTrail] = useState(true)
 

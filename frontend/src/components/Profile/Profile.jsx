@@ -196,9 +196,8 @@ useEffect(() => {
         {loading || loading1 || loading2 || loading3? (
         <form className="currentReview">
           <div id="formLoading">
-            <img src={Loadings} alt="Loading" />
-            <h1 id="loadingContent">Loading</h1>
-            </div>
+          <div className="loader6"></div>
+          </div>
         </form>
         ) : section === "R" && currentReviews?.length === 0 && current?.id == userId?(
           <form className="currentReview">

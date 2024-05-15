@@ -249,6 +249,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
 }
 
 #loadingContent{
@@ -317,8 +318,10 @@
 #clickToView{
     font-size: 18px;
     font-weight: 700;
-    line-height: 30px;
+    text-align: center;
+    margin-bottom: 1vh;
 }
+
 #dateProfileHeader{
     font-size: 16px;
     font-weight: 400;
@@ -395,3 +398,33 @@
   @keyframes l16 {
     100% {transform: rotate(0)}
   }
+
+  /* HTML: <div class="loader"></div> */
+.loader6 {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    border: 4px solid #0000;
+    border-radius: 50%;
+    border-right-color: #142800;
+    animation: l15 1s infinite linear;
+  }
+  .loader6::before,
+  .loader6::after {    
+    content: "";
+    grid-area: 1/1;
+    margin: 2px;
+    border: inherit;
+    border-radius: 50%;
+    animation: l15 2s infinite;
+  }
+  .loader6::after {
+    margin: 8px;
+    animation-duration: 3s;
+  }
+  @keyframes l15{ 
+    100%{transform: rotate(1turn)}
+  }
+
+
+  

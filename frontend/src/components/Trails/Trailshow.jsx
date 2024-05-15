@@ -215,6 +215,7 @@ function TrailShow() {
                             {/* <div id="insideWeatherCards"> */}
                             {weeklyWeather.length > 0 && weeklyWeather.slice(0, 5).map((day, index) => (
                                 <div key={index} className="weatherCard">
+                                    <div id="weatherImag">
                                     {day.weather[0].main === "Clear" && <img src={Sunny} alt="sun" />}
                                     {day.weather[0].main === "Clouds" && <img src={Cloud} alt="cloud" />}
                                     {day.weather[0].main === "Snow" && <img src={Snow} alt="cloud" />}
@@ -223,6 +224,7 @@ function TrailShow() {
                                     {day.weather[0].main === "Thunderstorm" && <img src={Thunderstorm} alt="cloud" />}
                                     {day.weather[0].main === "Atmosphere" && <img src={Atmosphere} alt="cloud" />}
                                     {/* <img src={Cloud} alt="cloud" /> */}
+                                    </div>
                                     <p className="dayOfWeek">
                                         {new Date(day.dt * 1000).toLocaleDateString("en-US", { weekday: "long" })}
                                     </p>
@@ -231,7 +233,7 @@ function TrailShow() {
                                     </p>
                                     <span className="high">High: {Math.floor(day.temp.max)}&deg;F</span>
                                     <p className="low">Low: {Math.floor(day.temp.min)}&deg;F</p>
-                                    <p className="weatherDescription">{day.weather[0].description}</p>
+                                    <div className="weatherDescription">{day.weather[0].description}</div>
                                 </div>
                             ))}
                             {/* </div> */}

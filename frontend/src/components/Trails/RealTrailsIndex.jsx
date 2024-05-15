@@ -15,10 +15,17 @@ function RealTrailsIndex() {
   const trails = useSelector(trailsArray);
   const dispatch = useDispatch();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [center, setCenter] = useState({lat: 40.793422531206886, lng:-73.6636916745758})
+  const [center, setCenter] = useState({lat: 40.81501535327977, lng: -73.39608034896676})
   // 40.79075537001656, -73.67191185324212
   // 40.793422531206886, -73.6636916745758
   // 40.80942324832731, -73.64255407229098
+  // 40.865923429190474, -73.22441897490452
+  // 40.88565277526996, -73.09395632836852
+  // 40.872154384513664, -73.17704043403305
+  // 40.866442698259895, -73.24639162967037
+  // 40.85605655194463, -73.33359560834305
+  // 40.849824082424526, -73.3974536399695
+  // 40.81501535327977, -73.39608034896676
   const [zoom, setZoom] = useState(10)
   const [loading, setLoading] = useState(true)
 
@@ -116,16 +123,17 @@ function RealTrailsIndex() {
           
         </div>
 
+       
         
           
             
+        <div id="trailMap">
+        <TrailMapWrapper key={"why"} trails={trails} center ={center} zoom={zoom} onPinClick={handlePinClick}/>
         <div id="openSideBar" onClick={toggleSidebar}>
         
-          <p id="textsidebaropener">{isSidebarOpen ? "<" : ">"}</p>
+        <p id="textsidebaropener">{isSidebarOpen ? "<" : ">"}</p>
+      </div>
         </div>
-       
-        <TrailMapWrapper key={"why"} trails={trails} center ={center} zoom={zoom} onPinClick={handlePinClick}/>
-        
 
       </div>
 

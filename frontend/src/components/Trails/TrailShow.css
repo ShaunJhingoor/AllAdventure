@@ -321,6 +321,11 @@
     justify-content: center;
     /* justify-content: space-between; */
     /* flex-wrap: wrap; */
+    align-items: center;
+}
+
+#weatherImag{
+  margin-top: 4vh;
 }
 
 #suggestedTrail{
@@ -346,8 +351,8 @@
     margin: 10px;
     width: calc(20% - 20px);
     box-sizing: border-box;
-    height: 23vh;
-    width: 10vw;
+    height: 200px;
+    width: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -386,7 +391,8 @@
 
 .weatherDescription{
   color: #142800;
-  margin-bottom: 10px;
+  margin-bottom: 4vh;
+  text-align: center;
 }
 
 #weeklyWeather{
@@ -583,6 +589,7 @@
   font-size: 14px;
   /* margin-bottom: 1px; */
 }
+
 
 #photoSignUpContent1{
   color: white;
