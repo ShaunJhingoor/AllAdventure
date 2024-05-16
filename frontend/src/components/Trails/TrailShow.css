@@ -693,8 +693,8 @@
 
   .weatherCards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr)); /* Adjust the minmax value as needed */
-    gap: 8px; /* Adjust the gap between cards */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr)); 
+    gap: 8px; 
     justify-content: center;
     margin-left: 4px;
   }
@@ -709,4 +709,11 @@
     margin-left: -10px;
   }
 
+  #photoSignUpContent{
+    font-size: 10px;
+  }
+
+  #suggestedTrail{
+    
+  }
 }
