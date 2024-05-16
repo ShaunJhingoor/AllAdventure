@@ -17,15 +17,15 @@ function SearchIndex(){
   
 
   useEffect(() => {
-      if(searchResults?.length == 0){
+    
       dispatch(FetchRange(Number(12), Number(16))).
       then(() => setsuggestedSearchLoading(false))
-      }
-    },[dispatch, searchResults]);
+      
+    },[dispatch]);
 
 
    
-    if(suggestedSearchLoading && searchResults?.length == 0){
+    if(suggestedSearchLoading){
       return (
         <div className="loading">
            <div className="loader4"></div>
