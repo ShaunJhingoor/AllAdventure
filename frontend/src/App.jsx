@@ -13,10 +13,6 @@ import SearchIndex from './components/search/searchIndex';
 import Help from './components/Help/Help';
 import Profile from './components/Profile/Profile'
 import EditUser from './components/Profile/EditUser';
-import ReactGA from 'react-ga';
-
-const TRACKING_ID = "G-XNBZ16NKHF"; // YOUR_OWN_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
 
 function Layout() {
   const dispatch = useDispatch();
