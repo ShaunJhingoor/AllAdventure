@@ -137,3 +137,19 @@
   margin: 0;
   z-index: 1000;
 } */
+@media(max-width:600px){
+  #modal-content{
+    width: 100vw;
+  }
+  #modal{
+    left: 40px;
+  }
+
+  #reviewReview{
+    width: 68vw;
+  }
+  #createReviewSubmit{
+    left: -25vw;
+  }
+  
+}

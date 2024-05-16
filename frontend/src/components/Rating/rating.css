@@ -24,3 +24,9 @@
     text-shadow: none;
    
 }
+
+@media(max-width:600px){
+    .rate i{
+        font-size: 5vh;
+    }
+}

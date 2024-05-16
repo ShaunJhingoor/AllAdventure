@@ -82,3 +82,18 @@
     align-items: center;
    
 }
+
+@media(max-width:600px){
+  #suggestedimag{
+    width: 18vw;
+    height: 9vh;
+  }
+
+  #suggestedhometrailname{
+    font-size: 1.5vh;
+  }
+
+  #suggestedsplashpageTrail{
+    font-size: 1.2vh;
+  }
+}

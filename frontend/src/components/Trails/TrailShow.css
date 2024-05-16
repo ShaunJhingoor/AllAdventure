@@ -618,3 +618,95 @@
 @keyframes l13 {
   100% {clip-path: inset(0 -30px 0 0)}
 }
+
+@media(max-width:600px){
+  .show{
+    width: 90vw;
+  }
+  .favorite-container-show {
+    width: 16vw;
+    height: 8vh;
+  }
+
+  .favorite-icon-show{
+    width: 8vw;
+  }
+
+  #emailShowContainer{
+    width: 16vw;
+    height: 8vh;
+  }
+
+  #emailShow{
+    width: 8vw;
+  }
+
+  #directionsTrailShowContainer{
+    width: 16vw;
+    height: 8vh;
+  }
+
+  #directionsTrailShow{
+    width: 8vw;
+  }
+
+  #modalAverage{
+    justify-content: center;
+  }
+
+  #reviewSignUp{
+    width: 100px;
+  }
+  #reviewSignUpContent{
+    font-size: 12px;
+  }
+
+
+  #weatherImagContent{
+    width: 30px;
+    height: 30px;
+  }
+
+  .dayOfWeek{
+    font-size: 13px;
+  }
+
+  .date{
+    font-size: 12px;
+  }
+
+  .high{
+    font-size: 12px;
+  }
+  .low{
+    font-size: 12px;
+  }
+
+  .weatherDescription{
+    font-size: 12px;
+  }
+  .weatherCard{
+    margin: 2px;
+    width: 100px;
+
+  }
+
+  .weatherCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr)); /* Adjust the minmax value as needed */
+    gap: 8px; /* Adjust the gap between cards */
+    justify-content: center;
+    margin-left: 4px;
+  }
+  .photoItem{
+    max-width: 40vw;
+    min-width: 40vw;
+    max-height: 20vh;
+    min-height: 20vh;
+  }
+
+  .photoGrid{
+    margin-left: -10px;
+  }
+
+}

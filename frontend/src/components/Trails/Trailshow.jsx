@@ -216,13 +216,13 @@ function TrailShow() {
                             {weeklyWeather.length > 0 && weeklyWeather.slice(0, 5).map((day, index) => (
                                 <div key={index} className="weatherCard">
                                     <div id="weatherImag">
-                                    {day.weather[0].main === "Clear" && <img src={Sunny} alt="sun" />}
-                                    {day.weather[0].main === "Clouds" && <img src={Cloud} alt="cloud" />}
-                                    {day.weather[0].main === "Snow" && <img src={Snow} alt="cloud" />}
-                                    {day.weather[0].main === "Rain" && <img src={Rain} alt="cloud" />}
-                                    {day.weather[0].main === "Drizzle" && <img src={Drizzle} alt="cloud" />}
-                                    {day.weather[0].main === "Thunderstorm" && <img src={Thunderstorm} alt="cloud" />}
-                                    {day.weather[0].main === "Atmosphere" && <img src={Atmosphere} alt="cloud" />}
+                                    {day.weather[0].main === "Clear" && <img src={Sunny} alt="sun" id="weatherImagContent"/>}
+                                    {day.weather[0].main === "Clouds" && <img src={Cloud} alt="cloud" id="weatherImagContent"/>}
+                                    {day.weather[0].main === "Snow" && <img src={Snow} alt="cloud" id="weatherImagContent"/>}
+                                    {day.weather[0].main === "Rain" && <img src={Rain} alt="cloud" id="weatherImagContent"/>}
+                                    {day.weather[0].main === "Drizzle" && <img src={Drizzle} alt="cloud" id="weatherImagContent"/>}
+                                    {day.weather[0].main === "Thunderstorm" && <img src={Thunderstorm} alt="cloud" id="weatherImagContent"/>}
+                                    {day.weather[0].main === "Atmosphere" && <img src={Atmosphere} alt="cloud" id="weatherImagContent"/>}
                                     {/* <img src={Cloud} alt="cloud" /> */}
                                     </div>
                                     <p className="dayOfWeek">

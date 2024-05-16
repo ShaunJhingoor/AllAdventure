@@ -17,3 +17,10 @@
   .filled {
     color: rgb(119,243,123);
   }
+
+  @media(max-width:600px){
+    .star-rating{
+      margin-left: 0;
+      font-size: 15px;
+    }
+  }

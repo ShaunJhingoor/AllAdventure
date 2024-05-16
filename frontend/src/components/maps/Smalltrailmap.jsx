@@ -54,6 +54,19 @@ export const TrailMap = ({trail}) => {
         cursor:'pointer'
       };
 
+      const responsiveContainerStyle = {
+        height: '200px',
+        width: '100px', 
+        borderRadius: '25%',
+        marginRight: '10px',
+        marginLeft: '10px'
+      };
+      
+   
+      if (window.innerWidth <= 600) { 
+        Object.assign(containerStyle, responsiveContainerStyle);
+      }
+
     const mapOptions = {
         disableDefaultUI: true, 
         zoomControl: false, 

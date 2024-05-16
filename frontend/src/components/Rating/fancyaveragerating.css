@@ -19,3 +19,16 @@
 #ratingFancyRating{
     margin-left: 20px;
 }
+
+@media(max-width:600px){
+    #numberofreviews{
+        font-size: 8px;
+    }
+    #averageRatingLabel{
+        font-size: 10px;
+    }
+    #ratingFancyRating{
+        margin-left: 0;
+        
+    }
+}

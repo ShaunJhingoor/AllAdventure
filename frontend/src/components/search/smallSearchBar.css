@@ -23,3 +23,16 @@
   border: none;
   cursor: pointer;
 }
+
+@media(max-width:600px){
+  #smallSearchBarInput {
+    margin-top: 1vh;
+    margin-left: 65%;
+    width: 20vw;
+    height: 1vh;
+    font-size: 2px;
+  }
+  #smallSearchBarButton {
+    margin-top: 3vh;
+  }
+}

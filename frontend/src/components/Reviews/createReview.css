@@ -35,3 +35,13 @@
   color: #fff;
   line-height: 24px;
 }
+
+@media(max-width:600px){
+  #createReviewButton{
+    width: 100px;
+  }
+
+  #createReviewButtonContent{
+    font-size: 12px;
+  }
+}
