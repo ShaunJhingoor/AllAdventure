@@ -12,16 +12,15 @@ function SearchIndexItem({result}){
     const favorites = useSelector(state => state?.favorite);
     const dispatch = useDispatch();
     const [rerender, setRerender] = useState(false);
-    const [loading5, setloading5] = useState(true)
+    
 
     const favoriteTrailIds = Object.values(favorites)?.map(favoriteObj => favoriteObj?.favorite?.trail?.id);
 
     useEffect(() => {
+        
         if(currentUser){
         dispatch(fetchAllFavorites(currentUser?.id)).then(
-            () => {
-                setloading5(false)
-            }
+           
         )
         }
     }, [currentUser, dispatch, rerender]);
@@ -38,13 +37,7 @@ function SearchIndexItem({result}){
         }
         setRerender(!rerender); 
     };
-    if(loading5){
-        return (
-            <div className="loading">
-               <div className="loader4"></div>
-            </div>
-        );
-    }
+   
     return (
         <div id='searchInfo'>
         <div>
