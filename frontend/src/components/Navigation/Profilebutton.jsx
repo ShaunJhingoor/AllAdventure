@@ -46,7 +46,8 @@ function ProfileButton() {
       <div onMouseOver={toggleMenu} onMouseLeave={() => setShowMenu(false)} className="profile-button"> <img src={bird} alt="profile" id='bird'/>
         {showMenu && (
         <div className="profile-dropdown" ref={dropdownRef} onMouseOver={toggleMenu} >
-          <p id="profile-button" onClick={() => navigate(`/profile/${current?.id}`)}>Profile</p>
+          <p id="profile-button" onClick={() => {navigate(`/profile/${current?.id}`); window.scrollTo(0, 0); setShowMenu(false)}}>Profile</p>
+          <p id="profile-button" onClick={() => {navigate("/trails"); window.scrollTo(0, 0); setShowMenu(false)}}>Map</p>
           <div id="logoutsection">
           <p onClick={logout} id="logout-button"> Logout </p>
           </div>

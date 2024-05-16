@@ -29,16 +29,16 @@
     
 }
 #profileImg{
-    margin-top: 5vh;
+    margin-top: 3vh;
     margin-left: 2vw;
-    border-radius: 10000px;
+    border-radius: 50%;
     width: 5vw;
     height: 10vh;
 }
 
 #userInfo{
     position: relative;
-    margin-top: 12vh;
+    margin-top: 10vh;
     margin-left: 2vw;
 }
 
@@ -63,7 +63,7 @@
 }
 
 #numberOfReviews{
-    margin-top: 2vh;
+    margin-top: 0.5vh;
     margin-bottom: 3vh;
 }
 #position{
@@ -425,6 +425,35 @@
   @keyframes l15{ 
     100%{transform: rotate(1turn)}
   }
+
+  /* #MapLink{
+    font-weight:400;
+    font-size:1.5vh;
+    font-family: manrope-m;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  } */
+
+  /* #MapLinkContainer{
+    background-color: #284e01;
+    border-radius: 50px;
+    width: 7vw;
+    height: 4vh;
+    margin-top: 2vh;
+    margin-right: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+  }
+
+  #MapLinkContainer:hover {
+    background-color: #467a2e;
+    transform: scale(1.03); 
+  } */
+  
 
 
   

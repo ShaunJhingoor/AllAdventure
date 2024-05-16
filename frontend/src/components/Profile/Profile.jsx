@@ -145,8 +145,12 @@ useEffect(() => {
         <br />
       <div id="position">
         <form className="profile">
+        
           <div id="bird">
             <img src={bird} alt="bird" id="profileImg" />
+            {/* <div id="MapLinkContainer" onClick={() => navigate("/trails")}>
+            <p id="MapLink">Explore More Trails</p>
+            </div> */}
           </div>
           <div id="userInfo">
           <p id="Name">
@@ -192,6 +196,7 @@ useEffect(() => {
               )}
             </div>
           </div>
+           
           </form>
         {loading || loading1 || loading2 || loading3? (
         <form className="currentReview">

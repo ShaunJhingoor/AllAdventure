@@ -19,9 +19,9 @@ function Help () {
         <br />
         <p id="Statement">Clicking on a trail also allows you to see more details, and view, create, edit, or delete reviews and ratings. You can also upload pictures for that specific trail and see pictures other users have uploaded. If you click on a photo or a users review you will be directed to their profile, if you are logged in. You can favorite this trail, get directions to this trail, and share this trail via email.</p>
         <br />
-        <p id="Statement">  At any time, you can click on the &quot;All Adventure&quot; logo to return to the home page. To access the map again, simply click on &quot;Explore Nearby Trails&quot; or &quot;New York Favorites&quot; and you will be taken back to the map. You can also search for a particular trail by name or filter by difficulty using the search bar. </p>
+        <p id="Statement">  At any time, you can click on the &quot;All Adventure&quot; logo to return to the home page. To access the map again, simply click on &quot;Explore Nearby Trails&quot; or &quot;New York Favorites&quot; or when logged in hover over the profile icon and click on &quot;Map&quot;, you will be taken back to the map. You can also search for a particular trail by name or filter by difficulty using the search bar. </p>
         <br />
-        <p id="Statement">  When logged in, hovering over the profile icon opens a drop down. The drop down contains profile and logout options. If you click &quot;Profile&quot; you will be directed to your profile where you can see your favorites, reviews, and photos. </p>
+        <p id="Statement">  When logged in, hovering over the profile icon opens a drop down. The drop down contains profile, map, and logout options. If you click &quot;Profile&quot; you will be directed to your profile where you can see your favorites, reviews, and photos. </p>
         <br />
         <p id="Statement1">  If you wish to leave the site, hover over the profile icon where you will find a dropdown menu allowing you to log out.</p>
         <br />

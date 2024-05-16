@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 
 const easeInOut = (t) => {
-    // Adjust the easing function for smoother animation
-    return t < 0.5 ? 2 * t * t : -1 + 2 * (2 - t) * t;
+  return t < 0.5
+    ? 4 * t * t * t
+    : 1 - Math.pow(-2 * t + 2, 3) / 2;
 };
 
 function TrailMapWrapper({ trails, center, zoom = 10, onPinClick }) {

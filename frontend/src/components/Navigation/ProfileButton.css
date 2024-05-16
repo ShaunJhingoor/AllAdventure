@@ -3,7 +3,7 @@
     box-sizing:content-box;             
     border: 1px solid rgb(0,0,0,0.05);
     width: 100px;
-    height: 100px;
+    height: 140px;
     z-index: 1000;
     border-radius: 15px;
     display:flex;
@@ -11,6 +11,7 @@
     align-items: left; 
     justify-content:flex-end; 
     margin-left: -75px;
+
     position: absolute 
 }
 
