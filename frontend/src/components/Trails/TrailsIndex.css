@@ -68,7 +68,7 @@
 }
 
 #homepageimag{
-    max-width: 100%;
+    width: 100vw;
     height: auto;
     position: relative;
 }
@@ -193,3 +193,14 @@
     75%,100% {margin:20px -15px 0}
   }
 
+  @media(max-width:600px){
+    #TrailIndexHeader{
+        margin-right: 200px;
+        font-size: 15px;
+    }
+
+    #trailindexwrapper{
+        margin-left: 13px;
+        margin-right: 13px;
+    }
+  }

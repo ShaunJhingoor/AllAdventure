@@ -6,6 +6,7 @@
     padding: 20px;
     /* padding-bottom: 20px;
     padding-top: 20px; */
+   /* width: 100vw; */
 }
 #myLinksNav{
   display: flex;
@@ -90,3 +91,46 @@
 }
 
 
+#mainNav{
+  width: 100vw;
+}
+
+@media(max-width:600px){
+  #myLinksNav{
+    gap: 5px;
+  }
+  .links{
+    padding: 2px;
+  
+  }
+  #homeicon{
+    height: 15px;
+    margin-left: 0;
+  }
+  #home{
+    font-size: 15px;
+  }
+
+  #Github{
+    font-size: 8px;
+  }
+
+
+#demoLogin{
+  font-size: 8px;
+  padding: 6px 3px;
+  margin-right: 2px;
+  
+}
+
+#InfoTab{
+  font-size: 8px;
+  margin-left: -35px;
+  margin-bottom: -30px;
+}
+
+.Login{
+  font-size: 8px;
+  padding: 6px 3px;
+}
+}

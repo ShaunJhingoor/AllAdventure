@@ -67,3 +67,29 @@
     flex-direction: row;
     gap: 5px;
 }
+
+@media(max-width:600px){
+    #helpMe{
+        font-size: 12px;
+        line-height: 0;
+    }
+    #bird{
+        height: 20px;
+       
+    }
+    .profile-dropdown{
+        width: 50px;
+        height: 70px;
+        margin-left: -40px;
+    }
+
+    #logout-button{
+        padding: 5px;
+        font-size: 10px;
+    }
+
+    #profile-button{
+        padding: 5px;
+        font-size: 10px;
+    }
+}

@@ -90,7 +90,7 @@
 }
 
 #technology img {
-  margin-right: 10px; 
+  margin-right: 0; 
 }
 
 #technologiesUsed p {
@@ -104,4 +104,26 @@
 }
 #myLinks:hover {
   transform: scale(1.2);
+}
+@media(max-width:600px){
+  #technology img{
+    width: 30px;
+    margin-right: 0
+  }
+  #technologiesUsed p{
+    font-size: 10px;
+  }
+
+  #personalLink img{
+    width: 30px;
+    
+  }
+
+  #backToTopContent{
+    font-size: 13px;
+  }
+  #backToTop{
+    height: 25px;
+  }
+
 }

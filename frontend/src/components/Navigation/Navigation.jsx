@@ -42,7 +42,7 @@ function Navigation() {
   
     return (
       <>
-      <nav>
+      <nav id='mainNav'>
         <div className='links'>
           <div id="myLinksNav"> 
           <NavLink to="/" id='home'><img src={adventureIcon} alt="sometrailsicon" id='homeicon'/>AllAdventure</NavLink>

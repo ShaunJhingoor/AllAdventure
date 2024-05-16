@@ -62,7 +62,7 @@ function SearchBar(){
             onKeyDown={handleSearchEnter}
             />
            
-            <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search"   onClick={() => { handleSearch(); window.scrollTo(0, 0); }}/></Link>
+            <Link to="/trails/search" id="searchBarButton"><img src={search} alt="search"  id="searchBarButtonImg" onClick={() => { handleSearch(); window.scrollTo(0, 0); }}/></Link>
             
         <h1 id="mapLink" onClick={() => { navigate("/trails"); window.scrollTo(0, 0); }}>Explore nearby trails</h1>
         </div>

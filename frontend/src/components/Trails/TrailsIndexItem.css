@@ -54,4 +54,33 @@
 }
 
 
+@media(max-width:600px){
+    .trail-item-container{
+        padding: 0px 0px 0px 5px; 
+  
+    }
+    #trailimag{
+        height: 100px;
+        width: 90px;
+        position: relative;
+    }
+
+    #hometrailname{
+        font-size: 9px;
+        text-align: center;
+
+    }
+
+    .favorite-icon{
+        width: 10px;
+       
+    }
+
+    #splashpageTrail{
+        font-size: 8px;
+        text-align: center;
+    }
+}
+
+
 
