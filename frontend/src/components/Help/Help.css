@@ -47,3 +47,14 @@
     margin-left: 45vw;
     margin-top: 10vh;
 }
+
+@media(max-width:600px){
+    #helpHeader{
+        margin-left: 2vw;
+        text-align: center;
+    }
+
+    #helpImg{
+        width: 15vw;
+    }
+}

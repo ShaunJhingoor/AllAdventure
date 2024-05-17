@@ -18,7 +18,6 @@
     font-size: 16px;
     font-family: manrope-m;
     font-weight: 400;
-   
     color: #142800;
     text-decoration: underline;
     cursor: pointer;
@@ -52,12 +51,20 @@
 }
 
 @media(max-width:600px){
-    #infoWindow{
-        width: 20vw;
-    }
+    
 
     #trailNameHeader{
         font-size: 12px;
+    }
+
+    #infoWindowContent{
+        font-size: 10px;
+        text-wrap:balance;
+        
+    }
+
+    #infoWindowContentDirections{
+        font-size: 10px;
     }
 
    

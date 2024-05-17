@@ -79,17 +79,17 @@
     }
     .profile-dropdown{
         width: 50px;
-        height: 70px;
+        height: 100px;
         margin-left: -40px;
     }
 
     #logout-button{
-        padding: 5px;
+        padding: 10px;
         font-size: 10px;
     }
 
     #profile-button{
-        padding: 5px;
+        padding: 10px;
         font-size: 10px;
     }
 }
