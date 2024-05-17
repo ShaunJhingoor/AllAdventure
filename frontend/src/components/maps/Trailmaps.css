@@ -67,5 +67,8 @@
         font-size: 10px;
     }
 
-   
+    .trailmapwrapper{
+        height: 40vh;
+        width: 100%
+    }
 }

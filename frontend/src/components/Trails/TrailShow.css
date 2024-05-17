@@ -714,17 +714,20 @@
   }
 
   #clickToViewProfile{
-    font-size: 18px;
+    font-size: 16px;
     line-height: 20px;
+    text-align: center;
   }
 
   #uploadedBy{
-    font-size: 14px;
+    font-size: 12px;
     line-height: 16px;
+    text-align: center;
   }
 
   #dateUploaded{
-    font-size: 14px;
+    font-size: 12px;
     line-height: 16px;
+    text-align: center;
   }
 }

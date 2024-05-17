@@ -1,6 +1,5 @@
 #realtrailindexWrapper{
-    display: flex;
-    flex-wrap: nowrap;
+   
     padding: 0px 0px 0px 16px;
 }
 
@@ -30,6 +29,7 @@
   font-family: monrope-m;
   font: Arial,sans-serif;
   z-index: 1;
+  
 }
   
   #sidebar {
@@ -155,10 +155,32 @@
 @media(max-width:600px){
   .sidebaropen
   #sidebar {
-    width: 200px;
+    width: 100vw;
+    height: 25vh;
+    position: relative;
+  }
+  
+  #sidebarHeader {
+    font-size: 12px;
   }
 
+  #realindexWrapper{
+    display: flex;
+    flex-direction: column;
+  }
  
+  #trailMap{
+   height: 40vh;
+  }
 
- 
+  #openSideBar {
+    display: none; 
+  }
+  #trails{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;
+    margin-left: 10px;
+    margin-right: 0;
+  }
 }

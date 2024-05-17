@@ -37,7 +37,7 @@ function TrailMapWrapper({ trails, center, zoom = 10, onPinClick }) {
 }
 
 export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
-  const newZoom = window.innerWidth <= 600 ? 8 : zoom
+  const newZoom = window.innerWidth <= 600 ? 8.4 : zoom
   const [currentZoom, setCurrentZoom] = useState(newZoom);
   const [currentCenter, setCurrentCenter] = useState(center);
   const [selectedTrailId, setSelectedTrailId] = useState(null);
