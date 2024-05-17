@@ -29,9 +29,10 @@
     margin-top: 1vh;
     margin-left: 65%;
     width: 20vw;
-    height: 1vh;
+    height: .5vh;
     font-size: 2px;
   }
+
   #smallSearchBarButton {
     margin-top: 3vh;
   }

@@ -37,7 +37,8 @@ function TrailMapWrapper({ trails, center, zoom = 10, onPinClick }) {
 }
 
 export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
-  const [currentZoom, setCurrentZoom] = useState(zoom);
+  const newZoom = window.innerWidth <= 600 ? 8 : zoom
+  const [currentZoom, setCurrentZoom] = useState(newZoom);
   const [currentCenter, setCurrentCenter] = useState(center);
   const [selectedTrailId, setSelectedTrailId] = useState(null);
   
@@ -77,11 +78,12 @@ export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
   }, [currentZoom, currentCenter]);
 
   useEffect(() => {
-    animateZoom(zoom, center);
-  }, [zoom, center]);
+    animateZoom(newZoom, center);
+  }, [newZoom, center]);
 
   const img = {
     url: pin,
+    scaledSize: window.innerWidth <= 600 ? new window.google.maps.Size(20, 20): undefined
   };
 
  
