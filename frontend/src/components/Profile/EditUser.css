@@ -202,3 +202,17 @@
     margin: 0;
     padding: 0;
 }
+
+@media(max-width:600px){
+    .editUser{
+        width: 90dvw;
+    }
+
+    #firstNameInput{
+        width: 35vw;
+    }
+
+    #passwordInput{
+        width: 50vw;
+    }
+}

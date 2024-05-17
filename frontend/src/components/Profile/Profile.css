@@ -453,7 +453,61 @@
     background-color: #467a2e;
     transform: scale(1.03); 
   } */
-  
 
+ 
+  @media(max-width:600px){
+
+    #ProfileFormOutside{
+        height: auto;
+    }
+    .profile{
+        margin-bottom: 5vh;
+        height: 40dvh;
+        width: 43dvh;
+        left: 4vw;
+    }
+
+    .currentReview{
+        position: relative;
+        width: 94dvw;
+        height: 70vh;
+        left: 4vw;
+    }
+
+    #position{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2vh;
+        left: 0;
+    }
+
+    #profileImg{
+        width: 70px;
+        height: 70px;
+    }
+
+    #currentReviewHeaderReview,
+    #currentReviewHeaderFavorite,
+    #currentReviewHeaderPhoto{
+        font-size: 20px;
+    }
+    .profilePhotoItem{
+        min-height: 20vh;
+        max-height: 20vh;
+        min-width: 33vw;
+        max-width: 33vw;
+    }
+
+
+    .profilePhotoGrid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 20px;
+    }
+
+    #editUser{
+        width: 3vh;
+    }
+  }
 
   
