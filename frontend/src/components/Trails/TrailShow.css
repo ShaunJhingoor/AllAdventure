@@ -730,4 +730,12 @@
     line-height: 16px;
     text-align: center;
   }
+
+  #showtrailnameimag {
+    font-size: 25px;
+  }
+
+  #showtrailinfoimag{
+    font-size: 16px;
+  }
 }
