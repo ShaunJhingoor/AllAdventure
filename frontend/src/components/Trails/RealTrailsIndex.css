@@ -151,3 +151,10 @@
   position: relative;
   width: 100vw;
 }
+
+@media(max-width:600px){
+  .sidebaropen
+  #sidebar {
+    width: 200px;
+  }
+}

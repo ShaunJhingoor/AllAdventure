@@ -50,3 +50,13 @@
 #infoWindowContentDirections:hover{
     color: #64F67B;
 }
+
+@media(max-width:600px){
+    #infoWindow{
+        width: 20vw;
+    }
+
+    #trailNameHeader{
+        font-size: 12px;
+    }
+}
