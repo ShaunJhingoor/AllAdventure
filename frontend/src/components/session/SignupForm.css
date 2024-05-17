@@ -110,3 +110,14 @@
   #demologin:hover{
     color: white;
   }
+
+  @media(max-width:600px){
+    .signUp{
+      min-width: 90dvw;
+      max-width: 90dvw;
+    }
+
+    #signUpHeader{
+      font-size: 20px;
+    }
+  }

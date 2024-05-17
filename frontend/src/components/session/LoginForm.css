@@ -116,3 +116,18 @@
   max-width: 100dvw;
   height: 10dvh;
 }
+
+@media(max-width:600px){
+  .login{
+    width: 90dvw;
+  }
+
+  #loginusername,
+  #loginpassword{
+    width: 60dvw;
+  }
+
+  #loginbutton{
+    width: 55dvw;
+  }
+}
