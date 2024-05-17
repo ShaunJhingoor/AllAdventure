@@ -139,17 +139,20 @@
 } */
 @media(max-width:600px){
   #modal-content{
-    width: 100vw;
+    width: 80vw;
+    left: 50px;
   }
-  #modal{
-    left: 40px;
-  }
+ 
 
   #reviewReview{
     width: 68vw;
   }
   #createReviewSubmit{
-    left: -25vw;
+    left: -10vw;
   }
   
+  #modal-background{
+    width: 100vw;
+    height: 100vh;
+  }
 }
