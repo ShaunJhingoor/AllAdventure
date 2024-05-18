@@ -23,7 +23,9 @@ function FancyAverageRating({ trail}) {
   return(
     <div>
     <h3 id="ratingFancyRating">{averageRating.toFixed(1)}</h3>
+    <div id="fancyaverageRatingStar">
     <Rating rating={averageRating.toFixed(1)} />
+    </div>
     <h3 id="averageRatingLabel">Average Rating</h3>
     <h3 id="numberofreviews">{trailReviews.length} Reviews</h3>
   </div>

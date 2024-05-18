@@ -50,6 +50,10 @@
     color: #64F67B;
 }
 
+.gmnoprint .gmnoprint, .gm-style-cc {
+    display: none;
+  }
+
 @media(max-width:600px){
     
 

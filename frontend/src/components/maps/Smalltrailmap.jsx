@@ -58,8 +58,8 @@ export const TrailMap = ({trail}) => {
         height: '180px',
         width: '110px', 
         borderRadius: '20%',
-        marginRight: '10px',
-        marginLeft: '15px'
+        marginRight: '15px',
+        marginLeft: '20px'
       };
       
    
@@ -71,7 +71,9 @@ export const TrailMap = ({trail}) => {
         disableDefaultUI: true, 
         zoomControl: false, 
         streetViewControl: false, 
-        gestureHandling: 'none' 
+        gestureHandling: 'none',
+        mapTypeControl: false,
+       fullscreenControl: false 
       };
    
     return(

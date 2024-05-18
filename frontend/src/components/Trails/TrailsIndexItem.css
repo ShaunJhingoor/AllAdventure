@@ -67,9 +67,9 @@
     }
 
     #hometrailname{
-        font-size: 9px;
+        font-size: 12px;
         text-align: center;
-        margin-right: 10px;
+        margin-left: -15px;
     }
 
     .favorite-icon{
@@ -78,8 +78,10 @@
     }
 
     #splashpageTrail{
-        font-size: 8px;
+        font-size: 10px;
         text-align: center;
+        word-spacing: .5px;
+        margin-left: -10px;
     }
 }
 

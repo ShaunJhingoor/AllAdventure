@@ -3,3 +3,6 @@
   /* width: 100%; */
   position:relative;
 }
+.gmnoprint .gmnoprint, .gm-style-cc {
+  display: none;
+}
