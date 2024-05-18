@@ -45,7 +45,6 @@
     font-weight: 400;
     font-size: 15px;
     font-family: manrope-m;
-
     line-height: 19.5px;
     margin-bottom: 1px;
 }
@@ -59,6 +58,7 @@
     font-family: manrope-m;
     line-height: 19.5px;
     margin-bottom: 2vh;
+    padding: 10px;
 }
 
 #getDirections{
@@ -69,4 +69,12 @@
     line-height: 19.5px;
     margin-bottom: 1px;
     color:#36713e;
+}
+
+
+@media(max-width:600px){
+    #favoriteTrailInfo{
+        margin-left: 3vw;
+        margin-right: 3vw;
+    }
 }

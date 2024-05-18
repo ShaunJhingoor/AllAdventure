@@ -1,0 +1,15 @@
+#suggestedTrailsWrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+@media(max-width:600px){
+    #suggestedTrailsWrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    justify-self: center;
+    align-items: center; 
+    margin: 0 auto; 
+    min-width: auto;
+    }
+}

@@ -3,7 +3,7 @@ import { trailsArray, FetchRange } from "../../store/trail";
 import { useDispatch } from "react-redux";
 import SuggestedTrailsItem from "./SuggestedTrailsItem";
 import { useEffect, useState } from "react";
-import "./TrailsIndex.css";
+import "./SuggestedTrails.css";
 
 
 function SuggestedTrail({trailId}) {
@@ -40,7 +40,7 @@ function SuggestedTrail({trailId}) {
   }
 
   return (
-    <div id="trailindexwrapper">
+    <div id="suggestedTrailsWrapper">
       {
         trails?.filter(trail => trail?.id != trailId).map((trail, index) => (
           <SuggestedTrailsItem key={`${trail?.id}_${index}`} trail={trail}  />
