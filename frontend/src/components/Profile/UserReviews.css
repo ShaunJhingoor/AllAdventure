@@ -1,6 +1,6 @@
 #trailName{
     margin-top: 2vh;
-    margin-left: 0.5vw;
+    margin-left: 1vw;
     cursor: pointer;
     font-weight: 700;
     font-size: 15px;
@@ -30,4 +30,15 @@ cursor: pointer;
     line-height: 19.5px;
     margin-bottom: 2vh;
     padding: 10px;
+}
+
+@media(max-width:600px){
+    #trailName, 
+    #dateReview,
+    #trailReview,
+    #userReviewRating{
+        margin-left: 5vw;
+        
+    }
+
 }

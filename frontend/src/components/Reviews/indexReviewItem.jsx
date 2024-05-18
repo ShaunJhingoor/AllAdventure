@@ -44,7 +44,9 @@ function ReviewIndexItem({review, trail}) {
             </p>}
             </div>
             </span>
+            <div id="reviewRatingStar">
             <Rating rating={review?.rating}/>
+            </div>
             <p id="reviewIndexItemDescription">{review?.review}</p>
         </div>
     )

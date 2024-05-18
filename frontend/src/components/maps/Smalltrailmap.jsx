@@ -55,11 +55,11 @@ export const TrailMap = ({trail}) => {
       };
 
       const responsiveContainerStyle = {
-        height: '200px',
-        width: '100px', 
-        borderRadius: '25%',
+        height: '180px',
+        width: '110px', 
+        borderRadius: '20%',
         marginRight: '10px',
-        marginLeft: '10px'
+        marginLeft: '15px'
       };
       
    

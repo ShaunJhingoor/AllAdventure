@@ -22,7 +22,7 @@
 
 @media(max-width:600px){
     #numberofreviews{
-        font-size: 8px;
+        font-size: 10px;
     }
     #averageRatingLabel{
         font-size: 10px;
