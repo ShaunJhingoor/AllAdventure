@@ -508,6 +508,20 @@
     #editUser{
         width: 3vh;
     }
+
+    #profileLoading{
+        width: 8vw;
+        height: 4vh;
+    }
+
+    #formLoading{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin-top: 10vh;
+    }
   }
 
   
