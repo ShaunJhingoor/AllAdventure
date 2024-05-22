@@ -44,18 +44,24 @@ function RealTrailsIndex() {
     });
   }, [dispatch]);
 
-  // const handleMouseOver =(e) => {
-
-  // }
+  
 
   const handlePinClick = (trailId) => {
     const trailElement = document.getElementById(`trail-${trailId}`);
-    if (trailElement) {
+    const sidebarElement = document.getElementById("sidebar");
+    if (trailElement && sidebarElement) {
       if (window.innerWidth <= 600) {
-        trailElement.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-       
+        // Scroll within the sidebar for small viewports
+        const rect = trailElement.getBoundingClientRect();
+        const sidebarRect = sidebarElement.getBoundingClientRect();
+        const offsetTop = rect.top - sidebarRect.top + sidebarElement.scrollTop;
+  
+        sidebarElement.scrollTo({
+          top: offsetTop - 60,
+          behavior: "smooth"
+        });
     }else {
-        const sidebarElement = document.getElementById("sidebar");
+        // const sidebarElement = document.getElementById("sidebar");
         if (sidebarElement) {
           const rect = trailElement.getBoundingClientRect();
           let targetScrollTop;
