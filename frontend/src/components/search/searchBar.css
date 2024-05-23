@@ -14,7 +14,8 @@
   outline: none;
   padding: 8px 12px;
   padding-left: 40px;
-  font-size: 16px;
+  font-size: 25px;
+  font-family: manrope-m;
 }
 
 
@@ -43,7 +44,7 @@
 #Welcomestatment{
   position: absolute;
   font-weight: 400;
-  font-family: manrope-m;
+  font-family: manrope-b;
   color:#fff;
   line-height: 78px;
   margin-bottom: 100vh;

@@ -11,14 +11,14 @@
   border-radius: 50px;
   width: 10vw;
   outline: none;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 #smallSearchBarButton {
   position: relative;
   margin-right: 0; 
-  margin-top: 2vh;
-  right: 25px;
+  margin-top: 1.5vh;
+  right: 30px;
   width: 2vh;
   color: white;
   border: none;

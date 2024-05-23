@@ -58,6 +58,7 @@ function SearchBar(){
             placeholder="Search by trail name or difficulty" 
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
+            style={{fontFamily: 'monorope-m'}}
             id="searchBarInput"
             onKeyDown={handleSearchEnter}
             />

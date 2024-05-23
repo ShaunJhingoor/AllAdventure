@@ -1,6 +1,5 @@
 .trail-item-container{
    padding: 0px 0px 0px 16px; 
-  
 }
 
 #trailimag{
@@ -67,10 +66,9 @@
         position: relative;
         object-fit: cover;
     }
+
     .trail-item-container:first-of-type #trailimag {
-        /* Adjust the position for the first trail image here */
         margin-left: 5px;
-      
     }
     
 
@@ -82,7 +80,6 @@
 
     .favorite-icon{
         width: 10px;
-       
     }
 
     #splashpageTrail{

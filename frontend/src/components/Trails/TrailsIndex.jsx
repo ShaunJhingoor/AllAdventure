@@ -31,7 +31,7 @@ function TrailsIndex() {
     }, [dispatch]);
 
     const handleRightClick = () => {
-        if (startIndex + 2 < trails.length) {
+        if (startIndex + 2 < trails?.length) {
             setStartIndex(startIndex + 2);
         }
     };
