@@ -138,6 +138,8 @@
   border-radius: 50% 50% 0 50%;
   background: #142800;
   -webkit-mask: radial-gradient(circle 10px at 50% 50%,#0000 94%,#000);
+  -moz-mask: radial-gradient(circle 10px at 50% 50%, #0000 94%, #000);
+  mask: radial-gradient(circle 10px at 50% 50%, #0000 94%, #000);
 }
 .loader:after {
   animation: l6 1s infinite;
