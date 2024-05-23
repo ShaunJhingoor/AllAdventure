@@ -123,7 +123,7 @@ function RealTrailsIndex() {
           <div id="trails">
       
             {trails.map((trail) => (
-              <TrailsIndexItem key={trail.id} trail={trail}  setCenter ={setCenter}  setZoom={setZoom} onPinClick={handlePinClick}
+              <TrailsIndexItem key={trail.id} trail={trail}  setCenter ={setCenter}  setZoom={setZoom}
               />
               
            
