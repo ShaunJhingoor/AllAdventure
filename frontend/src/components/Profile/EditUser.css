@@ -191,6 +191,7 @@
 
 #logoimag{
     width: 80px;
+    object-fit: cover;
 }
 
 #editErrors{

@@ -57,7 +57,7 @@ function RealTrailsIndex() {
         const offsetTop = rect.top - sidebarRect.top + sidebarElement.scrollTop;
   
         sidebarElement.scrollTo({
-          top: offsetTop - 60,
+          top: offsetTop - 40,
           behavior: "smooth"
         });
     }else {
