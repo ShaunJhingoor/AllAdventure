@@ -11,6 +11,7 @@
     width: 25vw; 
     transition: transform 0.3s ease-in-out;
     margin-bottom: 20px; 
+    object-fit: cover;
 }
 
 #searchImag:hover {

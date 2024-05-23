@@ -248,7 +248,7 @@ function TrailShow() {
                         </div>
                         <br />
                         <br />
-                        <div id="suggestedTrail">
+                        <div id="suggestedTrailShow">
                             <SuggestedTrail trailId={trailId}/>
                         </div>
                         <br />

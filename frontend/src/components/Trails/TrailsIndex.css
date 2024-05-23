@@ -25,68 +25,19 @@
 }
 
 
-#showIndexBox:hover{
-    border: 2px solid #142800;
-}
-
-#showIndexBox {
-    margin-top: 8px; 
-    margin-left: 16px;
-    border-radius: 20px;
-    height: 246px;
-    width: 300px;
-    border: 2px solid rgb(214, 213, 213);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-}
-
-#showIndexBoxContent {
-    margin-bottom: 20px; 
-}
-
-#showIndexBoxContent1 {
-    
-    margin-left: 16px; 
-    line-height: 24px;
-    color: #142800;
-    font-size: 16px;
-    font-weight: 700;
-    font-family: manrope-m;
-    font: Arial,sans-serif;
-}
-
-#showIndexBoxContent2 {
-    margin-left: 155px; 
-    margin-right: 16px; 
-    line-height: 24px;
-    color: #142800;
-    font-size: 40px;
-    font-family: manrope-m;
-    font: Arial, sans-serif;
-}
-
 #homepageimag{
     width: 100vw;
     height: auto;
     position: relative;
+    object-fit: cover;
 }
 
-#showIndexBoxLink{
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow-x: scroll;
-}
 
 #trailindexwrapper {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-   
+   margin-bottom: 20px;
 }
 
 #TrailIndexHeader{
@@ -99,61 +50,12 @@
    
 }
 
-
-#showIndexBox:hover{
-    border: 2px solid #142800;
-}
-
-#showIndexBox {
-    margin-top: 8px; 
-    margin-left: 16px;
-    border-radius: 20px;
-    height: 246px;
-    width: 300px;
-    border: 2px solid rgb(214, 213, 213);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-}
-
-#showIndexBoxContent {
-    margin-bottom: 20px; 
-}
-
-#showIndexBoxContent1 {
-    
-    margin-left: 16px; 
-    line-height: 24px;
-    color: #142800;
-    font-size: 16px;
-    font-weight: 700;
-    font-family: manrope-m;
-    font: Arial,sans-serif;
-}
-
-#showIndexBoxContent2 {
-    margin-left: 155px; 
-    margin-right: 16px; 
-    line-height: 24px;
-    color: #142800;
-    font-size: 40px;
-    font-family: manrope-m;
-    font: Arial, sans-serif;
-}
-
 #homepageimag{
     max-width: 100%;
     height: auto;
 }
 
-#showIndexBoxLink{
-    text-decoration: none;
-}
 
-#suggestedTrailsLoading1{
-    margin-bottom: 10vh;
-}
 
 .loader2 {
     width: 30px;
@@ -193,6 +95,49 @@
     75%,100% {margin:20px -15px 0}
   }
 
+.carousel-buttons {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-button, .right-button {
+    background-color: white;
+    color: #142800;
+    border: 1px solid rgba(0, 0, 0, 0);
+    padding: 2vh;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#rightarrowimg{
+    height: 2vh;
+}
+
+
+
+.left-button:hover, .right-button:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-button {
+    position: relative;
+   
+    left: 8px;
+}
+
+.right-button {
+    position: relative;
+    margin-right: 25px;
+    left: 10px;
+}
+
+
   @media(max-width:600px){
     #TrailIndexHeader{
         margin-right: 200px;
@@ -201,6 +146,19 @@
 
     #trailindexwrapper{
         margin-left: 10px;
-        margin-right: 13px;
+        margin-right: 33px;
+    }
+
+    /* #rightarrowimg{
+        height: 1vh;
+    } */
+    .left-button, .right-button{
+        display: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+   
+    .carousel-buttons{
+      align-items: stretch;
     }
   }

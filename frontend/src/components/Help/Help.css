@@ -46,6 +46,7 @@
     height: 10vh;
     margin-left: 45vw;
     margin-top: 10vh;
+    object-fit: cover;
 }
 
 @media(max-width:600px){

@@ -11,7 +11,6 @@
     align-items: left; 
     justify-content:flex-end; 
     margin-left: -75px;
-
     position: absolute 
 }
 
@@ -48,6 +47,7 @@
 #bird{
     height: 40px;
     border-radius: 50px;
+    object-fit: cover;
 }
 
 #helpMe{

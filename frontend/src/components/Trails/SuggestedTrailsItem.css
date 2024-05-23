@@ -4,11 +4,13 @@
     border-radius: 20px;
     transition: transform 0.3s ease-in-out;
     padding: 10px;
+    object-fit:cover;
 }
 
 #suggestedimag:hover{
     transform: scale(1.03);
 }
+
 #suggestedhometrailname{
     font-weight:700;
     font-size: 16px;
@@ -19,7 +21,7 @@
     color: #142800;
     text-decoration: none;
     padding-bottom: 5px;
-    
+    position: relative;
  }
 
  #suggestedsplashpageTrail{

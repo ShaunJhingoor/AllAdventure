@@ -1,7 +1,9 @@
 #suggestedTrailsWrapper{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content:end;
+    /* flex-direction: column; */
+    align-items: stretch;
 }
 @media(max-width:600px){
     #suggestedTrailsWrapper{

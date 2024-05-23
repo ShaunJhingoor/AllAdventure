@@ -26,6 +26,7 @@
     display: flex;
     justify-content: flex-start;
     position: relative;
+    object-fit: cover;
     
 }
 #profileImg{
@@ -97,11 +98,13 @@
     margin-left: 1vw;
     width: 1.5vw;
     cursor: pointer; 
+    object-fit: cover;
 }
 
 #editUser:hover{
     content: url("../../images/edit.gif");
     cursor: pointer;
+    object-fit: cover;
 }
 
 .currentReview{
@@ -279,7 +282,8 @@
     max-width: 18vw; 
     cursor: pointer;
     border-radius: 20px;
-    transition: transform 0.3s ease-in-out
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover;
 }
 
 .profilePhotoItem:hover {
@@ -344,6 +348,7 @@
     height: 20px;
     width: auto;
     cursor: pointer;
+    object-fit: cover;
 }
 
 #loadingUserOther{

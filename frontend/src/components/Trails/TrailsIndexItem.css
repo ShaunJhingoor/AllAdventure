@@ -9,6 +9,7 @@
     width: 300px;
     transition: transform 0.3s ease-in-out;
     padding-top: 10px;
+    object-fit: cover;
 }
 
 #trailimag:hover{
@@ -56,20 +57,27 @@
 
 
 @media(max-width:600px){
-    .trail-item-container{
-        padding: 0px 0px 0px 5px; 
-  
+    .trail-item-container {
+        padding: 0px 0px 0px 10px;
     }
+    
     #trailimag{
         height: 100px;
-        width: 90px;
+        width: 95px;
         position: relative;
+        object-fit: cover;
     }
+    .trail-item-container:first-of-type #trailimag {
+        /* Adjust the position for the first trail image here */
+        margin-left: 5px;
+      
+    }
+    
 
     #hometrailname{
         font-size: 12px;
         text-align: center;
-        margin-left: -15px;
+        
     }
 
     .favorite-icon{
