@@ -6,11 +6,12 @@
   position: relative;
   margin-left: 85%;
   padding: 20px;
-  height: 2vh;
+  height: 1vh;
   border: 1px solid #ccc;
   border-radius: 50px;
   width: 10vw;
   outline: none;
+  font-size: 12px;
 }
 
 #smallSearchBarButton {
@@ -29,11 +30,18 @@
     margin-top: 1vh;
     margin-left: 65%;
     width: 20vw;
-    height: .5vh;
-    font-size: 2px;
+    height: 3px;
+    font-size: 8px;
+    padding: 15px;
   }
 
   #smallSearchBarButton {
-    margin-top: 3vh;
+    margin-top: 2vh;
+    margin-left: 2vw;
+    height: 2px;
+  }
+
+  #smallSearchBarButtonImag{
+    height: 10px;
   }
 }

@@ -37,12 +37,12 @@ function SmallSearchBar() {
         placeholder="Trail name or Difficulty"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        style={{font: 'monorope-m', fontFamily: 'Arial', fontSize: '12px', color: "rgb(20,40,4)"}}
+        style={{fontFamily: 'monorope-m', color: "rgb(20,40,4)"}}
         id="smallSearchBarInput"
         onKeyDown={handleSearchEnter} 
       />
       <Link to="/trails/search" id="smallSearchBarButton">
-        <img src={smallSearch} alt="search" onClick={() => { handleSearch(); window.scrollTo(0, 0); }} />
+        <img src={smallSearch} alt="search" onClick={() => { handleSearch(); window.scrollTo(0, 0); }} id="smallSearchBarButtonImag"/>
       </Link>
       
     </div>
