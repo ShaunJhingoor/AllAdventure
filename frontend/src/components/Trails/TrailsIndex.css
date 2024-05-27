@@ -112,7 +112,6 @@
 
 #rightarrowimg{
     height: 2vh;
-
 }
 
 .left-button:hover, .right-button:hover {
@@ -121,13 +120,11 @@
 
 .left-button {
     position: relative;
-   
     left: 8px;
 }
 
 .right-button {
     position: relative;
-    /* margin-right: 25px; */
     left: 10px;
 }
 

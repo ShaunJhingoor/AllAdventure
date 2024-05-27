@@ -50,6 +50,7 @@ require "open-uri"
     )
 
     centralPark.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/Central+Park+East+and+West+Drive+Loop.webp"), filename: "Central Park East and West Drive Loop.webp")
+    # centralPark.photo.attach(io: URI.open("https://alladventure1-seeds.s3.amazonaws.com/centralParkRoute.png"), filename: "centralParkRoute.png")
 
     # 2 
     hempsteadLakeLoop = Trail.create!(

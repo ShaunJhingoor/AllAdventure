@@ -41,7 +41,7 @@ function TrailsIndex() {
             setStartIndex(startIndex - 2);
         }
     };
-
+    
     return (
         <>
             <img src={home} alt="home" id="homepageimag" />
@@ -52,7 +52,7 @@ function TrailsIndex() {
                     <h1 id="TrailIndexHeader">New York Favorites</h1>
                 </Link>
                 <br />
-                <div id="trailindexwrapper">
+                <div id="trailindexwrapper" style={{marginLeft: startIndex > 0 ? '0' : '50px'}}>
                     {loadingTrail ? (
                         <div id="suggestedTrailsLoading1">
                             <div className="loader2"></div>

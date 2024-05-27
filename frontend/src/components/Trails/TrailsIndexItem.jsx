@@ -40,7 +40,7 @@ function TrailsIndexItem({ trail, setCenter = 0, setZoom = 0}) {
         setRerender(!rerender); 
     };
 
-  
+    console.log(trail?.photoUrl)
     return (
         <div
             id={`trail-${trail.id}`}
