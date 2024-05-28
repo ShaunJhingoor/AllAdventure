@@ -36,10 +36,10 @@ function SuggestedTrail({trailId}) {
     let start = Number(trailId);
     let end = 0
     if(Number(trailId) == 1){
-      start = Number(trailId) + 2
+      start = Number(trailId) + 1
       end = start + 2
     }
-    else if (Number(trailId) <= 17) {
+    else if ( Number(trailId) > 1 &&Number(trailId) <= 17) {
       end = start + 2
     }else if(Number(trailId) > 17 && Number(trailId) != 20){
       start = Number(trailId) - 2
