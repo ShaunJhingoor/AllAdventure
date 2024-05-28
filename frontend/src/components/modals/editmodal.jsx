@@ -9,26 +9,26 @@ import { useState } from "react";
 import exit from "../../images/exitButton.png"
 function EditModal({review,trail,visible,setVisible}){
     const dispatch = useDispatch()
-    const[review1,setReview] = useState(review.review)
-    const [rating, setRating] = useState(review.rating);
+    const[review1,setReview] = useState(review?.review)
+    const [rating, setRating] = useState(review?.rating);
     const [reviewError, setReviewError] = useState(null);
 
     const handleSubmitReview = async (e) => {
         e.preventDefault();
-        const trimmedReview = review1.trim();
+        const trimmedReview = review1?.trim();
 
 
-        if (trimmedReview.length === 0) {
+        if (trimmedReview?.length === 0) {
         
           setReviewError("Review cannot be empty");
           return;
         }
         const updateReview = {
-            id: review.id,
-            trail_id: review.trail_id,
+            id: review?.id,
+            trail_id: review?.trail_id,
             review: review1,
             rating: rating,
-            user_id: review.user_id,
+            user_id: review?.user_id,
             created_at: new Date().toISOString(),
         };
           dispatch(modalActions.hideModal("editReview"));
@@ -58,8 +58,7 @@ function EditModal({review,trail,visible,setVisible}){
             <Ratings id="ratingCreateReview" rating={rating} setRating={setRating}  />
             </div>
             <div>
-            <br />
-            <br />
+            
             
             
            
@@ -77,7 +76,6 @@ function EditModal({review,trail,visible,setVisible}){
             {reviewError && <p id="errormessage">{reviewError}</p>}
          
             {/* <div className="breakerline"></div> */}
-        </div>
           <div id="submitContainer">
             
            
@@ -87,6 +85,7 @@ function EditModal({review,trail,visible,setVisible}){
                 <p id="createReviewSubmitContent">Submit</p>
                 </button>
             </div> 
+        </div>
           </div>
       );
     }

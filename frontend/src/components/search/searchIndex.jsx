@@ -18,7 +18,7 @@ function SearchIndex(){
 
   useEffect(() => {
     
-      dispatch(FetchRange(Number(12), Number(16))).
+      dispatch(FetchRange(Number(13), Number(16))).
       then(() => setsuggestedSearchLoading(false))
       
     },[dispatch]);

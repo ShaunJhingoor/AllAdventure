@@ -12,7 +12,7 @@ function CreateModal({ trail }) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const dispatch = useDispatch();
   const [reviewError, setReviewError] = useState(null);
-  const currentUser = useSelector((state) => state.session.user);
+  const currentUser = useSelector((state) => state?.session?.user);
   
 
   const handleHideModal = (e) => {
@@ -34,7 +34,7 @@ function CreateModal({ trail }) {
     const trimmedReview = review.trim();
 
 
-    if (trimmedReview.length === 0) {
+    if (trimmedReview?.length === 0) {
     
       setReviewError("Review cannot be empty");
       return;
@@ -45,9 +45,9 @@ function CreateModal({ trail }) {
     const newReview = {
       review: {
         review: trimmedReview,
-        trail_id: trail.id,
+        trail_id: trail?.id,
         rating: rating,
-        user_id: currentUser.id,
+        user_id: currentUser?.id,
         created_at: new Date().toISOString(),
       },
     };
@@ -68,8 +68,10 @@ function CreateModal({ trail }) {
         
           <div id="ratingCreateReviewContainer">
           <p id="ratingCreateReviewHeader">Rating</p>
-          <br />
+          
+        <div id="ratingCreateReview">
         <Ratings id="ratingCreateReview" rating={rating} setRating={setRating}  />
+        </div>
         </div>
         <div>
        
@@ -97,16 +99,16 @@ function CreateModal({ trail }) {
      
         
           {/* <div className="breakerline"></div> */}
-      </div>
         <div id="submitContainer">
         
        
         <button id="createReviewSubmit" onClick={handleSubmitReview} type="submit" disabled={rating === 0 ||review.length <= 0 }  style={{
-          backgroundColor: rating === 0 || review.length <= 0 ? 'gray' : 'rgb(38,67,17)',
-          color: rating === 0 || review.length <= 0 ? 'black' : 'white',}}>
+          backgroundColor: rating === 0 || review?.length <= 0 ? 'gray' : 'rgb(38,67,17)',
+          color: rating === 0 || review?.length <= 0 ? 'black' : 'white',}}>
             <p id="createReviewSubmitContent">Submit</p>
             </button>
         </div>
+      </div>
     </div>
   );
 }

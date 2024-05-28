@@ -24,7 +24,7 @@ function TrailsIndex() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(FetchRange(1, 7)) 
+        dispatch(FetchRange(3, 8)) 
         .then(() => {
             setLoadingTrail(false);
         });

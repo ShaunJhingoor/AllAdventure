@@ -19,10 +19,10 @@ class Api::TrailsController < ApplicationController
       end
 
     def fetch_range
-        start_index = params[:start].to_i - 1
-        end_index = params[:end].to_i
+        start_index = params[:start].to_i - 2
+        end_index = params[:end].to_i 
         
-        @trails = Trail.all[start_index..end_index]
+        @trails = Trail.all[start_index.to_i..end_index.to_i]
         @reviews = Review.all
         
         render :index
