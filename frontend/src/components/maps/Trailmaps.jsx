@@ -135,7 +135,7 @@ export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
             onCloseClick={handleInfoWindowClose}
             >
               <div id="infoWindow">
-                <p id="trailNameHeader" onClick={() => {navigate(`/trails/${trail?.id}`); window.scrollTo(0, 0)}}>{trail?.name}</p>
+                <p id="trailNameHeaderInfoWindow" onClick={() => {navigate(`/trails/${trail?.id}`); window.scrollTo(0, 0)}}>{trail?.name}</p>
                 <p id="infoWindowContent">Difficulty:{trail?.difficulty}</p>
                 <p id="infoWindowContentDirections" onClick={() => handleGetDirections(trail?.latitude, trail?.longitude)} >Directions</p>
               </div>

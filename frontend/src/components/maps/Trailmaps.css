@@ -11,20 +11,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    max-width: 20vw;
 }
 
-#trailNameHeader{
+#trailNameHeaderInfoWindow{
     font-size: 16px;
     font-family: manrope-m;
     font-weight: 400;
     color: #142800;
     text-decoration: underline;
     cursor: pointer;
-    text-align: center;
+    text-align:center;
+    text-wrap: wrap;
 }
 
-#trailNameHeader:hover{
+#trailNameHeaderInfoWindow:hover{
     color: #284e01;
 }
 
