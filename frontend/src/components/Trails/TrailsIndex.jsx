@@ -52,7 +52,7 @@ function TrailsIndex() {
                     <h1 id="TrailIndexHeader">New York Favorites</h1>
                 </Link>
                 <br />
-                <div id="trailindexwrapper" style={{marginLeft: startIndex > 0 ? '0' : '3vw'}}>
+                <div id="trailindexwrapper" >
                     {loadingTrail ? (
                         <div id="suggestedTrailsLoading1">
                             <div className="loader2"></div>
