@@ -9,6 +9,7 @@ import rails from "../../images/rails.png"
 import ruby from "../../images/ruby.png"
 import js from "../../images/javascript.png"
 import portfolio from "../../images/portfolio.png"
+import PostgreSQL from "../../images/postgresql.png"
 import "./Footer.css"
 
 function Footer() {
@@ -67,6 +68,10 @@ function Footer() {
             <div id="technology">
             <img src={rails} alt="CSS" />
             <p>Rails</p> 
+            </div>
+            <div id="technology">
+            <img src={PostgreSQL} alt="CSS" />
+            <p>PostgreSQL</p> 
             </div>
             <div id="technology">
             <img src={ruby} alt="CSS" />
