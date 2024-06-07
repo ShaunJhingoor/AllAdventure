@@ -58,6 +58,7 @@
 @media(max-width:600px){
     #infoWindow{
         max-width: 50vw;
+        min-width: 50vw
     }
 
     #trailNameHeader{
