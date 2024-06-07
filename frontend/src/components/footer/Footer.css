@@ -17,7 +17,7 @@
 }
 #splashFooter{
     max-width: 100vw;
-    height: 240px;
+    height: auto;
     background-color: #142800;
     display: flex;
     justify-content: center;
@@ -36,6 +36,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 #technologiesUsedHeader{
@@ -88,6 +89,7 @@
   align-items: center;
   margin-left: 40px; 
   font-family: manrope-m;
+  margin-bottom: 20px;
 }
 
 #technology img {
@@ -107,12 +109,17 @@
   transform: scale(1.2);
 }
 @media(max-width:600px){
+  #technology{
+    margin-left: 10px;
+    gap: 10px;
+   
+  }
   #technology img{
     width: 30px;
     margin-right: 0
   }
-  #technologiesUsed p{
-    font-size: 10px;
+  #technology p{
+    font-size: 12px;
   }
 
   #personalLink img{
