@@ -56,20 +56,22 @@
   }
 
 @media(max-width:600px){
-    
+    #infoWindow{
+        max-width: 50vw;
+    }
 
     #trailNameHeader{
         font-size: 12px;
     }
 
     #infoWindowContent{
-        font-size: 10px;
+        font-size: 12px;
         text-wrap:balance;
         
     }
 
     #infoWindowContentDirections{
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .trailmapwrapper{
