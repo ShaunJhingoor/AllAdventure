@@ -109,6 +109,7 @@
   transform: scale(1.2);
 }
 @media(max-width:600px){
+
   #technology{
     margin-left: 10px;
     gap: 10px;
@@ -119,7 +120,7 @@
     margin-right: 0
   }
   #technology p{
-    font-size: 12px;
+    font-size: 6px;
   }
 
   #personalLink img{
