@@ -58,6 +58,9 @@
 @media(max-width:600px){
     .trail-item-container {
         padding: 0px 0px 0px 5px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
     
     #trailimag{
