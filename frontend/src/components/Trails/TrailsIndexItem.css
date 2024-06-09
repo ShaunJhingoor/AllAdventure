@@ -62,18 +62,20 @@
     
     #trailimag{
         height: 100px;
-        width: 90px;
+        width: 23.6vw;
         position: relative;
         object-fit: cover;
+        /* align-self: center; */
+        /* left: 10px; */
     }
-
+/* 
     .trail-item-container:first-of-type #trailimag {
-        margin-left: 5px;
+        margin-left: 10px;
     }
-    
+     */
 
     #hometrailname{
-        font-size: 12px;
+        font-size: 10px;
         text-align: center;
         
     }
@@ -86,7 +88,7 @@
         font-size: 10px;
         text-align: center;
         word-spacing: .5px;
-        margin-left: -10px;
+        /* margin-left: -10px; */
     }
 }
 

@@ -181,8 +181,8 @@
   #trails{
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 10px;
-    margin-left: 10px;
-    margin-right: 0;
+    /* gap: 10px; */
+    margin-left: 15px;
+    margin-right: 15px;
   }
 }
