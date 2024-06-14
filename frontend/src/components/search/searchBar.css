@@ -71,29 +71,29 @@
 
 @media(max-width:600px){
   #searchBarInput{
-    margin-bottom: 18vh;
-    height: 2vh;
-    width: 50vw;
+    margin-bottom:25vh;
+    height: 2.5vh;
+    width: 60vw;
     font-size: 8px;
     padding: 2px 6px;
     padding-left: 8px;
   }
 
   #searchBarButton{
-    margin-bottom: 18vh;
-    margin-left: 50vw;
+    margin-bottom: 25vh;
+    margin-left: 60vw;
   }
   #searchBarButtonImg{
     width: 10px;
   }
 
   #Welcomestatment{
-    margin-bottom: 25vh;
+    margin-bottom: 35vh;
     font-size: 3vh;
   }
 
   #mapLink{
-    margin-bottom: 12vh;
+    margin-bottom: 16vh;
     font-size: 10px;
   }
 }
