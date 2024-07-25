@@ -36,7 +36,7 @@ function Footer() {
         <a href="https://www.linkedin.com/in/shaun-jhingoor-10a50328a/" target="_blank" rel="noopener noreferrer">
         <img src={linkedIn} alt="linkedin Logo" id="myLinks"/>
         </a>
-        <a href="https://shaunjhingoor.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
+        <a href="https://shaun-jhingoor-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
         <img src={portfolio} alt="linkedin Logo" id="myLinks"/>
         </a>
         </div>
