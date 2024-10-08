@@ -80,13 +80,14 @@ export const createTrailPhoto = (trailId, photoFile) => async dispatch => {
 
 
 
-    export const deleteTrailPhoto = (trailPhotoId) => async dispatch => {
+    export const deleteTrailPhoto = (trailPhotoId, userId) => async dispatch => {
         const response = await csrfFetch(`/api/trail_photos/${trailPhotoId}`, {
             method: "DELETE",
         });
 
         if (response.ok) {
             dispatch(removeTrailPhoto(trailPhotoId));
+            dispatch(fetchUsersTrailPhotos(userId)); 
             return response;
         }
     }
