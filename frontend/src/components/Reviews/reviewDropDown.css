@@ -1,9 +1,8 @@
 .editwrapper {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
 }
-
 
 #editReviewWrapper,
 #deleteReviewWrapper {
@@ -16,8 +15,9 @@
   border: 1px solid black;
   margin-left: 20vw;
 }
+
 #editReviewWrapper:hover,
-#deleteReviewWrapper:hover{
+#deleteReviewWrapper:hover {
   background-color: red;
 }
 
@@ -28,10 +28,8 @@
   width: 100vw;
   height: 100%;
 } */
-#editReviewModal{
+#editReviewModal {
   position: absolute;
   z-index: 10;
   margin-top: -50px;
 }
-
-

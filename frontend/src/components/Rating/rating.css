@@ -1,32 +1,29 @@
 .rate i {
-    color: #dbdad2;
-    text-shadow: none;
-    transition: color 200ms, text-shadow 200ms;
-    transition-delay: 0;
-    cursor: pointer;
-    font-size: 3.5vw;
+  color: #dbdad2;
+  text-shadow: none;
+  transition: color 200ms, text-shadow 200ms;
+  transition-delay: 0;
+  cursor: pointer;
+  font-size: 3.5vw;
 }
 
 .rate i.filled {
-    color: #64f67b;
-    /* text-shadow: #64f67b 0 0 20px; */
-
+  color: #64f67b;
+  /* text-shadow: #64f67b 0 0 20px; */
 }
 
 .rate:hover i {
-    color: #64f67b;
-    /* text-shadow: #64f67b 0 0 20px; */
-  
+  color: #64f67b;
+  /* text-shadow: #64f67b 0 0 20px; */
 }
 
 .rate i:hover ~ i {
-    color: #dbdad2;
-    text-shadow: none;
-   
+  color: #dbdad2;
+  text-shadow: none;
 }
 
-@media(max-width:600px){
-    .rate i{
-        font-size: 5vh;
-    }
+@media (max-width: 600px) {
+  .rate i {
+    font-size: 5vh;
+  }
 }

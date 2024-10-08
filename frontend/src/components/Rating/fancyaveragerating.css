@@ -1,37 +1,36 @@
-#numberofreviews{
-    font-weight: 400;
-    font-size: 16px;
-    font-family: manrope-m;
-    color: #142800;
-    margin-top: -40px;
-    margin-left: 10px;
+#numberofreviews {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: manrope-m;
+  color: #142800;
+  margin-top: -40px;
+  margin-left: 10px;
 }
 
-#averageRatingLabel{
-    font-weight: 400;
-    font-size: 16px;
-    font-family: manrope-m;
-    color: #142800;
-    margin-top: -20px;
-    padding-top: 0;
+#averageRatingLabel {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: manrope-m;
+  color: #142800;
+  margin-top: -20px;
+  padding-top: 0;
 }
 
-#ratingFancyRating{
-    margin-left: 10px;
+#ratingFancyRating {
+  margin-left: 10px;
 }
-#fancyaverageRatingStar{
+#fancyaverageRatingStar {
+  margin-left: -5px;
+}
+
+@media (max-width: 600px) {
+  #numberofreviews {
+    font-size: 10px;
+  }
+  #averageRatingLabel {
+    font-size: 10px;
+  }
+  #ratingFancyRating {
     margin-left: -5px;
-}
-
-@media(max-width:600px){
-    #numberofreviews{
-        font-size: 10px;
-    }
-    #averageRatingLabel{
-        font-size: 10px;
-    }
-    #ratingFancyRating{
-        margin-left: -5px;
-       
-    }
+  }
 }

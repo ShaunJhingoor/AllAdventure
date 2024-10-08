@@ -7,8 +7,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999; 
- overflow-y: auto;
+  z-index: 999;
+  overflow-y: auto;
 }
 
 #modal-background {
@@ -46,7 +46,7 @@
   outline: none;
   box-sizing: border-box;
 }
-#trailModalName{
+#trailModalName {
   color: #142800;
   font-size: 35px;
   font-family: manrope-m;
@@ -62,19 +62,17 @@
   justify-content: center;
   align-items: center;
 } */
-#ratingCreateReviewContainer{
+#ratingCreateReviewContainer {
   margin-bottom: 4vh;
 }
-#ratingCreateReview{
+#ratingCreateReview {
   width: 100vw;
-
 }
-#ratingCreateReviewContainer{
+#ratingCreateReviewContainer {
   margin-left: 2.5vw;
   /* margin-top: 10vh; */
-  
 }
-#ratingCreateReviewHeader{
+#ratingCreateReviewHeader {
   margin-top: 3vh;
   font-size: 28px;
   font-weight: 400;
@@ -84,7 +82,7 @@
   margin-bottom: 2vh;
 }
 
-#reviewReviewHeader{
+#reviewReviewHeader {
   margin-left: 2vw;
   margin-top: 3vh;
   font-size: 28px;
@@ -94,27 +92,24 @@
   line-height: 24px;
 }
 
-#createReviewSubmit{
-
+#createReviewSubmit {
   border-radius: 50px;
-  position:relative;
+  position: relative;
 
   /* top:40vh; */
   left: 30vw;
   cursor: pointer;
   margin-bottom: 5vh;
-  
 }
-#createReviewSubmitContent{
+#createReviewSubmitContent {
   font-weight: 700;
   font-size: 16px;
   font-family: manrope-m;
   line-height: 24px;
   padding: 4px;
-
 }
 
-#exitReviewCreater{
+#exitReviewCreater {
   margin-left: 2vw;
   padding-top: 20px;
   font-size: 28px;
@@ -123,12 +118,10 @@
   height: 20px;
 }
 
-
-
-#errormessage{
+#errormessage {
   color: red;
   font-family: beatrice;
-  font: Arial,sans-serif;
+  font: Arial, sans-serif;
   font-size: 15px;
   margin-left: 8vw;
 }
@@ -147,22 +140,21 @@
   margin: 0;
   z-index: 1000;
 } */
-@media(max-width:600px){
-  #modal-content{
+@media (max-width: 600px) {
+  #modal-content {
     width: 90vw;
     /* left: 50px; */
   }
- 
 
-  #reviewReview{
+  #reviewReview {
     width: 80vw;
   }
-  #createReviewSubmit{
+
+  #createReviewSubmit {
     left: 70vw;
-  
   }
-  
-  #modal-background{
+
+  #modal-background {
     width: 100vw;
     height: 100vh;
   }

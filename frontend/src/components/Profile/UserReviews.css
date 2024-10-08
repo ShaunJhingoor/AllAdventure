@@ -1,44 +1,42 @@
-#trailName{
-    margin-top: 2vh;
-    margin-left: 1vw;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 15px;
-    font-family: manrope-m;
-    color: #142800;
-    line-height: 19.5px;
+#trailName {
+  margin-top: 2vh;
+  margin-left: 1vw;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: manrope-m;
+  color: #142800;
+  line-height: 19.5px;
 }
 
-#dateReview{
-font-weight: 400;
-font-size: 13px;
-font-family: manrope-m;
-color: #656e5e;
-line-height: 19.5px;
-margin-left: 1vw;
-cursor: pointer;
+#dateReview {
+  font-weight: 400;
+  font-size: 13px;
+  font-family: manrope-m;
+  color: #656e5e;
+  line-height: 19.5px;
+  margin-left: 1vw;
+  cursor: pointer;
 }
 
-#trailReview{
-    margin-left: 1vw;
-    margin-right: 1vw;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 15px;
-    font-family: manrope-m;
-    color: #142800;
-    line-height: 19.5px;
-    margin-bottom: 2vh;
-    padding: 10px;
+#trailReview {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: manrope-m;
+  color: #142800;
+  line-height: 19.5px;
+  margin-bottom: 2vh;
+  padding: 10px;
 }
 
-@media(max-width:600px){
-    #trailName, 
-    #dateReview,
-    #trailReview,
-    #userReviewRating{
-        margin-left: 5vw;
-        
-    }
-
+@media (max-width: 600px) {
+  #trailName,
+  #dateReview,
+  #trailReview,
+  #userReviewRating {
+    margin-left: 5vw;
+  }
 }

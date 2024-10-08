@@ -1,80 +1,79 @@
-#favoriteTrailInfo{
-    margin-top: 2vh;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    margin-bottom: 2vh;
-    overflow-y: auto;
-    color: #142800;;
+#favoriteTrailInfo {
+  margin-top: 2vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 2vh;
+  overflow-y: auto;
+  color: #142800;
 }
 
-#favoriteTrailInfo:hover{
-    color: #284e01;
+#favoriteTrailInfo:hover {
+  color: #284e01;
 }
 
-#favoriteTrailName{
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 20px;
-    font-family: manrope-m;
-    line-height: 19.5px;
-    margin-bottom: 2px;
+#favoriteTrailName {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: manrope-m;
+  line-height: 19.5px;
+  margin-bottom: 2px;
 }
 
-#favoriteTrailLength{
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 15px;
-    font-family: manrope-m;
+#favoriteTrailLength {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 15px;
+  font-family: manrope-m;
 
-    line-height: 19.5px;
-    margin-bottom: 10px;
+  line-height: 19.5px;
+  margin-bottom: 10px;
 }
 
-#favoriteTrailDifficulty{
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 15px;
-    font-family: manrope-m;
+#favoriteTrailDifficulty {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 15px;
+  font-family: manrope-m;
 
-    line-height: 19.5px;
-    margin-bottom: 1px;
+  line-height: 19.5px;
+  margin-bottom: 1px;
 }
 
-#favoriteTrailLocation{
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 15px;
-    font-family: manrope-m;
-    line-height: 19.5px;
-    margin-bottom: 1px;
+#favoriteTrailLocation {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 15px;
+  font-family: manrope-m;
+  line-height: 19.5px;
+  margin-bottom: 1px;
 }
 
-#favoriteTrailDescription{
-    margin-left: 1vw;
-    margin-right: 1vw;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 15px;
-    font-family: manrope-m;
-    line-height: 19.5px;
-    margin-bottom: 2vh;
-    padding: 10px;
+#favoriteTrailDescription {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 15px;
+  font-family: manrope-m;
+  line-height: 19.5px;
+  margin-bottom: 2vh;
+  padding: 10px;
 }
 
-#getDirections{
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 15px;
-    font-family: manrope-m;
-    line-height: 19.5px;
-    margin-bottom: 1px;
-    color:#36713e;
+#getDirections {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: manrope-m;
+  line-height: 19.5px;
+  margin-bottom: 1px;
+  color: #36713e;
 }
 
-
-@media(max-width:600px){
-    #favoriteTrailInfo{
-        margin-left: 5vw;
-        margin-right: 3vw;
-    }
+@media (max-width: 600px) {
+  #favoriteTrailInfo {
+    margin-left: 5vw;
+    margin-right: 3vw;
+  }
 }

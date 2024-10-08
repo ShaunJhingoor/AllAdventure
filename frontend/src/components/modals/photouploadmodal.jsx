@@ -1,43 +1,43 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import * as modalActions from '../../store/modal';
-import { createTrailPhoto } from '../../store/trail_photos';
-import exit from '../../images/exitButton.png';
-import './PhotoUploadModal.css';
-import "./reviewModal.css"
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import * as modalActions from "../../store/modal";
+import { createTrailPhoto } from "../../store/trail_photos";
+import exit from "../../images/exitButton.png";
+import "./PhotoUploadModal.css";
+import "./reviewModal.css";
 
 const PhotoUploadModal = ({ trailId, visible, setVisible }) => {
   const dispatch = useDispatch();
   const [photoFile, setPhotoFile] = useState(null);
-  const [fileName, setFileName] = useState('');
-  const [error, setError] = useState('');
+  const [fileName, setFileName] = useState("");
+  const [error, setError] = useState("");
 
   const handleFileChange = (e) => {
-      const file = e.target.files[0]
-      if (file) {
-        setPhotoFile(file);
-        setFileName(file.name);
-      } else {
-        setPhotoFile(null);
-        setFileName('');
-      }
+    const file = e.target.files[0];
+    if (file) {
+      setPhotoFile(file);
+      setFileName(file.name);
+    } else {
+      setPhotoFile(null);
+      setFileName("");
+    }
   };
 
   const handleUpload = async (e) => {
-      e.preventDefault();
-      if (photoFile) {
-          await dispatch(createTrailPhoto(trailId, photoFile));
-          dispatch(modalActions.hideModal("photoUpload"));
-          setVisible(!visible);
-      } else {
-        setPhotoFile(null);
-        setFileName('');
-        setError('File type not supported. Please select a JPEG or PNG file.');
-      }
+    e.preventDefault();
+    if (photoFile) {
+      await dispatch(createTrailPhoto(trailId, photoFile));
+      dispatch(modalActions.hideModal("photoUpload"));
+      setVisible(!visible);
+    } else {
+      setPhotoFile(null);
+      setFileName("");
+      setError("File type not supported. Please select a JPEG or PNG file.");
+    }
   };
 
   const handleHideModal = () => {
-      dispatch(modalActions.hideModal("photoUpload"));
+    dispatch(modalActions.hideModal("photoUpload"));
   };
 
   return (
@@ -46,17 +46,25 @@ const PhotoUploadModal = ({ trailId, visible, setVisible }) => {
         <div className="modal-background"></div>
         <div className="upload-modal-content">
           <div className="upload-exit">
-            <img onClick={() => { handleHideModal(); setVisible(false); }} className="exit-review-creater" src={exit} alt="exit" />
+            <img
+              onClick={() => {
+                handleHideModal();
+                setVisible(false);
+              }}
+              className="exit-review-creater"
+              src={exit}
+              alt="exit"
+            />
           </div>
           <div className="header-and-upload">
-            <div className='upload-photo-header'>
+            <div className="upload-photo-header">
               <p>Upload Photo</p>
             </div>
             <label className="file-upload">
               <input type="file" onChange={handleFileChange} />
-              <p id='browseFiles'>Browse Files</p>
+              <p id="browseFiles">Browse Files</p>
               <br />
-              {fileName && <p id='fileName'>{fileName}</p>}
+              {fileName && <p id="fileName">{fileName}</p>}
               <br />
               {error && <p id="error">{error}</p>}
             </label>
@@ -67,9 +75,9 @@ const PhotoUploadModal = ({ trailId, visible, setVisible }) => {
             <button
               type="submit"
               style={{
-                backgroundColor: photoFile ?  'rgb(38,67,17)': '#d3d3d3',
-                color: photoFile ? 'white' : 'black' ,
-                cursor: photoFile ? 'pointer' : 'not-allowed',
+                backgroundColor: photoFile ? "rgb(38,67,17)" : "#d3d3d3",
+                color: photoFile ? "white" : "black",
+                cursor: photoFile ? "pointer" : "not-allowed",
               }}
               disabled={!photoFile}
               id="uploadButton"
@@ -84,7 +92,7 @@ const PhotoUploadModal = ({ trailId, visible, setVisible }) => {
   );
 };
 
-export default PhotoUploadModal
+export default PhotoUploadModal;
 // import  { useState } from 'react';
 // import { useDispatch} from 'react-redux';
 // import { createTrailPhoto, fetchTrailPhotos } from '../../store/trail_photos';
@@ -105,7 +113,7 @@ export default PhotoUploadModal
 
 //     const handleUpload = () => {
 //         if (photoFile) {
-//             dispatch(createTrailPhoto(1, photoFile)); 
+//             dispatch(createTrailPhoto(1, photoFile));
 //         } else {
 //             console.error("No photo selected.");
 //         }
@@ -120,5 +128,4 @@ export default PhotoUploadModal
 //         </div>
 //     );
 // };
-
 // export default PhotoUpload;

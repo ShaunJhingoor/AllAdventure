@@ -5,8 +5,7 @@ import SuggestedTrailsItem from "./SuggestedTrailsItem";
 import { useEffect, useState } from "react";
 import "./SuggestedTrails.css";
 
-
-function SuggestedTrail({trailId}) {
+function SuggestedTrail({ trailId }) {
   const trails = useSelector(trailsArray);
   const dispatch = useDispatch();
   const [loading, setLoadingLocal] = useState(true);
@@ -34,55 +33,43 @@ function SuggestedTrail({trailId}) {
   useEffect(() => {
     setLoadingLocal(true);
     let start = Number(trailId);
-    let end = 0
-    if(Number(trailId) == 1){
-      start = Number(trailId) + 1
-      end = start + 2
+    let end = 0;
+    if (Number(trailId) == 1) {
+      start = Number(trailId) + 1;
+      end = start + 2;
+    } else if (Number(trailId) > 1 && Number(trailId) <= 17) {
+      end = start + 2;
+    } else if (Number(trailId) > 17 && Number(trailId) != 20) {
+      start = Number(trailId) - 2;
+      end = Number(trailId);
+    } else {
+      start = Number(trailId) - 3;
+      end = Number(trailId);
     }
-    else if ( Number(trailId) > 1 &&Number(trailId) <= 17) {
-      end = start + 2
-    }else if(Number(trailId) > 17 && Number(trailId) != 20){
-      start = Number(trailId) - 2
-      end = Number(trailId) 
-    }else{
-      start = Number(trailId) - 3
-      end = Number(trailId) 
-    }
-    
+
     // console.log(`start: ${start}, end:${end}`)
-    dispatch(FetchRange(start, end))
-      .then(() => {
-        setLoadingLocal(false);
-      });
+    dispatch(FetchRange(start, end)).then(() => {
+      setLoadingLocal(false);
+    });
   }, [dispatch, trailId]);
 
   if (loading) {
-    return(
-       <div id="suggestedTrailsLoading">
+    return (
+      <div id="suggestedTrailsLoading">
         <div className="loader1"></div>
-       </div>
-       )
+      </div>
+    );
   }
 
   return (
     <div id="suggestedTrailsWrapper">
-      {
-        trails?.filter(trail => trail?.id != trailId).map((trail, index) => (
-          <SuggestedTrailsItem key={`${trail?.id}_${index}`} trail={trail}  />
-        ))
-
-      }
-      
+      {trails
+        ?.filter((trail) => trail?.id != trailId)
+        .map((trail, index) => (
+          <SuggestedTrailsItem key={`${trail?.id}_${index}`} trail={trail} />
+        ))}
     </div>
   );
 }
 
 export default SuggestedTrail;
-
-
-
-
-
-
-
-

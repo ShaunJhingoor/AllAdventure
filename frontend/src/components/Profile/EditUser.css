@@ -1,219 +1,214 @@
-#editUserOutside{
-    background-color: rgb(239,239,236);
-    height: auto;
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#editUserOutside {
+  background-color: rgb(239, 239, 236);
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.editUser{
-    background-color: white;
-    box-sizing: border-box;
-    position: relative;
-    border: 2px solid rgba(0, 0, 0, 0.165);
-    width: 41dvw;
-    min-height: auto;
-    margin-bottom: 5vh;
-    margin-top: 5vh;
-    z-index: 1;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: flex-start;
-    /* justify-content: flex-start;  */
-    box-shadow: 5px 0px 15px rgba(0, 0, 0, 1);
-
+.editUser {
+  background-color: white;
+  box-sizing: border-box;
+  position: relative;
+  border: 2px solid rgba(0, 0, 0, 0.165);
+  width: 41dvw;
+  min-height: auto;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+  z-index: 1;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* justify-content: flex-start;  */
+  box-shadow: 5px 0px 15px rgba(0, 0, 0, 1);
 }
 
-#nameUser{
-    display: flex;
-    flex-direction: row;
-    gap: 5vw;
+#nameUser {
+  display: flex;
+  flex-direction: row;
+  gap: 5vw;
 }
 
-#firstname{
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+#firstname {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
-
-
-#firstNameInput{
-    margin-top: 5px;
-    width:15vw;
-    font-size: 20px;
-    font-family: manrope-m;
-    padding: 10px;
-    border-radius: 20px;
-    border-color: lightgray;
-    text-align: center;
-    outline: none;
+#firstNameInput {
+  margin-top: 5px;
+  width: 15vw;
+  font-size: 20px;
+  font-family: manrope-m;
+  padding: 10px;
+  border-radius: 20px;
+  border-color: lightgray;
+  text-align: center;
+  outline: none;
 }
-#firstNameInput:focus{
-    border-color: black;
+#firstNameInput:focus {
+  border-color: black;
 }
 
-#firstNameInput:hover{
-    border-color: black;
+#firstNameInput:hover {
+  border-color: black;
 }
 
-#firstNameInputHeader{
-    margin-top: 10px;
-    font-weight: 200;
-    font-size: 20px;
-    font-family: manrope-m;
-    color: #142800;
-    line-height: 33.6px;
-    letter-spacing: -0.5px;
+#firstNameInputHeader {
+  margin-top: 10px;
+  font-weight: 200;
+  font-size: 20px;
+  font-family: manrope-m;
+  color: #142800;
+  line-height: 33.6px;
+  letter-spacing: -0.5px;
 }
 
-#PasswordInputHeader{
-    margin-top: 30px;
-    font-weight: 200;
-    font-size: 20px;
-    font-family: manrope-m;
-    color: #142800;
-    line-height: 33.6px;
-    letter-spacing: -0.5px;
+#PasswordInputHeader {
+  margin-top: 30px;
+  font-weight: 200;
+  font-size: 20px;
+  font-family: manrope-m;
+  color: #142800;
+  line-height: 33.6px;
+  letter-spacing: -0.5px;
 }
-#password{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
-#passwordInput{
-    margin-top: 10px;
-    width:20vw;
-    font-size: 20px;
-    font-family: manrope-m;
-    padding: 10px;
-    border-radius: 20px;
-    border-color: lightgray;
-    text-align: center;
-    outline: none; 
+#password {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
-#passwordInput:hover{
-    border-color: black;
+#passwordInput {
+  margin-top: 10px;
+  width: 20vw;
+  font-size: 20px;
+  font-family: manrope-m;
+  padding: 10px;
+  border-radius: 20px;
+  border-color: lightgray;
+  text-align: center;
+  outline: none;
 }
 
-#passwordInput:focus{
-    border-color: black;
+#passwordInput:hover {
+  border-color: black;
 }
 
-#passworddisclaimerContainer{
-    text-align: center; 
-    margin-top: 5px;
-    margin-left: 5vw;
-    margin-right: 5vw;
+#passwordInput:focus {
+  border-color: black;
 }
 
-
-#passworddisclaimer{
-    font-size: 12px;
-    font-weight: 400;
-    font-family: manrope-m;
-    color: #656e5e;
-    line-height: 24px;
-
+#passworddisclaimerContainer {
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
-#oldPassworddisclaimer{
-    font-size: 12px;
-    font-weight: 400;
-    font-family: manrope-m;
-    color: red;
-    line-height: 24px;
+#passworddisclaimer {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: manrope-m;
+  color: #656e5e;
+  line-height: 24px;
 }
 
-#buttonsEdit{
-    display: flex;
-    flex-direction: row;
-    margin-top: 30px;
-    gap: 2vw;
-    margin-bottom: 5vh;
+#oldPassworddisclaimer {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: manrope-m;
+  color: red;
+  line-height: 24px;
 }
 
-#submitEdit{
-    text-decoration: none;
-        color: black;
-        background-color:  #64F67B;
-        border-radius: 45px; 
-        border: #64F67B;
-        font-family: manrope-m;
-        font: Arial,sans-serif;
-        font-size: 18px;
-        font-weight:550;
-        cursor: pointer;
-        padding: 20px;
-        padding-right: 50px;
-        padding-left: 50px;
+#buttonsEdit {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  gap: 2vw;
+  margin-bottom: 5vh;
 }
 
-#submitEdit:hover{
-    background-color: #4cae5c;
+#submitEdit {
+  text-decoration: none;
+  color: black;
+  background-color: #64f67b;
+  border-radius: 45px;
+  border: #64f67b;
+  font-family: manrope-m;
+  font: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 550;
+  cursor: pointer;
+  padding: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
-#cancelEdit{
-    text-decoration: none;
-    color: black;
-    background-color:  rgb(237,237,236);
-    border-radius: 45px; 
-    border: #64F67B;
-    font-family: manrope-m;
-    font: Arial,sans-serif;
-    font-size: 18px;
-    font-weight:550;
-    cursor: pointer;
-    padding: 20px;
-    padding-right: 50px;
-    padding-left: 50px;
+#submitEdit:hover {
+  background-color: #4cae5c;
 }
 
-#cancelEdit:hover{
-    background-color: #d7d7d4;
+#cancelEdit {
+  text-decoration: none;
+  color: black;
+  background-color: rgb(237, 237, 236);
+  border-radius: 45px;
+  border: #64f67b;
+  font-family: manrope-m;
+  font: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 550;
+  cursor: pointer;
+  padding: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
-#visibleimg{
-    margin-top: 15px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+#cancelEdit:hover {
+  background-color: #d7d7d4;
 }
 
-#logo{
-    margin-top: 10px;
+#visibleimg {
+  margin-top: 15px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
-#logoimag{
-    width: 80px;
-    object-fit: cover;
+#logo {
+  margin-top: 10px;
 }
 
-#editErrors{
-    color: red;
-    font-size: 2vh;
+#logoimag {
+  width: 80px;
+  object-fit: cover;
 }
 
-#error-container{
-    margin: 0;
-    padding: 0;
+#editErrors {
+  color: red;
+  font-size: 2vh;
 }
 
-@media(max-width:600px){
-    .editUser{
-        width: 90dvw;
-    }
+#error-container {
+  margin: 0;
+  padding: 0;
+}
 
-    #firstNameInput{
-        width: 35vw;
-    }
+@media (max-width: 600px) {
+  .editUser {
+    width: 90dvw;
+  }
 
-    #passwordInput{
-        width: 50vw;
-    }
+  #firstNameInput {
+    width: 35vw;
+  }
+
+  #passwordInput {
+    width: 50vw;
+  }
 }

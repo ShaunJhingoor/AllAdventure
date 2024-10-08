@@ -1,82 +1,80 @@
-
-.trailmapwrapper{
-    height: 100vh;
-    width: 100%;
-    position:absolute;
-    /* border: 1px solid black; */
+.trailmapwrapper {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  /* border: 1px solid black; */
 }
 
-#infoWindow{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 20vw;
+#infoWindow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 20vw;
 }
 
-#trailNameHeaderInfoWindow{
-    font-size: 16px;
-    font-family: manrope-m;
-    font-weight: 400;
-    color: #142800;
-    text-decoration: underline;
-    cursor: pointer;
-    text-align:center;
-    text-wrap: wrap;
+#trailNameHeaderInfoWindow {
+  font-size: 16px;
+  font-family: manrope-m;
+  font-weight: 400;
+  color: #142800;
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: center;
+  text-wrap: wrap;
 }
 
-#trailNameHeaderInfoWindow:hover{
-    color: #284e01;
+#trailNameHeaderInfoWindow:hover {
+  color: #284e01;
 }
 
-
-#infoWindowContent{
-    font-size: 14px;
-    font-family: manrope-m;
-    font-weight: 400;
-    line-height: 20px;
-    color: #142800;
+#infoWindowContent {
+  font-size: 14px;
+  font-family: manrope-m;
+  font-weight: 400;
+  line-height: 20px;
+  color: #142800;
 }
 
-#infoWindowContentDirections{
-    font-size: 14px;
-    font-family: manrope-m;
-    font-weight: 400;
-    line-height: 20px;
-    color: #142800;
-    cursor: pointer;
+#infoWindowContentDirections {
+  font-size: 14px;
+  font-family: manrope-m;
+  font-weight: 400;
+  line-height: 20px;
+  color: #142800;
+  cursor: pointer;
 }
 
-#infoWindowContentDirections:hover{
-    color: #64F67B;
+#infoWindowContentDirections:hover {
+  color: #64f67b;
 }
 
-.gmnoprint .gmnoprint, .gm-style-cc {
-    display: none;
+.gmnoprint .gmnoprint,
+.gm-style-cc {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #infoWindow {
+    max-width: 50vw;
+    min-width: 50vw;
   }
 
-@media(max-width:600px){
-    #infoWindow{
-        max-width: 50vw;
-        min-width: 50vw
-    }
+  #trailNameHeader {
+    font-size: 12px;
+  }
 
-    #trailNameHeader{
-        font-size: 12px;
-    }
+  #infoWindowContent {
+    font-size: 12px;
+    text-wrap: balance;
+  }
 
-    #infoWindowContent{
-        font-size: 12px;
-        text-wrap:balance;
-        
-    }
+  #infoWindowContentDirections {
+    font-size: 12px;
+  }
 
-    #infoWindowContentDirections{
-        font-size: 12px;
-    }
-
-    .trailmapwrapper{
-        height: 40vh;
-        width: 100%
-    }
+  .trailmapwrapper {
+    height: 40vh;
+    width: 100%;
+  }
 }

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import * as modalActions from "../../store/modal";
-import { deleteTrailPhoto, fetchTrailPhotos } from "../../store/trail_photos";
+import { deleteTrailPhoto } from "../../store/trail_photos";
 import exit from "../../images/exitButton.png";
 import "./DeletePhotoModal.css";
 
@@ -8,7 +8,7 @@ const DeletePhotoModal = ({ imageId, userId, visible, setVisible }) => {
   const dispatch = useDispatch();
   const handleDelete = async (e) => {
     e.preventDefault();
-    await dispatch(deleteTrailPhoto(imageId,userId));
+    await dispatch(deleteTrailPhoto(imageId, userId));
     dispatch(modalActions.hideModal("deleteConfirmation"));
     setVisible(!visible);
   };

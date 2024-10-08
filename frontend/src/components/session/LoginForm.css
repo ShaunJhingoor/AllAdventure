@@ -9,13 +9,13 @@
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: flex-start; 
-  box-shadow: 5px 0px 15px rgba(0, 0, 0, 1)
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 5px 0px 15px rgba(0, 0, 0, 1);
 }
 
-.loginoutside{
-  background-image: url('../../images/login.jpeg');
+.loginoutside {
+  background-image: url("../../images/login.jpeg");
   background-size: cover;
   background-position: center;
   height: 100dvh;
@@ -32,22 +32,22 @@
   width: 20dvw;
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid gray
+  border: 2px solid gray;
 }
 
-#loginusername:hover{
+#loginusername:hover {
   border-color: black;
 }
 
-#loginpassword{
+#loginpassword {
   height: 2.5dvh;
   width: 20dvw;
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid gray
+  border: 2px solid gray;
 }
 
-#loginpassword:hover{
+#loginpassword:hover {
   border-color: black;
 }
 
@@ -61,17 +61,17 @@
   padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   font-family: beatrice;
-  font: Arial,sans-serif;
+  font: Arial, sans-serif;
   cursor: pointer;
 }
-#loginbutton:hover{
+#loginbutton:hover {
   background-color: rgb(29, 57, 3);
 }
-#demologin{
+#demologin {
   color: black;
-  background-color: rgb(76,174,92);
+  background-color: rgb(76, 174, 92);
   font-size: 15px;
   border-radius: 20px;
   height: 5dvh;
@@ -79,56 +79,56 @@
   padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   font-family: beatrice;
-  font: Arial,sans-serif;
+  font: Arial, sans-serif;
   cursor: pointer;
 }
-#demologin:hover{
+#demologin:hover {
   color: white;
 }
-#loginheader{
+#loginheader {
   padding: 10px;
-  color: rgb(20,40,1);
+  color: rgb(20, 40, 1);
   text-align: center;
   font-size: 28px;
   font-family: beatrice;
-  font: Arial,sans-serif;
+  font: Arial, sans-serif;
 }
 
-#loginheader1{
+#loginheader1 {
   padding: 10px;
-  color: rgb(20,40,1);
+  color: rgb(20, 40, 1);
   text-align: center;
   font-size: 28px;
   font-family: beatrice;
-  font: Arial,sans-serif;
+  font: Arial, sans-serif;
 }
 
-#loginerrors{
+#loginerrors {
   color: red;
   font-family: beatrice;
-  font: Arial,sans-serif;
+  font: Arial, sans-serif;
   font-size: 12px;
 }
 
-.loginfooter{
+.loginfooter {
   background-color: #142800;
   max-width: 100dvw;
   height: 10dvh;
 }
 
-@media(max-width:600px){
-  .login{
+@media (max-width: 600px) {
+  .login {
     width: 90dvw;
   }
 
   #loginusername,
-  #loginpassword{
+  #loginpassword {
     width: 60dvw;
   }
 
-  #loginbutton{
+  #loginbutton {
     width: 55dvw;
   }
 }

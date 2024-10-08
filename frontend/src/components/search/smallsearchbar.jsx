@@ -8,25 +8,25 @@ import { useNavigate } from "react-router-dom";
 
 function SmallSearchBar() {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const [searchValue, setSearchValue] = useState('');
+  const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState("");
 
   const handleSearch = () => {
-    if (searchValue.trim() !== '') {
+    if (searchValue.trim() !== "") {
       dispatch(fetchSearch(searchValue));
-      setSearchValue('')
+      setSearchValue("");
     } else {
       dispatch(clearSearchTrails());
     }
   };
 
   const handleSearchEnter = (e) => {
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        handleSearch()
-        navigate("/trails/search")
-        setSearchValue('')
-        window.scrollTo(0, 0);
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSearch();
+      navigate("/trails/search");
+      setSearchValue("");
+      window.scrollTo(0, 0);
     }
   };
 
@@ -37,14 +37,21 @@ function SmallSearchBar() {
         placeholder="Trail name or Difficulty"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        style={{fontFamily: 'monorope-m', color: "rgb(20,40,4)"}}
+        style={{ fontFamily: "monorope-m", color: "rgb(20,40,4)" }}
         id="smallSearchBarInput"
-        onKeyDown={handleSearchEnter} 
+        onKeyDown={handleSearchEnter}
       />
       <Link to="/trails/search" id="smallSearchBarButton">
-        <img src={smallSearch} alt="search" onClick={() => { handleSearch(); window.scrollTo(0, 0); }} id="smallSearchBarButtonImag"/>
+        <img
+          src={smallSearch}
+          alt="search"
+          onClick={() => {
+            handleSearch();
+            window.scrollTo(0, 0);
+          }}
+          id="smallSearchBarButtonImag"
+        />
       </Link>
-      
     </div>
   );
 }

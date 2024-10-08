@@ -1,59 +1,59 @@
-#reviewIndexItemDescription{
-    position: relative;
-    margin-left: 15px;
-    margin-right: 40px;
-    font-weight: 400;
-    font-size: 16px;
-    font-family: manrope-m;
-    font-style: normal;
-    color: #142800;
-    line-height: 24px;
-    padding: 10px;
+#reviewIndexItemDescription {
+  position: relative;
+  margin-left: 15px;
+  margin-right: 40px;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: manrope-m;
+  font-style: normal;
+  color: #142800;
+  line-height: 24px;
+  padding: 10px;
 }
 
-#reviewIndexItemName{
-    font-weight: 400;
-    font-size: 16px;
-    font-family: manrope-m;
-    color: #142800;
-    line-height: 24px;
-    margin-top: 20px;
-    display: flex;
-    margin-left: 1vw;
+#reviewIndexItemName {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: manrope-m;
+  color: #142800;
+  line-height: 24px;
+  margin-top: 20px;
+  display: flex;
+  margin-left: 1vw;
 }
 
-#reviewRatingStar{
-    margin-left: 2vw; 
+#reviewRatingStar {
+  margin-left: 2vw;
 }
 
-#reviewProfileImag{
-    height: 40px;
-    border-radius: 50%;
+#reviewProfileImag {
+  height: 40px;
+  border-radius: 50%;
 }
 
-#reviewDateCreated{
-    font-weight: 400;
-    font-size: 13px;
-    font-family: manrope-m;
-    color: #656e5e;
-    line-height: 19.5px;
+#reviewDateCreated {
+  font-weight: 400;
+  font-size: 13px;
+  font-family: manrope-m;
+  color: #656e5e;
+  line-height: 19.5px;
 }
 
-.reviewSettingsDropDownWrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 55px;
-    position: absolute;
-    margin-left: 43.5vw;
-    margin-top: 8px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    border-radius: 15px;
-    cursor: pointer;
+.reviewSettingsDropDownWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 55px;
+  position: absolute;
+  margin-left: 43.5vw;
+  margin-top: 8px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  border-radius: 15px;
+  cursor: pointer;
 }
 .reviewSettingsDropDownWrapper #editReviewWrapper,
 .reviewSettingsDropDownWrapper #deleteReviewWrapper {
@@ -62,9 +62,9 @@
   padding-left: 5px;
   padding-right: 5px;
 }
-.reviewSettingsDropDownWrapper #editReviewWrapper{
-    margin-left: 2.5vw;
-    margin-right: 2.5vw;
+.reviewSettingsDropDownWrapper #editReviewWrapper {
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
 }
 
 .reviewSettingsDropDownWrapper #editReviewWrapper:hover,
@@ -73,40 +73,39 @@
   border-radius: 15px;
 }
 
-#currentUserDots{
-    position: relative;
-    margin-left: 40vw;
-    z-index: 1;
-    width: 35px;
-    height: 35px;
-    bottom: 2vh;
-    font-size: 25px;
-    cursor: pointer;
-    border: 1px solid white;
-    border-radius: 50px;
+#currentUserDots {
+  position: relative;
+  margin-left: 40vw;
+  z-index: 1;
+  width: 35px;
+  height: 35px;
+  bottom: 2vh;
+  font-size: 25px;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 50px;
 }
 
-#currentUserDots:hover{
-    background-color:lightgray;
+#currentUserDots:hover {
+  background-color: lightgray;
 }
 
-
-.threedots{
-    display: flex;
-    align-items: center;
-    text-align: center;
+.threedots {
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
-@media(max-width:600px){
-    .reviewSettingsDropDownWrapper{
-        margin-left: 51vw;
-    }
+@media (max-width: 600px) {
+  .reviewSettingsDropDownWrapper {
+    margin-left: 51vw;
+  }
 
-    #reviewIndexItemName{
-        margin-left: 3vw;
-    }
+  #reviewIndexItemName {
+    margin-left: 3vw;
+  }
 
-    #reviewRatingStar{
-        margin-left: 10vw;
-    }
+  #reviewRatingStar {
+    margin-left: 10vw;
+  }
 }

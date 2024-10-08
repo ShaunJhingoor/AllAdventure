@@ -1,6 +1,5 @@
-#realtrailindexWrapper{
-   
-    padding: 0px 0px 0px 16px;
+#realtrailindexWrapper {
+  padding: 0px 0px 0px 16px;
 }
 
 #openSideBar {
@@ -17,89 +16,83 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  z-index: 1; 
+  z-index: 1;
 }
 
-
-#textsidebaropener{
-  color: rgba(162, 161, 161,1);
+#textsidebaropener {
+  color: rgba(162, 161, 161, 1);
   margin: 0;
   font-size: 12px;
   font-weight: 700;
   font-family: monrope-m;
-  font: Arial,sans-serif;
+  font: Arial, sans-serif;
   z-index: 1;
-  
 }
-  
-  #sidebar {
+
+#sidebar {
   height: 100%;
   width: 0;
   position: relative;
   background-color: white;
-  overflow-y: auto; 
-  max-height: 100vh; 
+  overflow-y: auto;
+  max-height: 100vh;
   transition: 0.3s;
   overflow-x: hidden;
-   color: white;
-   display: block;
-   cursor: pointer;
-   border-radius: 0 6px 6px 0 ;
-   background-color: hsla(0, 0%,100%, 1);
-   box-shadow: 0 1px 6px -2px rgba(0, 0, 0, 0.3);
-   z-index: 1;
-   
-  }
-  
-  .sidebaropen
-  #sidebar {
-    width: 500px;
-    
-  }
+  color: white;
+  display: block;
+  cursor: pointer;
+  border-radius: 0 6px 6px 0;
+  background-color: hsla(0, 0%, 100%, 1);
+  box-shadow: 0 1px 6px -2px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
 
-  .sidebaropen{
-    display:flex;
-  }
+.sidebaropen #sidebar {
+  width: 500px;
+}
 
-  
-  .open {
-    display: block;
-  }
+.sidebaropen {
+  display: flex;
+}
 
-  #sidebarHeader {
-    text-align: center;
-    color: #142800;
-    line-height: 34px;
-    font-family: beatrice;
-    font: Arial,sans-serif;
-    font-size: 16px;
-    /* font-weight: 700; */
-    border: 1px solid rgb(233, 233, 233,0.05);
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    z-index: 1;
-    top: 0
-  }
+.open {
+  display: block;
+}
 
-  #realTrailIndexHeader{
-    width: 100%;
-    height: 50px; 
-    background-color: white;
-    /* border: 2px solid rgba(233, 233, 233,0.1);  */
-  }
+#sidebarHeader {
+  text-align: center;
+  color: #142800;
+  line-height: 34px;
+  font-family: beatrice;
+  font: Arial, sans-serif;
+  font-size: 16px;
+  /* font-weight: 700; */
+  border: 1px solid rgb(233, 233, 233, 0.05);
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
 
-  .sidebarclose{
-    display: flex;
-  }
+#realTrailIndexHeader {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  /* border: 2px solid rgba(233, 233, 233,0.1);  */
+}
 
-  #realTrailIndexFooter{
-    max-width: 100vw;
-    height: 10vh;
-    background-color: #142800;
-  }
+.sidebarclose {
+  display: flex;
+}
 
-#trails{
+#realTrailIndexFooter {
+  max-width: 100vw;
+  height: 10vh;
+  background-color: #142800;
+}
+
+#trails {
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -110,9 +103,7 @@
   margin-bottom: 10vh;
 } */
 
-
-
-.loaderContainer{
+.loaderContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,50 +128,52 @@
   inset: 0;
   border-radius: 50% 50% 0 50%;
   background: #142800;
-  -webkit-mask: radial-gradient(circle 10px at 50% 50%,#0000 94%,#000);
+  -webkit-mask: radial-gradient(circle 10px at 50% 50%, #0000 94%, #000);
   -moz-mask: radial-gradient(circle 10px at 50% 50%, #0000 94%, #000);
   mask: radial-gradient(circle 10px at 50% 50%, #0000 94%, #000);
 }
 .loader:after {
   animation: l6 1s infinite;
-  transform: perspective(300px) translateZ(0px)
+  transform: perspective(300px) translateZ(0px);
 }
 @keyframes l6 {
-  to {transform: perspective(300px) translateZ(150px);opacity:0}
+  to {
+    transform: perspective(300px) translateZ(150px);
+    opacity: 0;
+  }
 }
 
-#trailMap{
+#trailMap {
   position: relative;
   width: 100vw;
 }
 
-@media(max-width:600px){
-  .sidebaropen
-  #sidebar {
+@media (max-width: 600px) {
+  .sidebaropen #sidebar {
     width: 100vw;
     height: 30vh;
     position: relative;
   }
-  
+
   #sidebarHeader {
     font-size: 12px;
   }
 
-  #realindexWrapper{
+  #realindexWrapper {
     display: flex;
     flex-direction: column;
   }
- 
-  #trailMap{
-   height: 40vh;
+
+  #trailMap {
+    height: 40vh;
   }
 
   #openSideBar {
-    display: none; 
+    display: none;
   }
-  #trails{
+  #trails {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     /* gap: 10px; */
     margin-left: 10px;
     margin-right: 20px;

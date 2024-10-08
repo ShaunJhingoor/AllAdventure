@@ -1,58 +1,57 @@
 #searchInfo {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
 #searchImag {
-    border-radius: 20px;
-    height: 40vh; 
-    width: 25vw; 
-    transition: transform 0.3s ease-in-out;
-    margin-bottom: 20px; 
-    object-fit: cover;
+  border-radius: 20px;
+  height: 40vh;
+  width: 25vw;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+  object-fit: cover;
 }
 
 #searchImag:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .detailsContainer {
-    text-align: center;
-    text-decoration: none;
+  text-align: center;
+  text-decoration: none;
 }
 
 #searchtrailname {
-    font-weight: 700;
-    font-size: 3vh; 
-    font-family: monrope-m;
-    color: #142800;
-    text-decoration: none;
-    padding-bottom: 5px;
-    
+  font-weight: 700;
+  font-size: 3vh;
+  font-family: monrope-m;
+  color: #142800;
+  text-decoration: none;
+  padding-bottom: 5px;
 }
 
 #searchTrail {
-    color: #142800;
-    font-weight: 400;
-    font-size: 2.5vh; 
-    font-family: monrope-m;
-    word-spacing: 2px;
-    padding-bottom: 40px;
+  color: #142800;
+  font-weight: 400;
+  font-size: 2.5vh;
+  font-family: monrope-m;
+  word-spacing: 2px;
+  padding-bottom: 40px;
 }
 
-@media(max-width:600px){
-    #searchImag{
-        width: 30vw;
-        height: 15vh;
-    } 
+@media (max-width: 600px) {
+  #searchImag {
+    width: 30vw;
+    height: 15vh;
+  }
 
-    #searchtrailname{
-        font-size: 2vh;
-    }
+  #searchtrailname {
+    font-size: 2vh;
+  }
 
-    #searchTrail{
-        font-size: 1.5vh;
-    }
+  #searchTrail {
+    font-size: 1.5vh;
+  }
 }

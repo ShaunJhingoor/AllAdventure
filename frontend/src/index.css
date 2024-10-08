@@ -1,16 +1,14 @@
 @font-face {
-    font-family: manrope-m;
-    src: url("../src/fonts/manrope-medium.woff2");
+  font-family: manrope-m;
+  src: url("../src/fonts/manrope-medium.woff2");
 }
 
 @font-face {
-    font-family: manrope-b;
-    src: url("../src/fonts/manrope-bold.woff2");
+  font-family: manrope-b;
+  src: url("../src/fonts/manrope-bold.woff2");
 }
 
 @font-face {
-    font-family: beatrice;
-    src: url("../src/fonts/beatrice-medium.woff2");
+  font-family: beatrice;
+  src: url("../src/fonts/beatrice-medium.woff2");
 }
-  
-  

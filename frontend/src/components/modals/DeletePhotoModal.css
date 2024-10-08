@@ -1,76 +1,75 @@
 /* DeleteConfirmationModal.css */
 .delete-modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
-    z-index: 1000; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .delete-modal {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.01);
-    position: relative;
-  }
-  
-  .modal-background {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .delete-modal-content {
-    padding: 20px;
-  }
-  
-  .delete-exit {
-    text-align: left;
-    cursor: pointer;
-  }
-  
-  .delete-message {
-    margin-bottom: 20px;
-  }
-  
-  .delete-button-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  #deleteButton,
-  #cancelButton {
-    padding: 8px 16px;
-    margin-left: 10px;
-    cursor: pointer;
-    border: none;
-    border-radius: 20px;
-    transition: transform 0.3s
-  }
-
-  #deleteButton:hover,
-  #cancelButton:hover {
-  transform: scale(1.07); 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-  
-  #deleteButton {
-    background-color: #f44336;
-    color: white;
-    font-family: monrope-m;
-    font-size: 16px;
-  }
-  
-  #cancelButton {
-    background-color: #e0e0e0;
-    color: black;
-    font-family: monrope-m;
-    font-size: 16px;
-  }
-  
+
+.delete-modal {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.01);
+  position: relative;
+}
+
+.modal-background {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.delete-modal-content {
+  padding: 20px;
+}
+
+.delete-exit {
+  text-align: left;
+  cursor: pointer;
+}
+
+.delete-message {
+  margin-bottom: 20px;
+}
+
+.delete-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+#deleteButton,
+#cancelButton {
+  padding: 8px 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  transition: transform 0.3s;
+}
+
+#deleteButton:hover,
+#cancelButton:hover {
+  transform: scale(1.07);
+}
+
+#deleteButton {
+  background-color: #f44336;
+  color: white;
+  font-family: monrope-m;
+  font-size: 16px;
+}
+
+#cancelButton {
+  background-color: #e0e0e0;
+  color: black;
+  font-family: monrope-m;
+  font-size: 16px;
+}

@@ -1,99 +1,94 @@
-.trail-item-container{
-   padding: 0px 0px 0px 1vw; 
+.trail-item-container {
+  padding: 0px 0px 0px 1vw;
 }
 
-#trailimag{
-    border-radius: 20px;
-    height: 246px;
-    width: 300px;
-    transition: transform 0.3s ease-in-out;
-    padding-top: 10px;
-    object-fit: cover;
+#trailimag {
+  border-radius: 20px;
+  height: 246px;
+  width: 300px;
+  transition: transform 0.3s ease-in-out;
+  padding-top: 10px;
+  object-fit: cover;
 }
 
-#trailimag:hover{
-    transform: scale(1.03);
-}
- 
-#hometrailname{
-   font-weight:700;
-   font-size: 16px;
-   font-family: monrope-m;
-   font: Arial,sans-serif;
-   font-stretch: 100%;
-   text-align: start;
-   color: #142800;
-   text-decoration: none;
-   padding-bottom: 5px;
-   padding-left: 10px;
+#trailimag:hover {
+  transform: scale(1.03);
 }
 
-#splashpageTrail{
-    color: #142800;
-    text-decoration:none;
-    font-weight: 400;
-    font-size: 13px;
-    font-family: monrope-m;
-    font: Arial,sans-serif;
-    word-spacing: 2px;
-    padding-bottom: 40px;
-    padding-left: 10px;
+#hometrailname {
+  font-weight: 700;
+  font-size: 16px;
+  font-family: monrope-m;
+  font: Arial, sans-serif;
+  font-stretch: 100%;
+  text-align: start;
+  color: #142800;
+  text-decoration: none;
+  padding-bottom: 5px;
+  padding-left: 10px;
 }
 
-.favorite-icon{
-    padding-left: 5px;
-    width: 20px;
-    height: auto;
-    cursor: pointer;
+#splashpageTrail {
+  color: #142800;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 13px;
+  font-family: monrope-m;
+  font: Arial, sans-serif;
+  word-spacing: 2px;
+  padding-bottom: 40px;
+  padding-left: 10px;
 }
 
-#suggestedTrailsLoading{
+.favorite-icon {
+  padding-left: 5px;
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+}
+
+#suggestedTrailsLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .trail-item-container {
+    padding: 0px 0px 0px 5px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;   
-}
+    flex-direction: column;
+  }
 
-
-@media(max-width:600px){
-    .trail-item-container {
-        padding: 0px 0px 0px 5px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    
-    #trailimag{
-        height: 100px;
-        width: 23.6vw;
-        position: relative;
-        object-fit: cover;
-        /* align-self: center; */
-        /* left: 10px; */
-    }
-/* 
+  #trailimag {
+    height: 100px;
+    width: 23.6vw;
+    position: relative;
+    object-fit: cover;
+    /* align-self: center; */
+    /* left: 10px; */
+  }
+  /* 
     .trail-item-container:first-of-type #trailimag {
         margin-left: 10px;
     }
      */
 
-    #hometrailname{
-        font-size: 10px;
-        text-align: center;
-        
-    }
+  #hometrailname {
+    font-size: 10px;
+    text-align: center;
+  }
 
-    .favorite-icon{
-        width: 10px;
-    }
+  .favorite-icon {
+    width: 10px;
+  }
 
-    #splashpageTrail{
-        font-size: 10px;
-        text-align: center;
-        word-spacing: .5px;
-        /* margin-left: -10px; */
-    }
+  #splashpageTrail {
+    font-size: 10px;
+    text-align: center;
+    word-spacing: 0.5px;
+    /* margin-left: -10px; */
+  }
 }
-
-
-

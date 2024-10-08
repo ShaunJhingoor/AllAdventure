@@ -1,5 +1,4 @@
 // import csrfFetch from "./csrf";
-
 // // export const SET_REVIEWS ="reviews/setREVIEWS"
 // // export const SET_REVIEW = "reviews/setREVIEW"
 // export const REMOVE_REVIEW = "reviews/removeREVIEW"
@@ -29,7 +28,7 @@
 // // export const Fetchreviews = () => async dispatch => {
 // //     const response = await csrfFetch(`/api/reviews`)
 // //     if(response.ok){
-        
+
 // //     const reviews = await response.json();
 // //     dispatch(setREVIEWS(reviews));
 // //     return response
@@ -38,8 +37,8 @@
 
 // // export const createReview = (newReview) => async dispatch => {
 // //     const res  = await csrfFetch(`/api/reviews`, {
-// //         method: "POST", 
-// //         body: JSON.stringify(newReview), 
+// //         method: "POST",
+// //         body: JSON.stringify(newReview),
 // //         headers: {
 // //             'Content-Type': 'application/json'
 // //         }
@@ -53,8 +52,8 @@
 
 // // export const updateReview = (updatedReview) => async dispatch => {
 // //     const res  = await csrfFetch(`/api/reviews/${updatedReview.id}`, {
-// //         method: "PUT", 
-// //         body: JSON.stringify({review: updatedReview}), 
+// //         method: "PUT",
+// //         body: JSON.stringify({review: updatedReview}),
 // //         headers: {
 // //             'Content-Type': 'application/json'
 // //         }
@@ -78,19 +77,19 @@
 // function reviewReducer(state={}, action){
 //     let newState = {...state}
 //     switch(action.type){
-//     //      case SET_REVIEWS: 
+//     //      case SET_REVIEWS:
 //     //         return {...newState, ...action.reviews}
-//         // case SET_REVIEW: 
+//         // case SET_REVIEW:
 //         //     newState[action.review.id] = action.review
 //         //     return newState
-//         case REMOVE_REVIEW: 
+//         case REMOVE_REVIEW:
 //             delete newState[action.reviewId]
 //                 return newState
-//         // case SET_TRAILS: 
+//         // case SET_TRAILS:
 //         //     return {...newState, ...action.reviews}
 //         default:
 //             return state
 //     }
 //   }
-  
+
 //   export default reviewReducer

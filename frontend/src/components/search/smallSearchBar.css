@@ -16,7 +16,7 @@
 
 #smallSearchBarButton {
   position: relative;
-  margin-right: 0; 
+  margin-right: 0;
   margin-top: 1.5vh;
   right: 30px;
   width: 2vh;
@@ -25,7 +25,7 @@
   cursor: pointer;
 }
 
-@media(max-width:600px){
+@media (max-width: 600px) {
   #smallSearchBarInput {
     margin-top: 1vh;
     margin-left: 65%;
@@ -41,7 +41,7 @@
     height: 2px;
   }
 
-  #smallSearchBarButtonImag{
+  #smallSearchBarButtonImag {
     height: 10px;
   }
 }

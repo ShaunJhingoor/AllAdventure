@@ -1,8 +1,10 @@
-.smallTrailMapWrapper{
+.smallTrailMapWrapper {
   height: 0;
   /* width: 100%; */
-  position:relative;
+  position: relative;
 }
-.gmnoprint .gmnoprint, .gm-style-cc {
+
+.gmnoprint .gmnoprint,
+.gm-style-cc {
   display: none;
 }
