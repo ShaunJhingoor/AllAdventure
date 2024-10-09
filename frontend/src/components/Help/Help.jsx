@@ -10,7 +10,7 @@ function Help() {
       <br />
       <div id="helpContainer">
         <img src={Logo} alt="logo" id="helpImg" />
-        <h1 id="helpHeader">Welcome To All Adventure</h1>
+        <h1 id="helpHeader">welcome To All Adventure</h1>
         <br />
         <br />
         <p id="Statement">
