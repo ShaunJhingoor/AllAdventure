@@ -1,0 +1,32 @@
+name: Trigger FCM Notifications
+
+on:
+  schedule:
+    - cron: "0 20 * * *" # Every day at 8PM UTC
+  workflow_dispatch:
+
+jobs:
+  sendWebhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send FCM push notification
+        env:
+          FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
+        run: |
+          # Escape newlines in the private key for JSON formatting
+          ESCAPED_KEY=$(echo "$FIREBASE_PRIVATE_KEY" | awk '{printf "%s\\n", $0}' | sed 's/\\n$//')
+
+          # Build JSON payload
+          payload=$(jq -n \
+            --arg key "$ESCAPED_KEY" \
+            --arg project "$FIREBASE_PROJECT_ID" \
+            --arg email "$FIREBASE_CLIENT_EMAIL" \
+            --arg type "2" \
+            '{type: ($type | tonumber), fire_base_private_key: $key, firebase_project_id: $project, firebase_client_email: $email}')
+
+          echo "Sending request to production server..."
+          curl -X POST "https://staging.kurabu.tech/api/subscriptions/sendPushNotifications" \
+            -H "Content-Type: application/json" \
+            -d "$payload"
