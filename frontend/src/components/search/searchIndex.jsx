@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import SearchIndexItem from "./searchIndexItem";
-import "./SearchIndex.css";
+import "./searchIndex.css";
 import SmallSearchBar from "../search/smallsearchbar";
 import { useEffect, useState } from "react";
 import { FetchRange, trailsArray } from "../../store/trail";
