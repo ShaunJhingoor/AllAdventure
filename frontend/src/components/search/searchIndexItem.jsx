@@ -7,7 +7,7 @@ import {
 } from "../../store/favorite";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import "../search/SearchIndexItem.css";
+import "../search/searchIndexItem.css";
 import NonFavorite from "../../images/notFavorite.png";
 import Favorite from "../../images/redHeart.png";
 
