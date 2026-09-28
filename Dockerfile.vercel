@@ -1,21 +1,43 @@
+# =========================
+# Frontend build
+# =========================
 FROM node:22-bookworm-slim AS frontend
 
 WORKDIR /app/frontend
 
+# Install frontend dependencies
 COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
 
+# Copy frontend source
 COPY frontend/ ./
 
+# Vite needs these during the BUILD
 ARG VITE_APP_GOOGLE_MAPS_API_KEY
 ARG VITE_APP_WEATHER_API_KEY
 
 ENV VITE_APP_GOOGLE_MAPS_API_KEY=$VITE_APP_GOOGLE_MAPS_API_KEY
 ENV VITE_APP_WEATHER_API_KEY=$VITE_APP_WEATHER_API_KEY
 
+# Diagnostic only — does NOT print the actual keys
+RUN if [ -n "$VITE_APP_GOOGLE_MAPS_API_KEY" ]; then \
+      echo "Maps key: PRESENT"; \
+    else \
+      echo "Maps key: MISSING"; \
+    fi && \
+    if [ -n "$VITE_APP_WEATHER_API_KEY" ]; then \
+      echo "Weather key: PRESENT"; \
+    else \
+      echo "Weather key: MISSING"; \
+    fi
+
+# Build Vite into /app/public
 RUN npm run build
 
 
+# =========================
+# Rails application
+# =========================
 FROM ruby:3.1.7-slim-bookworm
 
 WORKDIR /app
@@ -28,18 +50,23 @@ RUN apt-get update && \
       git && \
     rm -rf /var/lib/apt/lists/*
 
+# Install Rails dependencies
 COPY Gemfile Gemfile.lock ./
 
 RUN gem install bundler -v 2.4.20 && \
     bundle config set without 'development test' && \
     bundle install
 
+# Copy Rails application
 COPY . .
 
-# Replace the old committed frontend build with the freshly built one
+# Remove the old committed frontend build
 RUN rm -rf public/*
+
+# Copy the freshly built Vite frontend into Rails public/
 COPY --from=frontend /app/public/ ./public/
 
+# Puma needs this directory
 RUN mkdir -p tmp/pids
 
 ENV RAILS_ENV=production
