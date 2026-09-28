@@ -1,5 +1,5 @@
 class Api::MapsController < ApplicationController
-    def config
+    def show
       api_key = ENV["GOOGLE_MAPS_API_KEY"]
   
       if api_key.blank?

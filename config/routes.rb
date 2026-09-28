@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     get 'weather', to: 'weather#show'
-    get 'maps-config', to: 'maps#config'
+    get 'maps-config', to: 'maps#show'
     resources :users, only: [ :show, :create, :update] do
       resources :favorites, only: [:index] 
       get 'trail_photos_user', to: 'trail_photos#index_for_user'
