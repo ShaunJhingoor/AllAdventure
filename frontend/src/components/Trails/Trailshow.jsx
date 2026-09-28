@@ -87,10 +87,10 @@ function TrailShow() {
           trail?.latitude !== undefined &&
           trail?.longitude !== undefined
         ) {
-          const apiKey = import.meta.env.VITE_APP_WEATHER_API_KEY;
-          const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${trail?.latitude}&lon=${trail?.longitude}&units=imperial&appid=${apiKey}`;
+          const apiUrl = `/api/weather?lat=${trail.latitude}&lon=${trail.longitude}`;
 
           const response = await fetch(apiUrl);
+
           if (!response?.ok) {
             throw new Error("Failed to fetch weather data");
           }

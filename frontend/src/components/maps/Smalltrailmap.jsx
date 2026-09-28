@@ -1,11 +1,12 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import pin from "../../images/pin.png";
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 import "./Smalltrailmap.css";
 
-function SmallTrailMapWrapper({ trail }) {
+function GoogleMapsLoader({ trail, apiKey }) {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: apiKey,
   });
 
   if (!isLoaded) {
@@ -15,16 +16,47 @@ function SmallTrailMapWrapper({ trail }) {
       </div>
     );
   }
+
   if (!trail) {
     return null;
   }
+
   return (
-    <>
-      <div className="smallTrailMapWrapper">
-        <TrailMap trail={trail} />
-      </div>
-    </>
+    <div className="smallTrailMapWrapper">
+      <TrailMap trail={trail} />
+    </div>
   );
+}
+
+function SmallTrailMapWrapper({ trail }) {
+  const [apiKey, setApiKey] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/maps-config")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load Google Maps config");
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        setApiKey(data.apiKey);
+      })
+      .catch((error) => {
+        console.error("Error loading Google Maps config:", error);
+      });
+  }, []);
+
+  if (!apiKey) {
+    return (
+      <div className="loaderContainer">
+        <div className="loader"></div>
+      </div>
+    );
+  }
+
+  return <GoogleMapsLoader trail={trail} apiKey={apiKey} />;
 }
 
 export const TrailMap = ({ trail }) => {

@@ -1,5 +1,22 @@
 # =========================
-# Rails + Node runtime
+# Build React/Vite
+# =========================
+FROM node:22-bookworm-slim AS frontend
+
+WORKDIR /app/frontend
+
+COPY frontend/package.json frontend/package-lock.json ./
+
+RUN npm ci
+
+COPY frontend/ ./
+
+# Build React ONCE when Vercel builds the Docker image
+RUN npm run build
+
+
+# =========================
+# Rails runtime
 # =========================
 FROM ruby:3.1.7-slim-bookworm
 
@@ -10,38 +27,31 @@ RUN apt-get update && \
       build-essential \
       libpq-dev \
       postgresql-client \
-      git \
-      nodejs \
-      npm && \
+      git && \
     rm -rf /var/lib/apt/lists/*
 
-# =========================
 # Rails dependencies
-# =========================
 COPY Gemfile Gemfile.lock ./
 
 RUN gem install bundler -v 2.4.20 && \
     bundle config set without 'development test' && \
     bundle install
 
-# =========================
-# Frontend dependencies
-# =========================
-COPY frontend/package.json frontend/package-lock.json ./frontend/
-
-RUN cd frontend && npm ci
-
-# =========================
-# Application
-# =========================
+# Copy Rails application
 COPY . .
 
+# Remove any old/committed frontend build
+RUN rm -rf public/*
+
+# Copy the newly built Vite frontend
+COPY --from=frontend /app/public/ ./public/
+
+# Puma needs this directory
 RUN mkdir -p tmp/pids
 
 ENV RAILS_ENV=production
 ENV RAILS_LOG_TO_STDOUT=true
 ENV RAILS_SERVE_STATIC_FILES=true
 
-# Build Vite using Vercel runtime env vars,
-# then start Rails/Puma
-CMD ["sh", "-c", "cd frontend && npm run build && cd .. && bundle exec puma -C config/puma.rb"]
+# IMPORTANT: no npm run build here anymore
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

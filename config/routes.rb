@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post 'api/test', to: 'application#test'
 
   namespace :api, defaults: { format: :json } do
+    get 'weather', to: 'weather#show'
+    get 'maps-config', to: 'maps#config'
     resources :users, only: [ :show, :create, :update] do
       resources :favorites, only: [:index] 
       get 'trail_photos_user', to: 'trail_photos#index_for_user'

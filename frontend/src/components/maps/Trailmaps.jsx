@@ -13,9 +13,9 @@ const easeInOut = (t) => {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 };
 
-function TrailMapWrapper({ trails, center, zoom = 10, onPinClick }) {
+function GoogleMapsLoader({ trails, center, zoom, onPinClick, apiKey }) {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: apiKey,
   });
 
   if (!isLoaded) {
@@ -42,6 +42,45 @@ function TrailMapWrapper({ trails, center, zoom = 10, onPinClick }) {
   );
 }
 
+function TrailMapWrapper({ trails, center, zoom = 10, onPinClick }) {
+  const [apiKey, setApiKey] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/maps-config")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load Google Maps config");
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        setApiKey(data.apiKey);
+      })
+      .catch((error) => {
+        console.error("Error loading Google Maps config:", error);
+      });
+  }, []);
+
+  if (!apiKey) {
+    return (
+      <div className="loaderContainer">
+        <div className="loader"></div>
+      </div>
+    );
+  }
+
+  return (
+    <GoogleMapsLoader
+      trails={trails}
+      center={center}
+      zoom={zoom}
+      onPinClick={onPinClick}
+      apiKey={apiKey}
+    />
+  );
+}
+
 export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
   const newZoom = window.innerWidth <= 600 ? 8.4 : zoom;
   const [currentZoom, setCurrentZoom] = useState(newZoom);
@@ -52,20 +91,18 @@ export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
 
   const animateZoom = useCallback(
     (targetZoom, targetCenter) => {
-      const duration = 2000; // Adjusted animation duration in milliseconds
+      const duration = 2000;
       const startZoom = currentZoom;
-      const startCenter = currentCenter; // Use currentCenter instead of map.getCenter()
+      const startCenter = currentCenter;
       const startTime = Date.now();
 
       const zoomStep = () => {
         const elapsedTime = Date.now() - startTime;
         const progress = Math.min(elapsedTime / duration, 1);
-        const easedProgress = easeInOut(progress); // Apply easing function
+        const easedProgress = easeInOut(progress);
 
-        // Calculate new zoom level
         const newZoom = startZoom + (targetZoom - startZoom) * easedProgress;
 
-        // Calculate new center position
         const newCenter = {
           lat:
             startCenter.lat +
@@ -75,7 +112,6 @@ export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
             (targetCenter.lng - startCenter.lng) * easedProgress,
         };
 
-        // Set the new zoom level and center position
         setCurrentZoom(newZoom);
         setCurrentCenter(newCenter);
 
@@ -152,7 +188,9 @@ export const TrailMap = ({ trails, center, zoom, onPinClick }) => {
                 >
                   {trail?.name}
                 </p>
+
                 <p id="infoWindowContent">Difficulty:{trail?.difficulty}</p>
+
                 <p
                   id="infoWindowContentDirections"
                   onClick={() =>
