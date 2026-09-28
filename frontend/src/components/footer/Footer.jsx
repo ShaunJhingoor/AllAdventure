@@ -1,5 +1,5 @@
 import github from "../../images/github.png";
-import linkedIn from "../../images/linkedIn.png";
+import linkedIn from "../../images/linkedin.png";
 import HTML from "../../images/HTML.png";
 import CSS from "../../images/CSS.png";
 import google from "../../images/google.png";
